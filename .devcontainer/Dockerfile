@@ -25,13 +25,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 # Install APT packages
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y libx11-dev libxtst-dev libxcomposite-dev \
+    && apt-get install -y --no-install-recommends libx11-dev libxtst-dev libxcomposite-dev \
     libxdamage-dev libxkbfile-dev xauth x11-xkb-utils xserver-xorg-video-dummy \
     python-all-dev python-gtk2-dev cython \
     libx264-dev libvpx-dev node-uglify yui-compressor \
     python-gi-dev python3-gi gir1.2-gtk-3.0 \
     python3-cairo-dev libgtk2.0-dev libperl-dev build-essential libgtk-3-dev \
-    python-lz4 python-cryptography python3-pip
+    python-lz4 python-cryptography python3-pip lxterminal python3-setuptools
 
 # Install pip packages
 RUN pip3 install pyopengl pyopengl-accelerate rencode \
@@ -47,6 +47,13 @@ RUN mkdir -p ~/tmp \
     && cd xpra-4.0.3 \
     && python3 ./setup.py build \
     && python3 ./setup.py install
+
+# Copy xpra config file
+COPY ./xpra.conf /etc/xpra/xpra.conf
+
+# Add helper script for XPRA
+COPY xpra_launch.sh /usr/local/bin/xpra_launch
+RUN chmod +x /usr/local/bin/xpra_launch
 
 # Test XPRA
 #sudo /usr/local/bin/xpra start --bind-tcp 0.0.0.0:9876 --html=on --start=x-terminal-emulator --mdns=no

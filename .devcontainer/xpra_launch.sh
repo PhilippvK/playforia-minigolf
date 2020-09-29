@@ -1,0 +1,1 @@
+/usr/bin/python3 /usr/local/bin/xpra start --bind-tcp 127.0.0.1:6789 --html=on --start="lxterminal -e 'lxterminal --working-directory=client/target -e \"/bin/bash\" & /bin/bash -c \"java -jar server/target/server-2.1.0.0-BETA.jar ; read -p ...\"'" --mdns=no --no-daemon
