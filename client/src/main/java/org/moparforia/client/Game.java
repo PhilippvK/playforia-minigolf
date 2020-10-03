@@ -12,7 +12,9 @@ import java.util.Map;
 
 public class Game {
     private static final int WIDTH = 735;
-    private static final int HEIGHT = 525;
+    private static final int HEIGHT = 525 + 78 + 13;
+    private static final int WINDOW_WIDTH = WIDTH + 20;
+    private static final int WINDOW_HEIGHT = HEIGHT + 40;
 
     public Game(JFrame frame, String server, int port, String lang, boolean verbose) {
         Applet game = new AGolf();
@@ -23,7 +25,7 @@ public class Game {
         game.init();
         game.start();
         frame.add(game);
-        frame.setSize(WIDTH + 20, HEIGHT + 40);
+        frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setResizable(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

@@ -25,7 +25,7 @@ public class SpriteManager {
         this.shapes = this.parseSpriteSheet("shapes", 28, 4, 15, 15);
         this.elements = this.parseSpriteSheet("elements", 24, 4, 15, 15);
         this.specials = this.parseSpriteSheet("special", 28, 4, 15, 15);
-        this.balls = this.parseSpriteSheet("balls", 8, 4, 13, 13);
+        this.balls = this.parseSpriteSheet("balls", 20, 10, 13, 13);
         this.pixelshapeMasks = new int[28][][];
         this.specialPixelMasks = new int[28][][];
         this.anIntArrayArray968 = new int[GameBackgroundCanvas.trackAdvertSize][];

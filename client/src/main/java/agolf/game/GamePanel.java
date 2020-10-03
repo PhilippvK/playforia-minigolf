@@ -13,6 +13,7 @@ import java.util.StringTokenizer;
 
 public class GamePanel extends Panel {
 
+    private final int OFFSET = 78 + 13;
     private GameContainer gameContainer;
     private int width;
     private int height;
@@ -520,14 +521,14 @@ public class GamePanel extends Panel {
     private void create(Image image) {
         if (this.gameContainer.gameApplet.syncIsValidSite.get()) {
             this.setLayout((LayoutManager) null);
-            this.gamePlayerInfoPanel = new GamePlayerInfoPanel(this.gameContainer, 735, 60);
+            this.gamePlayerInfoPanel = new GamePlayerInfoPanel(this.gameContainer, 735, 60 + OFFSET);
             this.gamePlayerInfoPanel.setLocation(0, 0);
             this.add(this.gamePlayerInfoPanel);
             this.gameCanvas = new GameCanvas(this.gameContainer, image);
-            this.gameCanvas.setLocation(0, 65);
+            this.gameCanvas.setLocation(0, 65 + OFFSET);
             this.add(this.gameCanvas);
             this.gameControlPanel = new GameControlPanel(this.gameContainer, this.gamePlayerInfoPanel, 95, 80);
-            this.gameControlPanel.setLocation(this.width - 95, 445);
+            this.gameControlPanel.setLocation(this.width - 95, 445 + OFFSET);
             this.add(this.gameControlPanel);
         }
     }
@@ -537,10 +538,10 @@ public class GamePanel extends Panel {
             this.setVisible(false);
             int var2 = mode > 0 ? 265 : 400;
             this.gameChatPanel = new GameChatPanel(this.gameContainer, this.width - 100 - 5 - var2 - 5, 80, mode);
-            this.gameChatPanel.setLocation(0, 445);
+            this.gameChatPanel.setLocation(0, 445 + OFFSET);
             this.add(this.gameChatPanel);
             this.gameTrackInfoPanel = new GameTrackInfoPanel(this.gameContainer, var2, 80, mode == 0);
-            this.gameTrackInfoPanel.setLocation(this.width - 100 - 5 - var2, 445);
+            this.gameTrackInfoPanel.setLocation(this.width - 100 - 5 - var2, 445 + OFFSET);
             this.add(this.gameTrackInfoPanel);
             this.setVisible(true);
         }

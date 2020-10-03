@@ -25,10 +25,23 @@ class GamePlayerInfoPanel extends Panel implements ItemListener, MouseListener {
     private static final Color aColor372 = new Color(128, 208, 128);
     private static final Color aColor373 = new Color(224, 0, 0);
     private static final Color aColor374 = new Color(0, 128, 0);
-    private static final Color[][] aColorArrayArray375 = new Color[][]{
+    /*private static final Color[][] aColorArrayArray375 = new Color[][]{
             {new Color(0, 0, 255), new Color(128, 128, 255)}, {new Color(255, 0, 0), new Color(255, 128, 128)},
             {new Color(128, 128, 0), new Color(128, 128, 64)}, {new Color(0, 160, 0), new Color(64, 160, 64)}
+    };*/
+    private static final Color[][] aColorArrayArray375 = new Color[][]{
+            {new Color(0, 0, 255), new Color(128, 128, 255)},
+            {new Color(255, 0, 0), new Color(255, 128, 128)},
+            {new Color(255, 255, 0), new Color(255, 255, 180)},
+            {new Color(0, 180, 0), new Color(128, 180, 128)},
+            {new Color(255, 0, 255), new Color(255, 128, 255)},
+            {new Color(0, 255, 255), new Color(180, 0, 255)},
+            {new Color(180, 0, 255), new Color(180, 128, 255)},
+            {new Color(255, 180, 0), new Color(255, 180, 128)},
+            {new Color(0, 255, 0), new Color(128, 255, 128)},
+            {new Color(128, 128, 128), new Color(180, 180, 180)}
     };
+
 
     private static int anInt376;
     private GameContainer gameContainer;
@@ -111,7 +124,7 @@ class GamePlayerInfoPanel extends Panel implements ItemListener, MouseListener {
             }
 
             int[] var12 = this.method379();
-            var4 = (5 - this.playerCount) * 13;
+            var4 = (10+1 - this.playerCount) * 13;
             if (this.anInt386 >= 0 && this.anInt386 < this.anInt382) {
                 this.graphics.setColor(aColor371);
                 this.graphics.fillRect(130 + this.anInt386 * 20 - 5 + 1, var4 - 13, 19, this.playerCount * 15 + 2);

@@ -19,7 +19,7 @@ import java.awt.event.KeyListener;
 
 class GameChatPanel extends Panel implements KeyListener, ActionListener {
 
-    private static final int[] anIntArray330 = new int[]{3, 1, 4, 2};
+    private static final int[] anIntArray330 = new int[]{3, 1, 4, 2, 3, 1, 4, 2, 3, 1};
     private GameContainer gameContainer;
     private int width;
     private int height;

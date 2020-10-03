@@ -23,6 +23,7 @@ public class GameCanvas extends GameBackgroundCanvas implements Runnable, MouseM
     private static final Color aColor2804 = Color.black;
     private static final Color aColor2805 = Color.white;
     private static final Color backgroundColour = new Color(19, 167, 19);
+    private static final int MAX_PLAYERS = 10;
     private int gameState;
     private Image[] anImageArray2808;
     private int anInt2809;
@@ -666,13 +667,13 @@ public class GameCanvas extends GameBackgroundCanvas implements Runnable, MouseM
         }
 
         Vector var40 = new Vector();
-        this.aDoubleArray2821 = new double[4];
-        this.aDoubleArray2822 = new double[4];
-        this.aVectorArray2824 = new Vector[4];
-        this.aVectorArray2823 = new Vector[4];
+        this.aDoubleArray2821 = new double[MAX_PLAYERS];
+        this.aDoubleArray2822 = new double[MAX_PLAYERS];
+        this.aVectorArray2824 = new Vector[MAX_PLAYERS];
+        this.aVectorArray2823 = new Vector[MAX_PLAYERS];
         Vector var41 = new Vector();
 
-        for (var10 = 0; var10 < 4; ++var10) {
+        for (var10 = 0; var10 < MAX_PLAYERS; ++var10) {
             this.aDoubleArray2821[var10] = this.aDoubleArray2822[var10] = -1.0D;
             this.aVectorArray2824[var10] = new Vector();
             this.aVectorArray2823[var10] = new Vector();
@@ -1533,7 +1534,7 @@ public class GameCanvas extends GameBackgroundCanvas implements Runnable, MouseM
 
         int var8 = 0;
         if (super.gameContainer.graphicsQualityIndex == 3) {
-            var8 = (var5 / 5 + var6 / 5) % 2 * 4;
+            var8 = (var5 / 5 + var6 / 5) % 2 * MAX_PLAYERS;
         }
 
         if (var3 == 0.0D) {
