@@ -274,17 +274,4 @@ public class GameApplet extends AApplet {
         return true;
     }
 
-    private boolean containsDomain(String host, String domain, String[] tld) {
-        for (int var4 = 0; var4 < tld.length; ++var4) {
-            if (host.equals(domain + "." + tld[var4])) {
-                return true;
-            }
-
-            if (host.endsWith("." + domain + "." + tld[var4])) {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }

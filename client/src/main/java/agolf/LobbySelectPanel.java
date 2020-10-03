@@ -37,7 +37,7 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
     private Choicer choicerGraphics;
     private int[] lobbyNumPlayers;
     private LobbySelectRNOPspammer lobbySelectRNOP;
-    private static final String[] aStringArray544 = new String[22];
+    //private static final String[] aStringArray544 = new String[22];
 
 
     protected LobbySelectPanel(GameContainer gameContainer, int width, int height) {
