@@ -30,7 +30,8 @@ public class LobbySelectHandler implements PacketHandler {
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
         if (message.group(1).equals("rnop")) {
-            packet.getChannel().write("d lobbyselect\tnop\t" + Tools.tabularize(server.getLobby(LobbyType.SINGLE).totalPlayerCount(), server.getLobby(LobbyType.DUAL).totalPlayerCount(), server.getLobby(LobbyType.MULTI).totalPlayerCount()));
+            //packet.getChannel().write("d lobbyselect\tnop\t" + Tools.tabularize(server.getLobby(LobbyType.SINGLE).totalPlayerCount(), server.getLobby(LobbyType.DUAL).totalPlayerCount(), server.getLobby(LobbyType.MULTI).totalPlayerCount()));
+            packet.getChannel().write("d lobbyselect\tnop\t" + Tools.tabularize(server.getLobby(LobbyType.SINGLE).totalPlayerCount(), 0, server.getLobby(LobbyType.MULTI).totalPlayerCount()));
         } else if (message.group(1).equals("select")) {
             // 1 for single, 1h for single hidden chat, 2 for dual, x for multi
             LobbyType lobbyType = LobbyType.getLobby(message.group(2));

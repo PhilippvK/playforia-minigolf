@@ -18,7 +18,8 @@ public class PacketHandlerFactoryGeneratorClassHelperImplementationDecorator {
                 new LanguageHandler(), new LobbyHandler(), new LobbySelectHandler(), new LoginHandler(),
                 new LoginTypeHandler(), new NewHandler(), new PongHandler(), new ReconnectHandler(),
                 new TlogHandler(), new TrackTestLoginHandler(), new VersionHandler(), new LobbyCreateSinglePlayerHandler(),
-                new LobbyMultiplayerHandler(), new LobbyDualplayerHandler(), new QuitHandler()};
+                new LobbyMultiplayerHandler(), new QuitHandler()};
+                //new LobbyMultiplayerHandler(), new LobbyDualplayerHandler(), new QuitHandler()};
         ArrayList<PacketHandler> data = new ArrayList<PacketHandler>();
         ArrayList<PacketHandler> command = new ArrayList<PacketHandler>();
         ArrayList<PacketHandler> string = new ArrayList<PacketHandler>();

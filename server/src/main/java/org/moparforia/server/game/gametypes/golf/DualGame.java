@@ -22,7 +22,11 @@ public class DualGame extends GolfGame {
     public DualGame(Player challenger, Player challenged, int gameId, int numberOfTracks,
                     int tracksType, int maxStrokes, int strokeTimeout, int waterEvent,
                     int collision, int trackScoring, int trackScoringEnd) {
-        super(gameId, LobbyType.DUAL, "dualgame-" + (int) (Math.random() * 10000), null,
+        /*super(gameId, LobbyType.DUAL, "dualgame-" + (int) (Math.random() * 10000), null,
+                false, numberOfTracks, -1, tracksType,
+                maxStrokes, strokeTimeout, waterEvent, collision,
+                trackScoring, trackScoringEnd, 2);*/
+        super(gameId, LobbyType.SINGLE, "dualgame-" + (int) (Math.random() * 10000), null,
                 false, numberOfTracks, -1, tracksType,
                 maxStrokes, strokeTimeout, waterEvent, collision,
                 trackScoring, trackScoringEnd, 2);

@@ -56,7 +56,7 @@ public class GameApplet extends AApplet {
         imageManager.defineImage("bg-lobbyselect.gif");
         imageManager.defineImage("bg-lobby-single.gif");
         imageManager.defineImage("bg-lobby-single-fade.jpg");
-        imageManager.defineImage("bg-lobby-dual.gif");
+        //imageManager.defineImage("bg-lobby-dual.gif");
         imageManager.defineImage("bg-lobby-multi.gif");
         imageManager.defineImage("bg-lobby-multi-fade.jpg");
         imageManager.defineImage("bg-lobby-password.gif");
@@ -164,8 +164,8 @@ public class GameApplet extends AApplet {
                         var5 = this.gameContainer.lobbySelectionPanel.method443(1, true);
                     } else if (this.gameContainer.defaultLobby.equalsIgnoreCase("single")) {
                         var5 = this.gameContainer.lobbySelectionPanel.method443(1, false);
-                    } else if (this.gameContainer.defaultLobby.equalsIgnoreCase("dual")) {
-                        var5 = this.gameContainer.lobbySelectionPanel.method443(2, false);
+                    /*} else if (this.gameContainer.defaultLobby.equalsIgnoreCase("dual")) {
+                        var5 = this.gameContainer.lobbySelectionPanel.method443(2, false);*/
                     } else if (this.gameContainer.defaultLobby.equalsIgnoreCase("multi")) {
                         var5 = this.gameContainer.lobbySelectionPanel.method443(3, false);
                     }

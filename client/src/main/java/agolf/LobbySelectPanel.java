@@ -29,7 +29,7 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
     private int lobbyMaxPlayers;
     private ColorButton buttonSingle;
     private ColorButton buttonSingleQuick;
-    private ColorButton buttonDual;
+    //private ColorButton buttonDual;
     private ColorButton buttonMulti;
     private ColorButton buttonMultiQuick;
     private ColorButton buttonQuit;
@@ -69,14 +69,14 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
             StringDraw.drawString(g, this.gameContainer.textManager.getGame("LobbySelect_SinglePlayer"), this.width / 6, 70, 0);
         }
 
-        StringDraw.drawString(g, this.gameContainer.textManager.getGame("LobbySelect_DualPlayer"), this.width * 3 / 6, 70, 0);
+        //StringDraw.drawString(g, this.gameContainer.textManager.getGame("LobbySelect_DualPlayer"), this.width * 3 / 6, 70, 0);
         StringDraw.drawString(g, this.gameContainer.textManager.getGame("LobbySelect_MultiPlayer"), this.width * 5 / 6, 70, 0);
         g.setFont(GameApplet.fontDialog12);
         if (!this.gameContainer.disableSinglePlayer) {
             this.drawNumPlayers(g, this.width / 6, this.lobbyNumPlayers[0]);
         }
 
-        this.drawNumPlayers(g, this.width * 3 / 6, this.lobbyNumPlayers[1]);
+        //this.drawNumPlayers(g, this.width * 3 / 6, this.lobbyNumPlayers[1]);
         this.drawNumPlayers(g, this.width * 5 / 6, this.lobbyNumPlayers[2]);
     }
 
@@ -228,13 +228,13 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         }
 
 
-
+        /*
         //this.buttonDual = new ColorButton(this.gameContainer.textManager.getGame("LobbySelect_DualPlayer"));
         this.buttonDual = new ColorButton("Coming soon...");
         this.buttonDual.setBounds(this.width * 3 / 6 - 75, this.height - 150, 150, 25);
         //this.buttonDual.addActionListener(this);
         this.add(this.buttonDual);
-
+        */
 
         this.buttonMulti = new ColorButton(this.gameContainer.textManager.getGame("LobbySelect_MultiPlayer"));
         this.buttonMulti.setBounds(this.width * 5 / 6 - 75, this.height - 150, 150, 25);

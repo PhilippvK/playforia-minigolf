@@ -85,9 +85,9 @@ public class LobbyDualplayerHandler implements PacketHandler {
     }
 
     private Player getPlayer(Server server, String nick) {
-        for (Player p : server.getLobby(LobbyType.DUAL).getPlayers())
+        /*for (Player p : server.getLobby(LobbyType.DUAL).getPlayers())
             if (p.getNick().equals(nick))
-                return p;
+                return p;*/
         return null;
     }
 }

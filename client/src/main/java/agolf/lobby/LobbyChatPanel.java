@@ -75,12 +75,12 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
 
             int numSingleLobby = Integer.parseInt(args[2]);
             int numSingleGames = Integer.parseInt(args[3]);
-            int numDualLobby = Integer.parseInt(args[4]);
-            int numDualGames = Integer.parseInt(args[5]);
+            //int numDualLobby = Integer.parseInt(args[4]);
+            //int numDualGames = Integer.parseInt(args[5]);
             int numMultiLobby = Integer.parseInt(args[6]);
             int numMultiGames = Integer.parseInt(args[7]);
             int singleLobbyUsers = numSingleLobby + numSingleGames;
-            int dualLobbyUsers = numDualLobby + numDualGames;
+            //int dualLobbyUsers = numDualLobby + numDualGames;
             int multiLobbyUsers = numMultiLobby + numMultiGames;
             int lobbyUsers = -1;
             int ingameUsers = -1;
@@ -89,10 +89,10 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
                 ingameUsers = numSingleGames;
             }
 
-            if (this.lobbyId == 2) {
+            /*if (this.lobbyId == 2) {
                 lobbyUsers = numDualLobby + numDualGames;
                 ingameUsers = numDualGames;
-            }
+            }*/
 
             if (this.lobbyId == 3) {
                 lobbyUsers = numMultiLobby + numMultiGames;
@@ -126,9 +126,10 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
 
             super.gui_output.addPlainMessage(message);
             message = null;
-            if (this.lobbyId == 1 && (dualLobbyUsers >= 1 || multiLobbyUsers >= 1)) {
+            //if (this.lobbyId == 1 && (dualLobbyUsers >= 1 || multiLobbyUsers >= 1)) {
+            if (this.lobbyId == 1 && multiLobbyUsers >= 1) {
                 message = "(";
-                if (dualLobbyUsers == 1) {
+                /*if (dualLobbyUsers == 1) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInDualPlayerLobby1");
                 }
 
@@ -142,7 +143,7 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
 
                 if (multiLobbyUsers == 1) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInMultiPlayerLobby1");
-                }
+                }*/
 
                 if (multiLobbyUsers >= 2) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInMultiPlayerLobbyX", multiLobbyUsers);
@@ -176,7 +177,8 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
                 message = message + ")";
             }
 
-            if (this.lobbyId == 3 && (singleLobbyUsers >= 1 || dualLobbyUsers >= 1)) {
+            //if (this.lobbyId == 3 && (singleLobbyUsers >= 1 || dualLobbyUsers >= 1)) {
+            if (this.lobbyId == 3 && (singleLobbyUsers >= 1)) {
                 message = "(";
                 if (singleLobbyUsers == 1) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInSinglePlayerLobby1");
@@ -186,17 +188,18 @@ class LobbyChatPanel extends ChatLobby implements GlobalChatListener {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInSinglePlayerLobbyX", singleLobbyUsers);
                 }
 
-                if (singleLobbyUsers >= 1 && dualLobbyUsers >= 1) {
+                //if (singleLobbyUsers >= 1 && dualLobbyUsers >= 1) {
+                if (singleLobbyUsers >= 1) {
                     message = message + ", ";
                 }
 
-                if (dualLobbyUsers == 1) {
+                /*if (dualLobbyUsers == 1) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInDualPlayerLobby1");
                 }
 
                 if (dualLobbyUsers >= 2) {
                     message = message + this.gameContainer.textManager.getGame("LobbyChat_UsersInDualPlayerLobbyX", dualLobbyUsers);
-                }
+                }*/
 
                 message = message + ")";
             }

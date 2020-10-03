@@ -18,10 +18,10 @@ public class LobbyPanel extends Panel {
     private int height;
     private int activeLobby;
     private LobbySinglePlayerPanel lobbySinglePlayerPanel;
-    private LobbyDualPlayerPanel lobbyDualPlayerPanel;
+    //private LobbyDualPlayerPanel lobbyDualPlayerPanel;
     private LobbyMultiPlayerPanel lobbyMultiPlayerPanel;
     private LobbyChatPanel lobbyChatPanelSingle;
-    private LobbyChatPanel lobbyChatPanelDual;
+    //private LobbyChatPanel lobbyChatPanelDual;
     private LobbyChatPanel lobbyChatPanelMulti;
     private LobbyControlPanel lobbyControlPanel;
     private LobbyTrackListAdminPanel lobbyTrackListAdminPanel;
@@ -70,7 +70,7 @@ public class LobbyPanel extends Panel {
             }
         }
 
-        if (lobbyId == 2) {
+        /*if (lobbyId == 2) {
             if (this.lobbyDualPlayerPanel == null) {
                 this.lobbyDualPlayerPanel = new LobbyDualPlayerPanel(this.gameContainer, this.width, this.height - 230);
                 this.lobbyDualPlayerPanel.setLocation(0, 0);
@@ -83,7 +83,7 @@ public class LobbyPanel extends Panel {
             }
 
             this.add(this.lobbyChatPanelDual);
-        }
+        }*/
 
         if (lobbyId == 3) {
             if (this.lobbyMultiPlayerPanel == null) {
@@ -127,10 +127,10 @@ public class LobbyPanel extends Panel {
             this.lobbySinglePlayerPanel.requestTrackSetList();
         }
 
-        if (this.activeLobby == 2) {
+        /*if (this.activeLobby == 2) {
             this.lobbyDualPlayerPanel.update(0);
             this.lobbyDualPlayerPanel.allowChallenges();
-        }
+        }*/
 
         if (this.activeLobby == -1) {
             this.lobbyTrackListAdminPanel.setRefreshTrackList();
@@ -162,7 +162,7 @@ public class LobbyPanel extends Panel {
                 }
             }
 
-            if (this.activeLobby == 2) {
+            /*if (this.activeLobby == 2) {
                 if (this.lobbyDualPlayerPanel.handlePacket(args)) {
                     dummy = true;
                 }
@@ -170,7 +170,7 @@ public class LobbyPanel extends Panel {
                 if (this.lobbyChatPanelDual.handlePacket(args)) {
                     dummy = true;
                 }
-            }
+            }*/
 
             if (this.activeLobby == 3) {
                 if (this.lobbyMultiPlayerPanel.handlePacket(args)) {
@@ -198,9 +198,9 @@ public class LobbyPanel extends Panel {
             this.lobbyChatPanelSingle.broadcastMessage(var1);
         }
 
-        if (this.lobbyChatPanelDual != null) {
+        /*if (this.lobbyChatPanelDual != null) {
             this.lobbyChatPanelDual.broadcastMessage(var1);
-        }
+        }*/
 
         if (this.lobbyChatPanelMulti != null) {
             this.lobbyChatPanelMulti.broadcastMessage(var1);
@@ -213,20 +213,24 @@ public class LobbyPanel extends Panel {
     }
 
     protected String getSelectedNickForChallenge() {
-        return this.lobbyChatPanelDual.getSelectedNickForChallenge();
+        //return this.lobbyChatPanelDual.getSelectedNickForChallenge();
+        return "";
     }
 
     protected boolean isUserIgnored(String var1) {
-        return this.lobbyChatPanelDual.isUserIgnored(var1);
+        //return this.lobbyChatPanelDual.isUserIgnored(var1);
+        return false;
     }
 
     protected void getUser(String name, boolean var2) {
-        this.lobbyChatPanelDual.getUser(name, var2);
+        //this.lobbyChatPanelDual.getUser(name, var2);
+        return;
     }
 
     protected boolean isNotAcceptingChallenges(String var1) {
-        UserListItem var2 = this.lobbyChatPanelDual.gui_userlist.getUser(var1);
-        return var2 != null ? var2.isNotAcceptingChallenges() : true;
+        //UserListItem var2 = this.lobbyChatPanelDual.gui_userlist.getUser(var1);
+        //return var2 != null ? var2.isNotAcceptingChallenges() : true;
+        return false;
     }
 
     protected Choicer addChoicerNumTracks(Panel container, int x, int y, int width, int height) {
@@ -348,7 +352,8 @@ public class LobbyPanel extends Panel {
     }
 
     protected void addMessage(String var1) {
-        this.lobbyChatPanelDual.addMessage(var1);
+        //this.lobbyChatPanelDual.addMessage(var1);
+        return;
     }
 
     protected void quitLobby() {
