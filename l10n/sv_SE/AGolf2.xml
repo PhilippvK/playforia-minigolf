@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="AGolf2" lang="sv_SE">
+	<str key="Editor_Basic">
+	  <singular><![CDATA[Vanlig]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_0">
+	  <singular><![CDATA[Gräs]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_1">
+	  <singular><![CDATA[Sand (bollarna rör sig långsammare)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_10">
+	  <singular><![CDATA[Supersyra (ph=-1, spelaren förlorar banan omedelbart, använd med försiktighet)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_13">
+	  <singular><![CDATA[Vägg, boll kan passera om den rör sig norrut]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_16">
+	  <singular><![CDATA[Vägg, boll kan passera om den rör sig västerut]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_18">
+	  <singular><![CDATA[Vägg, boll kan passera om den rör sig österut]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_2">
+	  <singular><![CDATA[Gyttja (bollen rör sig knappt alls)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_21">
+	  <singular><![CDATA[Vägg, boll kan passera om den rör sig söderut]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_24">
+	  <singular><![CDATA[Mur]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_26">
+	  <singular><![CDATA[Kladdvägg - bollen stannar när den träffar väggen]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_27">
+	  <singular><![CDATA[Studsvägg - bollen får mer fart när den träffar väggen]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_3">
+	  <singular><![CDATA[Is (halt underlag, bollen halkar vidare lite)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_4">
+	  <singular><![CDATA[Vatten (om bollen hamnar i vattnet måste spelaren slå igen från samma ställe)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_5">
+	  <singular><![CDATA[Träsk (bromsar bollarna, om bollen hamnar här fungerar det som vatten)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_8">
+	  <singular><![CDATA[Syra (hela banan startas om från början)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_9">
+	  <singular><![CDATA[Syraträsk (bromsar bollarna, om bollen hamnar här fungerar det som syra)]]></singular>
+	</str>
+	<str key="Editor_File">
+	  <singular><![CDATA[Fil]]></singular>
+	</str>
+	<str key="Editor_File_Back">
+	  <singular><![CDATA[<- Tillbaka]]></singular>
+	</str>
+	<str key="Editor_File_BackInfo">
+	  <singular><![CDATA[Tillbaka till föregående meny]]></singular>
+	</str>
+	<str key="Editor_File_Delete">
+	  <singular><![CDATA[Ta bort]]></singular>
+	</str>
+	<str key="Editor_File_DeleteInfo">
+	  <singular><![CDATA[Ta bort dina gamla banor]]></singular>
+	</str>
+	<str key="Editor_File_Load">
+	  <singular><![CDATA[Ladda]]></singular>
+	</str>
+	<str key="Editor_File_LoadInfo">
+	  <singular><![CDATA[Ladda dina tidigare banor]]></singular>
+	</str>
+	<str key="Editor_File_Publish">
+	  <singular><![CDATA[Publicera]]></singular>
+	</str>
+	<str key="Editor_File_PublishInfo">
+	  <singular><![CDATA[Publicera banan]]></singular>
+	</str>
+	<str key="Editor_File_Save">
+	  <singular><![CDATA[Spara]]></singular>
+	</str>
+	<str key="Editor_File_SaveInfo">
+	  <singular><![CDATA[Spara denna bana]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_0">
+	  <singular><![CDATA[Banans startposition]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_1">
+	  <singular><![CDATA[Hål]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_10">
+	  <singular><![CDATA[Synlig mina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_11">
+	  <singular><![CDATA[Detonerad mina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_12">
+	  <singular><![CDATA[Osynlig supermina (gör ett hål, kan fälla murar)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_13">
+	  <singular><![CDATA[Synlig supermina (gör ett hål, kan förstöra väggar)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_14">
+	  <singular><![CDATA[Detonerad supermina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_18">
+	  <singular><![CDATA[Tegelmur - kräver 6 träffar innan den bräcks (bakgrundselement ej synlig)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_19">
+	  <singular><![CDATA[Tegelmur - kräver 5 träffar innan den bräcks]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_20">
+	  <singular><![CDATA[Tegelmur - kräver 4 träffar innan den bräcks]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_21">
+	  <singular><![CDATA[Tegelmur - kräver 3 träffar innan den bräcks]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_22">
+	  <singular><![CDATA[Tegelmur - kräver 2 träffar innan den bräcks]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_23">
+	  <singular><![CDATA[Tegelmur - kräver 1 träff innan den bräcks]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_24">
+	  <singular><![CDATA[Stolpe - vid träff förstoras bollen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_25">
+	  <singular><![CDATA[Stolpe - vid träff krymper bollen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_26">
+	  <singular><![CDATA[Stolpe - bollens storlek återställs vid träff]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_27">
+	  <singular><![CDATA[Is - brister efter att ha passerats 6 ggr (ser ut som normal is)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_28">
+	  <singular><![CDATA[Is - brister efter att ha passerats 5 ggr]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_29">
+	  <singular><![CDATA[Is - brister efter att ha passerats 4 ggr]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_30">
+	  <singular><![CDATA[Is - brister efter att ha passerats 3 ggr]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_31">
+	  <singular><![CDATA[Is - brister efter att ha passerats 2 ggr]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_32">
+	  <singular><![CDATA[Is - brister efter att ha passerats en gång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_36">
+	  <singular><![CDATA[Osynlig dragmagnet]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_37">
+	  <singular><![CDATA[Synlig dragmagnet]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_38">
+	  <singular><![CDATA[Osynlig tryckmagnet]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_39">
+	  <singular><![CDATA[Synlig tryckmagnet]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_42">
+	  <singular><![CDATA[Låda - kan knuffas runt]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_43">
+	  <singular><![CDATA[Platta - kan bli nedtryckt, sjunker i vätska och bildar bro]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_44">
+	  <singular><![CDATA[Platta - sjunker och kan användas som bro]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_45">
+	  <singular><![CDATA[Banans startpunkt för blå spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_46">
+	  <singular><![CDATA[Banans startpunkt för röd spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_47">
+	  <singular><![CDATA[Banans startpunkt för gul spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_48">
+	  <singular><![CDATA[Banans startpunkt för grön spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_49">
+	  <singular><![CDATA[Banans startpunkt för rosa spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_50">
+	  <singular><![CDATA[Banans startpunkt för turkos spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_54">
+	  <singular><![CDATA[Hål för endast blå spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_55">
+	  <singular><![CDATA[Hål för endast röd spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_56">
+	  <singular><![CDATA[Hål för endast gul spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_57">
+	  <singular><![CDATA[Hål för endast grön spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_58">
+	  <singular><![CDATA[Hål för endast rosa spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_59">
+	  <singular><![CDATA[Hål för endast turkos spelare]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_6">
+	  <singular><![CDATA[Ljuskälla (fungerar endast om spelaren har maximala grafikinställningar)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_61">
+	  <singular><![CDATA[Hoppa norrut]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_63">
+	  <singular><![CDATA[Ingång till Teleport 1 (teleporterar till utgång 1)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_64">
+	  <singular><![CDATA[Ingång till Teleport 2 (teleporterar till utgång 2)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_65">
+	  <singular><![CDATA[Ingång till Teleport 3 (teleporterar till utgång 3)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_66">
+	  <singular><![CDATA[Ingång till Teleport 4 (teleporterar till utgång 4)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_67">
+	  <singular><![CDATA[Ingång till Teleport 5 (teleporterar till utgång 5)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_68">
+	  <singular><![CDATA[Ingång till Teleport 6 (teleporterar till utgång 6)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_69">
+	  <singular><![CDATA[Hoppa västerut]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_71">
+	  <singular><![CDATA[Hoppa österut]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_72">
+	  <singular><![CDATA[Teleport 1 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_73">
+	  <singular><![CDATA[Teleport 2 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_74">
+	  <singular><![CDATA[Teleport 3 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_75">
+	  <singular><![CDATA[Teleport 4 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_76">
+	  <singular><![CDATA[Teleport 5 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_77">
+	  <singular><![CDATA[Teleport 6 utgång]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_79">
+	  <singular><![CDATA[Hoppa söderut]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_9">
+	  <singular><![CDATA[Osynlig mina]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Delete">
+	  <singular><![CDATA[Ta bort]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Deleted">
+	  <singular><![CDATA[Banan borttagen]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Error">
+	  <singular><![CDATA[Ett oväntat fel uppstod (code=%1)]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Title">
+	  <singular><![CDATA[Ta bort egen bana]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Wait">
+	  <singular><![CDATA[Raderar...]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Error">
+	  <singular><![CDATA[Oväntat fel uppstod (code=%1)]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListName">
+	  <singular><![CDATA[Namn]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListRating">
+	  <singular><![CDATA[Nivå]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListState">
+	  <singular><![CDATA[Tillstånd]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStateFree">
+	  <singular><![CDATA[Gratis]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStateOfficial">
+	  <singular><![CDATA[Allmän]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStatePrivate">
+	  <singular><![CDATA[Privat]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStatePublic">
+	  <singular><![CDATA[Allmän]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListVotes">
+	  <singular><![CDATA[Röster]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Load">
+	  <singular><![CDATA[Ladda]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Title">
+	  <singular><![CDATA[Ladda dina banor]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Wait">
+	  <singular><![CDATA[Laddar...]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_CantOverwritePublic">
+	  <singular><![CDATA[Publiceringen misslyckades. En bana med samma namn finns redan. Ge banan ett annat namn och försök igen.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Error">
+	  <singular><![CDATA[Oväntat fel uppstod.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Info">
+	  <singular><![CDATA[Publicerar banan. Testa banan före publicering. Banan kan inte ändras efter publiceringen. Banor med stötande innehåll eller namn tas bort. Skriv in banans namn i fältet nedan. Om banan är skapad för ensamspel markera det i kryssrutan nedanför namnfältet. Tryck på "Publicera" för att publicera banan. Publicering kostar 1% mynt, du har %2 mynt.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_InfoAdd">
+	  <singular><![CDATA[Notera att administrationen kan ta bort banor med opassande innehåll. Förlorade tillgångar kompenseras ej i dessa fall.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_InvalidName">
+	  <singular><![CDATA[Publiceringen misslyckades. Banans namn är inte tillåten. Ge banan ett annat namn och försök igen.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_NoBoughtCredits">
+	  <singular><![CDATA[Du kan inte publicera banor eftersom du inte har några mynt. Notera att mottagna gratismynt från registreringen inte kan användas för publicering av banor.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_NoCredits">
+	  <singular><![CDATA[Banans publicering misslyckades. Du har inte tillräckligt med mynt.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Publish">
+	  <singular><![CDATA[Publicera]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Published">
+	  <singular><![CDATA[Banans publicering lyckades!]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_SinglePlayerOnly">
+	  <singular><![CDATA[Banan är designad för ensamspel.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Title">
+	  <singular><![CDATA[Publicerar bana]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_TooManyTracks">
+	  <singular><![CDATA[Publiceringen misslyckades. Du har för många publicerade banor.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_TrackNotTested">
+	  <singular><![CDATA[Banan har inte testats efter förra ändringen. Alla banor måste testas och spelas igenom minst en gång innan de kan publiceras. Stäng det här fönstret och testa banan.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Wait">
+	  <singular><![CDATA[Var god vänta, sparar och publicerar banan...]]></singular>
+	</str>
+	<str key="Editor_PopupSave_CantOverwritePublic">
+	  <singular><![CDATA[Kunde inte spara banan. En bana med samma namn finns redan. Ge banan ett annat namn och försök igen.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Info">
+	  <singular><![CDATA[Sparar banan på servern. Skriv in banans namn i fältet nedan och klicka på "Spara". Använd endast bokstäver och nummer. Minst tre tecken.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_InvalidName">
+	  <singular><![CDATA[Kunde inte spara banan, namnet tillåts inte. Ge banan ett annat namn och försök igen.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Save">
+	  <singular><![CDATA[Spara]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Saved">
+	  <singular><![CDATA[Bana sparad.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Title">
+	  <singular><![CDATA[Spara banan]]></singular>
+	</str>
+	<str key="Editor_PopupSave_TooManyTracks">
+	  <singular><![CDATA[Kunde inte spara banan. Du har för många banor. Ta bort en bana eller publicera någon av de redan sparade banorna och försök sedan igen.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Wait">
+	  <singular><![CDATA[Sparar bana, var god vänta...]]></singular>
+	</str>
+	<str key="Editor_Popup_Cancel">
+	  <singular><![CDATA[Avbryt]]></singular>
+	</str>
+	<str key="Editor_Popup_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Editor_ShapeInfo">
+	  <singular><![CDATA[Använd musen för att välja form, välj sedan element och sluttningar från höger]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_0">
+	  <singular><![CDATA[Sluttning som för bollen nordväst]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_1">
+	  <singular><![CDATA[Sluttning som för bollen norrut]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_2">
+	  <singular><![CDATA[Sluttning som för bollen nordöst]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_3">
+	  <singular><![CDATA[Sluttning som för bollen västerut]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_4">
+	  <singular><![CDATA[Ingen sluttning]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_5">
+	  <singular><![CDATA[Sluttning som för bollen österut]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_6">
+	  <singular><![CDATA[Sluttning som för bollarna sydväst]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_7">
+	  <singular><![CDATA[Sluttning som för bollen söderut]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_8">
+	  <singular><![CDATA[Sluttning som för bollen sydöst]]></singular>
+	</str>
+	<str key="Editor_Special">
+	  <singular><![CDATA[Special]]></singular>
+	</str>
+	<str key="Editor_Tools">
+	  <singular><![CDATA[Verktyg]]></singular>
+	</str>
+	<str key="Editor_Tools_Clear">
+	  <singular><![CDATA[Rensa]]></singular>
+	</str>
+	<str key="Editor_Tools_Crosshair">
+	  <singular><![CDATA[Sikte]]></singular>
+	</str>
+	<str key="Editor_Tools_Grid">
+	  <singular><![CDATA[Rutnät]]></singular>
+	</str>
+	<str key="Editor_Tools_Mirror">
+	  <singular><![CDATA[Spegel]]></singular>
+	</str>
+	<str key="Editor_Tools_Move">
+	  <singular><![CDATA[Flytta]]></singular>
+	</str>
+	<str key="Editor_Tools_Paint">
+	  <singular><![CDATA[Färg]]></singular>
+	</str>
+	<str key="Editor_Tools_Test">
+	  <singular><![CDATA[Test]]></singular>
+	</str>
+	<str key="Editor_Tools_Undo">
+	  <singular><![CDATA[Ångra]]></singular>
+	</str>
+	<str key="Game2_LocalVoteSkipTrack">
+	  <singular><![CDATA[Du röstad för att skippa den här banan]]></singular>
+	</str>
+	<str key="Game2_LocalWantNewGame">
+	  <singular><![CDATA[Ny spelutmaning skickades till de andra spelarna]]></singular>
+	</str>
+	<str key="Game2_PlayerVoteSkipTrack">
+	  <singular><![CDATA[Spelaren %1 röstade för skippa den här banan]]></singular>
+	</str>
+	<str key="Game2_PlayerWantNewGame">
+	  <singular><![CDATA[Spelaren %1 vill starta nytt spel]]></singular>
+	</str>
+	<str key="Game2_VoteSkipTrackAccepted">
+	  <singular><![CDATA[Alla spelare röstade för att skippa banan]]></singular>
+	</str>
+	<str key="Game2_VoteSkipTrackHelp">
+	  <singular><![CDATA[(Banan skippas om de andra spelarna också vill skippa den)]]></singular>
+	</str>
+	<str key="Game2_WantNewGameAccepted">
+	  <singular><![CDATA[Alla kvarvarande spelare ville ha nytt spel]]></singular>
+	</str>
+	<str key="Game2_WantNewGameHelp">
+	  <singular><![CDATA[(om du också vill ha ett nytt spel klicka "Nytt spel" till höger)]]></singular>
+	</str>
+	<str key="Game_Chat_FirstGameStart">
+	  <singular><![CDATA[Välkommen till spelet "%1"]]></singular>
+	</str>
+	<str key="Game_Chat_GameEnd">
+	  <singular><![CDATA[** Spelet tog slut **]]></singular>
+	</str>
+	<str key="Game_Chat_GameStart">
+	  <singular><![CDATA[** Spelet börjar **]]></singular>
+	</str>
+	<str key="Game_Chat_PlayerTimedOut">
+	  <singular><![CDATA[* Tiden slut för spelare %1 *]]></singular>
+	</str>
+	<str key="Game_Control_BackToEditor">
+	  <singular><![CDATA[<- Tillbaka till editorn]]></singular>
+	</str>
+	<str key="Game_Control_BackToLobby">
+	  <singular><![CDATA[<- Tillbaka till lobbyn]]></singular>
+	</str>
+	<str key="Game_Control_NewGame">
+	  <singular><![CDATA[Nytt spel]]></singular>
+	</str>
+	<str key="Game_Control_NextTrack">
+	  <singular><![CDATA[Nästa bana ->]]></singular>
+	</str>
+	<str key="Game_Control_Restart">
+	  <singular><![CDATA[Starta om banan]]></singular>
+	</str>
+	<str key="Game_Control_Settings">
+	  <singular><![CDATA[Inställningar]]></singular>
+	</str>
+	<str key="Game_Control_VoteSkipTrack">
+	  <singular><![CDATA[Rösta för att skippa banan]]></singular>
+	</str>
+	<str key="Game_PlayView_Draw">
+	  <singular><![CDATA[Oavgjort]]></singular>
+	</str>
+	<str key="Game_PlayView_GameFinished">
+	  <singular><![CDATA[Spelet avslutades]]></singular>
+	</str>
+	<str key="Game_PlayView_GameOver">
+	  <singular><![CDATA[Spelet tog slut]]></singular>
+	</str>
+	<str key="Game_PlayView_Playing">
+	  <singular><![CDATA[Spelar]]></singular>
+	</str>
+	<str key="Game_PlayView_PreparingTrack">
+	  <singular><![CDATA[Förbereder banan, var god vänta...]]></singular>
+	</str>
+	<str key="Game_PlayView_Winner">
+	  <singular><![CDATA[Vinnare:]]></singular>
+	</str>
+	<str key="Game_PlayView_Winners">
+	  <singular><![CDATA[Vinnare:]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_RateTrack">
+	  <singular><![CDATA[Betygsätt banan]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_Rating">
+	  <singular><![CDATA[Betyg]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_TrackWas">
+	  <singular><![CDATA[Förra banan var: %1]]></singular>
+	</str>
+	<str key="Game_Settings_BeepOwnTurnStart">
+	  <singular><![CDATA[Ljudton vid min tur]]></singular>
+	</str>
+	<str key="Game_Settings_ButtonOk">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsBallHlShadow">
+	  <singular><![CDATA[3D boll]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsBlur">
+	  <singular><![CDATA[Mjuk grafik]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsSpotLight">
+	  <singular><![CDATA[3D belysning]]></singular>
+	</str>
+	<str key="Game_Settings_SounfEffects">
+	  <singular><![CDATA[Ljudeffekter]]></singular>
+	</str>
+	<str key="Game_Settings_Title">
+	  <singular><![CDATA[Inställningar - Super Minigolf]]></singular>
+	</str>
+	<str key="Game_TrackInfo_AverageResult">
+	  <singular><![CDATA[Genomsnitt: %1 slag]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResult">
+	  <singular><![CDATA[Rekord:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultFirst1">
+	  <singular><![CDATA[Rekordhållare:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultFirst2">
+	  <singular><![CDATA[%1 (%2)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultLast1">
+	  <singular><![CDATA[Senaste spelaren som nått rekordet:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultLast2">
+	  <singular><![CDATA[%1 (%2)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultMultiple">
+	  <singular><![CDATA[%1 (%2% av spelarna)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultUnique">
+	  <singular><![CDATA[%1 (unik)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackAuthor">
+	  <singular><![CDATA[Designer: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackCount">
+	  <singular><![CDATA[Banor: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackDate">
+	  <singular><![CDATA[Datum: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackNumber">
+	  <singular><![CDATA[Bana: %1 / 2%]]></singular>
+	</str>
+	<str key="Lobby1_Championship_AllowSpectators">
+	  <singular><![CDATA[Tillåt åskådare]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficulty">
+	  <singular><![CDATA[Svårighet]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyEasy">
+	  <singular><![CDATA[Lätt]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyHard">
+	  <singular><![CDATA[Svår]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyMedium">
+	  <singular><![CDATA[Medium]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyUndefined">
+	  <singular><![CDATA[(odefinierad)]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListName">
+	  <singular><![CDATA[Banlista]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListTrackCount">
+	  <singular><![CDATA[Banor]]></singular>
+	</str>
+	<str key="Lobby1_Championship_RegisteredOnly">
+	  <singular><![CDATA[(endast registrerade)]]></singular>
+	</str>
+	<str key="Lobby1_Championship_StartButton">
+	  <singular><![CDATA[Starta nytt spel]]></singular>
+	</str>
+	<str key="Lobby1_Championship_Title">
+	  <singular><![CDATA[Mästerskap]]></singular>
+	</str>
+	<str key="Lobby1_Header_Quit">
+	  <singular><![CDATA[Avsluta]]></singular>
+	</str>
+	<str key="Lobby1_Header_ToEditor">
+	  <singular><![CDATA[Till editorn]]></singular>
+	</str>
+	<str key="Lobby1_Header_ToMultiLobby">
+	  <singular><![CDATA[Multiplayer]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestAllTime">
+	  <singular><![CDATA[Alla tiders bästa]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestDay">
+	  <singular><![CDATA[Dagens bästa]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestMonth">
+	  <singular><![CDATA[Månadens bästa]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestPersonal">
+	  <singular><![CDATA[Personligt bästa]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestWeek">
+	  <singular><![CDATA[Veckans bästa]]></singular>
+	</str>
+	<str key="Lobby1_TopList_Title">
+	  <singular><![CDATA[Toppresultat]]></singular>
+	</str>
+	<str key="Lobby1_Training_FreeChoiceButton">
+	  <singular><![CDATA[Välj bana (%1 vald)]]></singular>
+	</str>
+	<str key="Lobby1_Training_StartButton">
+	  <singular><![CDATA[Starta spel]]></singular>
+	</str>
+	<str key="Lobby1_Training_Title">
+	  <singular><![CDATA[Träning]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListEmpty">
+	  <singular><![CDATA[Inga singelspel pågår]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListPlayerNick">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListSpectatorCount">
+	  <singular><![CDATA[Publik]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListTrackSet">
+	  <singular><![CDATA[Banset]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListTrackSetNone">
+	  <singular><![CDATA[(träning)]]></singular>
+	</str>
+	<str key="Lobby1_Watch_NoSpectatorsGame">
+	  <singular><![CDATA[Inga åskådare tillåtna i det här spelet.]]></singular>
+	</str>
+	<str key="Lobby1_Watch_Title">
+	  <singular><![CDATA[Följ spel ( %1 )]]></singular>
+	</str>
+	<str key="Lobby1_Watch_TitleSelectGame">
+	  <singular><![CDATA[Välj spel att följa:]]></singular>
+	</str>
+	<str key="Lobby1_Watch_TitleSpectators">
+	  <singular><![CDATA[Åskådare i spelet:]]></singular>
+	</str>
+	<str key="Lobby1_Watch_WatchButton">
+	  <singular><![CDATA[Följ spelet]]></singular>
+	</str>
+	<str key="Lobby2_Create_CreateGame">
+	  <singular><![CDATA[Starta ett nytt spel med inställningarna ovan]]></singular>
+	</str>
+	<str key="Lobby2_Create_LessSettings">
+	  <singular><![CDATA[<< Färre inställningar]]></singular>
+	</str>
+	<str key="Lobby2_Create_MoreSettings">
+	  <singular><![CDATA[Fler inställningar >>]]></singular>
+	</str>
+	<str key="Lobby2_Create_Title">
+	  <singular><![CDATA[Starta nytt spel]]></singular>
+	</str>
+	<str key="Lobby2_Header_Quit">
+	  <singular><![CDATA[Avsluta]]></singular>
+	</str>
+	<str key="Lobby2_Header_ToEditor">
+	  <singular><![CDATA[Editor]]></singular>
+	</str>
+	<str key="Lobby2_Header_ToSingleLobby">
+	  <singular><![CDATA[Singelspel]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Accept">
+	  <singular><![CDATA[Godkänn]]></singular>
+	</str>
+	<str key="Lobby2_Invite_BeepOnInvite">
+	  <singular><![CDATA[Ljudton vid inbjudan / utmaning]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Challenged">
+	  <singular><![CDATA[%1 utmanar dig till ett spel med följande inställningar:]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Invited">
+	  <singular><![CDATA[%1 bjuder in dig till att spela med följande inställningar:]]></singular>
+	</str>
+	<str key="Lobby2_Invite_NoInvitesToMe">
+	  <singular><![CDATA[Inga utmaningar/inbjudningar till mig]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Reject">
+	  <singular><![CDATA[Tacka nej]]></singular>
+	</str>
+	<str key="Lobby2_Invite_WaitStateInfo">
+	  <singular><![CDATA[(Du har gått med i ett nytt spel. Du kan inte ta emot inbjudningar till andra spel.)]]></singular>
+	</str>
+	<str key="Lobby2_Join_InviteOnlyGame">
+	  <singular><![CDATA[(gå med endast vid inbjudan)]]></singular>
+	</str>
+	<str key="Lobby2_Join_JoinButton">
+	  <singular><![CDATA[Delta i spelet]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListEmpty">
+	  <singular><![CDATA[Inga pågående spel, starta ett nytt spel genom att välja "Starta nytt spel" ovan]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListGameName">
+	  <singular><![CDATA[Spelnamn]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListPlayerCount">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListTrackCount">
+	  <singular><![CDATA[Banor]]></singular>
+	</str>
+	<str key="Lobby2_Join_Title">
+	  <singular><![CDATA[Gå med i spel ( %1 )]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitlePlayers">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitleSelectGame">
+	  <singular><![CDATA[Välj spel:]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitleSettings">
+	  <singular><![CDATA[Inställningar:]]></singular>
+	</str>
+	<str key="Lobby2_Join_WormCantJoinNonFreeTrackGame">
+	  <singular><![CDATA[Du måste registrera dig för att spela detta banval]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ChallengeButton">
+	  <singular><![CDATA[Utmana användaren]]></singular>
+	</str>
+	<str key="Lobby2_Wait_InviteButton">
+	  <singular><![CDATA[Bjud in användaren]]></singular>
+	</str>
+	<str key="Lobby2_Wait_PartButton">
+	  <singular><![CDATA[Avsluta spel]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ReadyToStart">
+	  <singular><![CDATA[(redo att börja)]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ReadyToStartButton">
+	  <singular><![CDATA[Färdig att börja]]></singular>
+	</str>
+	<str key="Lobby2_Wait_SetFreeButton">
+	  <singular><![CDATA[Tillgänglig för alla]]></singular>
+	</str>
+	<str key="Lobby2_Wait_Title">
+	  <singular><![CDATA[Nytt spel]]></singular>
+	</str>
+	<str key="Lobby2_Wait_TitlePlayers">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="Lobby2_Wait_TitleSettings">
+	  <singular><![CDATA[Inställningar:]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserChallenged">
+	  <singular><![CDATA[Användaren %1 blev utmanad till spelet]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserHasIgnoredYou">
+	  <singular><![CDATA[Användaren %1 har ignorerat dig]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserHaveAnotherInvite">
+	  <singular><![CDATA[Användaren %1 fick redan en annan inbjudan]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserInvited">
+	  <singular><![CDATA[Användaren %1 blev inbjuden till spelet]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserJoinedAnotherGame">
+	  <singular><![CDATA[Användaren %1 har redan gått med i ett annat spel]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserRejectedInvite">
+	  <singular><![CDATA[Användaren %1 tackade nej till din inbjudan]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserTakesNoInvites">
+	  <singular><![CDATA[Användaren %1 tar inte emot utmaningar]]></singular>
+	</str>
+	<str key="Lobby2_Wait_WaitingInvitedPlayers">
+	  <singular><![CDATA[(Väntar på att %1 ska bjuda in flera spelare)]]></singular>
+	</str>
+	<str key="Lobby2_Wait_WaitingJoiningPlayers">
+	  <singular><![CDATA[(väntar på fler spelare)]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListEmpty">
+	  <singular><![CDATA[Inga pågående spel]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListGameName">
+	  <singular><![CDATA[Spelnamn]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListPlayerCount">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListSpectatorCount">
+	  <singular><![CDATA[Åskådare]]></singular>
+	</str>
+	<str key="Lobby2_Watch_NoSpectatorsGame">
+	  <singular><![CDATA[(Inga åskådare)]]></singular>
+	</str>
+	<str key="Lobby2_Watch_Title">
+	  <singular><![CDATA[Följ spel ( %1 )]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitlePlayers">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitleSelectGame">
+	  <singular><![CDATA[Välj spel:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitleSpectators">
+	  <singular><![CDATA[Publik:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_WatchButton">
+	  <singular><![CDATA[Gå med som åskådare]]></singular>
+	</str>
+	<str key="Lobby_BannedFromGame">
+	  <singular><![CDATA[Kan inte gå med i spelet, du har blivit portad.]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameBack">
+	  <singular><![CDATA[Tillbaka]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameBuy">
+	  <singular><![CDATA[Köp banor]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameTitle">
+	  <singular><![CDATA[Köp tillträde till alla banor]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectators">
+	  <singular><![CDATA[Tillåt åskådare:]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectatorsNo">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectatorsYes">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollision">
+	  <singular><![CDATA[Kollision mellan bollarna:]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollisionNo">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollisionYes">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="Lobby_Settings_GameName">
+	  <singular><![CDATA[Spelnamn:]]></singular>
+	</str>
+	<str key="Lobby_Settings_MaxStrikesPerTrack">
+	  <singular><![CDATA[Max. slag per bana:]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrder">
+	  <singular><![CDATA[Spelordning:]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrderInTurns">
+	  <singular><![CDATA[I omgångar]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrderSameTime">
+	  <singular><![CDATA[Alla samtidigt]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayerCount">
+	  <singular><![CDATA[Max. antal spelare:]]></singular>
+	</str>
+	<str key="Lobby_Settings_Players">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="Lobby_Settings_RegisteredOnly">
+	  <singular><![CDATA[(end. reg)]]></singular>
+	</str>
+	<str key="Lobby_Settings_Scoring">
+	  <singular><![CDATA[Resultat:]]></singular>
+	</str>
+	<str key="Lobby_Settings_ScoringStrikes">
+	  <singular><![CDATA[Minst slag totalt]]></singular>
+	</str>
+	<str key="Lobby_Settings_ScoringTracks">
+	  <singular><![CDATA[Mest banvinster totalt:]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackCount">
+	  <singular><![CDATA[Banmängd:]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypes">
+	  <singular><![CDATA[Banor:]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesAllOfficial">
+	  <singular><![CDATA[Alla officiella]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesBasicOfficial">
+	  <singular><![CDATA[Basuppsättning av officiella banor]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesFreeOfficial">
+	  <singular><![CDATA[Gratis, allmänna banor]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesOwnChoice">
+	  <singular><![CDATA[Mitt urval]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesUser">
+	  <singular><![CDATA[Banor gjorda av användare]]></singular>
+	</str>
+	<str key="Lobby_Settings_TurnTimeLimit">
+	  <singular><![CDATA[Tidsgräns:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_Choice">
+	  <singular><![CDATA[Sök banor...]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceBestRating">
+	  <singular><![CDATA[Bäst]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceEasiest">
+	  <singular><![CDATA[Lättast]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceHardest">
+	  <singular><![CDATA[Svårast]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceLeastPlayed">
+	  <singular><![CDATA[Minst spelad]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceLongest">
+	  <singular><![CDATA[Längsta]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceMostPlayed">
+	  <singular><![CDATA[Mest spelad]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceNewest">
+	  <singular><![CDATA[Senaste]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceOrSearch">
+	  <singular><![CDATA[ELLER]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceShortest">
+	  <singular><![CDATA[Kortaste]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceTitle">
+	  <singular><![CDATA[1. Välj efter typ:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceWorstRating">
+	  <singular><![CDATA[Sämst]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ClearButton">
+	  <singular><![CDATA[Rensa]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_OkButton">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsAuthor">
+	  <singular><![CDATA[Designer]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsAverage">
+	  <singular><![CDATA[Genomsnittsresultat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsDate">
+	  <singular><![CDATA[Datum]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyInit">
+	  <singular><![CDATA[Välj bantyp ovan]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyNone">
+	  <singular><![CDATA[Inga matchande banor hittades]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyWait">
+	  <singular><![CDATA[Hämtar banor, var god vänta...]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsFinished">
+	  <singular><![CDATA[Avklarade (%)]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsPlayed">
+	  <singular><![CDATA[Spelade]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsRating">
+	  <singular><![CDATA[Betyg]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsTitle">
+	  <singular><![CDATA[2. Hittade banor:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsTrack">
+	  <singular><![CDATA[Bana]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SearchButton">
+	  <singular><![CDATA[-> Sök]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SearchField">
+	  <singular><![CDATA[Fri sökning, minst %1 tecken]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SelectedTitle">
+	  <singular><![CDATA[3. Valda banor:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_Title">
+	  <singular><![CDATA[Välj bana - Super Minigolf]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_TrackError">
+	  <singular><![CDATA[Fel uppstod! Banan "%1" är inte tillgänglig.]]></singular>
+	</str>
+	<str key="Product__alltracks">
+	  <plural><![CDATA[Köp rätten att spela alla banor under två månader för endast %1 mynt.]]></plural>
+	  <singular><![CDATA[Köp rätten att spela alla banor under två månader för endast %1 mynt.]]></singular>
+	</str>
+	<str key="Product__trackpublish">
+	  <singular><![CDATA[]]></singular>
+	</str>
+	<str key="Select_Editor">
+	  <singular><![CDATA[Editor]]></singular>
+	</str>
+	<str key="Select_MultiPlayer">
+	  <singular><![CDATA[Multiplayer]]></singular>
+	</str>
+	<str key="Select_NoChat">
+	  <singular><![CDATA[Utan chat]]></singular>
+	</str>
+	<str key="Select_RegisteredOnly">
+	  <singular><![CDATA[(endast registrerade användare)]]></singular>
+	</str>
+	<str key="Select_SinglePlayer">
+	  <singular><![CDATA[Ensamspel]]></singular>
+	</str>
+</localization>

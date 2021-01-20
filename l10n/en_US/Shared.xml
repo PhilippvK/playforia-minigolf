@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="Shared" lang="en_US">
+	<str key="BadNicks" reverse="yes">
+	  <singular><![CDATA[tsecni,tsesni,ilekkik,reggin,rekeen,skesitten,aspmip,attomih,sakomih,sboob,ipmip,anavok,sakulah,ussut,kknur,mreps,suna,issit,aksret,appmip,yllyp,sirotilk,aktul,tsicar,tsisar,fodep,�kiersrep,��pisuk,issun,ttenap,ippmip,ileppip,amiik,ynroh,rerhuf,rerheuf,rerh�f,tsissar,liehgeis,lieh geis,padsn,lemmor,izan,aksiar,aksap,otip�lly,erohw,reknaw,eztov,tutiv,nutiv,kutiv,iutiv,uttiv,tmmadrev,anigav,ressot,tihs,xes,iskes,yskes,znawhcs,essiehcs,anataas,yssup,nrop,duvuhttip,duvuhssip,ullip,esrep,elekrep,sinep,uklum,ukklum,rotaredom,irottaaredom,obsel,vryk,pryk,illuk,eraguskuk,duvuhkuk,nhosneruh,arouh,omoh,reltih,ttnih,ittevleh,etevleh,kcuf,eztof,attif,neggif,odlid,g�b,bojwolb,hctib,dratsab,elohssa,hcolhcsra,ajapa,laana,nimda]]></singular>
+	</str>
+	<str key="BadWords" reverse="yes">
+	  <singular><![CDATA[reknaw,anigav,tawt,ressot,yssup,pmip,sinep,lleh,kcuf,odlid,tnuc,bojwolb,hctib,dratsab,elohssa,elohsa,lana]]></singular>
+	</str>
+	<str key="Chat_Game_BanButton">
+	  <singular><![CDATA[Ban]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemoveNone">
+	  <singular><![CDATA[Select audience member to remove first]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemovePlayer">
+	  <singular><![CDATA[You can only remove members of the audience from the game, not other players.]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemoveSelf">
+	  <singular><![CDATA[You can't remove yourself from game]]></singular>
+	</str>
+	<str key="Chat_Game_KickButton">
+	  <singular><![CDATA[Kick]]></singular>
+	</str>
+	<str key="Chat_Game_NoSpectatorJoinPartMessages">
+	  <singular><![CDATA[No join/part messages]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerJoined">
+	  <singular><![CDATA[%1 joined the game]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerJoinedClan">
+	  <singular><![CDATA[%1 [clan: %2] joined the game]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerLeft">
+	  <singular><![CDATA[Player %1 left the game]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerLeftConnectionProblem">
+	  <singular><![CDATA[Player %1 left the game (user disconnected)]]></singular>
+	</str>
+	<str key="Chat_Game_RemoveSpectatorButton">
+	  <singular><![CDATA[Remove User]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorJoined">
+	  <singular><![CDATA[%1 joined the audience]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorLeft">
+	  <singular><![CDATA[%1 left the audience]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorLeftRemovedByPlayer">
+	  <singular><![CDATA[%1 left the audience (removed)]]></singular>
+	</str>
+	<str key="Chat_InputHelp">
+	  <singular><![CDATA[Type your message here and press Enter]]></singular>
+	</str>
+	<str key="Chat_Lobby_CantChallengeNone">
+	  <singular><![CDATA[Select the person you want to challenge from the list on the left first.]]></singular>
+	</str>
+	<str key="Chat_Lobby_CantChallengeSelf">
+	  <singular><![CDATA[You can't challenge yourself, select someone else.]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGameMessages">
+	  <singular><![CDATA[No game messages]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGuestChatAndRegReminder">
+	  <singular><![CDATA[As a unregistered or unconfirmed user, you are unable to chat in lobby area. If you wish, you can <register> immediately.]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGuestChatAndRegReminder_Shorter">
+	  <singular><![CDATA[As unregistered user, you can't chat in lobby area. You can <register> here.]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoJoinPartMessages">
+	  <singular><![CDATA[No join/part messages]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserCreatedGame">
+	  <singular><![CDATA[%1 created the new game '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UserJoined">
+	  <singular><![CDATA[%1 joined the lobby]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserJoinedGame">
+	  <singular><![CDATA[%1 joined the game '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UserLeft">
+	  <singular><![CDATA[%1 left the lobby]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 left the lobby (user disconnected)]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserReturnedFromGame">
+	  <singular><![CDATA[%1 returned from a game]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserWathicngGame">
+	  <singular><![CDATA[%1 went to watch the game '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UsersStartedGame">
+	  <singular><![CDATA[%1 and %2 started game '%3']]></singular>
+	</str>
+	<str key="Chat_Lobby_UsersStartedUnnamedGame">
+	  <singular><![CDATA[%1 and %2 started a game]]></singular>
+	</str>
+	<str key="Chat_Message">
+	  <singular><![CDATA[** %1 **]]></singular>
+	</str>
+	<str key="Chat_MessageChallengeFlood">
+	  <singular><![CDATA[You can't challenge the same user too many times within a short time frame (challenge someone else or wait a while before challenging this user again).]]></singular>
+	</str>
+	<str key="Chat_MessageFlood">
+	  <singular><![CDATA[Your message is not yet sent to prevent flooding (too many messages in too short period of time)]]></singular>
+	</str>
+	<str key="Chat_MessagePrivateMessageUserLeft">
+	  <singular><![CDATA[Note that user %1, to whom you started writing a private message, has left the chat.]]></singular>
+	</str>
+	<str key="Chat_MuteChatRoomReminder">
+	  <singular><![CDATA[This is a silent game room, chatting is disabled.]]></singular>
+	</str>
+	<str key="Chat_NoGuestChatAndRegNote">
+	  <singular><![CDATA[You can't chat without a Playforia account (<create account>)]]></singular>
+	</str>
+	<str key="Chat_NoGuestChatAndRegReminder">
+	  <singular><![CDATA[As an unregistered user, you can chat only while playing (<register>)]]></singular>
+	</str>
+	<str key="Chat_NoUnconfirmedChatNote">
+	  <singular><![CDATA[You need to confirm your email before you can chat.]]></singular>
+	</str>
+	<str key="Chat_NoUnconfirmedChatReminder">
+	  <singular><![CDATA[You need to confirm your email address before you can chat]]></singular>
+	</str>
+	<str key="Chat_SayButton">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="Chat_ServerBroadcast">
+	  <singular><![CDATA[[ Message from server: %1 ]]]></singular>
+	</str>
+	<str key="Chat_ServerSay">
+	  <singular><![CDATA[<<Server>> %1]]></singular>
+	</str>
+	<str key="Chat_SheriffSay">
+	  <singular><![CDATA[<<Sheriff>> %1]]></singular>
+	</str>
+	<str key="Chat_Simple_ChatRequiresConfirmation">
+	  <singular><![CDATA[You have to confirm your email address before you can chat]]></singular>
+	</str>
+	<str key="Chat_Simple_ChatRequiresRegisteration">
+	  <singular><![CDATA[You have to <create a Playforia nickname> before you can chat]]></singular>
+	</str>
+	<str key="Chat_Simple_NoJoinPartMessages">
+	  <singular><![CDATA[No join/part messages]]></singular>
+	</str>
+	<str key="Chat_Simple_UserJoined">
+	  <singular><![CDATA[%1 joined the chatroom]]></singular>
+	</str>
+	<str key="Chat_Simple_UserLeft">
+	  <singular><![CDATA[%1 left the chatroom]]></singular>
+	</str>
+	<str key="Chat_UserAction">
+	  <singular><![CDATA[%1 %2]]></singular>
+	</str>
+	<str key="Chat_UserSay">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="Chat_UserSayPrivate">
+	  <singular><![CDATA[<%1 -> %2> %3]]></singular>
+	</str>
+	<str key="Chat_Welcome">
+	  <singular><![CDATA[W e l c o m e !]]></singular>
+	</str>
+	<str key="ClockAM">
+	  <singular><![CDATA[AM]]></singular>
+	</str>
+	<str key="ClockFormat">
+	  <singular><![CDATA[%1:%2 %3]]></singular>
+	</str>
+	<str key="ClockHours">
+	  <singular><![CDATA[12]]></singular>
+	</str>
+	<str key="ClockPM">
+	  <singular><![CDATA[PM]]></singular>
+	</str>
+	<str key="CurseChars">
+	  <singular><![CDATA[�#@$&%�*�?!]]></singular>
+	</str>
+	<str key="DateFormat">
+	  <singular><![CDATA[%2 %1. %3]]></singular>
+	</str>
+	<str key="DateMonth1">
+	  <singular><![CDATA[January]]></singular>
+	</str>
+	<str key="DateMonth10">
+	  <singular><![CDATA[October]]></singular>
+	</str>
+	<str key="DateMonth11">
+	  <singular><![CDATA[November]]></singular>
+	</str>
+	<str key="DateMonth12">
+	  <singular><![CDATA[December]]></singular>
+	</str>
+	<str key="DateMonth2">
+	  <singular><![CDATA[February]]></singular>
+	</str>
+	<str key="DateMonth3">
+	  <singular><![CDATA[March]]></singular>
+	</str>
+	<str key="DateMonth4">
+	  <singular><![CDATA[April]]></singular>
+	</str>
+	<str key="DateMonth5">
+	  <singular><![CDATA[May]]></singular>
+	</str>
+	<str key="DateMonth6">
+	  <singular><![CDATA[June]]></singular>
+	</str>
+	<str key="DateMonth7">
+	  <singular><![CDATA[July]]></singular>
+	</str>
+	<str key="DateMonth8">
+	  <singular><![CDATA[August]]></singular>
+	</str>
+	<str key="DateMonth9">
+	  <singular><![CDATA[September]]></singular>
+	</str>
+	<str key="DateToday">
+	  <singular><![CDATA[Today]]></singular>
+	</str>
+	<str key="DateYesterday">
+	  <singular><![CDATA[Yesterday]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutDaysAgo">
+	  <plural><![CDATA[About %1 days ago]]></plural>
+	  <singular><![CDATA[About a day ago]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutHoursAgo">
+	  <plural><![CDATA[About %1 hours ago]]></plural>
+	  <singular><![CDATA[About an hour ago]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutMinutesAgo">
+	  <plural><![CDATA[About %1 minutes ago]]></plural>
+	  <singular><![CDATA[About a minute ago]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutMonthsAgo">
+	  <plural><![CDATA[About %1 months ago]]></plural>
+	  <singular><![CDATA[About a month ago]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutWeeksAgo">
+	  <plural><![CDATA[About %1 weeks ago]]></plural>
+	  <singular><![CDATA[About a week ago]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutYearsAgo">
+	  <plural><![CDATA[About %1 years ago]]></plural>
+	  <singular><![CDATA[About an year ago]]></singular>
+	</str>
+	<str key="FuzzyTime_FewSecondsAgo">
+	  <singular><![CDATA[A few seconds ago]]></singular>
+	</str>
+	<str key="FuzzyTime_ManyYearsAgo">
+	  <singular><![CDATA[Many years ago]]></singular>
+	</str>
+	<str key="FuzzyTime_MinutesAgo">
+	  <plural><![CDATA[%1 minutes ago]]></plural>
+	  <singular><![CDATA[One minute ago]]></singular>
+	</str>
+	<str key="FuzzyTime_MoreThanYearsAgo">
+	  <plural><![CDATA[More than %1 years ago]]></plural>
+	  <singular><![CDATA[More than a year ago]]></singular>
+	</str>
+	<str key="FuzzyTime_SecondsAgo">
+	  <plural><![CDATA[%1 seconds ago]]></plural>
+	  <singular><![CDATA[One second ago]]></singular>
+	</str>
+	<str key="GameFin_RM_FirstRanking">
+	  <singular><![CDATA[You just got your first ranking points for this game!<br><br>You can check your own game history and exact ranking for each game at <br><b>Profile > Statistics</b> (main menu)<br><br>Other people best rankings you'll find from<br><b>Games > Ranking</b>]]></singular>
+	</str>
+	<str key="GameFin_RS_PersonalRecord">
+	  <singular><![CDATA[Congratulations! You just made your own personal record!<br><br>It will be displayed in the game, but you can also check your own game statistics at<br><b>Profile -> Statistics</b> (main menu)<br><br>Global score lists for this and other Playforia games can be found from<br><b>Games -> Records</b>]]></singular>
+	</str>
+	<str key="GameFin_R_Congratulations">
+	  <singular><![CDATA[Congratulations!]]></singular>
+	</str>
+	<str key="GameFin_R_OK">
+	  <singular><![CDATA[OK!]]></singular>
+	</str>
+	<str key="GameFin_WM_StatsNotSaved">
+	  <singular><![CDATA[Since you are playing without a Playforia account, your personal game statistics will not be saved.<br><br>After creating a free account, you'll get a unique <b>nickname</b> and <b>avatar</b>, your personal <b>game statistics</b> and also take part in the famous <b>Star League</b>.]]></singular>
+	</str>
+	<str key="GameFin_WS_ScoreNotSaved">
+	  <singular><![CDATA[Your game score has not been saved, since you have not yet created a Playforia account.<br><br>By creating an account on Playforia, you get your <b>personal</b> game statistics, records and settings, along with a whole bunch of other cool features!]]></singular>
+	</str>
+	<str key="GameFin_W_Continue">
+	  <singular><![CDATA[Continue Without Account]]></singular>
+	</str>
+	<str key="GameFin_W_CreateAccount">
+	  <singular><![CDATA[Create Account Now (it's free!)]]></singular>
+	</str>
+	<str key="GameFin_W_GameOver">
+	  <singular><![CDATA[Game over!]]></singular>
+	</str>
+	<str key="GoodWords" reverse="yes">
+	  <singular><![CDATA[etanigav,hctawtsirw,retawtlas,retawtlem,retawtuc,eotyssup,toofyssup,tacyssup,elpmip,lenrepmip,allehtnaxooz,llehs,enellehlihp,mellehp,avulleh,olleh,dnuohlleh,etimmarglleh,relleh,erobelleh,revidlleh,xoblleh,redneblleh,lanapmyt,lanac,lanab,lanahccab,zylana,citylana,sylana,citebahplana,golana,iseglana,citpelana,ammelana,stcelana,emiclana]]></singular>
+	</str>
+	<str key="Key_Add">
+	  <singular><![CDATA[+ (plus)]]></singular>
+	</str>
+	<str key="Key_Alt">
+	  <singular><![CDATA[Alt]]></singular>
+	</str>
+	<str key="Key_ArrowDown">
+	  <singular><![CDATA[Down arrow]]></singular>
+	</str>
+	<str key="Key_ArrowLeft">
+	  <singular><![CDATA[Left arrow]]></singular>
+	</str>
+	<str key="Key_ArrowRight">
+	  <singular><![CDATA[Right arrow]]></singular>
+	</str>
+	<str key="Key_ArrowUp">
+	  <singular><![CDATA[Up arrow]]></singular>
+	</str>
+	<str key="Key_BackSpace">
+	  <singular><![CDATA[Back space]]></singular>
+	</str>
+	<str key="Key_Control">
+	  <singular><![CDATA[Control]]></singular>
+	</str>
+	<str key="Key_Delete">
+	  <singular><![CDATA[Delete]]></singular>
+	</str>
+	<str key="Key_Divide">
+	  <singular><![CDATA[/ (slash)]]></singular>
+	</str>
+	<str key="Key_End">
+	  <singular><![CDATA[End]]></singular>
+	</str>
+	<str key="Key_Enter">
+	  <singular><![CDATA[Enter]]></singular>
+	</str>
+	<str key="Key_EnterNew">
+	  <singular><![CDATA[(Press key)]]></singular>
+	</str>
+	<str key="Key_Escape">
+	  <singular><![CDATA[Escape]]></singular>
+	</str>
+	<str key="Key_Home">
+	  <singular><![CDATA[Home]]></singular>
+	</str>
+	<str key="Key_Insert">
+	  <singular><![CDATA[Insert]]></singular>
+	</str>
+	<str key="Key_Multiply">
+	  <singular><![CDATA[* (asterisk)]]></singular>
+	</str>
+	<str key="Key_NotSet">
+	  <singular><![CDATA[(Not set)]]></singular>
+	</str>
+	<str key="Key_Numpad0">
+	  <singular><![CDATA[Numpad 0]]></singular>
+	</str>
+	<str key="Key_Numpad1">
+	  <singular><![CDATA[Numpad 1]]></singular>
+	</str>
+	<str key="Key_Numpad2">
+	  <singular><![CDATA[Numpad 2]]></singular>
+	</str>
+	<str key="Key_Numpad3">
+	  <singular><![CDATA[Numpad 3]]></singular>
+	</str>
+	<str key="Key_Numpad4">
+	  <singular><![CDATA[Numpad 4]]></singular>
+	</str>
+	<str key="Key_Numpad5">
+	  <singular><![CDATA[Numpad 5]]></singular>
+	</str>
+	<str key="Key_Numpad6">
+	  <singular><![CDATA[Numpad 6]]></singular>
+	</str>
+	<str key="Key_Numpad7">
+	  <singular><![CDATA[Numpad 7]]></singular>
+	</str>
+	<str key="Key_Numpad8">
+	  <singular><![CDATA[Numpad 8]]></singular>
+	</str>
+	<str key="Key_Numpad9">
+	  <singular><![CDATA[Numpad 9]]></singular>
+	</str>
+	<str key="Key_PageDown">
+	  <singular><![CDATA[Page Down]]></singular>
+	</str>
+	<str key="Key_PageUp">
+	  <singular><![CDATA[Page Up]]></singular>
+	</str>
+	<str key="Key_Pause">
+	  <singular><![CDATA[Pause]]></singular>
+	</str>
+	<str key="Key_PrintScreen">
+	  <singular><![CDATA[Print Screen]]></singular>
+	</str>
+	<str key="Key_ScrollLock">
+	  <singular><![CDATA[Scroll Lock]]></singular>
+	</str>
+	<str key="Key_Shift">
+	  <singular><![CDATA[Shift]]></singular>
+	</str>
+	<str key="Key_Space">
+	  <singular><![CDATA[Space]]></singular>
+	</str>
+	<str key="Key_Subtrack">
+	  <singular><![CDATA[- (minus)]]></singular>
+	</str>
+	<str key="Key_Tab">
+	  <singular><![CDATA[Tabulator]]></singular>
+	</str>
+	<str key="Language_bg">
+	  <singular><![CDATA[Bulgarian]]></singular>
+	</str>
+	<str key="Language_de">
+	  <singular><![CDATA[German]]></singular>
+	</str>
+	<str key="Language_en">
+	  <singular><![CDATA[English]]></singular>
+	</str>
+	<str key="Language_es">
+	  <singular><![CDATA[Spanish]]></singular>
+	</str>
+	<str key="Language_et">
+	  <singular><![CDATA[Estonian]]></singular>
+	</str>
+	<str key="Language_fi">
+	  <singular><![CDATA[Finnish]]></singular>
+	</str>
+	<str key="Language_fr">
+	  <singular><![CDATA[French]]></singular>
+	</str>
+	<str key="Language_hu">
+	  <singular><![CDATA[Hungarian]]></singular>
+	</str>
+	<str key="Language_it">
+	  <singular><![CDATA[Italian]]></singular>
+	</str>
+	<str key="Language_lt">
+	  <singular><![CDATA[Lithuanian]]></singular>
+	</str>
+	<str key="Language_lv">
+	  <singular><![CDATA[Latvian]]></singular>
+	</str>
+	<str key="Language_nl">
+	  <singular><![CDATA[Dutch]]></singular>
+	</str>
+	<str key="Language_no">
+	  <singular><![CDATA[Norwegian]]></singular>
+	</str>
+	<str key="Language_null">
+	  <singular><![CDATA[Unknown]]></singular>
+	</str>
+	<str key="Language_pl">
+	  <singular><![CDATA[Polish]]></singular>
+	</str>
+	<str key="Language_pt">
+	  <singular><![CDATA[Portuguese]]></singular>
+	</str>
+	<str key="Language_ro">
+	  <singular><![CDATA[Romanian]]></singular>
+	</str>
+	<str key="Language_ru">
+	  <singular><![CDATA[Russian]]></singular>
+	</str>
+	<str key="Language_sv">
+	  <singular><![CDATA[Swedish]]></singular>
+	</str>
+	<str key="Language_tr">
+	  <singular><![CDATA[Turkish]]></singular>
+	</str>
+	<str key="Limit_NeedConfirmEmailNote">
+	  <singular><![CDATA[(need to confirm email)]]></singular>
+	</str>
+	<str key="Limit_OnlyForRegisteredNote">
+	  <singular><![CDATA[(only for registered)]]></singular>
+	</str>
+	<str key="Limit_OnlyWithCreditsNote">
+	  <singular><![CDATA[(only with coins)]]></singular>
+	</str>
+	<str key="Loader_AdClickNote">
+	  <singular><![CDATA[(clicking ad won't interrupt game loading)]]></singular>
+	</str>
+	<str key="Loader_Button_MorePaymentOptions">
+	  <singular><![CDATA[More Payment Options]]></singular>
+	</str>
+	<str key="Loader_Button_StartGame">
+	  <singular><![CDATA[Start Game]]></singular>
+	</str>
+	<str key="Loader_LoadingGame">
+	  <singular><![CDATA[Loading game...]]></singular>
+	</str>
+	<str key="Loader_LoadingGfxSfx">
+	  <singular><![CDATA[Loading graphics and sounds...]]></singular>
+	</str>
+	<str key="Login_EnterNick">
+	  <singular><![CDATA[Your nickname:]]></singular>
+	</str>
+	<str key="Login_EnterNick1">
+	  <singular><![CDATA[You are not logged in!]]></singular>
+	</str>
+	<str key="Login_EnterNick2">
+	  <singular><![CDATA[You may still enter directly to the game by entering your desired nick below:]]></singular>
+	</str>
+	<str key="Login_EnterNick3">
+	  <singular><![CDATA[( ~ character is added to your nick to mark that you are a guest player )]]></singular>
+	</str>
+	<str key="Login_ForbiddenNick">
+	  <singular><![CDATA[Forbidden nick]]></singular>
+	</str>
+	<str key="Login_InvalidNick">
+	  <singular><![CDATA[Invalid nickname (use only letters and numbers).]]></singular>
+	</str>
+	<str key="Login_NeedNick">
+	  <singular><![CDATA[You need to have a nickname]]></singular>
+	</str>
+	<str key="Login_NickInUse">
+	  <singular><![CDATA[Nick is already in use, choose another]]></singular>
+	</str>
+	<str key="Login_NickTooLong">
+	  <singular><![CDATA[Your nick is too long]]></singular>
+	</str>
+	<str key="Login_NickTooShort">
+	  <singular><![CDATA[Your nickname is too short.]]></singular>
+	</str>
+	<str key="Login_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Login_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="Login_RegBenefits1">
+	  <singular><![CDATA[Registering is totally free but it gives you:]]></singular>
+	</str>
+	<str key="Login_RegBenefits2">
+	  <singular><![CDATA[- an unique nickname and playercard with statistics]]></singular>
+	</str>
+	<str key="Login_RegBenefits3">
+	  <singular><![CDATA[- your scores will be saved to top lists and rankings]]></singular>
+	</str>
+	<str key="Login_RegBenefits4">
+	  <singular><![CDATA[- your game settings will be saved]]></singular>
+	</str>
+	<str key="Login_RegBenefits5">
+	  <singular><![CDATA[- and much more...]]></singular>
+	</str>
+	<str key="Login_RegLoginFailed">
+	  <singular><![CDATA[Logging in as registered user failed!]]></singular>
+	</str>
+	<str key="Login_Wait">
+	  <singular><![CDATA[Logging in...]]></singular>
+	</str>
+	<str key="Login_WantRegister1">
+	  <singular><![CDATA[If you want to register or log in, you may do it in Playforia main page.]]></singular>
+	</str>
+	<str key="Login_WantRegister2">
+	  <singular><![CDATA[Click following button to return to the main page:]]></singular>
+	</str>
+	<str key="Match_CantChallenge">
+	  <singular><![CDATA[Your opponent is not here yet.]]></singular>
+	</str>
+	<str key="Match_Challenge">
+	  <singular><![CDATA[Challenge your opponent]]></singular>
+	</str>
+	<str key="Match_CreateOrJoin">
+	  <singular><![CDATA[Start clan match]]></singular>
+	</str>
+	<str key="Match_MatchGameNote">
+	  <singular><![CDATA[NOTE! This is clan match that will affect clan rankings.]]></singular>
+	</str>
+	<str key="Match_MessageError">
+	  <singular><![CDATA[Match error occured! Unable to start clan match]]></singular>
+	</str>
+	<str key="Match_MessageErrorHelp1">
+	  <singular><![CDATA[Game settings are invalid or logging in failed]]></singular>
+	</str>
+	<str key="Match_MessageErrorHelp2">
+	  <singular><![CDATA[(Try again or contact Playforia administrators)]]></singular>
+	</str>
+	<str key="Match_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="Message_BannedInitially">
+	  <singular><![CDATA[You are banned from this game.]]></singular>
+	</str>
+	<str key="Message_BannedInitiallyHelp">
+	  <singular><![CDATA[Try again later...]]></singular>
+	</str>
+	<str key="Message_BannedNow">
+	  <singular><![CDATA[You've been removed from the game.]]></singular>
+	</str>
+	<str key="Message_BannedNowHelp">
+	  <singular><![CDATA[A sheriff kicked you out and banned you from this game.]]></singular>
+	</str>
+	<str key="Message_CE0_1_Long">
+	  <singular><![CDATA[The firewall might prevent the game from making a TCP-connection to %1 (port %2). In case you are using some community computer, it might be that this community has some general firewall in it's network. In this case, contact your local system administrator.]]></singular>
+	</str>
+	<str key="Message_CE0_1_Short">
+	  <singular><![CDATA[Your firewall prevents the connection.]]></singular>
+	</str>
+	<str key="Message_CE0_2_Long">
+	  <singular><![CDATA[Verify if your connection still works, by f.e. reloading this page.]]></singular>
+	</str>
+	<str key="Message_CE0_2_Short">
+	  <singular><![CDATA[Your internet connection dropped.]]></singular>
+	</str>
+	<str key="Message_CE0_3_Long">
+	  <singular><![CDATA[If this is the case, the Playforia administrators will be notified automatically. Please try again after a few moments.]]></singular>
+	</str>
+	<str key="Message_CE0_3_Short">
+	  <singular><![CDATA[The game server is not running (possible but very unlikely)]]></singular>
+	</str>
+	<str key="Message_CE1_1_Long">
+	  <singular><![CDATA[Most of the games can handle a short disconnection from the server. If the connection is lost for a longer period of time, the game will be interrupted. Try reloading this page.]]></singular>
+	</str>
+	<str key="Message_CE1_1_Short">
+	  <singular><![CDATA[Your internet connection dropped.]]></singular>
+	</str>
+	<str key="Message_CE1_2_Long">
+	  <singular><![CDATA[An error occured that can't be handled by the game. A notification has automatically been send to Playforia administrators. Possible problems will be fixed as quickly as possible.]]></singular>
+	</str>
+	<str key="Message_CE1_2_Short">
+	  <singular><![CDATA[A program error occured.]]></singular>
+	</str>
+	<str key="Message_CE1_3_Long">
+	  <singular><![CDATA[The Playforia administrators will be notified automatically and problems will be fixed as quickly as possible. Please try again after a few moments.]]></singular>
+	</str>
+	<str key="Message_CE1_3_Short">
+	  <singular><![CDATA[The game server shut down (possible but very unlikely)]]></singular>
+	</str>
+	<str key="Message_CE_ConnectionError">
+	  <singular><![CDATA[Server connection error]]></singular>
+	</str>
+	<str key="Message_CE_PossibleReasons">
+	  <singular><![CDATA[Possible reasons:]]></singular>
+	</str>
+	<str key="Message_CE_RetryButton">
+	  <singular><![CDATA[Try Again Now]]></singular>
+	</str>
+	<str key="Message_Connecting">
+	  <singular><![CDATA[Connecting to the server...]]></singular>
+	</str>
+	<str key="Message_ConnectionError">
+	  <singular><![CDATA[Connection error!]]></singular>
+	</str>
+	<str key="Message_ConnectionErrorHelp">
+	  <singular><![CDATA[Your internet connection disconnected or a firewall prevents connecting to the server.]]></singular>
+	</str>
+	<str key="Message_DuplicateNick">
+	  <singular><![CDATA[You've already logged into the game from another location.]]></singular>
+	</str>
+	<str key="Message_KickedNow">
+	  <singular><![CDATA[You've been removed from the game.]]></singular>
+	</str>
+	<str key="Message_KickedNowHelp">
+	  <singular><![CDATA[A sheriff kicked you out of this game.]]></singular>
+	</str>
+	<str key="Message_LoginFailedReg">
+	  <singular><![CDATA[Failed to log in with your Playforia account.]]></singular>
+	</str>
+	<str key="Message_LoginFailedRegHelp">
+	  <singular><![CDATA[The server is unable to log you into this game with your current account. Please return to the main page and check if you are still logged in.]]></singular>
+	</str>
+	<str key="Message_PE_ErrorDesc">
+	  <singular><![CDATA[Error: %1]]></singular>
+	</str>
+	<str key="Message_PE_GameClosed">
+	  <singular><![CDATA[We are sorry to inform you that the game was closed due to an unexpected error. If the game was still connected to the server when the error occured, the Playforia Team will automatically informed about it.]]></singular>
+	</str>
+	<str key="Message_PE_ProgramError">
+	  <singular><![CDATA[A program error occured.]]></singular>
+	</str>
+	<str key="Message_PE_RetryButton">
+	  <singular><![CDATA[Restart Game]]></singular>
+	</str>
+	<str key="Message_QuitGame">
+	  <singular><![CDATA[Leaving...]]></singular>
+	</str>
+	<str key="Message_QuitGame_ToBuyCoins">
+	  <singular><![CDATA[Moving to coin purchasing page...]]></singular>
+	</str>
+	<str key="Message_QuitGame_ToRegister">
+	  <singular><![CDATA[Moving to registration page...]]></singular>
+	</str>
+	<str key="Message_ServerFullError">
+	  <singular><![CDATA[This gameserver is currently full]]></singular>
+	</str>
+	<str key="Message_ServerFullErrorHelp">
+	  <singular><![CDATA[(Please try again later or play some other Playforia games)]]></singular>
+	</str>
+	<str key="Message_ServerShutting">
+	  <singular><![CDATA[The server is shutting down. Please try again after a while!]]></singular>
+	</str>
+	<str key="Message_TooManySameIP">
+	  <singular><![CDATA[Too many connections from the same IP address.]]></singular>
+	</str>
+	<str key="Message_TooManySameIPHelp">
+	  <singular><![CDATA[(Please try again later)]]></singular>
+	</str>
+	<str key="Message_VersionError">
+	  <singular><![CDATA[Server/client version-conflict, try to clear browser cache and restart browser]]></singular>
+	</str>
+	<str key="Message_VersionErrorHelp">
+	  <singular><![CDATA[(In many browser it is enough to reload this page by pressing Shift- or Ctrl-key on keyboard and click browser's Reload/Refresh-button))]]></singular>
+	</str>
+	<str key="Message_WaitWhile">
+	  <singular><![CDATA[One moment please...]]></singular>
+	</str>
+	<str key="NeedAccount_CreateButton">
+	  <singular><![CDATA[Create Free Account Now]]></singular>
+	</str>
+	<str key="NeedAccount_Info1">
+	  <singular><![CDATA[You can only use this feature if you have a Playforia account. Creating an account is simple and fast, and totally free.]]></singular>
+	</str>
+	<str key="NeedAccount_Info2">
+	  <singular><![CDATA[After you've created your account, you can use it at all times. You'll also gain access to many extras throughout the Playforia services.]]></singular>
+	</str>
+	<str key="NeedAccount_LaterButton">
+	  <singular><![CDATA[Maybe Later]]></singular>
+	</str>
+	<str key="NeedAccount_LoginButton">
+	  <singular><![CDATA[Log In Now]]></singular>
+	</str>
+	<str key="NeedAccount_NotLoggedIn">
+	  <singular><![CDATA[If you already have an account, you're not logged in. You can log in at Playforia's front page.]]></singular>
+	</str>
+	<str key="NeedAccount_Title">
+	  <singular><![CDATA[A Playforia account is required]]></singular>
+	</str>
+	<str key="OrderFrame_AfterOrderInstructions">
+	  <singular><![CDATA[After sending a text message (SMS), wait and do not close this window. 
+Close this window only if you do not wish to send a text message (SMS).]]></singular>
+	</str>
+	<str key="OrderFrame_Bought">
+	  <singular><![CDATA[Purchase accepted.]]></singular>
+	</str>
+	<str key="OrderFrame_Error">
+	  <singular><![CDATA[An error occured.]]></singular>
+	</str>
+	<str key="OrderFrame_Error_Info">
+	  <singular><![CDATA[This service is temporarily unavailable. The problem will be fixed as soon as possible, please try again later. Close this window to continue.]]></singular>
+	</str>
+	<str key="OrderFrame_Instructions">
+	  <singular><![CDATA[Text<br><center><big><strong>%1</strong></big><br>to number <strong>%2</strong></center><br><br><small>The message fee is %3 and the service works with the following operators: %4</small>]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOut">
+	  <singular><![CDATA[Offer timed out]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOutNote">
+	  <singular><![CDATA[This order must be made in %1, after this time the offer is automatically cancelled.]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOut_Info">
+	  <singular><![CDATA[This purchase can't proceed any longer. Close this window to continue.]]></singular>
+	</str>
+	<str key="OrderFrame_Title">
+	  <singular><![CDATA[Order by text (SMS)]]></singular>
+	</str>
+	<str key="OrderFrame_Wait">
+	  <singular><![CDATA[Wait a moment please...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionOpeningCreditPurchase">
+	  <singular><![CDATA[Opening coin purchase in new window...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionProductPurchase">
+	  <singular><![CDATA[Please wait while processing purchase...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionRefreshingCredits">
+	  <singular><![CDATA[Refreshing balance...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ButtonGetCredits">
+	  <singular><![CDATA[Get coins]]></singular>
+	</str>
+	<str key="PurchaseFrame_ButtonRefresh">
+	  <singular><![CDATA[Refresh]]></singular>
+	</str>
+	<str key="PurchaseFrame_Credits">
+	  <singular><![CDATA[Coins:]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_ButtonBack">
+	  <singular><![CDATA[Back to lobby]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_ButtonContinue">
+	  <singular><![CDATA[Continue to game]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_FrameTitle">
+	  <singular><![CDATA[Continue to game]]></singular>
+	</str>
+	<str key="PurchaseFrame_Error_FrameTitle">
+	  <singular><![CDATA[Error]]></singular>
+	</str>
+	<str key="PurchaseFrame_Error_Message">
+	  <singular><![CDATA[For some reason, this product is not currently available with coins. Please try again later.]]></singular>
+	</str>
+	<str key="PurchaseFrame_NoProductDescription">
+	  <singular><![CDATA[(No description available for '%1')]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseFailed">
+	  <singular><![CDATA[Purchase failed, close this window and try again]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseNoBalance">
+	  <singular><![CDATA[Purchase failed because you seem to not have enough coins]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseOk">
+	  <singular><![CDATA[Purchase completed, you can continue now by closing this window.]]></singular>
+	</str>
+	<str key="PurchaseFrame_RefreshAfterGet">
+	  <singular><![CDATA[After you have purchased coins, click following button to update your balance.]]></singular>
+	</str>
+	<str key="QuitConfirm_ButtonNo">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="QuitConfirm_ButtonYes">
+	  <singular><![CDATA[Yes]]></singular>
+	</str>
+	<str key="QuitConfirm_Text">
+	  <singular><![CDATA[The game is not finished yet! Are you sure you want to quit in the middle of the game?]]></singular>
+	</str>
+	<str key="QuitConfirm_Title">
+	  <singular><![CDATA[Are you sure?]]></singular>
+	</str>
+	<str key="RegRemind_ClickHere">
+	  <singular><![CDATA[Click <here> to register for free!]]></singular>
+	</str>
+	<str key="RegRemind_GameOver">
+	  <singular><![CDATA[Game over. Your score was not saved on high score lists because you're not registered user.]]></singular>
+	</str>
+	<str key="RegRemind_Title">
+	  <singular><![CDATA[Remember to register]]></singular>
+	</str>
+	<str key="SDM_BadMessages">
+	  <singular><![CDATA[Your behaviour is inappropriate. Please stop this or you will be removed from this game!]]></singular>
+	</str>
+	<str key="SDM_BadNickReg">
+	  <singular><![CDATA[Your nickname is inappropriate! Delete your current account and create a new, appropriate one. If you continue using this nickname, your whole account will be deleted.]]></singular>
+	</str>
+	<str key="SDM_BadNickWorm">
+	  <singular><![CDATA[Your nickname is inappropriate! Please quit this game immediately and log in with a different nickname.]]></singular>
+	</str>
+	<str key="SDM_ChatCleared">
+	  <singular><![CDATA[The chat was cleared by a sheriff or administrator due to private or inappropriate messaging.]]></singular>
+	</str>
+	<str key="SDM_SexMessages">
+	  <singular><![CDATA[It is inappropriate to search for sex or make sexual related comments in the Playforia chats. Please stop this right away!]]></singular>
+	</str>
+	<str key="SeparatorDayHour">
+	  <singular><![CDATA[d_]]></singular>
+	</str>
+	<str key="SeparatorDecimal">
+	  <singular><![CDATA[.]]></singular>
+	</str>
+	<str key="SeparatorHourMinute">
+	  <singular><![CDATA[:]]></singular>
+	</str>
+	<str key="SeparatorMinuteSecond">
+	  <singular><![CDATA[:]]></singular>
+	</str>
+	<str key="SeparatorSecondFraction">
+	  <singular><![CDATA[.]]></singular>
+	</str>
+	<str key="SeparatorThousand">
+	  <singular><![CDATA[,]]></singular>
+	</str>
+	<str key="ServerSay_SheriffGaveWarning">
+	  <singular><![CDATA[Sheriff gave warning to user %1.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffMutedUser">
+	  <singular><![CDATA[Sheriff muted user %1 for %2 minutes.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffMutedYou">
+	  <singular><![CDATA[You have been muted by sheriff for %1 minutes.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffUnMutedUser">
+	  <singular><![CDATA[User %1 was unmuted by Sheriff.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffUnMutedYou">
+	  <singular><![CDATA[You have been unmuted by a sheriff.]]></singular>
+	</str>
+	<str key="ServerSay_YouAreMuted">
+	  <singular><![CDATA[You are currently muted by sheriff for %1 minutes, other people won't see your chat messages.]]></singular>
+	</str>
+	<str key="TellFriend_ButtonClose">
+	  <singular><![CDATA[Close]]></singular>
+	</str>
+	<str key="TellFriend_ButtonSend">
+	  <singular><![CDATA[Send]]></singular>
+	</str>
+	<str key="TellFriend_EmailAdd">
+	  <singular><![CDATA[More emails...]]></singular>
+	</str>
+	<str key="TellFriend_EmailHelp">
+	  <singular><![CDATA[(friend's email address)]]></singular>
+	</str>
+	<str key="TellFriend_EmailNotSent">
+	  <singular><![CDATA[An error occured during mailing. We apologize for this and won't disturb you any more.]]></singular>
+	</str>
+	<str key="TellFriend_EmailRemove">
+	  <singular><![CDATA[X]]></singular>
+	</str>
+	<str key="TellFriend_EmailSent">
+	  <singular><![CDATA[Email sent, thank you!]]></singular>
+	</str>
+	<str key="TellFriend_EmailTitle">
+	  <singular><![CDATA[E-mail addresses:]]></singular>
+	</str>
+	<str key="TellFriend_ExtButton">
+	  <singular><![CDATA[Tell a friend]]></singular>
+	</str>
+	<str key="TellFriend_Info">
+	  <singular><![CDATA[Tell your friends about this cool game, it takes just a few seconds. Type your friends email addresses below and click "Send". (We do not collect e-mail addresses you enter, the mail will only be sent once. We don't like spam either.)]]></singular>
+	</str>
+	<str key="TellFriend_MessageTitle">
+	  <singular><![CDATA[Message to be attached (optional):]]></singular>
+	</str>
+	<str key="TellFriend_Title">
+	  <singular><![CDATA[Tell a friend!]]></singular>
+	</str>
+	<str key="Tournament_QuitGameButton">
+	  <singular><![CDATA[Quit game]]></singular>
+	</str>
+	<str key="UserList_Ignore">
+	  <singular><![CDATA[Ignore selected user]]></singular>
+	</str>
+	<str key="UserList_OpenPlayerCard">
+	  <singular><![CDATA[Open profile]]></singular>
+	</str>
+	<str key="UserList_Privately">
+	  <singular><![CDATA[Send as private]]></singular>
+	</str>
+	<str key="UserList_Sheriff">
+	  <singular><![CDATA[(sheriff)]]></singular>
+	</str>
+	<str key="UserList_SortByNick">
+	  <singular><![CDATA[Nickname]]></singular>
+	</str>
+	<str key="UserList_SortByRanking">
+	  <singular><![CDATA[R]]></singular>
+	</str>
+</localization>

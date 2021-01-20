@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="AGolf2" lang="fi_FI">
+	<str key="Editor_Basic">
+	  <singular><![CDATA[Perus]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_0">
+	  <singular><![CDATA[Ruoho]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_1">
+	  <singular><![CDATA[Hiekka (pallo hidastuu)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_10">
+	  <singular><![CDATA[Superhappo (ph=-1, pelaaja häviää välittömästi. Käytettävä varoen!)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_13">
+	  <singular><![CDATA[Seinä, pallo menee läpi kohti pohjoista]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_16">
+	  <singular><![CDATA[Seinä, pallo menee läpi kohti länttä]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_18">
+	  <singular><![CDATA[Seinä, pallo menee läpi kohti itää]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_2">
+	  <singular><![CDATA[Muta (pallo liikkuu tuskin lainkaan)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_21">
+	  <singular><![CDATA[Seinä, pallo menee läpi kohti etelää]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_24">
+	  <singular><![CDATA[Seinä]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_26">
+	  <singular><![CDATA[Tahmea seinä, osuessaan pallo pysähtyy]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_27">
+	  <singular><![CDATA[Kumiseinä, pallo saa osuessaan lisää vauhtia]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_3">
+	  <singular><![CDATA[Jää (liukas pinta, pallo ei juurikaan hidastu)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_4">
+	  <singular><![CDATA[Vesi (jos pallo menee veteen, pelaajan on lyötävä uudestaan)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_5">
+	  <singular><![CDATA[Suo (hidastaa palloa, jos pallo pysähtyy suolle, toimii kuin vesi)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_8">
+	  <singular><![CDATA[Happo (jos pallo menee happoon, pelaaja aloittaa radan alusta)]]></singular>
+	</str>
+	<str key="Editor_ElementInfo_9">
+	  <singular><![CDATA[Happosuo (hidastaa palloa, jos pallo pysähtyy, toimii kuin happo)]]></singular>
+	</str>
+	<str key="Editor_File">
+	  <singular><![CDATA[Tiedostot]]></singular>
+	</str>
+	<str key="Editor_File_Back">
+	  <singular><![CDATA[<- Aulaan]]></singular>
+	</str>
+	<str key="Editor_File_BackInfo">
+	  <singular><![CDATA[Takaisin aulaan]]></singular>
+	</str>
+	<str key="Editor_File_Delete">
+	  <singular><![CDATA[Poista]]></singular>
+	</str>
+	<str key="Editor_File_DeleteInfo">
+	  <singular><![CDATA[Poista tekemäsi rata]]></singular>
+	</str>
+	<str key="Editor_File_Load">
+	  <singular><![CDATA[Lataa]]></singular>
+	</str>
+	<str key="Editor_File_LoadInfo">
+	  <singular><![CDATA[Lataa aiemmin tekemäsi rata]]></singular>
+	</str>
+	<str key="Editor_File_Publish">
+	  <singular><![CDATA[Julkaise]]></singular>
+	</str>
+	<str key="Editor_File_PublishInfo">
+	  <singular><![CDATA[Julkaise rata muille käyttäjille]]></singular>
+	</str>
+	<str key="Editor_File_Save">
+	  <singular><![CDATA[Tallenna]]></singular>
+	</str>
+	<str key="Editor_File_SaveInfo">
+	  <singular><![CDATA[Tallenna rata palvelimelle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_0">
+	  <singular><![CDATA[Radan alkupiste]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_1">
+	  <singular><![CDATA[Reikä]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_10">
+	  <singular><![CDATA[Näkyvä miina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_11">
+	  <singular><![CDATA[Räjähtänyt miina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_12">
+	  <singular><![CDATA[Näkymätön supermiina (tekee kolon, voi tuhota seiniä)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_13">
+	  <singular><![CDATA[Näkyvä supermiina (tekee kolon, voi tuhota seiniä)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_14">
+	  <singular><![CDATA[Räjähtänyt supermiina]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_18">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 6 osumaa tuhoutuakseen (maasto ei näy alta)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_19">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 5 osumaa tuhoutuakseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_20">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 4 osumaa tuhoutuakseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_21">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 3 osumaa tuhoutuakseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_22">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 2 osumaa tuhoutuakseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_23">
+	  <singular><![CDATA[Tiiliseinä, joka vaatii 1 osuman tuhoutuakseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_24">
+	  <singular><![CDATA[Tappi, joka suurentaa pallon osuttaessa]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_25">
+	  <singular><![CDATA[Tappi, joka pienentää pallon osuttaessa]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_26">
+	  <singular><![CDATA[Tappi, joka normalisoi pallon osuttaessa]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_27">
+	  <singular><![CDATA[Jää, joka särkyy 6 ylityskerran jälkeen (näyttää tavalliselta jäältä)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_28">
+	  <singular><![CDATA[Jää, joka särkyy 5 ylityskerran jälkeen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_29">
+	  <singular><![CDATA[Jää, joka särkyy 4 ylityskerran jälkeen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_30">
+	  <singular><![CDATA[Jää, joka särkyy 3 ylityskerran jälkeen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_31">
+	  <singular><![CDATA[Jää, joka särkyy 2 ylityskerran jälkeen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_32">
+	  <singular><![CDATA[Jää, joka särkyy 1 ylityskerran jälkeen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_36">
+	  <singular><![CDATA[Näkymätön vetävä magneetti]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_37">
+	  <singular><![CDATA[Näkyvä vetävä magneetti]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_38">
+	  <singular><![CDATA[Näkymätön työntävä magneetti]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_39">
+	  <singular><![CDATA[Näkyvä työntävä magneetti]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_42">
+	  <singular><![CDATA[Laatikko, jota voi työnnellä ympäriinsä]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_43">
+	  <singular><![CDATA[Työnneltävä laatta, joka uppoaa nesteisiin muodostaen sillan]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_44">
+	  <singular><![CDATA[Laatta, joka on uponnut muodostaen sillan]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_45">
+	  <singular><![CDATA[Alkupiste siniselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_46">
+	  <singular><![CDATA[Alkupiste punaiselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_47">
+	  <singular><![CDATA[Alkupiste keltaiselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_48">
+	  <singular><![CDATA[Alkupiste vihreälle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_49">
+	  <singular><![CDATA[Alkupiste pinkille pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_50">
+	  <singular><![CDATA[Alkupiste syaanille pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_54">
+	  <singular><![CDATA[Reikä vain siniselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_55">
+	  <singular><![CDATA[Reikä vain punaiselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_56">
+	  <singular><![CDATA[Reikä vain keltaiselle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_57">
+	  <singular><![CDATA[Reikä vain vihreälle pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_58">
+	  <singular><![CDATA[Reikä vain pinkille pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_59">
+	  <singular><![CDATA[Reikä vain syaanille pelaajalle]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_6">
+	  <singular><![CDATA[Valonlähde (vaikuttaa vain, jos käyttäjällä on täydet grafiikat)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_61">
+	  <singular><![CDATA[Hyppyri pohjoiseen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_63">
+	  <singular><![CDATA[Teleportin 1 sisäänmeno (teleporttaa numeron 1 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_64">
+	  <singular><![CDATA[Teleportin 2 sisäänmeno (teleporttaa numeron 2 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_65">
+	  <singular><![CDATA[Teleportin 3 sisäänmeno (teleporttaa numeron 3 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_66">
+	  <singular><![CDATA[Teleportin 4 sisäänmeno (teleporttaa numeron 4 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_67">
+	  <singular><![CDATA[Teleportin 5 sisäänmeno (teleporttaa numeron 5 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_68">
+	  <singular><![CDATA[Teleportin 6 sisäänmeno (teleporttaa numeron 6 poistumiseen)]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_69">
+	  <singular><![CDATA[Hyppyri länteen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_71">
+	  <singular><![CDATA[Hyppyri itään]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_72">
+	  <singular><![CDATA[Teleportin 1 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_73">
+	  <singular><![CDATA[Teleportin 2 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_74">
+	  <singular><![CDATA[Teleportin 3 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_75">
+	  <singular><![CDATA[Teleportin 4 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_76">
+	  <singular><![CDATA[Teleportin 5 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_77">
+	  <singular><![CDATA[Teleportin 6 poistuminen]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_79">
+	  <singular><![CDATA[Hyppyri etelään]]></singular>
+	</str>
+	<str key="Editor_ObjectInfo_9">
+	  <singular><![CDATA[Näkymätön miina]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Delete">
+	  <singular><![CDATA[Poista]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Deleted">
+	  <singular><![CDATA[Rata poistettu]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Error">
+	  <singular><![CDATA[Odottamaton virhe (koodi=%1)]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Title">
+	  <singular><![CDATA[Poista oma rata]]></singular>
+	</str>
+	<str key="Editor_PopupDelete_Wait">
+	  <singular><![CDATA[Poistetaan rataa...]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Error">
+	  <singular><![CDATA[Odottamaton virhe (koodi=%1)]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListName">
+	  <singular><![CDATA[Nimi]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListRating">
+	  <singular><![CDATA[Arvosana]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListState">
+	  <singular><![CDATA[Tila]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStateFree">
+	  <singular><![CDATA[Ilmainen]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStateOfficial">
+	  <singular><![CDATA[Virallinen]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStatePrivate">
+	  <singular><![CDATA[Yksityinen]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListStatePublic">
+	  <singular><![CDATA[Julkinen]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_ListVotes">
+	  <singular><![CDATA[Ääniä]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Load">
+	  <singular><![CDATA[Lataa]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Title">
+	  <singular><![CDATA[Lataa oma rata]]></singular>
+	</str>
+	<str key="Editor_PopupLoad_Wait">
+	  <singular><![CDATA[Ladataan rataa...]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_CantOverwritePublic">
+	  <singular><![CDATA[Julkaisu epäonnistui. Saman niminen julkinen rata on jo olemassa. Julkisia ratoja ei voi ylikirjoittaa.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Error">
+	  <singular><![CDATA[Odottamaton virhe tapahtui]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Info">
+	  <singular><![CDATA[Radan julkaiseminen. Testaa ratasi huolella ennen julkaisemista. Rataa ei voi julkaisemisen jälkeen enää muuttaa. Kaikki loukkaavat tai loukkaavasti nimetyt radat poistetaan. Kirjoita radan nimi alla olevaan tekstikenttään. Jos rata on suunniteltu pelattavaksi yksin, rastita alla oleva laatikko. Paina "Julkaise"-nappia julkaistaksesi radan. Radan julkaiseminen maksaa %1 taatelia, sinulla on %2 taatelia.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_InfoAdd">
+	  <singular><![CDATA[Huomaa, että ylläpidolla on oikeus poistaa pelikelvottomat, loukkaavat tai muuten sopimattomat radat ilman varoitusta ja taatelien palautusta!]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_InvalidName">
+	  <singular><![CDATA[Julkaisu epäonnistui. Radan nimi on virheellinen. Tarkista, että nimi on ohjeiden mukainen ja yritä uudelleen.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_NoBoughtCredits">
+	  <singular><![CDATA[Et voi julkaista rataa, sillä sinulla ei ole ostettuja taateleita. Rekisteröinnin yhteydessä saatuja tai muita lahjataateleita ei voi käyttää radan julkaisun maksuna.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_NoCredits">
+	  <singular><![CDATA[Julkaisu epäonnistui. Sinulla ei ole tarpeeksi taateleita.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Publish">
+	  <singular><![CDATA[Julkaise]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Published">
+	  <singular><![CDATA[Rata julkaistu]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_SinglePlayerOnly">
+	  <singular><![CDATA[Rata on vain yhden pelaajan peleihin]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Title">
+	  <singular><![CDATA[Radan julkaiseminen]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_TooManyTracks">
+	  <singular><![CDATA[Julkaiseminen epäonnistui. Sinulla on jo liian monta julkaistua rataa.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_TrackNotTested">
+	  <singular><![CDATA[Rataa ei ole testattu viimeisimmän tehdyn muutoksen jälkeen. Radan voi julkaista vasta kun olet testannut sitä ja saanut sen testauksessa pelattua ainakin kertaalleen läpi. Sulje tämä ikkuna ja testaa rataa.]]></singular>
+	</str>
+	<str key="Editor_PopupPublish_Wait">
+	  <singular><![CDATA[Odota, rataa tallennetaan ja julkaistaan...]]></singular>
+	</str>
+	<str key="Editor_PopupSave_CantOverwritePublic">
+	  <singular><![CDATA[Tallennus epäonnistui. Saman niminen julkinen rata on jo olemassa. Julkisia ratoja ei voi ylikirjoittaa.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Info">
+	  <singular><![CDATA[Radan tallentaminen palvelimelle. Anna radalle nimi (vain kirjaimia ja numeroita, vähintään 3 merkkiä) alla olevaan tekstikenttään ja paina "Tallenna" painiketta.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_InvalidName">
+	  <singular><![CDATA[Tallennus epäonnistui. Radan nimi on virheellinen. Tarkista, että nimi on ohjeiden mukainen ja yritä uudelleen.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Save">
+	  <singular><![CDATA[Tallenna]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Saved">
+	  <singular><![CDATA[Rata tallennettu]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Title">
+	  <singular><![CDATA[Radan tallentaminen]]></singular>
+	</str>
+	<str key="Editor_PopupSave_TooManyTracks">
+	  <singular><![CDATA[Tallennus epäonnistui. Sinulla on jo liian monta tallennettua rataa. Poista tai julkaise joitain vanhoja ratojasi ensin.]]></singular>
+	</str>
+	<str key="Editor_PopupSave_Wait">
+	  <singular><![CDATA[Odota, rataa tallennetaan...]]></singular>
+	</str>
+	<str key="Editor_Popup_Cancel">
+	  <singular><![CDATA[Peru]]></singular>
+	</str>
+	<str key="Editor_Popup_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Editor_ShapeInfo">
+	  <singular><![CDATA[Valitse muoto hiiren napilla, valitse sitten materiaali ja rinteen suunta]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_0">
+	  <singular><![CDATA[Luoteeseen viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_1">
+	  <singular><![CDATA[Pohjoiseen viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_2">
+	  <singular><![CDATA[Koilliseen viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_3">
+	  <singular><![CDATA[Länteen viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_4">
+	  <singular><![CDATA[Ei rinnettä]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_5">
+	  <singular><![CDATA[Itään viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_6">
+	  <singular><![CDATA[Lounaaseen viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_7">
+	  <singular><![CDATA[Etelään viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_SlopeInfo_8">
+	  <singular><![CDATA[Kaakkoon viettävä rinne]]></singular>
+	</str>
+	<str key="Editor_Special">
+	  <singular><![CDATA[Erikois]]></singular>
+	</str>
+	<str key="Editor_Tools">
+	  <singular><![CDATA[Työkalut]]></singular>
+	</str>
+	<str key="Editor_Tools_Clear">
+	  <singular><![CDATA[Tyhjennä]]></singular>
+	</str>
+	<str key="Editor_Tools_Crosshair">
+	  <singular><![CDATA[Tähtäin]]></singular>
+	</str>
+	<str key="Editor_Tools_Grid">
+	  <singular><![CDATA[Ristikko]]></singular>
+	</str>
+	<str key="Editor_Tools_Mirror">
+	  <singular><![CDATA[Peilaus]]></singular>
+	</str>
+	<str key="Editor_Tools_Move">
+	  <singular><![CDATA[Siirto]]></singular>
+	</str>
+	<str key="Editor_Tools_Paint">
+	  <singular><![CDATA[Maalaus]]></singular>
+	</str>
+	<str key="Editor_Tools_Test">
+	  <singular><![CDATA[Testaa rataa]]></singular>
+	</str>
+	<str key="Editor_Tools_Undo">
+	  <singular><![CDATA[Peru]]></singular>
+	</str>
+	<str key="Game2_LocalVoteSkipTrack">
+	  <singular><![CDATA[Äänestit radan ohittamiseksi]]></singular>
+	</str>
+	<str key="Game2_LocalWantNewGame">
+	  <singular><![CDATA[Uusi haaste on lähetetty muille pelaajille]]></singular>
+	</str>
+	<str key="Game2_PlayerVoteSkipTrack">
+	  <singular><![CDATA[Pelaaja %1 äänesti radan ohittamiseksi]]></singular>
+	</str>
+	<str key="Game2_PlayerWantNewGame">
+	  <singular><![CDATA[Pelaaja %1 haluaa uuden pelin]]></singular>
+	</str>
+	<str key="Game2_VoteSkipTrackAccepted">
+	  <singular><![CDATA[Kaikki pelaajat halusivat ohittaa radan]]></singular>
+	</str>
+	<str key="Game2_VoteSkipTrackHelp">
+	  <singular><![CDATA[(Rata ohitetaan, jos kaikki äänestävät niin)]]></singular>
+	</str>
+	<str key="Game2_WantNewGameAccepted">
+	  <singular><![CDATA[Kaikki jäljellä olevat pelaajat halusivat uuden pelin]]></singular>
+	</str>
+	<str key="Game2_WantNewGameHelp">
+	  <singular><![CDATA[(Jos haluat ottaa uuden pelin, klikkaa oikealta "Uusi peli"-nappia)]]></singular>
+	</str>
+	<str key="Game_Chat_FirstGameStart">
+	  <singular><![CDATA[Tervetuloa peliin "%1"]]></singular>
+	</str>
+	<str key="Game_Chat_GameEnd">
+	  <singular><![CDATA[** Peli päättyi **]]></singular>
+	</str>
+	<str key="Game_Chat_GameStart">
+	  <singular><![CDATA[** Peli alkaa **]]></singular>
+	</str>
+	<str key="Game_Chat_PlayerTimedOut">
+	  <singular><![CDATA[* Pelaaja %1 viivytteli *]]></singular>
+	</str>
+	<str key="Game_Control_BackToEditor">
+	  <singular><![CDATA[Takaisin editoriin]]></singular>
+	</str>
+	<str key="Game_Control_BackToLobby">
+	  <singular><![CDATA[Takaisin aulaan]]></singular>
+	</str>
+	<str key="Game_Control_NewGame">
+	  <singular><![CDATA[Uusi peli]]></singular>
+	</str>
+	<str key="Game_Control_NextTrack">
+	  <singular><![CDATA[Seuraava rata ->]]></singular>
+	</str>
+	<str key="Game_Control_Restart">
+	  <singular><![CDATA[Aloita alusta]]></singular>
+	</str>
+	<str key="Game_Control_Settings">
+	  <singular><![CDATA[Asetukset]]></singular>
+	</str>
+	<str key="Game_Control_VoteSkipTrack">
+	  <singular><![CDATA[Äänestä ohitusta]]></singular>
+	</str>
+	<str key="Game_PlayView_Draw">
+	  <singular><![CDATA[Tasapeli]]></singular>
+	</str>
+	<str key="Game_PlayView_GameFinished">
+	  <singular><![CDATA[Peli päättyi]]></singular>
+	</str>
+	<str key="Game_PlayView_GameOver">
+	  <singular><![CDATA[Peli päättyi]]></singular>
+	</str>
+	<str key="Game_PlayView_Playing">
+	  <singular><![CDATA[Pelaa]]></singular>
+	</str>
+	<str key="Game_PlayView_PreparingTrack">
+	  <singular><![CDATA[Valmistellaan rataa, odota hetki...]]></singular>
+	</str>
+	<str key="Game_PlayView_Winner">
+	  <singular><![CDATA[Voittaja:]]></singular>
+	</str>
+	<str key="Game_PlayView_Winners">
+	  <singular><![CDATA[Voittajat:]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_RateTrack">
+	  <singular><![CDATA[Arvostele edellinen]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_Rating">
+	  <singular><![CDATA[Arvosana]]></singular>
+	</str>
+	<str key="Game_PrevTrackInfo_TrackWas">
+	  <singular><![CDATA[Edellinen rata: %1]]></singular>
+	</str>
+	<str key="Game_Settings_BeepOwnTurnStart">
+	  <singular><![CDATA[Äänimerkki oman vuoron alussa]]></singular>
+	</str>
+	<str key="Game_Settings_ButtonOk">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsBallHlShadow">
+	  <singular><![CDATA[Pallon varjo]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsBlur">
+	  <singular><![CDATA[Pehmeät grafiikat]]></singular>
+	</str>
+	<str key="Game_Settings_GraphicsSpotLight">
+	  <singular><![CDATA[Valaistus]]></singular>
+	</str>
+	<str key="Game_Settings_SounfEffects">
+	  <singular><![CDATA[Ääniefektit]]></singular>
+	</str>
+	<str key="Game_Settings_Title">
+	  <singular><![CDATA[Asetukset - Super Minigolf]]></singular>
+	</str>
+	<str key="Game_TrackInfo_AverageResult">
+	  <singular><![CDATA[Keskiarvo: %1 lyöntiä]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResult">
+	  <singular><![CDATA[Paras tulos:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultFirst1">
+	  <singular><![CDATA[Ennätyksen tekijä:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultFirst2">
+	  <singular><![CDATA[%1 (%2)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultLast1">
+	  <singular><![CDATA[Viimeksi sivunnut:]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultLast2">
+	  <singular><![CDATA[%1 (%2)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultMultiple">
+	  <singular><![CDATA[%1 (%2% pelaajista)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_BestResultUnique">
+	  <singular><![CDATA[%1 (uniikki)]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackAuthor">
+	  <singular><![CDATA[Tekijä: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackCount">
+	  <singular><![CDATA[Radat: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackDate">
+	  <singular><![CDATA[Tekopäivä: %1]]></singular>
+	</str>
+	<str key="Game_TrackInfo_TrackNumber">
+	  <singular><![CDATA[Rata: %1 / %2]]></singular>
+	</str>
+	<str key="Lobby1_Championship_AllowSpectators">
+	  <singular><![CDATA[Salli katsojat]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficulty">
+	  <singular><![CDATA[Vaikeus]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyEasy">
+	  <singular><![CDATA[Helppo]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyHard">
+	  <singular><![CDATA[Vaikea]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyMedium">
+	  <singular><![CDATA[Keskitaso]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListDifficultyUndefined">
+	  <singular><![CDATA[(määrittelemätön)]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListName">
+	  <singular><![CDATA[Ratasetti]]></singular>
+	</str>
+	<str key="Lobby1_Championship_ListTrackCount">
+	  <singular><![CDATA[Radat]]></singular>
+	</str>
+	<str key="Lobby1_Championship_RegisteredOnly">
+	  <singular><![CDATA[(vain rekisteröityneet)]]></singular>
+	</str>
+	<str key="Lobby1_Championship_StartButton">
+	  <singular><![CDATA[Aloita peli]]></singular>
+	</str>
+	<str key="Lobby1_Championship_Title">
+	  <singular><![CDATA[Mestaruuskierrokset]]></singular>
+	</str>
+	<str key="Lobby1_Header_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="Lobby1_Header_ToEditor">
+	  <singular><![CDATA[Rataeditoriin]]></singular>
+	</str>
+	<str key="Lobby1_Header_ToMultiLobby">
+	  <singular><![CDATA[Moninpeliin]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestAllTime">
+	  <singular><![CDATA[Kaikkien aikojen paras]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestDay">
+	  <singular><![CDATA[Päivän paras]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestMonth">
+	  <singular><![CDATA[Kuukauden paras]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestPersonal">
+	  <singular><![CDATA[Oma paras]]></singular>
+	</str>
+	<str key="Lobby1_TopList_BestWeek">
+	  <singular><![CDATA[Viikon paras]]></singular>
+	</str>
+	<str key="Lobby1_TopList_Title">
+	  <singular><![CDATA[Parhaat tulokset]]></singular>
+	</str>
+	<str key="Lobby1_Training_FreeChoiceButton">
+	  <singular><![CDATA[Valitse radat (%1 valittu)]]></singular>
+	</str>
+	<str key="Lobby1_Training_StartButton">
+	  <singular><![CDATA[Aloita peli]]></singular>
+	</str>
+	<str key="Lobby1_Training_Title">
+	  <singular><![CDATA[Harjoittelu]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListEmpty">
+	  <singular><![CDATA[Ei käynnissä olevia yksinpelejä]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListPlayerNick">
+	  <singular><![CDATA[Pelaaja]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListSpectatorCount">
+	  <singular><![CDATA[Katsojia]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListTrackSet">
+	  <singular><![CDATA[Ratasetti]]></singular>
+	</str>
+	<str key="Lobby1_Watch_ListTrackSetNone">
+	  <singular><![CDATA[(harjoittelu)]]></singular>
+	</str>
+	<str key="Lobby1_Watch_NoSpectatorsGame">
+	  <singular><![CDATA[Tähän peliin ei sallita katsojia]]></singular>
+	</str>
+	<str key="Lobby1_Watch_Title">
+	  <singular><![CDATA[Katso pelejä  ( %1 )]]></singular>
+	</str>
+	<str key="Lobby1_Watch_TitleSelectGame">
+	  <singular><![CDATA[Valitse katsottava peli:]]></singular>
+	</str>
+	<str key="Lobby1_Watch_TitleSpectators">
+	  <singular><![CDATA[Katsojat pelissä:]]></singular>
+	</str>
+	<str key="Lobby1_Watch_WatchButton">
+	  <singular><![CDATA[Siirry katsomoon]]></singular>
+	</str>
+	<str key="Lobby2_Create_CreateGame">
+	  <singular><![CDATA[Tee peli ylläolevilla asetuksilla]]></singular>
+	</str>
+	<str key="Lobby2_Create_LessSettings">
+	  <singular><![CDATA[<< Minimiasetukset]]></singular>
+	</str>
+	<str key="Lobby2_Create_MoreSettings">
+	  <singular><![CDATA[Lisää asetuksia >>]]></singular>
+	</str>
+	<str key="Lobby2_Create_Title">
+	  <singular><![CDATA[Tee uusi peli]]></singular>
+	</str>
+	<str key="Lobby2_Header_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="Lobby2_Header_ToEditor">
+	  <singular><![CDATA[Rataeditoriin]]></singular>
+	</str>
+	<str key="Lobby2_Header_ToSingleLobby">
+	  <singular><![CDATA[Yksinpeliin]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Accept">
+	  <singular><![CDATA[Suostu]]></singular>
+	</str>
+	<str key="Lobby2_Invite_BeepOnInvite">
+	  <singular><![CDATA[Äänimerkki kutsuttaessa]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Challenged">
+	  <singular><![CDATA[%1 haastaa sinut peliin seuraavilla asetuksilla:]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Invited">
+	  <singular><![CDATA[%1 kutsuu sinut mukaan peliin seuraavilla asetuksilla:]]></singular>
+	</str>
+	<str key="Lobby2_Invite_NoInvitesToMe">
+	  <singular><![CDATA[Ei haasteita / kutsuja minulle]]></singular>
+	</str>
+	<str key="Lobby2_Invite_Reject">
+	  <singular><![CDATA[Kieltäydy]]></singular>
+	</str>
+	<str key="Lobby2_Invite_WaitStateInfo">
+	  <singular><![CDATA[(Olet mukana aloitettavassa pelissä. Et voi tällä hetkellä saada kutsuja muihin peleihin.)]]></singular>
+	</str>
+	<str key="Lobby2_Join_InviteOnlyGame">
+	  <singular><![CDATA[(Tähän peliin pääsee vain jos pelin tekijä kutsuu mukaan)]]></singular>
+	</str>
+	<str key="Lobby2_Join_JoinButton">
+	  <singular><![CDATA[Liity peliin]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListEmpty">
+	  <singular><![CDATA[Ei avoimia pelejä, luo uusi peli valitsemalla ylhäältä "Tee uusi peli"]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListGameName">
+	  <singular><![CDATA[Pelin nimi]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListPlayerCount">
+	  <singular><![CDATA[Pelaajat]]></singular>
+	</str>
+	<str key="Lobby2_Join_ListTrackCount">
+	  <singular><![CDATA[Radat]]></singular>
+	</str>
+	<str key="Lobby2_Join_Title">
+	  <singular><![CDATA[Liity peliin  ( %1 )]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitlePlayers">
+	  <singular><![CDATA[Pelaajat:]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitleSelectGame">
+	  <singular><![CDATA[Valitse peli:]]></singular>
+	</str>
+	<str key="Lobby2_Join_TitleSettings">
+	  <singular><![CDATA[Asetukset:]]></singular>
+	</str>
+	<str key="Lobby2_Join_WormCantJoinNonFreeTrackGame">
+	  <singular><![CDATA[Rekisteröimättömänä käyttäjänä et voi liittyä tähän peliin sillä pelissä pelataan muita kuin kaikille ilmaisia ratoja]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ChallengeButton">
+	  <singular><![CDATA[Haasta pelaaja]]></singular>
+	</str>
+	<str key="Lobby2_Wait_InviteButton">
+	  <singular><![CDATA[Kutsu pelaaja]]></singular>
+	</str>
+	<str key="Lobby2_Wait_PartButton">
+	  <singular><![CDATA[Eroa pelistä]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ReadyToStart">
+	  <singular><![CDATA[(valmiina aloittamaan)]]></singular>
+	</str>
+	<str key="Lobby2_Wait_ReadyToStartButton">
+	  <singular><![CDATA[Valmiina aloittamaan]]></singular>
+	</str>
+	<str key="Lobby2_Wait_SetFreeButton">
+	  <singular><![CDATA[Aseta peli vapaaksi kaikille]]></singular>
+	</str>
+	<str key="Lobby2_Wait_Title">
+	  <singular><![CDATA[Uusi moninpeli]]></singular>
+	</str>
+	<str key="Lobby2_Wait_TitlePlayers">
+	  <singular><![CDATA[Pelaajat:]]></singular>
+	</str>
+	<str key="Lobby2_Wait_TitleSettings">
+	  <singular><![CDATA[Asetukset:]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserChallenged">
+	  <singular><![CDATA[Pelaaja %1 haastettu peliin]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserHasIgnoredYou">
+	  <singular><![CDATA[Pelaaja %1 ei kuuntele sinua]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserHaveAnotherInvite">
+	  <singular><![CDATA[Pelaajalla %1 on jo toinen kutsu]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserInvited">
+	  <singular><![CDATA[Kutsuit pelaajan %1 peliin]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserJoinedAnotherGame">
+	  <singular><![CDATA[Pelaaja %1 on jo liittynyt toiseen alkavaan peliin]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserRejectedInvite">
+	  <singular><![CDATA[Pelaaja %1 kieltäytyi kutsusta]]></singular>
+	</str>
+	<str key="Lobby2_Wait_UserTakesNoInvites">
+	  <singular><![CDATA[Pelaaja %1 ei ota kutsuja vastaan]]></singular>
+	</str>
+	<str key="Lobby2_Wait_WaitingInvitedPlayers">
+	  <singular><![CDATA[(Odotetaan että pelin tekijä, %1, kutsuu muita pelaajia peliin tai asettaa pelin vapaaksi kaikille pelaajille)]]></singular>
+	</str>
+	<str key="Lobby2_Wait_WaitingJoiningPlayers">
+	  <singular><![CDATA[(Odotetaan että muita pelaajia liittyy peliin)]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListEmpty">
+	  <singular><![CDATA[Ei käynnissä olevia pelejä]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListGameName">
+	  <singular><![CDATA[Pelin nimi]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListPlayerCount">
+	  <singular><![CDATA[Pelaajat]]></singular>
+	</str>
+	<str key="Lobby2_Watch_ListSpectatorCount">
+	  <singular><![CDATA[Katsojat]]></singular>
+	</str>
+	<str key="Lobby2_Watch_NoSpectatorsGame">
+	  <singular><![CDATA[(Tähän peliin ei oteta katsojia)]]></singular>
+	</str>
+	<str key="Lobby2_Watch_Title">
+	  <singular><![CDATA[Katso pelejä  ( %1 )]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitlePlayers">
+	  <singular><![CDATA[Pelaajat:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitleSelectGame">
+	  <singular><![CDATA[Valitse peli:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_TitleSpectators">
+	  <singular><![CDATA[Katsojat:]]></singular>
+	</str>
+	<str key="Lobby2_Watch_WatchButton">
+	  <singular><![CDATA[Liity katsojaksi]]></singular>
+	</str>
+	<str key="Lobby_BannedFromGame">
+	  <singular><![CDATA[Et voi liittyä peliin, koska sinut on bannattu.]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameBack">
+	  <singular><![CDATA[Takaisin]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameBuy">
+	  <singular><![CDATA[Osta radat]]></singular>
+	</str>
+	<str key="Lobby_Buy_FrameTitle">
+	  <singular><![CDATA[Osta kaikki radat]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectators">
+	  <singular><![CDATA[Sallitaanko katsojat:]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectatorsNo">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="Lobby_Settings_AllowSpectatorsYes">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollision">
+	  <singular><![CDATA[Pallojen väliset törmäykset:]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollisionNo">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="Lobby_Settings_BallCollisionYes">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="Lobby_Settings_GameName">
+	  <singular><![CDATA[Pelin nimi:]]></singular>
+	</str>
+	<str key="Lobby_Settings_MaxStrikesPerTrack">
+	  <singular><![CDATA[Lyöntien maksimimäärä:]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrder">
+	  <singular><![CDATA[Pelijärjestys:]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrderInTurns">
+	  <singular><![CDATA[Vuorotellen]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayOrderSameTime">
+	  <singular><![CDATA[Yhtä aikaa]]></singular>
+	</str>
+	<str key="Lobby_Settings_PlayerCount">
+	  <singular><![CDATA[Maksimi pelaajamäärä:]]></singular>
+	</str>
+	<str key="Lobby_Settings_Players">
+	  <singular><![CDATA[Pelaajat:]]></singular>
+	</str>
+	<str key="Lobby_Settings_RegisteredOnly">
+	  <singular><![CDATA[(vain rekisteröityneet)]]></singular>
+	</str>
+	<str key="Lobby_Settings_Scoring">
+	  <singular><![CDATA[Pisteytys:]]></singular>
+	</str>
+	<str key="Lobby_Settings_ScoringStrikes">
+	  <singular><![CDATA[Vähiten lyöntejä voittaa]]></singular>
+	</str>
+	<str key="Lobby_Settings_ScoringTracks">
+	  <singular><![CDATA[Eniten ratavoittoja voittaa]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackCount">
+	  <singular><![CDATA[Ratojen määrä:]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypes">
+	  <singular><![CDATA[Radat:]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesAll">
+	  <singular><![CDATA[Kaikki (viralliset+käyttäjien)]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesAllOfficial">
+	  <singular><![CDATA[Kaikki viralliset]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesBasicOfficial">
+	  <singular><![CDATA[Perussetti virallisia ratoja]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesFreeOfficial">
+	  <singular><![CDATA[Ilmaiset]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesOwnChoice">
+	  <singular><![CDATA[Itse valitut]]></singular>
+	</str>
+	<str key="Lobby_Settings_TrackTypesUser">
+	  <singular><![CDATA[Käyttäjien tekemät]]></singular>
+	</str>
+	<str key="Lobby_Settings_TurnTimeLimit">
+	  <singular><![CDATA[Vuoron aikaraja:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_Choice">
+	  <singular><![CDATA[Etsi ratoja...]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceBestRating">
+	  <singular><![CDATA[Parhaat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceEasiest">
+	  <singular><![CDATA[Helpoimmat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceHardest">
+	  <singular><![CDATA[Vaikeimmat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceLeastPlayed">
+	  <singular><![CDATA[Vähiten pelatut]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceLongest">
+	  <singular><![CDATA[Pisimmät]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceMostPlayed">
+	  <singular><![CDATA[Eniten pelatut]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceNewest">
+	  <singular><![CDATA[Uusimmat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceOrSearch">
+	  <singular><![CDATA[TAI]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceShortest">
+	  <singular><![CDATA[Lyhimmät]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceTitle">
+	  <singular><![CDATA[1. Valitse mitä tai millaisia ratoja etsit:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ChoiceWorstRating">
+	  <singular><![CDATA[Huonoimmat]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ClearButton">
+	  <singular><![CDATA[Tyhjennä]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_OkButton">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsAuthor">
+	  <singular><![CDATA[Tekijä]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsAverage">
+	  <singular><![CDATA[Lyöntejä (ka)]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsDate">
+	  <singular><![CDATA[Päiväys]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyInit">
+	  <singular><![CDATA[Valitse yläpuolelta millaisia ratoja etsit]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyNone">
+	  <singular><![CDATA[Hakua vastaavia ratoja ei löytynyt]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsEmptyWait">
+	  <singular><![CDATA[Odota, noudetaan ratoja...]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsFinished">
+	  <singular><![CDATA[Läpipeluu-%]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsPlayed">
+	  <singular><![CDATA[Pelattu]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsRating">
+	  <singular><![CDATA[Arvosana]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsTitle">
+	  <singular><![CDATA[2. Hakua vastaavat radat:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_ResultsTrack">
+	  <singular><![CDATA[Rata]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SearchButton">
+	  <singular><![CDATA[-> Hae]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SearchField">
+	  <singular><![CDATA[Vapaa haku, väh. %1 merkkiä]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_SelectedTitle">
+	  <singular><![CDATA[3. Pelattavaksi valitut radat:]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_Title">
+	  <singular><![CDATA[Valitse pelattavat radat - Super Minigolf]]></singular>
+	</str>
+	<str key="Lobby_TrackSelect_TrackError">
+	  <singular><![CDATA[Virhe! Pelattavaksi valittua rataa "%1" ei ole enää saatavilla!]]></singular>
+	</str>
+	<str key="Product__alltracks">
+	  <plural><![CDATA[Osta kaikki radat käyttöösi %1 taatelilla kahden kokonaisen kuukauden ajaksi!]]></plural>
+	  <singular><![CDATA[Osta kaikki radat käyttöösi %1 taatelilla kahden kokonaisen kuukauden ajaksi!]]></singular>
+	</str>
+	<str key="Product__trackpublish">
+	  <singular><![CDATA[]]></singular>
+	</str>
+	<str key="Select_Editor">
+	  <singular><![CDATA[Editori]]></singular>
+	</str>
+	<str key="Select_MultiPlayer">
+	  <singular><![CDATA[Moninpeli]]></singular>
+	</str>
+	<str key="Select_NoChat">
+	  <singular><![CDATA[Ei aulakeskustelua]]></singular>
+	</str>
+	<str key="Select_RegisteredOnly">
+	  <singular><![CDATA[(vain rekisteröityneille)]]></singular>
+	</str>
+	<str key="Select_SinglePlayer">
+	  <singular><![CDATA[Yksinpeli]]></singular>
+	</str>
+</localization>

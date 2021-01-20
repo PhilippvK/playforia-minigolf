@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="AGolf" lang="en_US">
+	<str key="GameChat_GS_MaxStrokes">
+	  <singular><![CDATA[max %1 strokes per track]]></singular>
+	</str>
+	<str key="GameChat_GS_MaxStrokesUnlimited">
+	  <singular><![CDATA[unlimited strokes]]></singular>
+	</str>
+	<str key="GameChat_GS_NoCollision">
+	  <singular><![CDATA[no ball collisions]]></singular>
+	</str>
+	<str key="GameChat_GS_Password">
+	  <singular><![CDATA[Password-protected]]></singular>
+	</str>
+	<str key="GameChat_GS_Players">
+	  <singular><![CDATA[%1 players]]></singular>
+	</str>
+	<str key="GameChat_GS_RegOnly">
+	  <singular><![CDATA[For registered users only]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitMin">
+	  <singular><![CDATA[stroke time %1 min]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitSec">
+	  <singular><![CDATA[stroke time %1 sec]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoring">
+	  <singular><![CDATA[track-scoring]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd1">
+	  <singular><![CDATA[weighting end a little]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd2">
+	  <singular><![CDATA[weighting end plenty]]></singular>
+	</str>
+	<str key="GameChat_GS_Tracks">
+	  <singular><![CDATA[%1 tracks]]></singular>
+	</str>
+	<str key="GameChat_GS_WaterShore">
+	  <singular><![CDATA[ball in water -> stay shore]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Game: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Settings: %1]]></singular>
+	</str>
+	<str key="GameChat_Join">
+	  <singular><![CDATA[%1 joined the game]]></singular>
+	</str>
+	<str key="GameChat_JoinClan">
+	  <singular><![CDATA[%1 [clan: %2] joined the game]]></singular>
+	</str>
+	<str key="GameChat_Part">
+	  <singular><![CDATA[%1 left the game]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="GameChat_ScoreMultiNotify">
+	  <singular><![CDATA[* %1x score from this track *]]></singular>
+	</str>
+	<str key="GameChat_Text">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_TypeHere">
+	  <singular><![CDATA[Type your messages here]]></singular>
+	</str>
+	<str key="GameControl_Back">
+	  <singular><![CDATA[« To menu]]></singular>
+	</str>
+	<str key="GameControl_BackSure">
+	  <singular><![CDATA[Sure?]]></singular>
+	</str>
+	<str key="GameControl_Names0">
+	  <singular><![CDATA[Hide names]]></singular>
+	</str>
+	<str key="GameControl_Names1">
+	  <singular><![CDATA[Show initials]]></singular>
+	</str>
+	<str key="GameControl_Names2">
+	  <singular><![CDATA[Show names]]></singular>
+	</str>
+	<str key="GameControl_Names3">
+	  <singular><![CDATA[Name + clan]]></singular>
+	</str>
+	<str key="GameControl_New">
+	  <singular><![CDATA[New Game]]></singular>
+	</str>
+	<str key="GameControl_Skip">
+	  <singular><![CDATA[Skip track]]></singular>
+	</str>
+	<str key="GamePlayerInfo_AfterLeader">
+	  <singular><![CDATA[(%1)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfAllTime">
+	  <singular><![CDATA[Best of all time]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfDay">
+	  <singular><![CDATA[Best of day]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultIdeal">
+	  <singular><![CDATA[Track records]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNick">
+	  <singular><![CDATA[(Comparison)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNone">
+	  <singular><![CDATA[Choose compare result...]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultOwn">
+	  <singular><![CDATA[%1's best in top list]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultTop100Average">
+	  <singular><![CDATA[Average of top 100]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Draw">
+	  <singular><![CDATA[Draw]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Leader">
+	  <singular><![CDATA[(L)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_OwnTurn">
+	  <singular><![CDATA[Your turn]]></singular>
+	</str>
+	<str key="GamePlayerInfo_PlayerTurn">
+	  <singular><![CDATA[Currently playing]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_ConnectionProblem">
+	  <singular><![CDATA[(Connection problem or closed browser)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_Part">
+	  <singular><![CDATA[(Left the game)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_ReadyForNewGame">
+	  <singular><![CDATA[(Wants a new game!)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Skipped">
+	  <singular><![CDATA[S]]></singular>
+	</str>
+	<str key="GamePlayerInfo_VoteSkipTrack">
+	  <singular><![CDATA[(Vote: skip track)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[(Waiting player)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Winner!]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultL">
+	  <singular><![CDATA[Average of all players: %1 strokes]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultS">
+	  <singular><![CDATA[Average: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByL">
+	  <singular><![CDATA[(best result first by %1 %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByS">
+	  <singular><![CDATA[(by %1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownL">
+	  <singular><![CDATA[(best result first by unknown)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownS">
+	  <singular><![CDATA[(by unknown)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultL">
+	  <singular><![CDATA[Best: %1 strokes]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByL">
+	  <singular><![CDATA[(best result last by %1 %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByS">
+	  <singular><![CDATA[(by %1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentL">
+	  <singular><![CDATA[(%1% of players)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentS">
+	  <singular><![CDATA[(%1%)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultS">
+	  <singular><![CDATA[Best: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultToday">
+	  <singular><![CDATA[today]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueL">
+	  <singular><![CDATA[(unique result)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueS">
+	  <singular><![CDATA[(unique)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultYesterday">
+	  <singular><![CDATA[yesterday]]></singular>
+	</str>
+	<str key="GameTrackInfo_CurrentTrack">
+	  <singular><![CDATA[Track %1/%2]]></singular>
+	</str>
+	<str key="GameTrackInfo_GiveRating">
+	  <singular><![CDATA[Rate this track:]]></singular>
+	</str>
+	<str key="GameTrackInfo_NumberOfTracks">
+	  <singular><![CDATA[Tracks: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_Rating">
+	  <singular><![CDATA[Rating: %1]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Select someone to challenge from list (on the left) first]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[You can't challenge yourself, select someone else.]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Type your message here and press Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[No game messages]]></singular>
+	</str>
+	<str key="LobbyChat_NoInfoOfUnregistered">
+	  <singular><![CDATA[Playercards are not available for unregistered users.]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[No join/part messages]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpDual">
+	  <singular><![CDATA[(Use the above menu to challenge other players to a game or to answer challenges coming to you)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpMulti">
+	  <singular><![CDATA[(Use the menus above to create a new single- or multiplayer game, or to join an already created game)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpSingle">
+	  <singular><![CDATA[(Use the above menu to start training the game or playing one of the tracksets with top lists)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedMp">
+	  <singular><![CDATA[%1 created multiplayer game '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 joined the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedMp">
+	  <singular><![CDATA[%1 joined the multiplayer game '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 left the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 left the lobby (connection issue or browser closed)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 returned from a game]]></singular>
+	</str>
+	<str key="LobbyChat_UserStartedSp">
+	  <singular><![CDATA[%1 started a single player game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobby1">
+	  <singular><![CDATA[1 user in dual player lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobbyX">
+	  <singular><![CDATA[%1 users in dual player lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobby1">
+	  <singular><![CDATA[1 user in multiplayer lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobbyX">
+	  <singular><![CDATA[%1 users in multiplayer lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobby1">
+	  <singular><![CDATA[1 users in single player lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobbyX">
+	  <singular><![CDATA[%1 users in single player lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby00">
+	  <singular><![CDATA[No other users in this lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby10">
+	  <singular><![CDATA[1 other user in this lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby11">
+	  <singular><![CDATA[1 other user in this lobby, 1 of them in game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX0">
+	  <singular><![CDATA[%1 other users in this lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX1">
+	  <singular><![CDATA[%1 other users in this lobby, 1 of them in game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyXX">
+	  <singular><![CDATA[%1 other users in this lobby, %2 of them in games]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedDp">
+	  <singular><![CDATA[%1 and %2 started a game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 and %2 started a game]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[W e l c o m e !]]></singular>
+	</str>
+	<str key="LobbyControl_Dual">
+	  <singular><![CDATA[Dual player]]></singular>
+	</str>
+	<str key="LobbyControl_Main">
+	  <singular><![CDATA[« Back]]></singular>
+	</str>
+	<str key="LobbyControl_Multi">
+	  <singular><![CDATA[Multiplayer]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="LobbyControl_Single">
+	  <singular><![CDATA[Single player]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Cancel]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Enter game password]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="LobbyReal_Accept">
+	  <singular><![CDATA[Accept]]></singular>
+	</str>
+	<str key="LobbyReal_BeepOnChallenge">
+	  <singular><![CDATA[Beep on challenge]]></singular>
+	</str>
+	<str key="LobbyReal_Cancel">
+	  <singular><![CDATA[Cancel]]></singular>
+	</str>
+	<str key="LobbyReal_Challenge">
+	  <singular><![CDATA[Challenge]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeRefused">
+	  <singular><![CDATA[Your challenge was refused]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeTitle">
+	  <singular><![CDATA[Challenge:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedByOther">
+	  <singular><![CDATA[This person is answering another challenge.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedLeft">
+	  <singular><![CDATA[The challenged player left.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedTitle">
+	  <singular><![CDATA[%1 is challenging you:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingOther">
+	  <singular><![CDATA[This person has just challenged someone else.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingTitle">
+	  <singular><![CDATA[Challenge to %1 sent:]]></singular>
+	</str>
+	<str key="LobbyReal_ChampionshipTitle">
+	  <singular><![CDATA[Championship:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision">
+	  <singular><![CDATA[Ball collisions:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision1">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="LobbyReal_Collision2">
+	  <singular><![CDATA[Yes]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Create game]]></singular>
+	</str>
+	<str key="LobbyReal_CreateTitle">
+	  <singular><![CDATA[Create a new game:]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Game name:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Game password:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError1">
+	  <singular><![CDATA[Game does not exist anymore]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError2">
+	  <singular><![CDATA[Game already started]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError3">
+	  <singular><![CDATA[Wrong password]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError4">
+	  <singular><![CDATA[Only for registered users]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Join game]]></singular>
+	</str>
+	<str key="LobbyReal_JoinTitle">
+	  <singular><![CDATA[Join game:]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[PW]]]></singular>
+	</str>
+	<str key="LobbyReal_ListPlayers">
+	  <singular><![CDATA[%1/%2]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Game]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Players]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleTracks">
+	  <singular><![CDATA[Tracks]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTracks">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokes">
+	  <singular><![CDATA[Max strokes per track:]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokesUnlimited">
+	  <singular><![CDATA[Unlimited]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengedUser">
+	  <singular><![CDATA[The challenged player just left.]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallenges">
+	  <singular><![CDATA[This person doesn't accept challenges right now.]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengesToMe">
+	  <singular><![CDATA[No challenges]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Only for:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[All]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Registered]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerCount">
+	  <singular><![CDATA[Number of players:]]></singular>
+	</str>
+	<str key="LobbyReal_Refuse">
+	  <singular><![CDATA[Refuse]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Scoring:]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring1">
+	  <singular><![CDATA[Stroke-scoring]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring2">
+	  <singular><![CDATA[Track-scoring]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd">
+	  <singular><![CDATA[Weight end:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd0">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd1">
+	  <singular><![CDATA[Little]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd2">
+	  <singular><![CDATA[Plenty]]></singular>
+	</str>
+	<str key="LobbyReal_Start">
+	  <singular><![CDATA[Start]]></singular>
+	</str>
+	<str key="LobbyReal_TS_AllTimeBest">
+	  <singular><![CDATA[All time best:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_DayBest">
+	  <singular><![CDATA[Best of day:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level1">
+	  <singular><![CDATA[Easy]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level2">
+	  <singular><![CDATA[Medium]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level3">
+	  <singular><![CDATA[Hard]]></singular>
+	</str>
+	<str key="LobbyReal_TS_MonthBest">
+	  <singular><![CDATA[Best of month:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleDifficulty">
+	  <singular><![CDATA[Difficulty]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleName">
+	  <singular><![CDATA[Track set]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleTracks">
+	  <singular><![CDATA[Tracks]]></singular>
+	</str>
+	<str key="LobbyReal_TS_WeekBest">
+	  <singular><![CDATA[Best of week:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_alkula">
+	  <singular><![CDATA[The First]]></singular>
+	</str>
+	<str key="LobbyReal_TS_hollola">
+	  <singular><![CDATA[One by One]]></singular>
+	</str>
+	<str key="LobbyReal_TS_karstula">
+	  <singular><![CDATA[Scary Set]]></singular>
+	</str>
+	<str key="LobbyReal_TS_koivikko">
+	  <singular><![CDATA[Birchwood]]></singular>
+	</str>
+	<str key="LobbyReal_TS_kuusikko">
+	  <singular><![CDATA[Spruce Copse]]></singular>
+	</str>
+	<str key="LobbyReal_TS_raakkyla">
+	  <singular><![CDATA[Torment Fields]]></singular>
+	</str>
+	<str key="LobbyReal_TS_tammela">
+	  <singular><![CDATA[Oak Park]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimit">
+	  <singular><![CDATA[Stroke time limit:]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitNo">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitSec">
+	  <singular><![CDATA[%1 sec]]></singular>
+	</str>
+	<str key="LobbyReal_TrackCount">
+	  <singular><![CDATA[Number of tracks:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes">
+	  <singular><![CDATA[Track types:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes0">
+	  <singular><![CDATA[All kind]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes1">
+	  <singular><![CDATA[Only "basic"]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes2">
+	  <singular><![CDATA[Only traditional]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes3">
+	  <singular><![CDATA[Only modern]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes4">
+	  <singular><![CDATA[Only hole-in-one]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes5">
+	  <singular><![CDATA[Only short]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes6">
+	  <singular><![CDATA[Only long]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes7">
+	  <singular><![CDATA[Only new]]></singular>
+	</str>
+	<str key="LobbyReal_TrainingTitle">
+	  <singular><![CDATA[Training:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent">
+	  <singular><![CDATA[When ball goes to water:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent1">
+	  <singular><![CDATA[Back to start]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent2">
+	  <singular><![CDATA[Stay on shore]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEventWarning">
+	  <singular><![CDATA[(Note! You can't make track records with this setting!)]]></singular>
+	</str>
+	<str key="LobbySelect_DualPlayer">
+	  <singular><![CDATA[Dual player]]></singular>
+	</str>
+	<str key="LobbySelect_Full">
+	  <singular><![CDATA[(Full)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx">
+	  <singular><![CDATA[Graphics:]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx0">
+	  <singular><![CDATA[Plain (minimum)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx1">
+	  <singular><![CDATA[Some details (fast)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx2">
+	  <singular><![CDATA[Full details (slower)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx3">
+	  <singular><![CDATA[Full + animations]]></singular>
+	</str>
+	<str key="LobbySelect_MultiPlayer">
+	  <singular><![CDATA[Multiplayer]]></singular>
+	</str>
+	<str key="LobbySelect_PlayHidden">
+	  <singular><![CDATA[Play hidden (without lobby chat)]]></singular>
+	</str>
+	<str key="LobbySelect_Players0">
+	  <singular><![CDATA[(No players)]]></singular>
+	</str>
+	<str key="LobbySelect_Players1">
+	  <singular><![CDATA[1 player]]></singular>
+	</str>
+	<str key="LobbySelect_PlayersX">
+	  <singular><![CDATA[%1 players]]></singular>
+	</str>
+	<str key="LobbySelect_QuickStart">
+	  <singular><![CDATA[Quick start]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="LobbySelect_SinglePlayer">
+	  <singular><![CDATA[Single player]]></singular>
+	</str>
+</localization>

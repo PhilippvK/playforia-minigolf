@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="APool" lang="sv_SE">
+	<str key="CoinGame_Draw">
+	  <singular><![CDATA[Myntspelet blev oavgjort, mynten returneras till bägge spelarna]]></singular>
+	</str>
+	<str key="CoinGame_NewCantStart">
+	  <singular><![CDATA[Spelet kunde inte starta, kanske för att en av spelarna inte hade nog med mynt]]></singular>
+	</str>
+	<str key="CoinGame_NoCoinsForNew">
+	  <singular><![CDATA[Nytt spel kan inte starta, du eller din motståndare har inte nog med mynt. Du måste återvända till lobbyn.]]></singular>
+	</str>
+	<str key="CoinGame_Start">
+	  <singular><![CDATA[Myntspel: Insatsen är %1 mynt, vinnaren får %2 mynt]]></singular>
+	</str>
+	<str key="CoinGame_Winner">
+	  <singular><![CDATA[Vinnaren av myntspelet är %1 (vann %2 mynt)]]></singular>
+	</str>
+	<str key="GameChatMute_NoteTextArea">
+	  <singular><![CDATA[I detta textområde synns endast speltexter.]]></singular>
+	</str>
+	<str key="GameChatMute_Reminder">
+	  <singular><![CDATA[Detta är ett tyst spelrum, att chatta är inte möjligt.]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="GameChat_SystemMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_ToOpponentOnly">
+	  <singular><![CDATA[Endast åt motståndaren]]></singular>
+	</str>
+	<str key="GameChat_UserAction">
+	  <singular><![CDATA[%1 %2]]></singular>
+	</str>
+	<str key="GameChat_UserSay">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_UserSayPrivate">
+	  <singular><![CDATA[<%1 -> %2> %3]]></singular>
+	</str>
+	<str key="GameControl_Concede">
+	  <singular><![CDATA[Ge upp]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[Nytt spel]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[Avsluta]]></singular>
+	</str>
+	<str key="GameControl_Shadow">
+	  <singular><![CDATA[Skuggor]]></singular>
+	</str>
+	<str key="GameControl_Sound">
+	  <singular><![CDATA[Ljud]]></singular>
+	</str>
+	<str key="GameEdit_CreateAccountButton">
+	  <singular><![CDATA[Skapa konto nu]]></singular>
+	</str>
+	<str key="GameEdit_EndInstructions">
+	  <singular><![CDATA[Bara vit boll kvar. Du kan ännu fortsätta att öva, göra sista stöten ogjord, flytta bollarna tillbaka till bordet eller starta nytt spel genom att klicka på knappen till höger.]]></singular>
+	</str>
+	<str key="GameEdit_MoveEndButton">
+	  <singular><![CDATA[Klar med omplaceringen]]></singular>
+	</str>
+	<str key="GameEdit_MoveGridCheckBox">
+	  <singular><![CDATA[Använd rutsystem]]></singular>
+	</str>
+	<str key="GameEdit_MoveInstructions">
+	  <singular><![CDATA[Flytta bollarna genom att dra med musen. Flytta bollarna till hålen för att ta bort från bordet. Klicka på bollarna upptill på skärmen för att få tillbaka dem. Klicka "Klar med omplaceringen" till vänster för att fortsätta spelet.]]></singular>
+	</str>
+	<str key="GameEdit_MoveStartButton">
+	  <singular><![CDATA[Flytta bollarna]]></singular>
+	</str>
+	<str key="GameEdit_NotWithoutAccount">
+	  <singular><![CDATA[Träningsverktyget fungerar inte när man spelar utan Playraykonto. Det går fort att skapa ett konto och det är gratis.]]></singular>
+	</str>
+	<str key="GameEdit_Title">
+	  <singular><![CDATA[Fri övning:]]></singular>
+	</str>
+	<str key="GameEdit_UndoButton">
+	  <singular><![CDATA[Gör sista stöten ogjord]]></singular>
+	</str>
+	<str key="GameName_EightBall">
+	  <singular><![CDATA[8-boll]]></singular>
+	</str>
+	<str key="GameName_NineBall">
+	  <singular><![CDATA[9-boll]]></singular>
+	</str>
+	<str key="GameName_Rotation">
+	  <singular><![CDATA[Rotation]]></singular>
+	</str>
+	<str key="GameName_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="GameName_StraightPool">
+	  <singular><![CDATA[Poängboll]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0PerX">
+	  <singular><![CDATA[%1 boll behövs]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1">
+	  <singular><![CDATA[1 boll]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1PerX">
+	  <singular><![CDATA[1 / %1 bollar]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsX">
+	  <singular><![CDATA[%1 bollar]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsXPerX">
+	  <singular><![CDATA[%1 / %2 bollar]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color0">
+	  <singular><![CDATA[(enfärgade)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color1">
+	  <singular><![CDATA[(randiga)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes0">
+	  <singular><![CDATA[Inga slag]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes1">
+	  <singular><![CDATA[1 slag]]></singular>
+	</str>
+	<str key="GamePlayerInfo_StrokesX">
+	  <singular><![CDATA[%1 slag]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Segrare!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Break">
+	  <singular><![CDATA[(Serie: %1)]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Fault">
+	  <singular><![CDATA[Fel!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Next">
+	  <singular><![CDATA[Följande:]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Pass">
+	  <singular><![CDATA[Passera]]></singular>
+	</str>
+	<str key="GameSnooker_Fault">
+	  <singular><![CDATA[Sista stöten var felaktig]]></singular>
+	</str>
+	<str key="GameSnooker_FaultHitWrongBall">
+	  <singular><![CDATA[(köbollen träffade fel boll)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultNoHitAtAll">
+	  <singular><![CDATA[(köbollen träffade ingen boll)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWhiteBall">
+	  <singular><![CDATA[(köbollen blev gjord)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWrongBall">
+	  <singular><![CDATA[(fel boll blev gjord)]]></singular>
+	</str>
+	<str key="GameSnooker_Penalty">
+	  <singular><![CDATA[%1 straffpoäng]]></singular>
+	</str>
+	<str key="GameSpectator_Allow">
+	  <singular><![CDATA[Tillåt publik]]></singular>
+	</str>
+	<str key="GameSpectator_CantKickBanQuietSpectator">
+	  <singular><![CDATA[Du kan inte ta bort en åskådare som inte har sagt något]]></singular>
+	</str>
+	<str key="GameSpectator_KickBan">
+	  <singular><![CDATA[Avlägsna spelare]]></singular>
+	</str>
+	<str key="GameSpectator_ListTitle">
+	  <singular><![CDATA[Åskådare]]></singular>
+	</str>
+	<str key="GameSpinBall_Title">
+	  <singular><![CDATA[Skruv:]]></singular>
+	</str>
+	<str key="GameTimer_Time">
+	  <singular><![CDATA[Tid]]></singular>
+	</str>
+	<str key="GameTopList_Title0">
+	  <singular><![CDATA[Alla tiders bästa]]></singular>
+	</str>
+	<str key="GameTopList_Title1">
+	  <singular><![CDATA[Månadens bästa]]></singular>
+	</str>
+	<str key="GameTopList_Title2">
+	  <singular><![CDATA[Veckans bästa]]></singular>
+	</str>
+	<str key="GameTopList_Title3">
+	  <singular><![CDATA[Dagens bästa]]></singular>
+	</str>
+	<str key="Game_CurrentScore">
+	  <singular><![CDATA[Situation: %1 %2 - %4 %3]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWith1Draw">
+	  <singular><![CDATA[Situation: %1 %2 - %4 %3, 1 oavgjord]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWithXDraws">
+	  <singular><![CDATA[Situation: %1 %2 - %4 %3, %5 oavgjorda]]></singular>
+	</str>
+	<str key="Game_Draw">
+	  <singular><![CDATA[Oavgjort!]]></singular>
+	</str>
+	<str key="Game_NewGameStarted">
+	  <singular><![CDATA[Nytt spel påbörjat]]></singular>
+	</str>
+	<str key="Game_OAS_Help">
+	  <singular><![CDATA[(Tryck på "Tillåt publik"-knappen till höger om du också vill tillåta publik)]]></singular>
+	</str>
+	<str key="Game_OWNG_Help">
+	  <singular><![CDATA[(Tryck på "Nytt spel"-knappen om du också vill spela pånytt)]]></singular>
+	</str>
+	<str key="Game_OpponentAllowSpectators">
+	  <singular><![CDATA[Din motståndare vill tillåta publik]]></singular>
+	</str>
+	<str key="Game_OpponentConcede">
+	  <singular><![CDATA[Motståndaren gav upp]]></singular>
+	</str>
+	<str key="Game_OpponentLeft">
+	  <singular><![CDATA[Din motståndare lämnade spelet]]></singular>
+	</str>
+	<str key="Game_OpponentPass">
+	  <singular><![CDATA[Motståndaren passerade sin tur]]></singular>
+	</str>
+	<str key="Game_OpponentTimeOut">
+	  <singular><![CDATA[Motståndarens slagtid tog slut]]></singular>
+	</str>
+	<str key="Game_OpponentWantNewGame">
+	  <singular><![CDATA[Din motståndare vill spela ett nytt spel]]></singular>
+	</str>
+	<str key="Game_OpponentWon">
+	  <singular><![CDATA[Motståndaren vann!]]></singular>
+	</str>
+	<str key="Game_PlayerConcede">
+	  <singular><![CDATA[Spelaren gav upp]]></singular>
+	</str>
+	<str key="Game_PlayerLeft">
+	  <singular><![CDATA[Spelare %1 lämnade spelet]]></singular>
+	</str>
+	<str key="Game_PlayerPass">
+	  <singular><![CDATA[Spelaren passerade sin tur]]></singular>
+	</str>
+	<str key="Game_PlayerTimeOut">
+	  <singular><![CDATA[Spelarens slagtid tog slut]]></singular>
+	</str>
+	<str key="Game_PlayerWon">
+	  <singular><![CDATA[%1 vann!]]></singular>
+	</str>
+	<str key="Game_ResultError">
+	  <singular><![CDATA[Fel! Spelsituationen skiljer sig från motståndarens spelsituation! Spelet avbryts]]></singular>
+	</str>
+	<str key="Game_SpectatorsAllowed">
+	  <singular><![CDATA[Publik tillåten i detta spel]]></singular>
+	</str>
+	<str key="Game_YouAllowSpectators">
+	  <singular><![CDATA[Publik tillåtes om din motståndare också tillåter]]></singular>
+	</str>
+	<str key="Game_YouConcede">
+	  <singular><![CDATA[Du gav upp]]></singular>
+	</str>
+	<str key="Game_YouPass">
+	  <singular><![CDATA[Du passerade din tur]]></singular>
+	</str>
+	<str key="Game_YouTimeOut">
+	  <singular><![CDATA[Slagtiden tog slut]]></singular>
+	</str>
+	<str key="Game_YouWantNewGame">
+	  <singular><![CDATA[Ny utmaning sänt åt motståndaren]]></singular>
+	</str>
+	<str key="Game_YouWon">
+	  <singular><![CDATA[Du vann!]]></singular>
+	</str>
+	<str key="LSB_SpGame0">
+	  <singular><![CDATA[Fri träning]]></singular>
+	</str>
+	<str key="LSB_SpGame1">
+	  <singular><![CDATA[Poängboll]]></singular>
+	</str>
+	<str key="LSB_SpGame2">
+	  <singular><![CDATA[Rotationssänkning]]></singular>
+	</str>
+	<str key="LSB_SpGame3">
+	  <singular><![CDATA[Poängboll 99]]></singular>
+	</str>
+	<str key="LSB_SpGame4">
+	  <singular><![CDATA[Kontinuerlig]]></singular>
+	</str>
+	<str key="LSB_SpGame5">
+	  <singular><![CDATA[Fri träning (snooker)]]></singular>
+	</str>
+	<str key="LSB_Text_Adult">
+	  <singular><![CDATA[Vuxen]]></singular>
+	</str>
+	<str key="LSB_Text_Mute">
+	  <singular><![CDATA[Ingen chat]]></singular>
+	</str>
+	<str key="LSB_Text_OpenToAll">
+	  <singular><![CDATA[Öppen för alla]]></singular>
+	</str>
+	<str key="LSB_Text_Pool">
+	  <singular><![CDATA[Biljard]]></singular>
+	</str>
+	<str key="LSB_Text_Reg">
+	  <singular><![CDATA[Endast konto]]></singular>
+	</str>
+	<str key="LSB_Text_RoomFull">
+	  <singular><![CDATA[(full)]]></singular>
+	</str>
+	<str key="LSB_Text_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="LSB_Text_Start">
+	  <singular><![CDATA[Start]]></singular>
+	</str>
+	<str key="LSB_Text_Young">
+	  <singular><![CDATA[Ung]]></singular>
+	</str>
+	<str key="Loader_Loading">
+	  <singular><![CDATA[Laddar bilder...]]></singular>
+	</str>
+	<str key="LobbySelectButton_MuteRoom">
+	  <singular><![CDATA[(Tyst spelrum)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers0">
+	  <singular><![CDATA[(Inga spelare)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers1">
+	  <singular><![CDATA[(1 spelare)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayersX">
+	  <singular><![CDATA[(%1 spelare)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RankingOnly">
+	  <singular><![CDATA[(Ranking minst %1)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RegOnly">
+	  <singular><![CDATA[(Endast registrerade)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RoomFull">
+	  <singular><![CDATA[(Fullt!)]]></singular>
+	</str>
+	<str key="LobbySelect_ChangeButton">
+	  <singular><![CDATA[Byt]]></singular>
+	</str>
+	<str key="LobbySelect_MpHeader">
+	  <singular><![CDATA[Multispel]]></singular>
+	</str>
+	<str key="LobbySelect_MpTitle">
+	  <singular><![CDATA[Välj multispelsrum:]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_AccountInfo">
+	  <singular><![CDATA[Att skaffa konto går fort och är helt gratis. Om du redan har ett konto kan du logga in på framsidan.]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_CreateAccountButton">
+	  <singular><![CDATA[Skapa konto nu]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_LoginButton">
+	  <singular><![CDATA[Logga in]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_NoAccount">
+	  <singular><![CDATA[Obs! Du kommer inte in i alla rum eftersom du inte har ett Playraykonto.]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Lämna]]></singular>
+	</str>
+	<str key="LobbySelect_SpHeader">
+	  <singular><![CDATA[Ensamspel]]></singular>
+	</str>
+	<str key="LobbySelect_SpTitle">
+	  <singular><![CDATA[Välj ensamspel:]]></singular>
+	</str>
+	<str key="LobbySelect_Sp_NoAccount">
+	  <singular><![CDATA[Obs! Du har inte tillgång till alla spel eftersom du inte har ett Playraykonto.]]></singular>
+	</str>
+	<str key="Lobby_Back">
+	  <singular><![CDATA[Tillbaka till rumval]]></singular>
+	</str>
+	<str key="Lobby_Chat_BannedFromGame">
+	  <singular><![CDATA[Du har bannats från detta spel]]></singular>
+	</str>
+	<str key="Lobby_Chat_CoinGameCantStart">
+	  <singular><![CDATA[Myntspel kunde inte starta. Kunde inte reservera mynten (en av spelarna har kanske inte nog med mynt) eller en av spelarna stängde av "Spela med mynt" alternativet]]></singular>
+	</str>
+	<str key="Lobby_Chat_WatchCantStart">
+	  <singular><![CDATA[Spelet som du försökte att se på finns inte mera]]></singular>
+	</str>
+	<str key="Lobby_Coins_BuySomeCoinsButton">
+	  <singular><![CDATA[Skaffa mynt nu]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesDisabledInfo">
+	  <singular><![CDATA[Inget myntspel: Du kan utmana spelare eller bli utmanad av spelare som också vill spela utan Playraymynt insats.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledInfo">
+	  <singular><![CDATA[Myntspel har aktiverats: Du kan sända/motta utmaningar till/från spelare som vill spela med Playraymynt. Lägg märke till insatsen när du sänder/mottar utmaningar.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledWormInfo">
+	  <singular><![CDATA[Myntspel har aktiverats men du kan inte spela det utan Playraykonto. Andra användare kan inte utmana dig! Ta bort krysset för "Spela med mynt" för att återgå till normalt läge.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinsNotUsable">
+	  <singular><![CDATA[Dina mynt är oanvändbara i detta spel eftersom du har aldrig köpt mynt]]></singular>
+	</str>
+	<str key="Lobby_Coins_CreateAccountButton">
+	  <singular><![CDATA[Skaffa konto nu]]></singular>
+	</str>
+	<str key="Lobby_Coins_GetMoreCoinsButton">
+	  <singular><![CDATA[Skaffa mer mynt]]></singular>
+	</str>
+	<str key="Lobby_Coins_NoAccount">
+	  <singular><![CDATA[Du har inga mynt eftersom du inte har något Playraykonto]]></singular>
+	</str>
+	<str key="Lobby_Coins_PlayWithCoinsCheckbox">
+	  <singular><![CDATA[Spela med mynt]]></singular>
+	</str>
+	<str key="Lobby_Coins_YourCoins">
+	  <singular><![CDATA[Dina mynt:]]></singular>
+	</str>
+	<str key="Lobby_Control_ChallengeSound">
+	  <singular><![CDATA[Ljudsignal vid utmaning]]></singular>
+	</str>
+	<str key="Lobby_Control_NoChallanges">
+	  <singular><![CDATA[Inga utmaningar till mig]]></singular>
+	</str>
+	<str key="Lobby_GameList_NoSpectatorsAllowed">
+	  <singular><![CDATA[Inga åskådare tillåtna vid detta spel]]></singular>
+	</str>
+	<str key="Lobby_GameList_Title">
+	  <singular><![CDATA[Pågående spel:]]></singular>
+	</str>
+	<str key="Lobby_GameList_Watch">
+	  <singular><![CDATA[Se på valt spel]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptButton">
+	  <singular><![CDATA[Anta utmaningen]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoChallenge">
+	  <singular><![CDATA[Användaren som utmanade dig ställde in utmaningen]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoUser">
+	  <singular><![CDATA[Användaren som utmanade dig har lämnat spelet]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectators">
+	  <singular><![CDATA[Tillåt åskådare:]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsNo">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsYes">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="Lobby_Header_AnsweringOther">
+	  <singular><![CDATA[Användaren som du försökte utmana svarar precis på en annan utmaning]]></singular>
+	</str>
+	<str key="Lobby_Header_BetCoins">
+	  <plural><![CDATA[%1 mynt]]></plural>
+	  <singular><![CDATA[%1 mynt]]></singular>
+	</str>
+	<str key="Lobby_Header_BetNone">
+	  <singular><![CDATA[(välj)]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValues">
+	  <singular><![CDATA[Bägge spelarna lägger %1 mynt som insats, vinnaren får %2 mynt]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValuesSideNote">
+	  <singular><![CDATA[(båda spelarna betalar %1 mynt i insats, vinnaren får %2 mynt)]]></singular>
+	</str>
+	<str key="Lobby_Header_CancelButton">
+	  <singular><![CDATA[Ångra utmaningen]]></singular>
+	</str>
+	<str key="Lobby_Header_Cancelled">
+	  <singular><![CDATA[%1 ställde in utmaningen som skickades till dig]]></singular>
+	</str>
+	<str key="Lobby_Header_CantChallengeSelf">
+	  <singular><![CDATA[Du kan inte utmana dig själv, välj en annan användare i listan]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeButton">
+	  <singular><![CDATA[Utmana vald användare]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeInstructions">
+	  <singular><![CDATA[Välj motståndare i listan nedan och klicka "Utmana vald användare"]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeReceived">
+	  <singular><![CDATA[Du blev utmanad av %1]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeSent">
+	  <singular><![CDATA[Utmaningen skickades till %1]]></singular>
+	</str>
+	<str key="Lobby_Header_GameBet">
+	  <singular><![CDATA[Insats:]]></singular>
+	</str>
+	<str key="Lobby_Header_NeedSelectBet">
+	  <singular><![CDATA[Du måste välja insats först (gul dropdownmeny i övre kanten bland de andra inställningarna)]]></singular>
+	</str>
+	<str key="Lobby_Header_NoChallenges">
+	  <singular><![CDATA[Användaren som du försökte utmana tar inte emot utmaningar nu]]></singular>
+	</str>
+	<str key="Lobby_Header_NoSuchUser">
+	  <singular><![CDATA[Användaren gick innan utmaningen nådde honom/henne]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyCoinChallenges">
+	  <singular><![CDATA[Denna användare vill spela med mynt (utmana användare utan myntikon efter namnet)]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyNoCoinChallenges">
+	  <singular><![CDATA[Denna användare vill spela utan mynt (utmana användare med myntikon efter namnet)]]></singular>
+	</str>
+	<str key="Lobby_Header_OppNoCoins">
+	  <singular><![CDATA[Motståndaren har inte nog med mynt för detta spel]]></singular>
+	</str>
+	<str key="Lobby_Header_RefuseButton">
+	  <singular><![CDATA[Avslå utmaningen]]></singular>
+	</str>
+	<str key="Lobby_Header_Refused">
+	  <singular><![CDATA[Användaren avslog din utmaning]]></singular>
+	</str>
+	<str key="Lobby_Header_SameIpCoinGame">
+	  <singular><![CDATA[Går inte att utmana denna användare till myntspel eftersom användaren är från samma IP-adress]]></singular>
+	</str>
+	<str key="Lobby_Header_ScoreLimit">
+	  <singular><![CDATA[Resultatgräns:]]></singular>
+	</str>
+	<str key="Lobby_Header_SelectFirst">
+	  <singular><![CDATA[Du måste först välja användaren som du vill utmana]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimit">
+	  <singular><![CDATA[Turens tidsbegränsning:]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitNo">
+	  <singular><![CDATA[Nästan ingen]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitSec">
+	  <singular><![CDATA[%1 sek]]></singular>
+	</str>
+	<str key="Lobby_Header_UserLeft">
+	  <singular><![CDATA[Användaren som du försökte utmana lämnade lobbyn precis]]></singular>
+	</str>
+	<str key="Lobby_Header_WaitingReply">
+	  <singular><![CDATA[Användaren som du försökte utmana väntar på svar på sin egen utmaning]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoins">
+	  <singular><![CDATA[Du har inte nog med mynt för detta spel]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoinsWorm">
+	  <singular><![CDATA[Du har inte mynt till detta spel eftersom du inte har ett Playraykonto]]></singular>
+	</str>
+	<str key="Lobby_Quit">
+	  <singular><![CDATA[Lämna]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Biljard]]></singular>
+	</str>
+</localization>

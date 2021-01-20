@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ADraw" lang="fi_FI">
+	<str key="GameChat_BeepOnRoundStart">
+	  <singular><![CDATA[Äänimerkki kierroksen alussa]]></singular>
+	</str>
+	<str key="GameChat_CantChatOrGuess">
+	  <singular><![CDATA[(Et voi keskustella tai arvata omalla piirtovuorollasi)]]></singular>
+	</str>
+	<str key="GameChat_ClearOnRoundStart">
+	  <singular><![CDATA[Tyhjennä chat kierroksen alussa]]></singular>
+	</str>
+	<str key="GameChat_DrawerLeft">
+	  <singular><![CDATA[%1 (piirtäjä) poistui huoneesta]]></singular>
+	</str>
+	<str key="GameChat_GuessButton">
+	  <singular><![CDATA[-> Arvaa]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Kirjoita viestisi/arvauksesi tähän ja paina [Enter]]]></singular>
+	</str>
+	<str key="GameChat_NewRound">
+	  <singular><![CDATA[Uusi kierros!]]></singular>
+	</str>
+	<str key="GameChat_NewRoundOtherDraw">
+	  <singular><![CDATA[Uusi kierros! %1 on piirtovuorossa]]></singular>
+	</str>
+	<str key="GameChat_NewRoundYouDraw">
+	  <singular><![CDATA[Uusi kierros! Sinun vuorosi piirtää, piirrettävä sana on '%1']]></singular>
+	</str>
+	<str key="GameChat_NoDrawer">
+	  <singular><![CDATA[Kukaan ei ole ilmoittautunut halukkaaksi piirtämään! Jos sinä haluat piirtää, paina vasemmalla olevaa "Haluan piirtää"-painiketta]]></singular>
+	</str>
+	<str key="GameChat_NotEnoughPlayers">
+	  <singular><![CDATA[Odotetaan lisää pelaajia, vähintään %1 pelaajaa tarvitaan pelin aloittamiseen]]></singular>
+	</str>
+	<str key="GameChat_OtherGuessedPartially">
+	  <singular><![CDATA[%1 arvasi osittain oikein]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoined">
+	  <singular><![CDATA[%1 liittyi huoneeseen]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 poistui huoneesta]]></singular>
+	</str>
+	<str key="GameChat_RemovingDrawerByVotes">
+	  <singular><![CDATA[Piirtäjä poistetaan huoneesta]]></singular>
+	</str>
+	<str key="GameChat_RoundEndNoneGuessed">
+	  <singular><![CDATA[Kierros päättyi! Sana oli '%1' mutta kukaan ei arvannut sitä]]></singular>
+	</str>
+	<str key="GameChat_RoundEndOtherGuessed">
+	  <singular><![CDATA[Kierros päättyi! %2 arvasi sanan joka oli '%1']]></singular>
+	</str>
+	<str key="GameChat_RoundEndYouGuessed">
+	  <singular><![CDATA[Kierros päättyi! Arvasit sanan joka oli '%1']]></singular>
+	</str>
+	<str key="GameChat_RunningRound">
+	  <singular><![CDATA[Kierros on käynnissä! %1 on piirtovuorossa]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[Sano]]></singular>
+	</str>
+	<str key="GameChat_VoteKickDrawerSent">
+	  <singular><![CDATA[Piirtäjän poistamista huoneesta ehdotettu (piirtäjä poistetaan jos tarpeeksi moni arvaaja sitä ehdottaa)]]></singular>
+	</str>
+	<str key="GameChat_YouGuessedPartially">
+	  <singular><![CDATA[Arvasit osittain oikein]]></singular>
+	</str>
+	<str key="GameDraw_SplashDrawerIs">
+	  <singular><![CDATA[Seuraava piirtäjä:]]></singular>
+	</str>
+	<str key="GameDraw_SplashOtherTurn">
+	  <singular><![CDATA[Uusi kierros]]></singular>
+	</str>
+	<str key="GameDraw_SplashRoundEnd">
+	  <singular><![CDATA[Kierros päättyi! Sana oli '%1']]></singular>
+	</str>
+	<str key="GameDraw_SplashWordIs">
+	  <singular><![CDATA[Piirrettävä sana on:]]></singular>
+	</str>
+	<str key="GameDraw_SplashYourTurn">
+	  <singular><![CDATA[Sinun vuorosi]]></singular>
+	</str>
+	<str key="GameFaces_Drawer">
+	  <singular><![CDATA[Piirtäjä:]]></singular>
+	</str>
+	<str key="GameFaces_Guesser">
+	  <singular><![CDATA[Arvaaja:]]></singular>
+	</str>
+	<str key="GameInfo_NumberOfPlayers">
+	  <singular><![CDATA[%1 / %2 pelaajaa]]></singular>
+	</str>
+	<str key="GameInfo_OnlyForRegistered">
+	  <singular><![CDATA[(vain rekisteröityneille)]]></singular>
+	</str>
+	<str key="GameInfo_PasswordProtected">
+	  <singular><![CDATA[(salasanasuojattu)]]></singular>
+	</str>
+	<str key="GamePlayers_Drawing">
+	  <singular><![CDATA[Piirtäjä]]></singular>
+	</str>
+	<str key="GamePlayers_DrawingOnly">
+	  <singular><![CDATA[Vakiopiirtäjä]]></singular>
+	</str>
+	<str key="GamePlayers_OpenPlayerCard">
+	  <singular><![CDATA[Avaa pelaajakortti]]></singular>
+	</str>
+	<str key="GamePlayers_TitleDrawQueue">
+	  <singular><![CDATA[Piirtovuoro]]></singular>
+	</str>
+	<str key="GamePlayers_TitleNick">
+	  <singular><![CDATA[Pelaaja]]></singular>
+	</str>
+	<str key="GamePlayers_TitleScore">
+	  <singular><![CDATA[Pisteet]]></singular>
+	</str>
+	<str key="GameTools_Clear">
+	  <singular><![CDATA[Tyhjennä]]></singular>
+	</str>
+	<str key="GameTools_Fill">
+	  <singular><![CDATA[Täytä]]></singular>
+	</str>
+	<str key="GameTools_Undo">
+	  <singular><![CDATA[Peru]]></singular>
+	</str>
+	<str key="GameWord_Adjective">
+	  <singular><![CDATA[adjektiivi]]></singular>
+	</str>
+	<str key="GameWord_Noun">
+	  <singular><![CDATA[substantiivi]]></singular>
+	</str>
+	<str key="GameWord_Score">
+	  <singular><![CDATA[(%1 pistettä)]]></singular>
+	</str>
+	<str key="GameWord_Verb">
+	  <singular><![CDATA[verbi]]></singular>
+	</str>
+	<str key="Game_Back">
+	  <singular><![CDATA[<- Palaa aulaan]]></singular>
+	</str>
+	<str key="Game_CancelDrawQueue">
+	  <singular><![CDATA[Peruuta piirtovuorosi]]></singular>
+	</str>
+	<str key="Game_CancelledDrawQueue">
+	  <singular><![CDATA[Sinut on poistettu piirtäjien jonosta]]></singular>
+	</str>
+	<str key="Game_CantEnterDrawQueue">
+	  <singular><![CDATA[Et pääse vielä takaisin piirtojonoon sillä peruit oman piirtovuorosi juuri]]></singular>
+	</str>
+	<str key="Game_EnterDrawQueue">
+	  <singular><![CDATA[Haluan piirtää]]></singular>
+	</str>
+	<str key="Game_EnteredDrawQueue">
+	  <singular><![CDATA[Sinut on lisätty halukkaiden piirtäjien jonoon]]></singular>
+	</str>
+	<str key="Game_VoteKickDrawer">
+	  <singular><![CDATA[Ehdota piirtäjän poistamista]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[Yllä olevista valikoista voit tehdä uuden oman pelihuoneen tai liittyä muiden tekemiin huoneisiin]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 pelaaja pelissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 pelaajaa peleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[Ei muita käyttäjiä aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 toinen käyttäjä aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 muuta käyttäjää aulassa]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Peruuta]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Anna salasana]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Tee uusi huone]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Tee uusi pelihuone]]></singular>
+	</str>
+	<str key="LobbyReal_ForAll">
+	  <singular><![CDATA[Kaikki]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleGameName">
+	  <singular><![CDATA[Huone]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleHosted">
+	  <singular><![CDATA[VTP]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitlePlayers">
+	  <singular><![CDATA[Pelaajia]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleProtection">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleRoundTime">
+	  <singular><![CDATA[Aika]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleWordType">
+	  <singular><![CDATA[Sanat]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Huoneen nimi:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Huoneen salasana:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorBanned">
+	  <singular><![CDATA[Sinut on bannattu tästä huoneesta]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorDuplicateAccess">
+	  <singular><![CDATA[Huoneeseen pääsy estetty]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorGameFull">
+	  <singular><![CDATA[Huone on täynnä]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[Huone poistettiin juuri]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[Huone on vain rekisteröityneille]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Väärä salasana]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Liity huoneeseen]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Liity pelihuoneeseen]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedNo">
+	  <singular><![CDATA[]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedYes">
+	  <singular><![CDATA[VTP]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[ss]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[rek]]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAdjective">
+	  <singular><![CDATA[Adjekt.]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAll">
+	  <singular><![CDATA[Kaikki]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeNoun">
+	  <singular><![CDATA[Subst.]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeVerb">
+	  <singular><![CDATA[Verbit]]></singular>
+	</str>
+	<str key="LobbyReal_MaxPlayers">
+	  <singular><![CDATA[Max pelaajamäärä:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDraw">
+	  <singular><![CDATA[Vain huoneen tekijä piirtää:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNo">
+	  <singular><![CDATA[Ei (normaali)]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNote">
+	  <singular><![CDATA[Tässä huoneessa vain huoneen tekijä piirtää]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawYes">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Huoneeseen pääsee:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Vain rekisteröityneet]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyPassword">
+	  <singular><![CDATA[Vain salasanalla]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerListTitle">
+	  <singular><![CDATA[Pelaajat]]></singular>
+	</str>
+	<str key="LobbyReal_RoundTime">
+	  <singular><![CDATA[Kierrosaika:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevel">
+	  <singular><![CDATA[Sanat:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelAll">
+	  <singular><![CDATA[Kaikki]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasy">
+	  <singular><![CDATA[Helpot]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasyMedium">
+	  <singular><![CDATA[Helpot-Keskivaikeat]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelHard">
+	  <singular><![CDATA[Vaikeat]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMedium">
+	  <singular><![CDATA[Keskivaikeat]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMediumHard">
+	  <singular><![CDATA[Keskivaikeat-Vaikeat]]></singular>
+	</str>
+	<str key="LobbyReal_WordType">
+	  <singular><![CDATA[Sanaluokat:]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAdjective">
+	  <singular><![CDATA[Adjektiivit]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAll">
+	  <singular><![CDATA[Kaikki]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeNoun">
+	  <singular><![CDATA[Substantiivit]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeVerb">
+	  <singular><![CDATA[Verbit]]></singular>
+	</str>
+</localization>

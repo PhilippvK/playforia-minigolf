@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="AGolf" lang="fi_FI">
+	<str key="GameChat_GS_MaxStrokes">
+	  <singular><![CDATA[max %1 lyöntiä per rata]]></singular>
+	</str>
+	<str key="GameChat_GS_MaxStrokesUnlimited">
+	  <singular><![CDATA[rajoittamattomat lyönnit]]></singular>
+	</str>
+	<str key="GameChat_GS_NoCollision">
+	  <singular><![CDATA[ei krokkausta]]></singular>
+	</str>
+	<str key="GameChat_GS_Password">
+	  <singular><![CDATA[Salasanasuojattu]]></singular>
+	</str>
+	<str key="GameChat_GS_Players">
+	  <singular><![CDATA[%1 pelaajaa]]></singular>
+	</str>
+	<str key="GameChat_GS_RegOnly">
+	  <singular><![CDATA[Vain rekisteröityneille]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitMin">
+	  <singular><![CDATA[lyöntiaika %1 min]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitSec">
+	  <singular><![CDATA[lyöntiaika %1 sek]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoring">
+	  <singular><![CDATA[ratavoitot]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd1">
+	  <singular><![CDATA[pistelasku painottaa vähän loppua]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd2">
+	  <singular><![CDATA[pistelasku painottaa paljon loppua]]></singular>
+	</str>
+	<str key="GameChat_GS_Tracks">
+	  <singular><![CDATA[%1 rataa]]></singular>
+	</str>
+	<str key="GameChat_GS_WaterShore">
+	  <singular><![CDATA[pallo veteen -> pysyy rannalla]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Peli: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Asetukset: %1]]></singular>
+	</str>
+	<str key="GameChat_Join">
+	  <singular><![CDATA[%1 liittyi peliin]]></singular>
+	</str>
+	<str key="GameChat_JoinClan">
+	  <singular><![CDATA[%1 [klaani: %2] liittyi peliin]]></singular>
+	</str>
+	<str key="GameChat_Part">
+	  <singular><![CDATA[%1 lähti pelistä]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[Sano]]></singular>
+	</str>
+	<str key="GameChat_ScoreMultiNotify">
+	  <singular><![CDATA[* %1x pisteet tästä radasta *]]></singular>
+	</str>
+	<str key="GameChat_Text">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_TypeHere">
+	  <singular><![CDATA[Kirjoita viestisi tähän]]></singular>
+	</str>
+	<str key="GameControl_Back">
+	  <singular><![CDATA[<- Valikkoon]]></singular>
+	</str>
+	<str key="GameControl_BackSure">
+	  <singular><![CDATA[Oletko varma?]]></singular>
+	</str>
+	<str key="GameControl_Names0">
+	  <singular><![CDATA[Ei nimiä]]></singular>
+	</str>
+	<str key="GameControl_Names1">
+	  <singular><![CDATA[Nimikirjaimet]]></singular>
+	</str>
+	<str key="GameControl_Names2">
+	  <singular><![CDATA[Nimimerkit]]></singular>
+	</str>
+	<str key="GameControl_Names3">
+	  <singular><![CDATA[Nimi + klaani]]></singular>
+	</str>
+	<str key="GameControl_New">
+	  <singular><![CDATA[Uusi peli]]></singular>
+	</str>
+	<str key="GameControl_Skip">
+	  <singular><![CDATA[Radan väliinjättö]]></singular>
+	</str>
+	<str key="GamePlayerInfo_AfterLeader">
+	  <singular><![CDATA[(%1)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfAllTime">
+	  <singular><![CDATA[Kaikkien aikojen paras]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfDay">
+	  <singular><![CDATA[Päivän paras]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultIdeal">
+	  <singular><![CDATA[Rataennätykset]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNick">
+	  <singular><![CDATA[(Vertailutulos)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNone">
+	  <singular><![CDATA[Ei vertailutulosta]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultOwn">
+	  <singular><![CDATA['%1':n paras listalla]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultTop100Average">
+	  <singular><![CDATA[Top 100:n keskiarvo]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Draw">
+	  <singular><![CDATA[Tasapeli]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Leader">
+	  <singular><![CDATA[(J)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_OwnTurn">
+	  <singular><![CDATA[Sinun lyöntisi]]></singular>
+	</str>
+	<str key="GamePlayerInfo_PlayerTurn">
+	  <singular><![CDATA[Lyöntivuorossa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_ConnectionProblem">
+	  <singular><![CDATA[(katkaisi yhteyden)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_Part">
+	  <singular><![CDATA[(Lähti pelistä)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_ReadyForNewGame">
+	  <singular><![CDATA[(Haluaa uuden pelin!)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Skipped">
+	  <singular><![CDATA[X]]></singular>
+	</str>
+	<str key="GamePlayerInfo_VoteSkipTrack">
+	  <singular><![CDATA[(Äänestää: radan väliinjättö)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[(Odotetaan pelaajaa)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Voittaja!]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultL">
+	  <singular><![CDATA[Keskiarvo: %1 lyöntiä]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultS">
+	  <singular><![CDATA[Keskiarvo: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByL">
+	  <singular><![CDATA[(ennätyksen tekijä: %1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByS">
+	  <singular><![CDATA[(%1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownL">
+	  <singular><![CDATA[(ennätyksen tekijä tuntematon)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownS">
+	  <singular><![CDATA[(tuntematon)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultL">
+	  <singular><![CDATA[Paras: %1 lyöntiä]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByL">
+	  <singular><![CDATA[(viimeksi sivunnut: %1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByS">
+	  <singular><![CDATA[(%1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentL">
+	  <singular><![CDATA[(%1% pelanneista)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentS">
+	  <singular><![CDATA[(%1%)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultS">
+	  <singular><![CDATA[Paras: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultToday">
+	  <singular><![CDATA[tänään]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueL">
+	  <singular><![CDATA[(uniikki tulos)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueS">
+	  <singular><![CDATA[(uniikki)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultYesterday">
+	  <singular><![CDATA[eilen]]></singular>
+	</str>
+	<str key="GameTrackInfo_CurrentTrack">
+	  <singular><![CDATA[Rata %1/%2]]></singular>
+	</str>
+	<str key="GameTrackInfo_GiveRating">
+	  <singular><![CDATA[Anna arvosana radalle:]]></singular>
+	</str>
+	<str key="GameTrackInfo_NumberOfTracks">
+	  <singular><![CDATA[Ratoja: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_Rating">
+	  <singular><![CDATA[Keskiarvosana: %1]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Valitse haastettava pelaaja listasta (vasemmalta) ensin]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[Et voi haastaa itseäsi, valitse joku toinen pelaaja]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Kirjoita viestisi tähän ja paina Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[Ei peli-ilmoituksia]]></singular>
+	</str>
+	<str key="LobbyChat_NoInfoOfUnregistered">
+	  <singular><![CDATA[Pelaajakorttia ei ole saatavilla rekisteröimättömästä pelaajasta %1]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[Ei saapumis/poistumis-ilmoituksia]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpDual">
+	  <singular><![CDATA[(Ylläolevista valikoista voit haastaa muita pelaajia peliin tai vastata sinulle tulleisiin haasteisiin)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpMulti">
+	  <singular><![CDATA[(Ylläolevista valikoista voit aloittaa uuden yksin- tai moninpelin, tai liittyä mukaan jo tehtyyn moninpeliin)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpSingle">
+	  <singular><![CDATA[(Ylläolevista valikoista voit aloittaa harjoittelupelin tai pelata ratasettejä joista on myös pistelistat)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[Sano]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedMp">
+	  <singular><![CDATA[%1 teki uuden moninpelin '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 saapui aulaan]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedMp">
+	  <singular><![CDATA[%1 liittyi moninpeliin '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 poistui aulasta]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 poistui aulasta (katkaisi yhteyden)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 palasi pelistä]]></singular>
+	</str>
+	<str key="LobbyChat_UserStartedSp">
+	  <singular><![CDATA[%1 aloitti yksinpelin]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobby1">
+	  <singular><![CDATA[1 käyttäjä kaksinpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobbyX">
+	  <singular><![CDATA[%1 käyttäjää kaksinpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobby1">
+	  <singular><![CDATA[1 käyttäjä moninpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobbyX">
+	  <singular><![CDATA[%1 käyttäjää moninpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobby1">
+	  <singular><![CDATA[1 käyttäjä yksinpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobbyX">
+	  <singular><![CDATA[%1 käyttäjää yksinpeleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby00">
+	  <singular><![CDATA[Ei muita käyttäjiä tässä aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby10">
+	  <singular><![CDATA[1 toinen käyttäjä tässä aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby11">
+	  <singular><![CDATA[1 toinen käyttäjä tässä aulassa, tällä hetkellä pelissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX0">
+	  <singular><![CDATA[%1 muuta käyttäjää tässä aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX1">
+	  <singular><![CDATA[%1 muuta käyttäjää tässä aulassa, 1 heistä pelissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyXX">
+	  <singular><![CDATA[%1 muuta käyttäjää tässä aulassa, %2 heistä peleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedDp">
+	  <singular><![CDATA[%1 ja %2 aloittivat pelin]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 ja %2 aloittivat pelin]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[T e r v e t u l o a !]]></singular>
+	</str>
+	<str key="LobbyControl_Dual">
+	  <singular><![CDATA[Kaksinpeli]]></singular>
+	</str>
+	<str key="LobbyControl_Main">
+	  <singular><![CDATA[<- Pääaula]]></singular>
+	</str>
+	<str key="LobbyControl_Multi">
+	  <singular><![CDATA[Moninpeli]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="LobbyControl_Single">
+	  <singular><![CDATA[Yksinpeli]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Peruuta]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Anna pelin salasana]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="LobbyReal_Accept">
+	  <singular><![CDATA[Hyväksy]]></singular>
+	</str>
+	<str key="LobbyReal_BeepOnChallenge">
+	  <singular><![CDATA[Äänimerkki haastettaessa]]></singular>
+	</str>
+	<str key="LobbyReal_Cancel">
+	  <singular><![CDATA[Peru haaste]]></singular>
+	</str>
+	<str key="LobbyReal_Challenge">
+	  <singular><![CDATA[Haasta]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeRefused">
+	  <singular><![CDATA[Haasteesi hylättiin]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeTitle">
+	  <singular><![CDATA[Haasta peliin:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedByOther">
+	  <singular><![CDATA[Käyttäjä miettii juuri vastausta toiseen haasteeseen]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedLeft">
+	  <singular><![CDATA[Haastettu käyttäjä poistui]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedTitle">
+	  <singular><![CDATA[%1 haastaa sinut peliin:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingOther">
+	  <singular><![CDATA[Käyttäjä on juuri haastanut jonkun toisen]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingTitle">
+	  <singular><![CDATA[%1 haastettu peliin:]]></singular>
+	</str>
+	<str key="LobbyReal_ChampionshipTitle">
+	  <singular><![CDATA[Championship:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision">
+	  <singular><![CDATA[Krokkaus:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision1">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="LobbyReal_Collision2">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Tee peli]]></singular>
+	</str>
+	<str key="LobbyReal_CreateTitle">
+	  <singular><![CDATA[Tee uusi peli:]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Pelin nimi:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Pelin salasana:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError1">
+	  <singular><![CDATA[Peli ei ole enää voimassa]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError2">
+	  <singular><![CDATA[Peli on jo alkanut]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError3">
+	  <singular><![CDATA[Väärä salasana]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError4">
+	  <singular><![CDATA[Valitsemasi peli on vain rekisteröityneille]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Liity peliin]]></singular>
+	</str>
+	<str key="LobbyReal_JoinTitle">
+	  <singular><![CDATA[Liity peliin:]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[ss]]]></singular>
+	</str>
+	<str key="LobbyReal_ListPlayers">
+	  <singular><![CDATA[%1/%2]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[rek]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Peli]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Pelaajia]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleTracks">
+	  <singular><![CDATA[Ratoja]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTracks">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokes">
+	  <singular><![CDATA[Max. lyönnit per rata:]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokesUnlimited">
+	  <singular><![CDATA[Ei rajoitettu]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengedUser">
+	  <singular><![CDATA[Haastettu poistui juuri]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallenges">
+	  <singular><![CDATA[Käyttäjä ei ota haasteita vastaan]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengesToMe">
+	  <singular><![CDATA[Ei haasteita minulle]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Peliin pääsee:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[Kuka tahansa]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Vain rekisteröityneet]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerCount">
+	  <singular><![CDATA[Pelaajien lukumäärä:]]></singular>
+	</str>
+	<str key="LobbyReal_Refuse">
+	  <singular><![CDATA[Hylkää]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Pistelasku:]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring1">
+	  <singular><![CDATA[Lyönnit]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring2">
+	  <singular><![CDATA[Ratavoitot]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd">
+	  <singular><![CDATA[Painota loppua:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd0">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd1">
+	  <singular><![CDATA[Vähän]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd2">
+	  <singular><![CDATA[Paljon]]></singular>
+	</str>
+	<str key="LobbyReal_Start">
+	  <singular><![CDATA[Aloitus]]></singular>
+	</str>
+	<str key="LobbyReal_TS_AllTimeBest">
+	  <singular><![CDATA[Kaikkien aikojen paras:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_DayBest">
+	  <singular><![CDATA[Päivän paras:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level1">
+	  <singular><![CDATA[Helppo]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level2">
+	  <singular><![CDATA[Keskivaikea]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level3">
+	  <singular><![CDATA[Vaikea]]></singular>
+	</str>
+	<str key="LobbyReal_TS_MonthBest">
+	  <singular><![CDATA[Kuukauden paras:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleDifficulty">
+	  <singular><![CDATA[Vaikeusaste]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleName">
+	  <singular><![CDATA[Ratasetti]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleTracks">
+	  <singular><![CDATA[Ratoja]]></singular>
+	</str>
+	<str key="LobbyReal_TS_WeekBest">
+	  <singular><![CDATA[Viikon paras:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_alkula">
+	  <singular><![CDATA[Alkula]]></singular>
+	</str>
+	<str key="LobbyReal_TS_hollola">
+	  <singular><![CDATA[Hollola]]></singular>
+	</str>
+	<str key="LobbyReal_TS_karstula">
+	  <singular><![CDATA[Karstula]]></singular>
+	</str>
+	<str key="LobbyReal_TS_koivikko">
+	  <singular><![CDATA[Koivikko]]></singular>
+	</str>
+	<str key="LobbyReal_TS_kuusikko">
+	  <singular><![CDATA[Kuusikko]]></singular>
+	</str>
+	<str key="LobbyReal_TS_raakkyla">
+	  <singular><![CDATA[Rääkkylä]]></singular>
+	</str>
+	<str key="LobbyReal_TS_tammela">
+	  <singular><![CDATA[Tammela]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimit">
+	  <singular><![CDATA[Lyönnin aikaraja:]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitNo">
+	  <singular><![CDATA[Ei ole]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitSec">
+	  <singular><![CDATA[%1 sek]]></singular>
+	</str>
+	<str key="LobbyReal_TrackCount">
+	  <singular><![CDATA[Ratojen lukumäärä:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes">
+	  <singular><![CDATA[Ratatyypit:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes0">
+	  <singular><![CDATA[Kaikkia ratoja]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes1">
+	  <singular><![CDATA[Vain "perusratoja"]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes2">
+	  <singular><![CDATA[Vain perinteisiä]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes3">
+	  <singular><![CDATA[Vain moderneja]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes4">
+	  <singular><![CDATA[Vain hole-in-one:ja]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes5">
+	  <singular><![CDATA[Vain lyhyitä]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes6">
+	  <singular><![CDATA[Vain pitkiä]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes7">
+	  <singular><![CDATA[Vain uusimpia]]></singular>
+	</str>
+	<str key="LobbyReal_TrainingTitle">
+	  <singular><![CDATA[Harjoittelu:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent">
+	  <singular><![CDATA[Kun pallo menee veteen:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent1">
+	  <singular><![CDATA[Takaisin lyöntipaikkaan]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent2">
+	  <singular><![CDATA[Pallo pysyy rannalla]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEventWarning">
+	  <singular><![CDATA[(Huom! Et voi tehdä rataennätyksiä tällä asetuksella!)]]></singular>
+	</str>
+	<str key="LobbySelect_DualPlayer">
+	  <singular><![CDATA[Kaksinpeli]]></singular>
+	</str>
+	<str key="LobbySelect_Full">
+	  <singular><![CDATA[(Täynnä)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx">
+	  <singular><![CDATA[Grafiikka:]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx0">
+	  <singular><![CDATA[Karsittu (minimi)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx1">
+	  <singular><![CDATA[Keskitaso (nopea)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx2">
+	  <singular><![CDATA[Täysi (hitaampi)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx3">
+	  <singular><![CDATA[Täysi + animaatiot]]></singular>
+	</str>
+	<str key="LobbySelect_MultiPlayer">
+	  <singular><![CDATA[Moninpeli]]></singular>
+	</str>
+	<str key="LobbySelect_PlayHidden">
+	  <singular><![CDATA[Pelaa piilossa (ilman aulachattiä)]]></singular>
+	</str>
+	<str key="LobbySelect_Players0">
+	  <singular><![CDATA[(Ei pelaajia)]]></singular>
+	</str>
+	<str key="LobbySelect_Players1">
+	  <singular><![CDATA[1 pelaaja]]></singular>
+	</str>
+	<str key="LobbySelect_PlayersX">
+	  <singular><![CDATA[%1 pelaajaa]]></singular>
+	</str>
+	<str key="LobbySelect_QuickStart">
+	  <singular><![CDATA[pika-aloitus]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="LobbySelect_SinglePlayer">
+	  <singular><![CDATA[Yksinpeli]]></singular>
+	</str>
+</localization>

@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ACannons" lang="en_US">
+	<str key="GameChat_GameMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Game name: %1]]></singular>
+	</str>
+	<str key="GameChat_GameOver">
+	  <singular><![CDATA[Game over!]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Game settings: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsPasswordNeeded">
+	  <singular><![CDATA[Password needed]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsRegisteredOnly">
+	  <singular><![CDATA[Only for registered users]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Type your message here and press Enter]]></singular>
+	</str>
+	<str key="GameChat_NewGameStarted">
+	  <singular><![CDATA[A new game started]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoin">
+	  <singular><![CDATA[%1 joined the game]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoinClan">
+	  <singular><![CDATA[%1 [clan: %2] joined the game]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 left the game]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeftConnectionProblem">
+	  <singular><![CDATA[Player %1 left the game (connection closed)]]></singular>
+	</str>
+	<str key="GameChat_RoundNoWinner">
+	  <singular><![CDATA[No winner on round %1]]></singular>
+	</str>
+	<str key="GameChat_RoundWinner">
+	  <singular><![CDATA[%1 won round %2]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="GameChat_ShoutButton">
+	  <singular><![CDATA[-> Shout]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[New game]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[« Back]]></singular>
+	</str>
+	<str key="GameControl_Settings">
+	  <singular><![CDATA[Settings]]></singular>
+	</str>
+	<str key="GameInfo_Round">
+	  <singular><![CDATA[Round]]></singular>
+	</str>
+	<str key="GameInfo_Rounds">
+	  <singular><![CDATA[Rounds:]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[Waiting for players...]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoDead">
+	  <singular><![CDATA[(destroyed)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlay">
+	  <singular><![CDATA[(play)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlaying">
+	  <singular><![CDATA[(playing)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoQuit">
+	  <singular><![CDATA[(quit)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoThinking">
+	  <singular><![CDATA[(thinking)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoWantNewGame">
+	  <singular><![CDATA[(wants to start a new game)]]></singular>
+	</str>
+	<str key="GameRealPlayer_Nick">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="GameRealPlayer_NickClan">
+	  <singular><![CDATA[[%2] %1]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Failed">
+	  <singular><![CDATA[Purchase failed due to unknown reason.]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_InProgress">
+	  <singular><![CDATA[Purchasing item...]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_NoCredits">
+	  <singular><![CDATA[You don't have enough coins to buy this.]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Success">
+	  <singular><![CDATA[Purchase succesful]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buyable">
+	  <singular><![CDATA[(buyable)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_NoMoreDuringRound">
+	  <singular><![CDATA[(disabled)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_None">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Unlimited">
+	  <singular><![CDATA[(unlimited)]]></singular>
+	</str>
+	<str key="GameReal_Angle">
+	  <singular><![CDATA[Angle: %1º]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_WeaponMenuHelp">
+	  <singular><![CDATA[Weapon menu, right click]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_YouAreHere">
+	  <singular><![CDATA[I'm here!]]></singular>
+	</str>
+	<str key="GameReal_Draw">
+	  <singular><![CDATA[Draw]]></singular>
+	</str>
+	<str key="GameReal_Power">
+	  <singular><![CDATA[Power: %1%]]></singular>
+	</str>
+	<str key="GameReal_SelectTarget">
+	  <singular><![CDATA[Select target...]]></singular>
+	</str>
+	<str key="GameReal_SkipButton">
+	  <singular><![CDATA[Skip Turn]]></singular>
+	</str>
+	<str key="GameReal_WaitingOtherPlayers">
+	  <singular><![CDATA[Waiting for opponents to select an action.]]></singular>
+	</str>
+	<str key="GameReal_WeaponButton">
+	  <singular><![CDATA[Change Weapon]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_0">
+	  <singular><![CDATA[A default ballistic cannon with minimal explosive and damage range.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_1">
+	  <singular><![CDATA[This ammo causes medium size explosions and damage.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_10">
+	  <singular><![CDATA[Just before hitting it's target, this ammo will spread as burning napalm.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_11">
+	  <singular><![CDATA[After this weapon explodes, a poisonous gas is left behind for many rounds.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_12">
+	  <singular><![CDATA[The explosion of this weapon leaves behind nuclear fall out for many rounds.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_13">
+	  <singular><![CDATA[Choose a target and mayhem will come!]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_14">
+	  <singular><![CDATA[This ammo will cause no explosion, but it will take a big bite out of the ground where it lands.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_15">
+	  <singular><![CDATA[Take cover with this handy blob of land!]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_16">
+	  <singular><![CDATA[Become fully immortal for one round. Even nuclear fall out won't affect you. You can't use any other weapon simultaneously.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_17">
+	  <singular><![CDATA[Teleport your cannon to a new location. Choose the location anywhere on top of the grounds. You can't do anything else during the same round.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_2">
+	  <singular><![CDATA[This ammo causes big explosions and a lot of damage.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_3">
+	  <singular><![CDATA[This ammo isn't affected by the wind at all.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_4">
+	  <singular><![CDATA[Choose a target and shoot upwards. This ammo automatically hits the selected target from the highest point.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_5">
+	  <singular><![CDATA[At impact, this ammo will roll down hill before exploding.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_6">
+	  <singular><![CDATA[Choose a direction and this ammo will roll on the ground until it hits something.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_7">
+	  <singular><![CDATA[At impact, this weapon will split into multiple grenades.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_8">
+	  <singular><![CDATA[This ammo will split into 5 grenades at the highest point of flight.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_9">
+	  <singular><![CDATA[This ammo will split into 7 big grenades at the highest point of flight.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Buyable">
+	  <singular><![CDATA[(Buy more of these by clicking the button)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_BuyableWithPrice">
+	  <plural><![CDATA[(Buy more of these for %1 coins by clicking the button)]]></plural>
+	  <singular><![CDATA[(Buy more of these for %1 coin by clicking the button)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Error">
+	  <singular><![CDATA[(This item is temporarily unavailable)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_NoMoreDuringRound">
+	  <singular><![CDATA[(These will be usable again in the next round)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Worm">
+	  <singular><![CDATA[(You can't use this item since you're playing as a guest, or aren't logged in)]]></singular>
+	</str>
+	<str key="GameReal_WeaponLeft">
+	  <singular><![CDATA[(%1 left)]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_0">
+	  <singular><![CDATA[Cannon]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_1">
+	  <singular><![CDATA[Grenade]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_10">
+	  <singular><![CDATA[Napalm]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_11">
+	  <singular><![CDATA[Poison Gas]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_12">
+	  <singular><![CDATA[Nuke]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_13">
+	  <singular><![CDATA[SS-20]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_14">
+	  <singular><![CDATA[Land Eater]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_15">
+	  <singular><![CDATA[Land Filler]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_16">
+	  <singular><![CDATA[Shield]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_17">
+	  <singular><![CDATA[Teleport]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_2">
+	  <singular><![CDATA[Big Grenade]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_3">
+	  <singular><![CDATA[Aero Shell]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_4">
+	  <singular><![CDATA[Homer]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_5">
+	  <singular><![CDATA[Roller]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_6">
+	  <singular><![CDATA[Sweeper]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_7">
+	  <singular><![CDATA[Funky]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_8">
+	  <singular><![CDATA[MIRV]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_9">
+	  <singular><![CDATA[Death's Head]]></singular>
+	</str>
+	<str key="GameReal_Wind">
+	  <singular><![CDATA[Wind]]></singular>
+	</str>
+	<str key="GameReal_Winner">
+	  <singular><![CDATA[%1 won!]]></singular>
+	</str>
+	<str key="GameReal_Winners">
+	  <singular><![CDATA[Winners: %1]]></singular>
+	</str>
+	<str key="GameSettings_BeepGameStart">
+	  <singular><![CDATA[Beep on start game]]></singular>
+	</str>
+	<str key="GameSettings_BeepOwnTurnStart">
+	  <singular><![CDATA[Beep on my turn]]></singular>
+	</str>
+	<str key="GameSettings_BeepRoundStart">
+	  <singular><![CDATA[Beep on start round]]></singular>
+	</str>
+	<str key="GameSettings_BeepWhenTimeIsLow">
+	  <singular><![CDATA[Beep when time runs low]]></singular>
+	</str>
+	<str key="GameSettings_CloseButton">
+	  <singular><![CDATA[Close]]></singular>
+	</str>
+	<str key="GameSettings_DrawAimArrow">
+	  <singular><![CDATA[Display aiming arrow]]></singular>
+	</str>
+	<str key="GameSettings_ScoreOverCannon">
+	  <singular><![CDATA[Display score updates above cannons]]></singular>
+	</str>
+	<str key="GameSettings_Sounds">
+	  <singular><![CDATA[Play sound effects]]></singular>
+	</str>
+	<str key="GameSettings_UserFaces">
+	  <singular><![CDATA[Player avatars:]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesDown">
+	  <singular><![CDATA[Below cannons]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesNo">
+	  <singular><![CDATA[Not visible]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesUp">
+	  <singular><![CDATA[Above cannons]]></singular>
+	</str>
+	<str key="GameSettings_WindowTitle">
+	  <singular><![CDATA[Settings - %1]]></singular>
+	</str>
+	<str key="GameWait_Clan">
+	  <singular><![CDATA[[clan: %1]]]></singular>
+	</str>
+	<str key="GameWait_ClickToStart">
+	  <singular><![CDATA[If you do not wish to wait for more players to join, click here:]]></singular>
+	</str>
+	<str key="GameWait_Info2">
+	  <singular><![CDATA[Waiting for another player to join this game. The game will start automatically after that.]]></singular>
+	</str>
+	<str key="GameWait_InfoX">
+	  <singular><![CDATA[Waiting for other players to join this game. The game start automatically after %1 players are present. The game can also be started when there are at least two players present and all players want to start playing. You can already chat with other players present before the game starts.]]></singular>
+	</str>
+	<str key="GameWait_Players">
+	  <singular><![CDATA[Currently in game:]]></singular>
+	</str>
+	<str key="GameWait_ReadyToStart">
+	  <singular><![CDATA[Ready to start]]></singular>
+	</str>
+	<str key="GameWait_ReadyWithThesePlayers">
+	  <singular><![CDATA[Ready to start with present players]]></singular>
+	</str>
+	<str key="GameWait_Waiting">
+	  <singular><![CDATA[Waiting for players...]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Select someone to challenge from the list (left) first]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[You can't challenge yourself, select someone else.]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Type your message here and press Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[No challenges]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[No join/part messages]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[(Use the menu above to create a new game or join an existing game)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="LobbyChat_SystemMessage">
+	  <singular><![CDATA[** %1 **]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedGame">
+	  <singular><![CDATA[%1 created the new game '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 joined the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedGame">
+	  <singular><![CDATA[%1 joined the game '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 left the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 left the lobby (connection closed)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 returned from a game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 player in a game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 players in games]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[No other users in the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 other user in the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 other users in the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 and %2 started a game]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[W e l c o m e !]]></singular>
+	</str>
+	<str key="LobbyControl_QuitButton">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Cancel]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Enter game password]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Create Game]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Create A New Game]]></singular>
+	</str>
+	<str key="LobbyReal_Duds">
+	  <singular><![CDATA[Duds:]]></singular>
+	</str>
+	<str key="LobbyReal_DudsNo">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="LobbyReal_DudsYes">
+	  <singular><![CDATA[Yes]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Game name:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Game password:]]></singular>
+	</str>
+	<str key="LobbyReal_GameStartedNote">
+	  <singular><![CDATA[This game has already started, no more players can join.]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorAlreadyStarted">
+	  <singular><![CDATA[Selected game has already started]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[Selected game does no longer exist]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[Only for registered users]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Incorrect password]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Join]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Join Games]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[PW]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnlyAndPassword">
+	  <singular><![CDATA[[reg+pw]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Game]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Players]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleRounds">
+	  <singular><![CDATA[Rounds]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_NoInfoOfUnregistered">
+	  <singular><![CDATA[Unregistered users do not have a playercard.]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfPlayers">
+	  <singular><![CDATA[Number of players:]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfRounds">
+	  <singular><![CDATA[Number of rounds:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Only for:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[All]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Registered]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrder">
+	  <singular><![CDATA[Playing order:]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderSameTime">
+	  <singular><![CDATA[Simultaneously]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderTurns">
+	  <singular><![CDATA[Taking turns]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerList">
+	  <singular><![CDATA[Players:]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpDual">
+	  <singular><![CDATA[Select your game settings below, then select someone from the list on the left and click "Challenge". Click "More" if you want more detailed settings to choose from.]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpMulti">
+	  <singular><![CDATA[Select your game settings below and click "Create Game" to start a new game. Click "More" to use the advanced settings menu.]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Score:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringBoth">
+	  <singular><![CDATA[Both]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringDestroy">
+	  <singular><![CDATA[Destruction]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringSurvive">
+	  <singular><![CDATA[Survival]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsLess">
+	  <singular><![CDATA[<< Less]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsMore">
+	  <singular><![CDATA[More >>]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTime">
+	  <singular><![CDATA[Time to act (seconds):]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTimeUnlimited">
+	  <singular><![CDATA[Unlimited]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAdd">
+	  <singular><![CDATA[Weapon distribution:]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstant">
+	  <singular><![CDATA[Constant]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstantInfo">
+	  <singular><![CDATA[Constant = the same weapons available for all players on each round]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasing">
+	  <singular><![CDATA[Decreasive]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasingInfo">
+	  <singular><![CDATA[Decreasive = all weapons available at start, no new weapons are added]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasing">
+	  <singular><![CDATA[Increasive]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasingInfo">
+	  <singular><![CDATA[Increasive = new weapons are given after each round]]></singular>
+	</str>
+	<str key="LobbyReal_Wind">
+	  <singular><![CDATA[Wind:]]></singular>
+	</str>
+	<str key="LobbyReal_WindNone">
+	  <singular><![CDATA[None]]></singular>
+	</str>
+	<str key="LobbyReal_WindNormal">
+	  <singular><![CDATA[Normal]]></singular>
+	</str>
+	<str key="LobbyReal_WindRandom">
+	  <singular><![CDATA[Random]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Cannons]]></singular>
+	</str>
+</localization>

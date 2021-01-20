@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="APool" lang="fi_FI">
+	<str key="CoinGame_Draw">
+	  <singular><![CDATA[Taatelipeli päättyi tasan, panos palautetaan molemmille pelaajille]]></singular>
+	</str>
+	<str key="CoinGame_NewCantStart">
+	  <singular><![CDATA[Uuden pelin aloitus epäonnistui, mahdollisesti toisella pelaajista ei ole tarpeeksi taateleita panoksen maksamiseksi]]></singular>
+	</str>
+	<str key="CoinGame_NoCoinsForNew">
+	  <singular><![CDATA[Uutta peliä ei voida enää aloittaa sillä sinulla tai vastustajalla ei ole tarpeeksi taateleita. Joudut palaamaan aulaan ja haastamaan jonkin toisen käyttäjän.]]></singular>
+	</str>
+	<str key="CoinGame_Start">
+	  <singular><![CDATA[Taatelipeli: Panos on %1 taatelia per pelaaja, voittaja saa %2 taatelia]]></singular>
+	</str>
+	<str key="CoinGame_Winner">
+	  <singular><![CDATA[Taatelipelin voittaja on %1 (voitti %2 taatelia)]]></singular>
+	</str>
+	<str key="GameChatMute_NoteTextArea">
+	  <singular><![CDATA[Tämä tekstialue on ainoastaan pelin omia ilmoituksia varten.]]></singular>
+	</str>
+	<str key="GameChatMute_Reminder">
+	  <singular><![CDATA[Tämä on mykkä pelihuone, keskustelu ei ole mahdollista.]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[Sano]]></singular>
+	</str>
+	<str key="GameChat_SystemMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_ToOpponentOnly">
+	  <singular><![CDATA[Vain vastustajalle]]></singular>
+	</str>
+	<str key="GameChat_UserAction">
+	  <singular><![CDATA[%1 %2]]></singular>
+	</str>
+	<str key="GameChat_UserSay">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_UserSayPrivate">
+	  <singular><![CDATA[<%1 -> %2> %3]]></singular>
+	</str>
+	<str key="GameControl_Concede">
+	  <singular><![CDATA[Luovuta]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[Uusi peli]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="GameControl_Shadow">
+	  <singular><![CDATA[Varjot]]></singular>
+	</str>
+	<str key="GameControl_Sound">
+	  <singular><![CDATA[Äänet]]></singular>
+	</str>
+	<str key="GameEdit_CreateAccountButton">
+	  <singular><![CDATA[Luo tunnus nyt]]></singular>
+	</str>
+	<str key="GameEdit_EndInstructions">
+	  <singular><![CDATA[Vain kivi jäljellä. Voit jatkaa harjoittelua, perua viimeisen lyönnin, siirtää palloja takaisin pöydälle tai aloittaa uuden pelin klikkaamalla oikealla näkyvää "Uusi peli" -painiketta.]]></singular>
+	</str>
+	<str key="GameEdit_MoveEndButton">
+	  <singular><![CDATA[Lopeta siirtely]]></singular>
+	</str>
+	<str key="GameEdit_MoveGridCheckBox">
+	  <singular><![CDATA[Käytä ruudukkoa]]></singular>
+	</str>
+	<str key="GameEdit_MoveInstructions">
+	  <singular><![CDATA[Siirrä palloja raahamalla niitä hiirellä. Siirrä pallo reiän päälle poistaaksesi se pöydältä ja klikkaa näytön yläosassa olevia palloja tuodaksesi ne takaisin pöydälle. Paina "Lopeta siirtely" painiketta vasemmalla jatkaaksesi pelaamista.]]></singular>
+	</str>
+	<str key="GameEdit_MoveStartButton">
+	  <singular><![CDATA[Siirrä palloja]]></singular>
+	</str>
+	<str key="GameEdit_NotWithoutAccount">
+	  <singular><![CDATA[Työkalut eivät ole käytössä sillä olet pelissä ilman Aapeli-tunnusta. Tunnuksen luonti on helppoa ja täysin ilmaista.]]></singular>
+	</str>
+	<str key="GameEdit_Title">
+	  <singular><![CDATA[Vapaan harjoittelun työkalut:]]></singular>
+	</str>
+	<str key="GameEdit_UndoButton">
+	  <singular><![CDATA[Peru lyönti/siirtely]]></singular>
+	</str>
+	<str key="GameName_EightBall">
+	  <singular><![CDATA[Kasipallo]]></singular>
+	</str>
+	<str key="GameName_NineBall">
+	  <singular><![CDATA[Ysipallo]]></singular>
+	</str>
+	<str key="GameName_Rotation">
+	  <singular><![CDATA[Rotaatio]]></singular>
+	</str>
+	<str key="GameName_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="GameName_StraightPool">
+	  <singular><![CDATA[Pistepallo]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0PerX">
+	  <singular><![CDATA[%1 palloa tarvitaan]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1">
+	  <singular><![CDATA[1 pallo]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1PerX">
+	  <singular><![CDATA[1 / %1 palloa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsX">
+	  <singular><![CDATA[%1 palloa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsXPerX">
+	  <singular><![CDATA[%1 / %2 palloa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color0">
+	  <singular><![CDATA[(yksiväriset)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color1">
+	  <singular><![CDATA[(raidalliset)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes0">
+	  <singular><![CDATA[Ei lyöntejä]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes1">
+	  <singular><![CDATA[1 lyönti]]></singular>
+	</str>
+	<str key="GamePlayerInfo_StrokesX">
+	  <singular><![CDATA[%1 lyöntiä]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Voittaja!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Break">
+	  <singular><![CDATA[(Lyöntisarja: %1)]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Fault">
+	  <singular><![CDATA[Virhe!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Next">
+	  <singular><![CDATA[Seuraava:]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Pass">
+	  <singular><![CDATA[Ohita vuoro]]></singular>
+	</str>
+	<str key="GameSnooker_Fault">
+	  <singular><![CDATA[Edellinen lyönti oli virheellinen]]></singular>
+	</str>
+	<str key="GameSnooker_FaultHitWrongBall">
+	  <singular><![CDATA[(kivi osui ensimmäisenä väärään palloon)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultNoHitAtAll">
+	  <singular><![CDATA[(kivi ei osunut yhteenkään palloon)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWhiteBall">
+	  <singular><![CDATA[(kivi pussitettiin)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWrongBall">
+	  <singular><![CDATA[(väärä pallo pussitettiin)]]></singular>
+	</str>
+	<str key="GameSnooker_Penalty">
+	  <singular><![CDATA[%1 virhepistettä]]></singular>
+	</str>
+	<str key="GameSpectator_Allow">
+	  <singular><![CDATA[Salli katsojat]]></singular>
+	</str>
+	<str key="GameSpectator_CantKickBanQuietSpectator">
+	  <singular><![CDATA[Et voi poistaa katsojaa joka ei ole sanonut mitään]]></singular>
+	</str>
+	<str key="GameSpectator_KickBan">
+	  <singular><![CDATA[Poista katsoja]]></singular>
+	</str>
+	<str key="GameSpectator_ListTitle">
+	  <singular><![CDATA[Katsojat]]></singular>
+	</str>
+	<str key="GameSpinBall_Title">
+	  <singular><![CDATA[Kierre:]]></singular>
+	</str>
+	<str key="GameTimer_Time">
+	  <singular><![CDATA[Aika]]></singular>
+	</str>
+	<str key="GameTopList_Title0">
+	  <singular><![CDATA[Aikojen parhaat]]></singular>
+	</str>
+	<str key="GameTopList_Title1">
+	  <singular><![CDATA[Kuukauden parhaat]]></singular>
+	</str>
+	<str key="GameTopList_Title2">
+	  <singular><![CDATA[Viikon parhaat]]></singular>
+	</str>
+	<str key="GameTopList_Title3">
+	  <singular><![CDATA[Päivän parhaat]]></singular>
+	</str>
+	<str key="Game_CurrentScore">
+	  <singular><![CDATA[Tilanne: %1 %2 - %4 %3]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWith1Draw">
+	  <singular><![CDATA[Tilanne: %1 %2 - %4 %3, 1 tasapeli]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWithXDraws">
+	  <singular><![CDATA[Tilanne: %1 %2 - %4 %3, %5 tasapeliä]]></singular>
+	</str>
+	<str key="Game_Draw">
+	  <singular><![CDATA[Tasapeli!]]></singular>
+	</str>
+	<str key="Game_NewGameStarted">
+	  <singular><![CDATA[Uusi peli aloitettu]]></singular>
+	</str>
+	<str key="Game_OAS_Help">
+	  <singular><![CDATA[(Paina "Salli katsojat"-painiketta oikealla jos sinäkin haluat sallia katsojat)]]></singular>
+	</str>
+	<str key="Game_OWNG_Help">
+	  <singular><![CDATA[(Paina "Uusi peli"-painiketta oikealla jos sinäkin haluat uuden pelin)]]></singular>
+	</str>
+	<str key="Game_OpponentAllowSpectators">
+	  <singular><![CDATA[Vastustajasi haluaisi sallia katsojat]]></singular>
+	</str>
+	<str key="Game_OpponentConcede">
+	  <singular><![CDATA[Vastustaja luovutti]]></singular>
+	</str>
+	<str key="Game_OpponentLeft">
+	  <singular><![CDATA[Vastustajasi poistui pelistä]]></singular>
+	</str>
+	<str key="Game_OpponentPass">
+	  <singular><![CDATA[Vastustaja jätti oman vuoronsa väliin]]></singular>
+	</str>
+	<str key="Game_OpponentTimeOut">
+	  <singular><![CDATA[Vastustajan lyöntiaika loppui]]></singular>
+	</str>
+	<str key="Game_OpponentWantNewGame">
+	  <singular><![CDATA[Vastustajasi haluaisi pelata uuden pelin]]></singular>
+	</str>
+	<str key="Game_OpponentWon">
+	  <singular><![CDATA[Vastustaja voitti!]]></singular>
+	</str>
+	<str key="Game_PlayerConcede">
+	  <singular><![CDATA[Toinen pelaajista luovutti]]></singular>
+	</str>
+	<str key="Game_PlayerLeft">
+	  <singular><![CDATA[Pelaaja %1 poistui pelistä]]></singular>
+	</str>
+	<str key="Game_PlayerPass">
+	  <singular><![CDATA[Pelaaja jätti vuoronsa väliin]]></singular>
+	</str>
+	<str key="Game_PlayerTimeOut">
+	  <singular><![CDATA[Pelaajalta loppui lyöntiaika]]></singular>
+	</str>
+	<str key="Game_PlayerWon">
+	  <singular><![CDATA[%1 voitti!]]></singular>
+	</str>
+	<str key="Game_ResultError">
+	  <singular><![CDATA[Virhe! Pelitilanne eroaa vastustajan pelitilanteesta! Peli keskeytyy]]></singular>
+	</str>
+	<str key="Game_SpectatorsAllowed">
+	  <singular><![CDATA[Katsojien liittyminen peliin sallittu]]></singular>
+	</str>
+	<str key="Game_YouAllowSpectators">
+	  <singular><![CDATA[Katsojat sallitaan jos vastustajasi sallii ne myös]]></singular>
+	</str>
+	<str key="Game_YouConcede">
+	  <singular><![CDATA[Luovutit]]></singular>
+	</str>
+	<str key="Game_YouPass">
+	  <singular><![CDATA[Oma vuoro jätetty väliin]]></singular>
+	</str>
+	<str key="Game_YouTimeOut">
+	  <singular><![CDATA[Lyöntiaika loppui]]></singular>
+	</str>
+	<str key="Game_YouWantNewGame">
+	  <singular><![CDATA[Uusi pelihaaste annettu vastustajalle]]></singular>
+	</str>
+	<str key="Game_YouWon">
+	  <singular><![CDATA[Voitit!]]></singular>
+	</str>
+	<str key="LSB_SpGame0">
+	  <singular><![CDATA[Vapaa harjoittelu]]></singular>
+	</str>
+	<str key="LSB_SpGame1">
+	  <singular><![CDATA[Pussitus]]></singular>
+	</str>
+	<str key="LSB_SpGame2">
+	  <singular><![CDATA[Rotaatiopussitus]]></singular>
+	</str>
+	<str key="LSB_SpGame3">
+	  <singular><![CDATA[Pussitus 99]]></singular>
+	</str>
+	<str key="LSB_SpGame4">
+	  <singular><![CDATA[Jatkumo]]></singular>
+	</str>
+	<str key="LSB_SpGame5">
+	  <singular><![CDATA[Vapaa harjoittelu]]></singular>
+	</str>
+	<str key="LSB_Text_Adult">
+	  <singular><![CDATA[Aikuiset]]></singular>
+	</str>
+	<str key="LSB_Text_Mute">
+	  <singular><![CDATA[Mykkä]]></singular>
+	</str>
+	<str key="LSB_Text_OpenToAll">
+	  <singular><![CDATA[Avoin kaikille]]></singular>
+	</str>
+	<str key="LSB_Text_Pool">
+	  <singular><![CDATA[Biljardi]]></singular>
+	</str>
+	<str key="LSB_Text_Reg">
+	  <singular><![CDATA[Aapeli-tunnuksella]]></singular>
+	</str>
+	<str key="LSB_Text_RoomFull">
+	  <singular><![CDATA[(täynnä)]]></singular>
+	</str>
+	<str key="LSB_Text_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="LSB_Text_Start">
+	  <singular><![CDATA[Aloita]]></singular>
+	</str>
+	<str key="LSB_Text_Young">
+	  <singular><![CDATA[Nuoret]]></singular>
+	</str>
+	<str key="Loader_Loading">
+	  <singular><![CDATA[Ladataan kuvia...]]></singular>
+	</str>
+	<str key="LobbySelectButton_MuteRoom">
+	  <singular><![CDATA[(Ei keskustelua)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers0">
+	  <singular><![CDATA[(Ei pelaajia)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers1">
+	  <singular><![CDATA[(1 pelaaja)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayersX">
+	  <singular><![CDATA[(%1 pelaajaa)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RankingOnly">
+	  <singular><![CDATA[(Ranking väh. %1)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RegOnly">
+	  <singular><![CDATA[(vain rekisteröityneille)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RoomFull">
+	  <singular><![CDATA[(Täynnä!)]]></singular>
+	</str>
+	<str key="LobbySelect_ChangeButton">
+	  <singular><![CDATA[Vaihda]]></singular>
+	</str>
+	<str key="LobbySelect_MpHeader">
+	  <singular><![CDATA[Moninpelit]]></singular>
+	</str>
+	<str key="LobbySelect_MpTitle">
+	  <singular><![CDATA[Valitse moninpelihuone:]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_AccountInfo">
+	  <singular><![CDATA[Tunnuksen luonti on nopeaa ja ilmaista. Jos sinulla on jo tunnus, kirjaudu sisään Aapelin etusivulla.]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_CreateAccountButton">
+	  <singular><![CDATA[Luo tunnus]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_LoginButton">
+	  <singular><![CDATA[Kirjaudu sisään]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_NoAccount">
+	  <singular><![CDATA[Huom! Et pääse kaikkiin huoneisiin sillä olet pelissä ilman omaa Aapeli-tunnusta.]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="LobbySelect_SpHeader">
+	  <singular><![CDATA[Yksinpelit]]></singular>
+	</str>
+	<str key="LobbySelect_SpTitle">
+	  <singular><![CDATA[Valitse yksinpeli:]]></singular>
+	</str>
+	<str key="LobbySelect_Sp_NoAccount">
+	  <singular><![CDATA[Huom! Et pääse kaikkiin pelimuotoihin sillä olet pelissä ilman omaa Aapeli-tunnusta.]]></singular>
+	</str>
+	<str key="Lobby_Back">
+	  <singular><![CDATA[Paluu huonevalintaan]]></singular>
+	</str>
+	<str key="Lobby_Chat_BannedFromGame">
+	  <singular><![CDATA[Sinulta on pääsy evätty tähän peliin]]></singular>
+	</str>
+	<str key="Lobby_Chat_CoinGameCantStart">
+	  <singular><![CDATA[Taatelipeliä ei voida aloittaa. Taatelien varaus epäonnistui (sinulla tai vastustajalla ei ole tarpeeksi taateleita) tai toinen pelaajista valitsi "Pelaa taateleilla" toiminnon pois käytöstä.]]></singular>
+	</str>
+	<str key="Lobby_Chat_WatchCantStart">
+	  <singular><![CDATA[Peli johon yritit liittyä katsojaksi loppui juuri]]></singular>
+	</str>
+	<str key="Lobby_Coins_BuySomeCoinsButton">
+	  <singular><![CDATA[Hanki taateleita]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesDisabledInfo">
+	  <singular><![CDATA[Taatelipelit pois käytöstä: Voit haastaa ja saada haasteita vain käyttäjiltä jotka myös haluavat pelata käyttämättä taateleita pelipanoksena.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledInfo">
+	  <singular><![CDATA[Taatelipelit käytössä: Voit haastaa/saada haasteita vain muilta käyttäjiltä jotka myös haluavat pelata taatelipanoksella. Kiinnitä huomiota panoksen kokoon haastetilanteessa.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledWormInfo">
+	  <singular><![CDATA[Kytkit taatelipelin päälle mutta sinulla ei ole taateleita sillä sinulla ei ole Aapeli-tunnustakaan. Muut käyttäjät eivät voi nyt haastaa sinua! Käy luomassa tunnus tai klikkaa "Pelaa taateleilla" pois päältä palataksesi takaisin normaalitilaan.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinsNotUsable">
+	  <singular><![CDATA[Taatelisi eivät käy tässä pelissä sillä et ole koskaan ostanut yhtään taatelia]]></singular>
+	</str>
+	<str key="Lobby_Coins_CreateAccountButton">
+	  <singular><![CDATA[Luo tunnus nyt]]></singular>
+	</str>
+	<str key="Lobby_Coins_GetMoreCoinsButton">
+	  <singular><![CDATA[Hanki lisää taateleita]]></singular>
+	</str>
+	<str key="Lobby_Coins_NoAccount">
+	  <singular><![CDATA[Sinulla ei ole taateleita sillä sinulla ei ole Aapeli-tunnusta]]></singular>
+	</str>
+	<str key="Lobby_Coins_PlayWithCoinsCheckbox">
+	  <singular><![CDATA[Pelaa taateleilla]]></singular>
+	</str>
+	<str key="Lobby_Coins_YourCoins">
+	  <singular><![CDATA[Taateleita:]]></singular>
+	</str>
+	<str key="Lobby_Control_ChallengeSound">
+	  <singular><![CDATA[Äänimerkki haastettaessa]]></singular>
+	</str>
+	<str key="Lobby_Control_NoChallanges">
+	  <singular><![CDATA[Ei haasteita minulle]]></singular>
+	</str>
+	<str key="Lobby_GameList_NoSpectatorsAllowed">
+	  <singular><![CDATA[Tähän peliin ei oteta katsojia]]></singular>
+	</str>
+	<str key="Lobby_GameList_Title">
+	  <singular><![CDATA[Käynnissä olevat pelit]]></singular>
+	</str>
+	<str key="Lobby_GameList_Watch">
+	  <singular><![CDATA[Siirry katsomaan valittua]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptButton">
+	  <singular><![CDATA[Hyväksy haaste]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoChallenge">
+	  <singular><![CDATA[Käyttäjä joka haastoi sinut peruutti juuri haasteensa]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoUser">
+	  <singular><![CDATA[Käyttäjä joka haastoi sinut poistui juuri pelistä]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectators">
+	  <singular><![CDATA[Salli katsojat:]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsNo">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsYes">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="Lobby_Header_AnsweringOther">
+	  <singular><![CDATA[Haastamasi käyttäjä on juuri vastaamassa toiseen haasteeseen]]></singular>
+	</str>
+	<str key="Lobby_Header_BetCoins">
+	  <plural><![CDATA[%1 taatelia]]></plural>
+	  <singular><![CDATA[%1 taateli]]></singular>
+	</str>
+	<str key="Lobby_Header_BetNone">
+	  <singular><![CDATA[(valitse)]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValues">
+	  <singular><![CDATA[Molemmat maksavat %1 taatelin panoksen, voittaja saa %2 taatelia]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValuesSideNote">
+	  <singular><![CDATA[(pelaajat maksavat %1 taatelia, voittaja saa %2 taatelia)]]></singular>
+	</str>
+	<str key="Lobby_Header_CancelButton">
+	  <singular><![CDATA[Peru haasteesi]]></singular>
+	</str>
+	<str key="Lobby_Header_Cancelled">
+	  <singular><![CDATA[%1 perui sinulle lähettämänsä haasteen]]></singular>
+	</str>
+	<str key="Lobby_Header_CantChallengeSelf">
+	  <singular><![CDATA[Et voi haastaa itseäsi, valitse jokin toinen käyttäjä]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeButton">
+	  <singular><![CDATA[Haasta valittu käyttäjä]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeInstructions">
+	  <singular><![CDATA[Valitse vastustaja alla olevasta listasta ja klikkaa "Haasta valittu käyttäjä" painiketta]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeReceived">
+	  <singular><![CDATA[Sait haasteen käyttäjältä %1]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeSent">
+	  <singular><![CDATA[Haaste käyttäjälle %1 lähetetty]]></singular>
+	</str>
+	<str key="Lobby_Header_GameBet">
+	  <singular><![CDATA[Pelin panos:]]></singular>
+	</str>
+	<str key="Lobby_Header_NeedSelectBet">
+	  <singular><![CDATA[Sinun pitää ensin valita pelin panos (keltainen alasvetovalikko tämän keskusteluikkunan yläpuolella)]]></singular>
+	</str>
+	<str key="Lobby_Header_NoChallenges">
+	  <singular><![CDATA[Haastamasi käyttäjä ei hyväksy haasteita juuri nyt]]></singular>
+	</str>
+	<str key="Lobby_Header_NoSuchUser">
+	  <singular><![CDATA[Haastamasi pelaaja poistui ennenkuin ehti saada haasteesi]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyCoinChallenges">
+	  <singular><![CDATA[Tämä käyttäjä haluaa pelata taateleilla (haasta käyttäjiä joilla ei ole kolikko-ikonia nimen perässä)]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyNoCoinChallenges">
+	  <singular><![CDATA[Tämä käyttäjä haluaa pelata ilman taateleita (haasta käyttäjiä joilla on kolikko-ikoni nimen perässä)]]></singular>
+	</str>
+	<str key="Lobby_Header_OppNoCoins">
+	  <singular><![CDATA[Vastustajalla ei ole tarpeeksi taateleita tähän peliin]]></singular>
+	</str>
+	<str key="Lobby_Header_RefuseButton">
+	  <singular><![CDATA[Kieltäydy]]></singular>
+	</str>
+	<str key="Lobby_Header_Refused">
+	  <singular><![CDATA[Käyttäjä hylkäsi haasteesi]]></singular>
+	</str>
+	<str key="Lobby_Header_SameIpCoinGame">
+	  <singular><![CDATA[Haasta jokin toinen käyttäjä. Tätä käyttäjää ei voi haastaa taatelipeliin, sillä hän on kanssasi samasta internet-osoitteesta.]]></singular>
+	</str>
+	<str key="Lobby_Header_ScoreLimit">
+	  <singular><![CDATA[Pisteraja:]]></singular>
+	</str>
+	<str key="Lobby_Header_SelectFirst">
+	  <singular><![CDATA[Sinun pitää ensin valita käyttäjä jonka haluat haastaa]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimit">
+	  <singular><![CDATA[Vuoron aikaraja:]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitNo">
+	  <singular><![CDATA[pitkä]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitSec">
+	  <singular><![CDATA[%1 sek]]></singular>
+	</str>
+	<str key="Lobby_Header_UserLeft">
+	  <singular><![CDATA[Haastamasi pelaaja poistui juuri aulasta]]></singular>
+	</str>
+	<str key="Lobby_Header_WaitingReply">
+	  <singular><![CDATA[Haastamasi käyttäjä odottaa vastausta hänen itse lähettämäänsä haasteeseen]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoins">
+	  <singular><![CDATA[Sinulla ei ole tarpeeksi taateleita tähän peliin]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoinsWorm">
+	  <singular><![CDATA[Sinulla ei ole taateleita tähän peliin sillä sinulla ei ole Aapeli-tunnusta]]></singular>
+	</str>
+	<str key="Lobby_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Biljardi]]></singular>
+	</str>
+</localization>

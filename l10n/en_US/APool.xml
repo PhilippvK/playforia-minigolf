@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="APool" lang="en_US">
+	<str key="CoinGame_Draw">
+	  <singular><![CDATA[The coin game resulted in a draw, the bet will be returned to both players.]]></singular>
+	</str>
+	<str key="CoinGame_NewCantStart">
+	  <singular><![CDATA[Failed to start the new game, one of the players might not have enough coins to play.]]></singular>
+	</str>
+	<str key="CoinGame_NoCoinsForNew">
+	  <singular><![CDATA[A new game can't be started. One of you doesn't have enough coins to play with. You have to return to the lobby.]]></singular>
+	</str>
+	<str key="CoinGame_Start">
+	  <singular><![CDATA[Coin game: the game bet is %1 coins, the winner gets %2 coins.]]></singular>
+	</str>
+	<str key="CoinGame_Winner">
+	  <singular><![CDATA[Player %1 is the winner (and won %2 coins).]]></singular>
+	</str>
+	<str key="GameChatMute_NoteTextArea">
+	  <singular><![CDATA[This textarea is only for displaying game messages.]]></singular>
+	</str>
+	<str key="GameChatMute_Reminder">
+	  <singular><![CDATA[This is mute game, chatting is not possible.]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="GameChat_SystemMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_ToOpponentOnly">
+	  <singular><![CDATA[To opponent only]]></singular>
+	</str>
+	<str key="GameChat_UserAction">
+	  <singular><![CDATA[%1 %2]]></singular>
+	</str>
+	<str key="GameChat_UserSay">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_UserSayPrivate">
+	  <singular><![CDATA[<%1 -> %2> %3]]></singular>
+	</str>
+	<str key="GameControl_Concede">
+	  <singular><![CDATA[Concede]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[New Game]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[« Back]]></singular>
+	</str>
+	<str key="GameControl_Shadow">
+	  <singular><![CDATA[Show shadows]]></singular>
+	</str>
+	<str key="GameControl_Sound">
+	  <singular><![CDATA[Play sounds]]></singular>
+	</str>
+	<str key="GameEdit_CreateAccountButton">
+	  <singular><![CDATA[Create Account Now]]></singular>
+	</str>
+	<str key="GameEdit_EndInstructions">
+	  <singular><![CDATA[Only the white ball is left. You can still continue practising, undo last your shot, put the balls back on to the table or start a new game by clicking the button on the right.]]></singular>
+	</str>
+	<str key="GameEdit_MoveEndButton">
+	  <singular><![CDATA[Finished Moving]]></singular>
+	</str>
+	<str key="GameEdit_MoveGridCheckBox">
+	  <singular><![CDATA[Use Grid]]></singular>
+	</str>
+	<str key="GameEdit_MoveInstructions">
+	  <singular><![CDATA[Drag the balls with your mouse to move them. Put them in a hole to remove them from the table. Click the balls on top of the screen to place them back onto the table. Click "Finished Moving" on the left to continue playing.]]></singular>
+	</str>
+	<str key="GameEdit_MoveStartButton">
+	  <singular><![CDATA[Move Balls Freely]]></singular>
+	</str>
+	<str key="GameEdit_NotWithoutAccount">
+	  <singular><![CDATA[The editing tools are not available because you don't have a Playforia account or aren't logged in. Creating an account is easy, quick and totally free.]]></singular>
+	</str>
+	<str key="GameEdit_Title">
+	  <singular><![CDATA[Free training edit:]]></singular>
+	</str>
+	<str key="GameEdit_UndoButton">
+	  <singular><![CDATA[Undo Last Shot/Edit]]></singular>
+	</str>
+	<str key="GameName_EightBall">
+	  <singular><![CDATA[Eight ball]]></singular>
+	</str>
+	<str key="GameName_NineBall">
+	  <singular><![CDATA[Nine ball]]></singular>
+	</str>
+	<str key="GameName_Rotation">
+	  <singular><![CDATA[Rotation]]></singular>
+	</str>
+	<str key="GameName_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="GameName_StraightPool">
+	  <singular><![CDATA[Straight Pool]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls0PerX">
+	  <singular><![CDATA[%1 balls needed]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1">
+	  <singular><![CDATA[1 ball]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Balls1PerX">
+	  <singular><![CDATA[1 / %1 balls]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsX">
+	  <singular><![CDATA[%1 balls]]></singular>
+	</str>
+	<str key="GamePlayerInfo_BallsXPerX">
+	  <singular><![CDATA[%1 / %2 balls]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color0">
+	  <singular><![CDATA[(solid)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Color1">
+	  <singular><![CDATA[(striped)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes0">
+	  <singular><![CDATA[No strokes]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Strokes1">
+	  <singular><![CDATA[1 stroke]]></singular>
+	</str>
+	<str key="GamePlayerInfo_StrokesX">
+	  <singular><![CDATA[%1 strokes]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Winner!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Break">
+	  <singular><![CDATA[(Break: %1)]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Fault">
+	  <singular><![CDATA[Fault!]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Next">
+	  <singular><![CDATA[Next:]]></singular>
+	</str>
+	<str key="GameSnookerInfo_Pass">
+	  <singular><![CDATA[Pass]]></singular>
+	</str>
+	<str key="GameSnooker_Fault">
+	  <singular><![CDATA[Last stroke was fault]]></singular>
+	</str>
+	<str key="GameSnooker_FaultHitWrongBall">
+	  <singular><![CDATA[(white ball hit wrong ball first)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultNoHitAtAll">
+	  <singular><![CDATA[(white ball didn't hit any ball)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWhiteBall">
+	  <singular><![CDATA[(white ball was potted)]]></singular>
+	</str>
+	<str key="GameSnooker_FaultPotWrongBall">
+	  <singular><![CDATA[(wrong ball was potted)]]></singular>
+	</str>
+	<str key="GameSnooker_Penalty">
+	  <singular><![CDATA[%1 points penalty]]></singular>
+	</str>
+	<str key="GameSpectator_Allow">
+	  <singular><![CDATA[Allow audience:]]></singular>
+	</str>
+	<str key="GameSpectator_CantKickBanQuietSpectator">
+	  <singular><![CDATA[You can't kick or ban a member of the audience who hasn't said anything.]]></singular>
+	</str>
+	<str key="GameSpectator_KickBan">
+	  <singular><![CDATA[Remove User]]></singular>
+	</str>
+	<str key="GameSpectator_ListTitle">
+	  <singular><![CDATA[Audience]]></singular>
+	</str>
+	<str key="GameSpinBall_Title">
+	  <singular><![CDATA[Spin:]]></singular>
+	</str>
+	<str key="GameTimer_Time">
+	  <singular><![CDATA[Time]]></singular>
+	</str>
+	<str key="GameTopList_Title0">
+	  <singular><![CDATA[All time best]]></singular>
+	</str>
+	<str key="GameTopList_Title1">
+	  <singular><![CDATA[This month's best]]></singular>
+	</str>
+	<str key="GameTopList_Title2">
+	  <singular><![CDATA[This week's best]]></singular>
+	</str>
+	<str key="GameTopList_Title3">
+	  <singular><![CDATA[Today's best]]></singular>
+	</str>
+	<str key="Game_CurrentScore">
+	  <singular><![CDATA[Current score: %1 %2 - %4 %3]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWith1Draw">
+	  <singular><![CDATA[Current score: %1 %2 - %4 %3, 1 draw]]></singular>
+	</str>
+	<str key="Game_CurrentScoreWithXDraws">
+	  <singular><![CDATA[Current score: %1 %2 - %4 %3, %5 draws]]></singular>
+	</str>
+	<str key="Game_Draw">
+	  <singular><![CDATA[Draw!]]></singular>
+	</str>
+	<str key="Game_NewGameStarted">
+	  <singular><![CDATA[A new game started]]></singular>
+	</str>
+	<str key="Game_OAS_Help">
+	  <singular><![CDATA[(Click "Allow audience" on the right if you want to allow an audience too)]]></singular>
+	</str>
+	<str key="Game_OWNG_Help">
+	  <singular><![CDATA[(Click "New game"-button on the right if you want to play a new game)]]></singular>
+	</str>
+	<str key="Game_OpponentAllowSpectators">
+	  <singular><![CDATA[Your opponent would like to allow an audience.]]></singular>
+	</str>
+	<str key="Game_OpponentConcede">
+	  <singular><![CDATA[Opponent conceded]]></singular>
+	</str>
+	<str key="Game_OpponentLeft">
+	  <singular><![CDATA[Your opponent left the game]]></singular>
+	</str>
+	<str key="Game_OpponentPass">
+	  <singular><![CDATA[Opponent passed his/her turn]]></singular>
+	</str>
+	<str key="Game_OpponentTimeOut">
+	  <singular><![CDATA[Opponent's turn timed out]]></singular>
+	</str>
+	<str key="Game_OpponentWantNewGame">
+	  <singular><![CDATA[Your opponent would like to have a new game]]></singular>
+	</str>
+	<str key="Game_OpponentWon">
+	  <singular><![CDATA[Opponent won!]]></singular>
+	</str>
+	<str key="Game_PlayerConcede">
+	  <singular><![CDATA[Player conceded]]></singular>
+	</str>
+	<str key="Game_PlayerLeft">
+	  <singular><![CDATA[Player %1 left the game]]></singular>
+	</str>
+	<str key="Game_PlayerPass">
+	  <singular><![CDATA[Player passed his/her turn]]></singular>
+	</str>
+	<str key="Game_PlayerTimeOut">
+	  <singular><![CDATA[Player's turn timed out]]></singular>
+	</str>
+	<str key="Game_PlayerWon">
+	  <singular><![CDATA[%1 won!]]></singular>
+	</str>
+	<str key="Game_ResultError">
+	  <singular><![CDATA[Error! Game status differs from opponent's game! Game interrupted]]></singular>
+	</str>
+	<str key="Game_SpectatorsAllowed">
+	  <singular><![CDATA[Audience allowed in this game.]]></singular>
+	</str>
+	<str key="Game_YouAllowSpectators">
+	  <singular><![CDATA[An audience will be allowed if your opponent allows it too]]></singular>
+	</str>
+	<str key="Game_YouConcede">
+	  <singular><![CDATA[You conceded]]></singular>
+	</str>
+	<str key="Game_YouPass">
+	  <singular><![CDATA[You passed your turn]]></singular>
+	</str>
+	<str key="Game_YouTimeOut">
+	  <singular><![CDATA[Turn time out]]></singular>
+	</str>
+	<str key="Game_YouWantNewGame">
+	  <singular><![CDATA[A new game challenge was sent to the opponent.]]></singular>
+	</str>
+	<str key="Game_YouWon">
+	  <singular><![CDATA[You won!]]></singular>
+	</str>
+	<str key="LSB_SpGame0">
+	  <singular><![CDATA[Free training]]></singular>
+	</str>
+	<str key="LSB_SpGame1">
+	  <singular><![CDATA[Straight Pool]]></singular>
+	</str>
+	<str key="LSB_SpGame2">
+	  <singular><![CDATA[Rotation]]></singular>
+	</str>
+	<str key="LSB_SpGame3">
+	  <singular><![CDATA[Straight Pool 99]]></singular>
+	</str>
+	<str key="LSB_SpGame4">
+	  <singular><![CDATA[Continuous]]></singular>
+	</str>
+	<str key="LSB_SpGame5">
+	  <singular><![CDATA[Free training]]></singular>
+	</str>
+	<str key="LSB_Text_Adult">
+	  <singular><![CDATA[Professionals]]></singular>
+	</str>
+	<str key="LSB_Text_Mute">
+	  <singular><![CDATA[No Chat]]></singular>
+	</str>
+	<str key="LSB_Text_OpenToAll">
+	  <singular><![CDATA[For Everyone]]></singular>
+	</str>
+	<str key="LSB_Text_Pool">
+	  <singular><![CDATA[Pool]]></singular>
+	</str>
+	<str key="LSB_Text_Reg">
+	  <singular><![CDATA[Account Only]]></singular>
+	</str>
+	<str key="LSB_Text_RoomFull">
+	  <singular><![CDATA[(full)]]></singular>
+	</str>
+	<str key="LSB_Text_Snooker">
+	  <singular><![CDATA[Snooker]]></singular>
+	</str>
+	<str key="LSB_Text_Start">
+	  <singular><![CDATA[Start]]></singular>
+	</str>
+	<str key="LSB_Text_Young">
+	  <singular><![CDATA[Recreational]]></singular>
+	</str>
+	<str key="Loader_Loading">
+	  <singular><![CDATA[Loading...]]></singular>
+	</str>
+	<str key="LobbySelectButton_MuteRoom">
+	  <singular><![CDATA[(No chat option)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers0">
+	  <singular><![CDATA[(No players)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayers1">
+	  <singular><![CDATA[(1 player)]]></singular>
+	</str>
+	<str key="LobbySelectButton_NumberOfPlayersX">
+	  <singular><![CDATA[(%1 players)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RankingOnly">
+	  <singular><![CDATA[(Ranking %1 needed)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RegOnly">
+	  <singular><![CDATA[(registered only)]]></singular>
+	</str>
+	<str key="LobbySelectButton_RoomFull">
+	  <singular><![CDATA[(Full!)]]></singular>
+	</str>
+	<str key="LobbySelect_ChangeButton">
+	  <singular><![CDATA[Switch]]></singular>
+	</str>
+	<str key="LobbySelect_MpHeader">
+	  <singular><![CDATA[Multiplayer Games]]></singular>
+	</str>
+	<str key="LobbySelect_MpTitle">
+	  <singular><![CDATA[Select a multiplayer game room:]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_AccountInfo">
+	  <singular><![CDATA[Creating an account is easy, fast and totally free. If you already have an account, you can log in on the front page.]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_CreateAccountButton">
+	  <singular><![CDATA[Create Account Now]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_LoginButton">
+	  <singular><![CDATA[Log In Now]]></singular>
+	</str>
+	<str key="LobbySelect_Mp_NoAccount">
+	  <singular><![CDATA[Note! You're unable to access all games since you do not have a Playforia account (or you aren't logged in).]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="LobbySelect_SpHeader">
+	  <singular><![CDATA[Single Player Games]]></singular>
+	</str>
+	<str key="LobbySelect_SpTitle">
+	  <singular><![CDATA[Select a single player game:]]></singular>
+	</str>
+	<str key="LobbySelect_Sp_NoAccount">
+	  <singular><![CDATA[Note! You're unable to access all games since you do not have a Playforia account (or you aren't logged in).]]></singular>
+	</str>
+	<str key="Lobby_Back">
+	  <singular><![CDATA[<- Back to room select]]></singular>
+	</str>
+	<str key="Lobby_Chat_BannedFromGame">
+	  <singular><![CDATA[You've been banned from this game.]]></singular>
+	</str>
+	<str key="Lobby_Chat_CoinGameCantStart">
+	  <singular><![CDATA[Gaming for coins can't start. Unable to make coin reserve (one of the players may not have enough coins to start a game) or one of the players turned off the "Play for coins"-option.]]></singular>
+	</str>
+	<str key="Lobby_Chat_WatchCantStart">
+	  <singular><![CDATA[The game you tried to watch doesn't exist anymore.]]></singular>
+	</str>
+	<str key="Lobby_Coins_BuySomeCoinsButton">
+	  <singular><![CDATA[Get Coins Now]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesDisabledInfo">
+	  <singular><![CDATA[Coin games are disabled; you can only challenge or receive challenges from other players who want to play without using Playforia coins as a bet.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledInfo">
+	  <singular><![CDATA[Coin games are enabled; you can only send/receive challenges from players who want to play with Playforia coins. Pay attention to the game bet when sending/receiving challenges.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinGamesEnabledWormInfo">
+	  <singular><![CDATA[Coin games are enabled, however, you can not play such games without having a Playforia account. Other users can't challenge you! Uncheck the "Play for coins" checkbox to return to the normal gaming mode.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CoinsNotUsable">
+	  <singular><![CDATA[You can not use your coins for this game since you've never bought any.]]></singular>
+	</str>
+	<str key="Lobby_Coins_CreateAccountButton">
+	  <singular><![CDATA[Create Account Now]]></singular>
+	</str>
+	<str key="Lobby_Coins_GetMoreCoinsButton">
+	  <singular><![CDATA[Get More Coins]]></singular>
+	</str>
+	<str key="Lobby_Coins_NoAccount">
+	  <singular><![CDATA[You do not have any coins since you do not have a Playforia account (or you aren't logged in).]]></singular>
+	</str>
+	<str key="Lobby_Coins_PlayWithCoinsCheckbox">
+	  <singular><![CDATA[Play for coins]]></singular>
+	</str>
+	<str key="Lobby_Coins_YourCoins">
+	  <singular><![CDATA[Your Coins:]]></singular>
+	</str>
+	<str key="Lobby_Control_ChallengeSound">
+	  <singular><![CDATA[Beep on challenge]]></singular>
+	</str>
+	<str key="Lobby_Control_NoChallanges">
+	  <singular><![CDATA[No challenges]]></singular>
+	</str>
+	<str key="Lobby_GameList_NoSpectatorsAllowed">
+	  <singular><![CDATA[No audience allowed in this game.]]></singular>
+	</str>
+	<str key="Lobby_GameList_Title">
+	  <singular><![CDATA[Current Games:]]></singular>
+	</str>
+	<str key="Lobby_GameList_Watch">
+	  <singular><![CDATA[Watch Game]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptButton">
+	  <singular><![CDATA[Accept Challenge]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoChallenge">
+	  <singular><![CDATA[The person who challenged you has cancelled.]]></singular>
+	</str>
+	<str key="Lobby_Header_AcceptFailNoUser">
+	  <singular><![CDATA[The person who challenged you has left the game.]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectators">
+	  <singular><![CDATA[Allow audience:]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsNo">
+	  <singular><![CDATA[No]]></singular>
+	</str>
+	<str key="Lobby_Header_AllowSpectatorsYes">
+	  <singular><![CDATA[Yes]]></singular>
+	</str>
+	<str key="Lobby_Header_AnsweringOther">
+	  <singular><![CDATA[The person you tried to challenge is answering another challenge.]]></singular>
+	</str>
+	<str key="Lobby_Header_BetCoins">
+	  <plural><![CDATA[%1 coins]]></plural>
+	  <singular><![CDATA[%1 coin]]></singular>
+	</str>
+	<str key="Lobby_Header_BetNone">
+	  <singular><![CDATA[(select)]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValues">
+	  <singular><![CDATA[Each player pays %1 coins to bet, the winner gets %2 coins.]]></singular>
+	</str>
+	<str key="Lobby_Header_BetWinValuesSideNote">
+	  <singular><![CDATA[(Each player pays %1 coins to bet, the winner gets %2 coins.)]]></singular>
+	</str>
+	<str key="Lobby_Header_CancelButton">
+	  <singular><![CDATA[Cancel Challenge]]></singular>
+	</str>
+	<str key="Lobby_Header_Cancelled">
+	  <singular><![CDATA[%1 cancelled challenging you.]]></singular>
+	</str>
+	<str key="Lobby_Header_CantChallengeSelf">
+	  <singular><![CDATA[You can't challenge yourself, select someone else.]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeButton">
+	  <singular><![CDATA[Challenge Player]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeInstructions">
+	  <singular><![CDATA[Choose an opponent from the list below and click "Challenge Player".]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeReceived">
+	  <singular><![CDATA[You were challenged by %1.]]></singular>
+	</str>
+	<str key="Lobby_Header_ChallengeSent">
+	  <singular><![CDATA[Challenge sent to %1]]></singular>
+	</str>
+	<str key="Lobby_Header_GameBet">
+	  <singular><![CDATA[Game Bet:]]></singular>
+	</str>
+	<str key="Lobby_Header_NeedSelectBet">
+	  <singular><![CDATA[You have to select the game bet and your other game settings first (use the yellow dropdown menu above).]]></singular>
+	</str>
+	<str key="Lobby_Header_NoChallenges">
+	  <singular><![CDATA[The person you tried to challenge doesn't accept challenges right now.]]></singular>
+	</str>
+	<str key="Lobby_Header_NoSuchUser">
+	  <singular><![CDATA[The user you tried to challenge left before receiving your invitation.]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyCoinChallenges">
+	  <singular><![CDATA[This person wants to play for coins (challenge people without a coin icon).]]></singular>
+	</str>
+	<str key="Lobby_Header_OnlyNoCoinChallenges">
+	  <singular><![CDATA[This person wants to play without coins (challenge people with a coin icon).]]></singular>
+	</str>
+	<str key="Lobby_Header_OppNoCoins">
+	  <singular><![CDATA[Your opponent doesn't have enough coins to play this game.]]></singular>
+	</str>
+	<str key="Lobby_Header_RefuseButton">
+	  <singular><![CDATA[Refuse Challenge]]></singular>
+	</str>
+	<str key="Lobby_Header_Refused">
+	  <singular><![CDATA[Your challenge was refused.]]></singular>
+	</str>
+	<str key="Lobby_Header_SameIpCoinGame">
+	  <singular><![CDATA[Unable to challenge this user for a coin betting game, the other person uses the same IP address.]]></singular>
+	</str>
+	<str key="Lobby_Header_ScoreLimit">
+	  <singular><![CDATA[Score limit:]]></singular>
+	</str>
+	<str key="Lobby_Header_SelectFirst">
+	  <singular><![CDATA[Select someone you want to challenge first.]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimit">
+	  <singular><![CDATA[Time limit turn:]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitNo">
+	  <singular><![CDATA[Almost None]]></singular>
+	</str>
+	<str key="Lobby_Header_TimeLimitSec">
+	  <singular><![CDATA[%1 sec]]></singular>
+	</str>
+	<str key="Lobby_Header_UserLeft">
+	  <singular><![CDATA[The person you tried to challenge just left the lobby.]]></singular>
+	</str>
+	<str key="Lobby_Header_WaitingReply">
+	  <singular><![CDATA[The person you tried to challenge is waiting for a response to his/her own challenge.]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoins">
+	  <singular><![CDATA[You do not have enough coins to play this game.]]></singular>
+	</str>
+	<str key="Lobby_Header_YouNoCoinsWorm">
+	  <singular><![CDATA[You do not have the coins to play this game with, since you do not have Playforia account (or are not logged in).]]></singular>
+	</str>
+	<str key="Lobby_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Pool]]></singular>
+	</str>
+</localization>

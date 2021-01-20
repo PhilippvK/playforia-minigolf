@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ACannons" lang="sv_SE">
+	<str key="GameChat_GameMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Spelets namn: %1]]></singular>
+	</str>
+	<str key="GameChat_GameOver">
+	  <singular><![CDATA[Spelet tog slut!]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Inställningar: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsPasswordNeeded">
+	  <singular><![CDATA[Skyddat med lösenord]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsRegisteredOnly">
+	  <singular><![CDATA[Endast registrerade]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Skriv ditt meddelande här och tryck Enter]]></singular>
+	</str>
+	<str key="GameChat_NewGameStarted">
+	  <singular><![CDATA[Nytt spel har börjat]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoin">
+	  <singular><![CDATA[%1 anslöt sig till spelet]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoinClan">
+	  <singular><![CDATA[%1 [klan: %2] anslöt sig till spelet]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 lämnade spelet]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeftConnectionProblem">
+	  <singular><![CDATA[%1 har lämnat spelet (kontakten bröts)]]></singular>
+	</str>
+	<str key="GameChat_RoundNoWinner">
+	  <singular><![CDATA[Inga segrare i omgång %1]]></singular>
+	</str>
+	<str key="GameChat_RoundWinner">
+	  <singular><![CDATA[%1 vann omgång %2]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="GameChat_ShoutButton">
+	  <singular><![CDATA[-> Ropa]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[Nytt spel]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[Avsluta]]></singular>
+	</str>
+	<str key="GameControl_Settings">
+	  <singular><![CDATA[Inställningar]]></singular>
+	</str>
+	<str key="GameInfo_Round">
+	  <singular><![CDATA[Omgång]]></singular>
+	</str>
+	<str key="GameInfo_Rounds">
+	  <singular><![CDATA[Omgångar:]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[Väntar på spelare...]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoDead">
+	  <singular><![CDATA[(förstörd)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlay">
+	  <singular><![CDATA[(spela)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlaying">
+	  <singular><![CDATA[(i tur)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoQuit">
+	  <singular><![CDATA[(avslutade)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoThinking">
+	  <singular><![CDATA[(funderar)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoWantNewGame">
+	  <singular><![CDATA[(vill ha nytt spel)]]></singular>
+	</str>
+	<str key="GameRealPlayer_Nick">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="GameRealPlayer_NickClan">
+	  <singular><![CDATA[[%2] %1]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Failed">
+	  <singular><![CDATA[Köpet misslyckades av okänt skäl]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_InProgress">
+	  <singular><![CDATA[Köper...]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_NoCredits">
+	  <singular><![CDATA[Inte tillräckligt med mynt]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Success">
+	  <singular><![CDATA[Köpet är klart]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buyable">
+	  <singular><![CDATA[(köpbar)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_NoMoreDuringRound">
+	  <singular><![CDATA[(avstängd)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_None">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Unlimited">
+	  <singular><![CDATA[(obegränsad)]]></singular>
+	</str>
+	<str key="GameReal_Angle">
+	  <singular><![CDATA[Vinkel: %1º]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_WeaponMenuHelp">
+	  <singular><![CDATA[Högerklicka för vapenmeny]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_YouAreHere">
+	  <singular><![CDATA[Jag är här!]]></singular>
+	</str>
+	<str key="GameReal_Draw">
+	  <singular><![CDATA[Oavgjort]]></singular>
+	</str>
+	<str key="GameReal_Power">
+	  <singular><![CDATA[Kraft: %1%]]></singular>
+	</str>
+	<str key="GameReal_SelectTarget">
+	  <singular><![CDATA[Välj mål...]]></singular>
+	</str>
+	<str key="GameReal_SkipButton">
+	  <singular><![CDATA[Avstå tur]]></singular>
+	</str>
+	<str key="GameReal_WaitingOtherPlayers">
+	  <singular><![CDATA[Väntar på att andra spelare ska göra sitt val]]></singular>
+	</str>
+	<str key="GameReal_WeaponButton">
+	  <singular><![CDATA[Byt vapen]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_0">
+	  <singular><![CDATA[Förvald ballistisk kanon med minimal explosion och skada]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_1">
+	  <singular><![CDATA[Ammunition med mellanstor explosion och skada]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_10">
+	  <singular><![CDATA[Precis före träffen sprider denna ammunition ut brinnande napalm]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_11">
+	  <singular><![CDATA[Explosionen efterlämnar giftig gas för flera omgångar]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_12">
+	  <singular><![CDATA[Explosionen efterlämnar kärnnedfall för flera omgångar]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_13">
+	  <singular><![CDATA[Välj bara mål och kaos följer]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_14">
+	  <singular><![CDATA[Ingen explosion men tar bort land där ammunitionen träffar]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_15">
+	  <singular><![CDATA[Ta skydd med denna händiga landklump]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_16">
+	  <singular><![CDATA[Gör dig totalt odödlig för en omgång, inte ens kärnavfall påverkar dig. Du kan inte använda andra vapen på samma gång.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_17">
+	  <singular><![CDATA[Teleportera din kanon till ett nytt ställe, du kan välja platsen själv men inte under jorden. Du kan inte göra annat under omgången.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_2">
+	  <singular><![CDATA[Ammunition med stor explosion och mycket skada]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_3">
+	  <singular><![CDATA[Ammunition som inte påverkas av vinden]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_4">
+	  <singular><![CDATA[Välj mål och skjut uppåt, på högsta punkten vänder ammunitionen automatiskt mot valt mål]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_5">
+	  <singular><![CDATA[Vid marknedslag rullar denna ammunition innan den exploderar]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_6">
+	  <singular><![CDATA[Välj bara riktning och denna ammunition rör sig på marken tills den träffar något]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_7">
+	  <singular><![CDATA[Vid marknedslag delar detta vapen sig i flera granater]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_8">
+	  <singular><![CDATA[På högsta punkt delar denna ammunition sig i 5 granater]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_9">
+	  <singular><![CDATA[På högsta punkt delar denna ammunition sig i 7 stora granater]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Buyable">
+	  <singular><![CDATA[(du kan köpa fler genom att klicka på knappen)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_BuyableWithPrice">
+	  <plural><![CDATA[(Du kan köpa mer av dessa genom att klicka på knappen, kostar %1 mynt)]]></plural>
+	  <singular><![CDATA[(Du kan köpa mer av dessa genom att klicka på knappen, kostar %1 mynt)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Error">
+	  <singular><![CDATA[(denna artikel är tillfälligt oåtkomlig)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_NoMoreDuringRound">
+	  <singular><![CDATA[(Dessa blir åter tillgängliga i nästa omgång)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Worm">
+	  <singular><![CDATA[(du kan inte köpa artikeln eftersom du inte har Playforiakonto)]]></singular>
+	</str>
+	<str key="GameReal_WeaponLeft">
+	  <singular><![CDATA[(%1 kvar)]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_0">
+	  <singular><![CDATA[Kanon]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_1">
+	  <singular><![CDATA[Granat]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_10">
+	  <singular><![CDATA[Napalm]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_11">
+	  <singular><![CDATA[Gasgranat]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_12">
+	  <singular><![CDATA[Atomgranat]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_13">
+	  <singular><![CDATA[SS-20]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_14">
+	  <singular><![CDATA[Jordätare]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_15">
+	  <singular><![CDATA[Jordfyllare]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_16">
+	  <singular><![CDATA[Sköld]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_17">
+	  <singular><![CDATA[Teleport]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_2">
+	  <singular><![CDATA[Stor granat]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_3">
+	  <singular><![CDATA[Luftgranat]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_4">
+	  <singular><![CDATA[Prickskottsmissil]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_5">
+	  <singular><![CDATA[Rullare]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_6">
+	  <singular><![CDATA[Ilare]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_7">
+	  <singular><![CDATA[Funky]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_8">
+	  <singular><![CDATA[MIRV]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_9">
+	  <singular><![CDATA[Dödsstöt]]></singular>
+	</str>
+	<str key="GameReal_Wind">
+	  <singular><![CDATA[Vind:]]></singular>
+	</str>
+	<str key="GameReal_Winner">
+	  <singular><![CDATA[%1 vann!]]></singular>
+	</str>
+	<str key="GameReal_Winners">
+	  <singular><![CDATA[Vinnare: %1]]></singular>
+	</str>
+	<str key="GameSettings_BeepGameStart">
+	  <singular><![CDATA[Signal vid början av spelet]]></singular>
+	</str>
+	<str key="GameSettings_BeepOwnTurnStart">
+	  <singular><![CDATA[Signal vid min tur]]></singular>
+	</str>
+	<str key="GameSettings_BeepRoundStart">
+	  <singular><![CDATA[Signal vid början av omgång]]></singular>
+	</str>
+	<str key="GameSettings_BeepWhenTimeIsLow">
+	  <singular><![CDATA[Signal när tiden är nästan slut]]></singular>
+	</str>
+	<str key="GameSettings_CloseButton">
+	  <singular><![CDATA[Stäng]]></singular>
+	</str>
+	<str key="GameSettings_DrawAimArrow">
+	  <singular><![CDATA[Dra pilsiktet]]></singular>
+	</str>
+	<str key="GameSettings_ScoreOverCannon">
+	  <singular><![CDATA[Visa poängförändringarna ovanför kanonerna]]></singular>
+	</str>
+	<str key="GameSettings_Sounds">
+	  <singular><![CDATA[Ljudeffekter]]></singular>
+	</str>
+	<str key="GameSettings_UserFaces">
+	  <singular><![CDATA[Spelarfigurer:]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesDown">
+	  <singular><![CDATA[Nedan kanonerna]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesNo">
+	  <singular><![CDATA[Visas inte]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesUp">
+	  <singular><![CDATA[Ovan kanonerna]]></singular>
+	</str>
+	<str key="GameSettings_WindowTitle">
+	  <singular><![CDATA[Inställningar - %1]]></singular>
+	</str>
+	<str key="GameWait_Clan">
+	  <singular><![CDATA[[klan: %1]]]></singular>
+	</str>
+	<str key="GameWait_ClickToStart">
+	  <singular><![CDATA[Om du inte vill vänta på flera spelare klicka här:]]></singular>
+	</str>
+	<str key="GameWait_Info2">
+	  <singular><![CDATA[Väntar på att en spelare till ska delta i spelet. Efter det startar spelet automatiskt.]]></singular>
+	</str>
+	<str key="GameWait_InfoX">
+	  <singular><![CDATA[Väntar på att andra spelare deltar i spelet. Spelet startar automatiskt efter att %1 spelare finns i spelet. Spelet kan också startas efter att åtminstone två spelare finns i spelet om alla samtycker. Du kan chatta med andra spelare innan spelet startar.]]></singular>
+	</str>
+	<str key="GameWait_Players">
+	  <singular><![CDATA[I spelet för tillfället:]]></singular>
+	</str>
+	<str key="GameWait_ReadyToStart">
+	  <singular><![CDATA[Färdig att börja]]></singular>
+	</str>
+	<str key="GameWait_ReadyWithThesePlayers">
+	  <singular><![CDATA[Färdig att starta med dessa spelare]]></singular>
+	</str>
+	<str key="GameWait_Waiting">
+	  <singular><![CDATA[Väntar på spelare...]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Välj först spelare du vill utmana från listan (på vänster)]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[Du kan inte utmana dig själv, välj annan spelare]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Skriv ditt meddelande här och tryck Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[Inga meddelanden]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[Inga inträdes-/utgångsnotiser]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[(I menyerna ovan kan du skapa ett nytt spel eller delta i andras spel)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="LobbyChat_SystemMessage">
+	  <singular><![CDATA[** %1 **]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedGame">
+	  <singular><![CDATA[%1 skapade nytt spel med namnet '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 anlände i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedGame">
+	  <singular><![CDATA[%1 deltog i spelet '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 lämnade lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 lämnade lobbyn (kontakten bröts)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 återvände från spelet]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 spelare i spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 spelare i spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[Inga andra spelare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 annan spelare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 andra spelare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 och %2 började spela]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[V ä l k o m m e n !]]></singular>
+	</str>
+	<str key="LobbyControl_QuitButton">
+	  <singular><![CDATA[Avsluta]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Annullera]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Ge lösenordet till spelet]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Skapa nytt spel]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Skapa nytt spel]]></singular>
+	</str>
+	<str key="LobbyReal_Duds">
+	  <singular><![CDATA[Blindgångare:]]></singular>
+	</str>
+	<str key="LobbyReal_DudsNo">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="LobbyReal_DudsYes">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Spelets namn:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Spelets lösenord:]]></singular>
+	</str>
+	<str key="LobbyReal_GameStartedNote">
+	  <singular><![CDATA[Detta spel har redan startat och tar inte emot fler spelare]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorAlreadyStarted">
+	  <singular><![CDATA[Spelet började redan]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[Spelet existerar inte längre]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[Valt spel endast för registrerade]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Fel lösenord]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Delta i spel]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Välj spel du vill delta i]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[Lös]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnlyAndPassword">
+	  <singular><![CDATA[[reg+pw]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Spel]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleRounds">
+	  <singular><![CDATA[Varv]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_NoInfoOfUnregistered">
+	  <singular><![CDATA[Spelarkort inte tillgängligt för oregistrerad spelare %1]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfPlayers">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfRounds">
+	  <singular><![CDATA[Omgångar:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Endast för:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Endast registrerade]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrder">
+	  <singular><![CDATA[Spelorder:]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderSameTime">
+	  <singular><![CDATA[Samtidigt]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderTurns">
+	  <singular><![CDATA[Efter varann]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerList">
+	  <singular><![CDATA[Spelare:]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpDual">
+	  <singular><![CDATA[Välj spelinställningar nedan, välj sedan motståndare från listan och klicka "Utmana". Klicka "Mera" om du vill se mer detaljerade inställningar.]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpMulti">
+	  <singular><![CDATA[För att skapa ett spel, välj spelinställningarna nedan och klicka "Skapa nytt spel". Klicka "Mera" om du vill se mer detaljerade inställningar.]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Poäng för:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringBoth">
+	  <singular><![CDATA[Båda resultaten]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringDestroy">
+	  <singular><![CDATA[Förstörning]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringSurvive">
+	  <singular><![CDATA[Överlevnad]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsLess">
+	  <singular><![CDATA[<< Mindre]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsMore">
+	  <singular><![CDATA[Mera >>]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTime">
+	  <singular><![CDATA[Tanketid (sekunder):]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTimeUnlimited">
+	  <singular><![CDATA[Obegränsad]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAdd">
+	  <singular><![CDATA[Vapendistribution:]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstant">
+	  <singular><![CDATA[Konstant]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstantInfo">
+	  <singular><![CDATA[Konstant = alla har samma vapen i början av omgången]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasing">
+	  <singular><![CDATA[Minskande]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasingInfo">
+	  <singular><![CDATA[Minskande = alla vapen tillgängliga i början, inga nya tilläggs]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasing">
+	  <singular><![CDATA[Ökande]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasingInfo">
+	  <singular><![CDATA[Ökande = Nya vapen efter varje omgång]]></singular>
+	</str>
+	<str key="LobbyReal_Wind">
+	  <singular><![CDATA[Vind:]]></singular>
+	</str>
+	<str key="LobbyReal_WindNone">
+	  <singular><![CDATA[Ingen]]></singular>
+	</str>
+	<str key="LobbyReal_WindNormal">
+	  <singular><![CDATA[Normal]]></singular>
+	</str>
+	<str key="LobbyReal_WindRandom">
+	  <singular><![CDATA[Slumpmässig]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Kanoner]]></singular>
+	</str>
+</localization>

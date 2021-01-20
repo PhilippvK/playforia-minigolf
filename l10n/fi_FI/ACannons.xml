@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ACannons" lang="fi_FI">
+	<str key="GameChat_GameMessage">
+	  <singular><![CDATA[* %1 *]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Pelin nimi: %1]]></singular>
+	</str>
+	<str key="GameChat_GameOver">
+	  <singular><![CDATA[Peli päättyi!]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Pelin asetukset: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsPasswordNeeded">
+	  <singular><![CDATA[Salasanasuojattu]]></singular>
+	</str>
+	<str key="GameChat_GameSettingsRegisteredOnly">
+	  <singular><![CDATA[Vain rekisteröityneille]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Kirjoita viestisi tähän ja paina Enter]]></singular>
+	</str>
+	<str key="GameChat_NewGameStarted">
+	  <singular><![CDATA[Uusi peli aloitettu]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoin">
+	  <singular><![CDATA[%1 liittyi peliin]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoinClan">
+	  <singular><![CDATA[%1 [klaani: %2] liittyi peliin]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 poistui pelistä]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeftConnectionProblem">
+	  <singular><![CDATA[%1 poistui pelistä (katkaisi yhteyden)]]></singular>
+	</str>
+	<str key="GameChat_RoundNoWinner">
+	  <singular><![CDATA[Ei voittajaa kierroksella %1]]></singular>
+	</str>
+	<str key="GameChat_RoundWinner">
+	  <singular><![CDATA[%1 voitti kierroksen %2]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[Sano]]></singular>
+	</str>
+	<str key="GameChat_ShoutButton">
+	  <singular><![CDATA[>> Huuda]]></singular>
+	</str>
+	<str key="GameControl_NewGame">
+	  <singular><![CDATA[Uusi peli]]></singular>
+	</str>
+	<str key="GameControl_Quit">
+	  <singular><![CDATA[Palaa aulaan]]></singular>
+	</str>
+	<str key="GameControl_Settings">
+	  <singular><![CDATA[Asetukset]]></singular>
+	</str>
+	<str key="GameInfo_Round">
+	  <singular><![CDATA[Kierros]]></singular>
+	</str>
+	<str key="GameInfo_Rounds">
+	  <singular><![CDATA[Kierroksia:]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[Odotetaan pelaajaa...]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoDead">
+	  <singular><![CDATA[(tuhoutunut)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlay">
+	  <singular><![CDATA[(pelaa)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoPlaying">
+	  <singular><![CDATA[(vuorossa)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoQuit">
+	  <singular><![CDATA[(poistui)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoThinking">
+	  <singular><![CDATA[(miettii)]]></singular>
+	</str>
+	<str key="GameRealPlayer_InfoWantNewGame">
+	  <singular><![CDATA[(haluaa uuden pelin)]]></singular>
+	</str>
+	<str key="GameRealPlayer_Nick">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="GameRealPlayer_NickClan">
+	  <singular><![CDATA[[%2] %1]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Failed">
+	  <singular><![CDATA[Ostaminen epäonnistui tuntemattomasta syystä]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_InProgress">
+	  <singular><![CDATA[Ostetaan tuotetta...]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_NoCredits">
+	  <singular><![CDATA[Sinulla ei ole tarpeeksi taateleita tämän ostamiseen]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buy_Success">
+	  <singular><![CDATA[Ostos onnistui]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Buyable">
+	  <singular><![CDATA[(ostettavissa)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_NoMoreDuringRound">
+	  <singular><![CDATA[(ei käytössä)]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_None">
+	  <singular><![CDATA[--]]></singular>
+	</str>
+	<str key="GameRealWeaponMenu_Unlimited">
+	  <singular><![CDATA[(rajaton)]]></singular>
+	</str>
+	<str key="GameReal_Angle">
+	  <singular><![CDATA[Kulma: %1º]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_WeaponMenuHelp">
+	  <singular><![CDATA[Asevalikko oikeasta hiirenpainikkeesta]]></singular>
+	</str>
+	<str key="GameReal_AutoShout_YouAreHere">
+	  <singular><![CDATA[Olen täällä!]]></singular>
+	</str>
+	<str key="GameReal_Draw">
+	  <singular><![CDATA[Tasapeli]]></singular>
+	</str>
+	<str key="GameReal_Power">
+	  <singular><![CDATA[Voima: %1%]]></singular>
+	</str>
+	<str key="GameReal_SelectTarget">
+	  <singular><![CDATA[Valitse kohde...]]></singular>
+	</str>
+	<str key="GameReal_SkipButton">
+	  <singular><![CDATA[Ohita vuoro]]></singular>
+	</str>
+	<str key="GameReal_WaitingOtherPlayers">
+	  <singular><![CDATA[Odotetaan että muut pelaajat valitsevat mitä tekevät]]></singular>
+	</str>
+	<str key="GameReal_WeaponButton">
+	  <singular><![CDATA[Vaihda asetta]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_0">
+	  <singular><![CDATA[Perustykki ballistisella ammuksella ja pienellä räjähdyksellä]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_1">
+	  <singular><![CDATA[Ammus keskikokoisella räjähdyksellä]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_10">
+	  <singular><![CDATA[Tämä ammus leviää palavaksi napalmiksi juuri ennen maahan osumista]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_11">
+	  <singular><![CDATA[Räjähdyksestä jää tuulen mukana kulkeutuvia myrkkypilviä monen kierroksen ajaksi]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_12">
+	  <singular><![CDATA[Räjähdyksestä jää laskeumapilviä jotka tekevät pientä vahinkoa pitkän aikaa]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_13">
+	  <singular><![CDATA[Valitse vain kohde ja tuhoa seuraa...]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_14">
+	  <singular><![CDATA[Ei räjähdä mutta syö ison palan maata osumakohdasta]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_15">
+	  <singular><![CDATA[Suojaa itsesi tai peitä vihollisesi tällä maata tuottavalla ammuksella]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_16">
+	  <singular><![CDATA[Tekee tykistäsi tuhoutumattoman yhden kierroksen ajaksi. Toimii jopa laskeumapilviä vastaan. Et voi käyttää muita aseita samaan aikaan.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_17">
+	  <singular><![CDATA[Siirtää tykkisi haluamaasi uuteen paikkaan, ei kuitenkaan maan alle. Et voi tehdä muuta saman kierroksen aikana.]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_2">
+	  <singular><![CDATA[Ammus isolla räjähdyksellä]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_3">
+	  <singular><![CDATA[Ammus johon tuuli ei vaikuta millään tavalla]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_4">
+	  <singular><![CDATA[Valitse kohde ja ammu ylös, lakipisteessä ammus suuntautuu suoraan valitsemaasi kohteeseen]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_5">
+	  <singular><![CDATA[Maahan osuessaan ammus lähtee kierimään alaspäin ennen räjähtämistä]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_6">
+	  <singular><![CDATA[Valitse vain suunta ja ammus kulkee maata pitkin kunnes osuu johonkin]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_7">
+	  <singular><![CDATA[Maahan osuessaan tämä ammus jakautuu useaksi kranaatiksi]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_8">
+	  <singular><![CDATA[Lakipisteessä ammus jakautuu 5:ksi kranaatiksi]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_9">
+	  <singular><![CDATA[Lakipisteessä ammus jakautuu 7:ksi isoksi kranaatiksi]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Buyable">
+	  <singular><![CDATA[(voit ostaa näitä lisää klikkaamalla painiketta)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_BuyableWithPrice">
+	  <plural><![CDATA[(Voit ostaa näitä lisää klikkaamalla painiketta, tuotteen hinta on %1 taatelia)]]></plural>
+	  <singular><![CDATA[(Voit ostaa näitä lisää klikkaamalla painiketta, tuotteen hinta on %1 taateli)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Error">
+	  <singular><![CDATA[(tämä tavara on väliaikaisesti pois käytöstä)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_NoMoreDuringRound">
+	  <singular><![CDATA[(Tämä tulee käyttöön jälleen seuraavan kierroksen alussa)]]></singular>
+	</str>
+	<str key="GameReal_WeaponDesc_Worm">
+	  <singular><![CDATA[(et voi käyttää tätä tavaraa sillä sinulla ei ole Aapeli-tunnusta)]]></singular>
+	</str>
+	<str key="GameReal_WeaponLeft">
+	  <singular><![CDATA[(%1 jäljellä)]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_0">
+	  <singular><![CDATA[Tykki]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_1">
+	  <singular><![CDATA[Kranaatti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_10">
+	  <singular><![CDATA[Napalmi]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_11">
+	  <singular><![CDATA[Kaasukranaatti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_12">
+	  <singular><![CDATA[Ydinkranaatti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_13">
+	  <singular><![CDATA[SS-20]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_14">
+	  <singular><![CDATA[Maansyöjä]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_15">
+	  <singular><![CDATA[Maantäyttäjä]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_16">
+	  <singular><![CDATA[Suojakilpi]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_17">
+	  <singular><![CDATA[Teleportti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_2">
+	  <singular><![CDATA[Iso kranaatti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_3">
+	  <singular><![CDATA[Aero-kranaatti]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_4">
+	  <singular><![CDATA[Täsmäohjus]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_5">
+	  <singular><![CDATA[Kierijä]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_6">
+	  <singular><![CDATA[Kiitäjä]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_7">
+	  <singular><![CDATA[Funky]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_8">
+	  <singular><![CDATA[MIRV]]></singular>
+	</str>
+	<str key="GameReal_WeaponName_9">
+	  <singular><![CDATA[Kuolemankylväjä]]></singular>
+	</str>
+	<str key="GameReal_Wind">
+	  <singular><![CDATA[Tuuli]]></singular>
+	</str>
+	<str key="GameReal_Winner">
+	  <singular><![CDATA[%1 voitti]]></singular>
+	</str>
+	<str key="GameReal_Winners">
+	  <singular><![CDATA[Voittajat: %1]]></singular>
+	</str>
+	<str key="GameSettings_BeepGameStart">
+	  <singular><![CDATA[Äänimerkki pelin alussa]]></singular>
+	</str>
+	<str key="GameSettings_BeepOwnTurnStart">
+	  <singular><![CDATA[Äänimerkki oman vuoron alussa]]></singular>
+	</str>
+	<str key="GameSettings_BeepRoundStart">
+	  <singular><![CDATA[Äänimerkki kierroksen alussa]]></singular>
+	</str>
+	<str key="GameSettings_BeepWhenTimeIsLow">
+	  <singular><![CDATA[Äänimerkki kun aika käy vähiin]]></singular>
+	</str>
+	<str key="GameSettings_CloseButton">
+	  <singular><![CDATA[Sulje]]></singular>
+	</str>
+	<str key="GameSettings_DrawAimArrow">
+	  <singular><![CDATA[Näytä nuoli tähdätessä]]></singular>
+	</str>
+	<str key="GameSettings_ScoreOverCannon">
+	  <singular><![CDATA[Näytä pistemuutokset tykkien yllä]]></singular>
+	</str>
+	<str key="GameSettings_Sounds">
+	  <singular><![CDATA[Soita ääniefektit]]></singular>
+	</str>
+	<str key="GameSettings_UserFaces">
+	  <singular><![CDATA[Pelaajien hahmokuvat:]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesDown">
+	  <singular><![CDATA[Tykin alapuolella]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesNo">
+	  <singular><![CDATA[Ei näkyvissä]]></singular>
+	</str>
+	<str key="GameSettings_UserFacesUp">
+	  <singular><![CDATA[Tykin yläpuolella]]></singular>
+	</str>
+	<str key="GameSettings_WindowTitle">
+	  <singular><![CDATA[Asetukset - %1]]></singular>
+	</str>
+	<str key="GameWait_Clan">
+	  <singular><![CDATA[[klaani: %1]]]></singular>
+	</str>
+	<str key="GameWait_ClickToStart">
+	  <singular><![CDATA[Jos et halua odottaa pelin täyttymistä, klikkaa tästä:]]></singular>
+	</str>
+	<str key="GameWait_Info2">
+	  <singular><![CDATA[Odotetaan että toinen pelaaja liittyy peliin. Peli alkaa tämän jälkeen automaattisesti.]]></singular>
+	</str>
+	<str key="GameWait_InfoX">
+	  <singular><![CDATA[Odotetaan että muita pelaajia liittyy peliin. Peli alkaa automaattisesti kun %1 pelaajaa on mukana pelissä. Peli voidaan myös aloittaa heti kun pelissä on vähintään kaksi pelaajaa mikäli kaikki mukana olevat pelaajat näin haluavat. Voit keskustella muiden peliin liittyneiden kanssa alla olevassa ruudussa jo ennen pelin alkua.]]></singular>
+	</str>
+	<str key="GameWait_Players">
+	  <singular><![CDATA[Pelissä mukana:]]></singular>
+	</str>
+	<str key="GameWait_ReadyToStart">
+	  <singular><![CDATA[Valmis aloittamaan]]></singular>
+	</str>
+	<str key="GameWait_ReadyWithThesePlayers">
+	  <singular><![CDATA[Valmis aloittamaan näillä pelaajilla]]></singular>
+	</str>
+	<str key="GameWait_Waiting">
+	  <singular><![CDATA[Odotetaan pelaajaa...]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Valitse haastettava pelaaja listasta (vasemmalta) ensin]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[Et voi haastaa itseäsi, valitse joku toinen pelaaja]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Kirjoita viestisi tähän ja paina Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[Ei peli-ilmoituksia]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[Ei saapumis-/poistumisilmoituksia]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[(Yllä olevista valikoista voit tehdä uuden pelin tai liittyä muiden tekemiin peleihin)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[> Sano]]></singular>
+	</str>
+	<str key="LobbyChat_SystemMessage">
+	  <singular><![CDATA[** %1 **]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedGame">
+	  <singular><![CDATA[%1 teki uuden pelin nimeltään '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 saapui aulaan]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedGame">
+	  <singular><![CDATA[%1 liittyi peliin nimeltään '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 poistui aulasta]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 poistui aulasta (katkaisi yhteyden)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 palasi pelistä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 pelaaja pelissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 pelaajaa peleissä]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[Ei muita pelaajia aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 toinen pelaaja aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 muuta pelaajaa aulassa]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 ja %2 aloittivat pelin]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[T e r v e t u l o a !]]></singular>
+	</str>
+	<str key="LobbyControl_QuitButton">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Peruuta]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Anna pelin salasana]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Tee uusi peli]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Tee uusi peli]]></singular>
+	</str>
+	<str key="LobbyReal_Duds">
+	  <singular><![CDATA[Suutarit:]]></singular>
+	</str>
+	<str key="LobbyReal_DudsNo">
+	  <singular><![CDATA[Ei]]></singular>
+	</str>
+	<str key="LobbyReal_DudsYes">
+	  <singular><![CDATA[Kyllä]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Pelin nimi:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Pelin salasana:]]></singular>
+	</str>
+	<str key="LobbyReal_GameStartedNote">
+	  <singular><![CDATA[Tämä peli on jo alkanut ja siihen ei oteta uusia pelaajia]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorAlreadyStarted">
+	  <singular><![CDATA[Peli aloitettiin jo]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[Peli ei enää ole voimassa]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[Valittu peli on vain rekisteröityneille]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Väärä salasana]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Liity peliin]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Valitse peli johon haluat liittyä]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[ss]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[rek]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnlyAndPassword">
+	  <singular><![CDATA[[rek+ss]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Peli]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Pelaajia]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleRounds">
+	  <singular><![CDATA[Kierroksia]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_NoInfoOfUnregistered">
+	  <singular><![CDATA[Pelaajakorttia ei ole saatavilla rekisteröimättömästä pelaajasta %1]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfPlayers">
+	  <singular><![CDATA[Pelaajia:]]></singular>
+	</str>
+	<str key="LobbyReal_NumberOfRounds">
+	  <singular><![CDATA[Kierroksia:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Peliin pääsee:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[Kaikki]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Vain rekisteröityneet]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrder">
+	  <singular><![CDATA[Pelijärjestys:]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderSameTime">
+	  <singular><![CDATA[Samanaikaisesti]]></singular>
+	</str>
+	<str key="LobbyReal_PlayOrderTurns">
+	  <singular><![CDATA[Vuoronperään]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerList">
+	  <singular><![CDATA[Pelaajat:]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpDual">
+	  <singular><![CDATA[Valitse ensin pelin asetukset alta, haastettava pelaaja chatin viereisestä listasta ja klikkaa sitten "Haasta"-painiketta. "Lisää"-painikkeesta saat halutessasi lisää asetuksia.]]></singular>
+	</str>
+	<str key="LobbyReal_QuickHelpMulti">
+	  <singular><![CDATA[Uuden pelin luomiseksi valitse pelin asetukset alta ja paina "Tee uusi peli"-painiketta. "Lisää"-painikkeesta saat halutessasi lisää asetuksia.]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Pisteitä saa:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringBoth">
+	  <singular><![CDATA[Sekä selv. ja tuh.]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringDestroy">
+	  <singular><![CDATA[Tuhoamisesta]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringSurvive">
+	  <singular><![CDATA[Selviytymisestä]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsLess">
+	  <singular><![CDATA[<< Vähemmän]]></singular>
+	</str>
+	<str key="LobbyReal_SettingsMore">
+	  <singular><![CDATA[Lisää >>]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTime">
+	  <singular><![CDATA[Miettimisaika (sekuntia):]]></singular>
+	</str>
+	<str key="LobbyReal_ThinkTimeUnlimited">
+	  <singular><![CDATA[Ei rajattu]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAdd">
+	  <singular><![CDATA[Aseiden jako:]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstant">
+	  <singular><![CDATA[Pysyvä]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddConstantInfo">
+	  <singular><![CDATA[Pysyvä = samat aseet kaikilla jokaisen kierroksen alussa]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasing">
+	  <singular><![CDATA[Vähenevä]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddDecreasingInfo">
+	  <singular><![CDATA[Vähenevä = kaikki aseet alussa, uusia ei tule kierrosten jälkeen]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasing">
+	  <singular><![CDATA[Lisääntyvä]]></singular>
+	</str>
+	<str key="LobbyReal_WeaponAddIncreasingInfo">
+	  <singular><![CDATA[Lisääntyvä = uusia aseita jokaisen kierroksen jälkeen]]></singular>
+	</str>
+	<str key="LobbyReal_Wind">
+	  <singular><![CDATA[Tuuli:]]></singular>
+	</str>
+	<str key="LobbyReal_WindNone">
+	  <singular><![CDATA[Ei ollenkaan]]></singular>
+	</str>
+	<str key="LobbyReal_WindNormal">
+	  <singular><![CDATA[Normaali]]></singular>
+	</str>
+	<str key="LobbyReal_WindRandom">
+	  <singular><![CDATA[Satunnainen]]></singular>
+	</str>
+	<str key="Localized_GameClientName">
+	  <singular><![CDATA[Tykkipeli]]></singular>
+	</str>
+</localization>

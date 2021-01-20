@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="Shared" lang="sv_SE">
+	<str key="BadNicks" reverse="yes">
+	  <singular><![CDATA[tsecni,tsesni,ilekkik,reggin,rekeen,skesitten,aspmip,attomih,sakomih,sboob,ipmip,anavok,sakulah,ussut,kknur,mreps,suna,issit,aksret,appmip,yllyp,sirotilk,aktul,tsicar,tsisar,fodep,äkiersrep,ääpisuk,issun,ttenap,ippmip,ileppip,amiik,ynroh,rerhuf,rerheuf,rerhüf,tsissar,liehgeis,lieh geis,padsn,lemmor,izan,aksiar,aksap,otipälly,erohw,reknaw,eztov,tutiv,nutiv,kutiv,iutiv,uttiv,tmmadrev,anigav,ressot,tihs,xes,iskes,yskes,znawhcs,essiehcs,anataas,yssup,nrop,duvuhttip,duvuhssip,ullip,esrep,elekrep,sinep,uklum,ukklum,rotaredom,irottaaredom,obsel,vryk,pryk,illuk,eraguskuk,duvuhkuk,nhosneruh,arouh,omoh,reltih,ttnih,ittevleh,etevleh,kcuf,eztof,attif,neggif,odlid,göb,bojwolb,hctib,dratsab,elohssa,hcolhcsra,ajapa,laana,nimda]]></singular>
+	</str>
+	<str key="BadWords" reverse="yes">
+	  <singular><![CDATA[kcuf,itnih,ttnih,obsel,omoh,arouh,ukknur,aakknur,rakknur,illuk,uklum,ukklum,vryk,pryk,iutiv,kutiv,sutiv,tutiv,nutiv,uttiv,nitevleh,ittevleh,anataas,elekrep,göb,omoh,ssip,etevleh,pmur,apmur,eraguskuk,duvuhkuk,duvuhssip,duvuhttip,ttip,kuk,aroh,tiks,attif,natas]]></singular>
+	</str>
+	<str key="Chat_Game_BanButton">
+	  <singular><![CDATA[Banna]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemoveNone">
+	  <singular><![CDATA[Välj åskådare du vill sparka ut]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemovePlayer">
+	  <singular><![CDATA[Du kan inte sparka ut spelare, endast åskådare]]></singular>
+	</str>
+	<str key="Chat_Game_CantRemoveSelf">
+	  <singular><![CDATA[Du kan inte sparka ut dig själv]]></singular>
+	</str>
+	<str key="Chat_Game_KickButton">
+	  <singular><![CDATA[Ta bort]]></singular>
+	</str>
+	<str key="Chat_Game_NoSpectatorJoinPartMessages">
+	  <singular><![CDATA[Inga inträdes-/utgångsnotiser]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerJoined">
+	  <singular><![CDATA[%1 anslöt sig till spelet]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerJoinedClan">
+	  <singular><![CDATA[%1 [klan: %2] anslöt sig till spelet]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerLeft">
+	  <singular><![CDATA[%1 lämnade spelet]]></singular>
+	</str>
+	<str key="Chat_Game_PlayerLeftConnectionProblem">
+	  <singular><![CDATA[%1 lämnade spelet (kontakten bröts)]]></singular>
+	</str>
+	<str key="Chat_Game_RemoveSpectatorButton">
+	  <singular><![CDATA[Avlägsna åskådare]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorJoined">
+	  <singular><![CDATA[%1 kom för att se på spelet]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorLeft">
+	  <singular><![CDATA[Åskådare %1 lämnade spelet]]></singular>
+	</str>
+	<str key="Chat_Game_SpectatorLeftRemovedByPlayer">
+	  <singular><![CDATA[Åskådaren %1 lämnade spelet (spelaren avlägsnad)]]></singular>
+	</str>
+	<str key="Chat_InputHelp">
+	  <singular><![CDATA[Skriv ditt meddelande här och tryck Enter]]></singular>
+	</str>
+	<str key="Chat_Lobby_CantChallengeNone">
+	  <singular><![CDATA[Välj först spelare du vill utmana från listan (på vänster)]]></singular>
+	</str>
+	<str key="Chat_Lobby_CantChallengeSelf">
+	  <singular><![CDATA[Du kan inte utmana dig själv, välj annan spelare]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGameMessages">
+	  <singular><![CDATA[Inga spelmeddelanden]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGuestChatAndRegReminder">
+	  <singular><![CDATA[Som oregisterad användare kan du inte chatta i lobbyn. Om du vill så kan du <registrera> omedelbart.]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoGuestChatAndRegReminder_Shorter">
+	  <singular><![CDATA[Som oregistrerad användare kan du inte chatta i lobbyn. <Registrera> sig här.]]></singular>
+	</str>
+	<str key="Chat_Lobby_NoJoinPartMessages">
+	  <singular><![CDATA[Inga inträdes-/utgångsnotiser]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserCreatedGame">
+	  <singular><![CDATA[%1 gjorde nytt spel med namnet '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UserJoined">
+	  <singular><![CDATA[%1 anlände i lobbyn]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserJoinedGame">
+	  <singular><![CDATA[%1 deltog i spelet '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UserLeft">
+	  <singular><![CDATA[%1 lämnade lobbyn]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 lämnade lobbyn (kontakten bröts)]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserReturnedFromGame">
+	  <singular><![CDATA[%1 återvände från spelet]]></singular>
+	</str>
+	<str key="Chat_Lobby_UserWathicngGame">
+	  <singular><![CDATA[%1 gick för att titta på spelet '%2']]></singular>
+	</str>
+	<str key="Chat_Lobby_UsersStartedGame">
+	  <singular><![CDATA[%1 och %2 började spela '%3']]></singular>
+	</str>
+	<str key="Chat_Lobby_UsersStartedUnnamedGame">
+	  <singular><![CDATA[%1 och %2 började spela]]></singular>
+	</str>
+	<str key="Chat_Message">
+	  <singular><![CDATA[** %1 **]]></singular>
+	</str>
+	<str key="Chat_MessageChallengeFlood">
+	  <singular><![CDATA[Du kan inte utmana samma användare för många gånger inom en kort tid (utmana någon annan eller vänta en stund innan du utmanar denna användare igen)]]></singular>
+	</str>
+	<str key="Chat_MessageFlood">
+	  <singular><![CDATA[Meddelande inte ännu sänt pga störande (för mycket text för snabbt)]]></singular>
+	</str>
+	<str key="Chat_MessagePrivateMessageUserLeft">
+	  <singular><![CDATA[Lägg märke till att %1, som började skriva privatmeddelanden, har lämnat chatten]]></singular>
+	</str>
+	<str key="Chat_MuteChatRoomReminder">
+	  <singular><![CDATA[Detta är tysta rummet, chatten är avstängd]]></singular>
+	</str>
+	<str key="Chat_NoGuestChatAndRegNote">
+	  <singular><![CDATA[Du kan inte chatta utan konto (<skapa konto>)]]></singular>
+	</str>
+	<str key="Chat_NoGuestChatAndRegReminder">
+	  <singular><![CDATA[Som oregistrerade kan du chatta bara medan du spelar (<registrera>]]></singular>
+	</str>
+	<str key="Chat_NoUnconfirmedChatNote">
+	  <singular><![CDATA[Du behöver bekräfta din e-postadress för att kunna chatta]]></singular>
+	</str>
+	<str key="Chat_NoUnconfirmedChatReminder">
+	  <singular><![CDATA[Du måste bekräfta din e-postadress innan du kan chatta]]></singular>
+	</str>
+	<str key="Chat_SayButton">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="Chat_ServerBroadcast">
+	  <singular><![CDATA[[ Meddelande från server: %1 ]]]></singular>
+	</str>
+	<str key="Chat_ServerSay">
+	  <singular><![CDATA[<<Servern>> %1]]></singular>
+	</str>
+	<str key="Chat_SheriffSay">
+	  <singular><![CDATA[<<Sheriff>> %1]]></singular>
+	</str>
+	<str key="Chat_Simple_ChatRequiresConfirmation">
+	  <singular><![CDATA[Du måste bekräfta ditt mejl innan du kan chatta]]></singular>
+	</str>
+	<str key="Chat_Simple_ChatRequiresRegisteration">
+	  <singular><![CDATA[Du måste <skapa ett Playraykonto> innan du kan chatta]]></singular>
+	</str>
+	<str key="Chat_Simple_NoJoinPartMessages">
+	  <singular><![CDATA[Inga meddelanden när folk går med eller lämnar chatten]]></singular>
+	</str>
+	<str key="Chat_Simple_UserJoined">
+	  <singular><![CDATA[%1 gick med i chatten]]></singular>
+	</str>
+	<str key="Chat_Simple_UserLeft">
+	  <singular><![CDATA[%1 lämnade chatten]]></singular>
+	</str>
+	<str key="Chat_UserAction">
+	  <singular><![CDATA[%1 %2]]></singular>
+	</str>
+	<str key="Chat_UserSay">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="Chat_UserSayPrivate">
+	  <singular><![CDATA[<%1 -> %2> %3]]></singular>
+	</str>
+	<str key="Chat_Welcome">
+	  <singular><![CDATA[V ä l k o m m e n !]]></singular>
+	</str>
+	<str key="ClockAM">
+	  <singular><![CDATA[AM]]></singular>
+	</str>
+	<str key="ClockFormat">
+	  <singular><![CDATA[%1:%2]]></singular>
+	</str>
+	<str key="ClockHours">
+	  <singular><![CDATA[24]]></singular>
+	</str>
+	<str key="ClockPM">
+	  <singular><![CDATA[PM]]></singular>
+	</str>
+	<str key="CurseChars">
+	  <singular><![CDATA[§#@$&%¤*×?!]]></singular>
+	</str>
+	<str key="DateFormat">
+	  <singular><![CDATA[%1. %2 %3]]></singular>
+	</str>
+	<str key="DateMonth1">
+	  <singular><![CDATA[Januari]]></singular>
+	</str>
+	<str key="DateMonth10">
+	  <singular><![CDATA[Oktober]]></singular>
+	</str>
+	<str key="DateMonth11">
+	  <singular><![CDATA[November]]></singular>
+	</str>
+	<str key="DateMonth12">
+	  <singular><![CDATA[December]]></singular>
+	</str>
+	<str key="DateMonth2">
+	  <singular><![CDATA[Februari]]></singular>
+	</str>
+	<str key="DateMonth3">
+	  <singular><![CDATA[Mars]]></singular>
+	</str>
+	<str key="DateMonth4">
+	  <singular><![CDATA[April]]></singular>
+	</str>
+	<str key="DateMonth5">
+	  <singular><![CDATA[Maj]]></singular>
+	</str>
+	<str key="DateMonth6">
+	  <singular><![CDATA[Juni]]></singular>
+	</str>
+	<str key="DateMonth7">
+	  <singular><![CDATA[Juli]]></singular>
+	</str>
+	<str key="DateMonth8">
+	  <singular><![CDATA[Augusti]]></singular>
+	</str>
+	<str key="DateMonth9">
+	  <singular><![CDATA[September]]></singular>
+	</str>
+	<str key="DateToday">
+	  <singular><![CDATA[Idag]]></singular>
+	</str>
+	<str key="DateYesterday">
+	  <singular><![CDATA[Igår]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutDaysAgo">
+	  <plural><![CDATA[Ungefär %1 dagar sedan]]></plural>
+	  <singular><![CDATA[Ungefär en dag sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutHoursAgo">
+	  <plural><![CDATA[Ungefär %1 timmar sedan]]></plural>
+	  <singular><![CDATA[Ungefär en timme sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutMinutesAgo">
+	  <plural><![CDATA[Ungefär %1 minuter sedan]]></plural>
+	  <singular><![CDATA[Ungefär en minut sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutMonthsAgo">
+	  <plural><![CDATA[Ungefär %1 månader sedan]]></plural>
+	  <singular><![CDATA[Ungefär en månad sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutWeeksAgo">
+	  <plural><![CDATA[Ungefär %1 veckor sedan]]></plural>
+	  <singular><![CDATA[Ungefär en vecka sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_AboutYearsAgo">
+	  <plural><![CDATA[Ungefär %1 år sedan]]></plural>
+	  <singular><![CDATA[Ungefär ett år sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_FewSecondsAgo">
+	  <singular><![CDATA[För några sekunder sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_ManyYearsAgo">
+	  <singular><![CDATA[Flera är sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_MinutesAgo">
+	  <plural><![CDATA[%1 minuter sedan]]></plural>
+	  <singular><![CDATA[En minut sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_MoreThanYearsAgo">
+	  <plural><![CDATA[Mer än %1 år sedan]]></plural>
+	  <singular><![CDATA[Mer än ett år sedan]]></singular>
+	</str>
+	<str key="FuzzyTime_SecondsAgo">
+	  <plural><![CDATA[%1 sekunder sedan]]></plural>
+	  <singular><![CDATA[En sekund sedan]]></singular>
+	</str>
+	<str key="GameFin_RM_FirstRanking">
+	  <singular><![CDATA[Du har just fått dina första rankningspoäng!<br><br>Du kan se din egen spelhistoria eller exakta rankning i vilket spel som helst, om du väljer <br><b>MinSida -> Statistik<br><br>Om du vill veta hur många poäng de bästa spelarna har, välj<br><b>Spel -> Rankning</b>]]></singular>
+	</str>
+	<str key="GameFin_RS_PersonalRecord">
+	  <singular><![CDATA[Du slog just ditt eget rekord! <br><br>Ditt eget rekord syns i det här spelrummet, men du kan se din spelstatistik också, om du väljer<br><b>MinSida -> Statistik</b><br><br>Om du vill se hur Playrays bästa spelare har spelat, välj<br><b>Spel -> Rekord</b>]]></singular>
+	</str>
+	<str key="GameFin_R_Congratulations">
+	  <singular><![CDATA[Gratulerar!]]></singular>
+	</str>
+	<str key="GameFin_R_OK">
+	  <singular><![CDATA[OK!]]></singular>
+	</str>
+	<str key="GameFin_WM_StatsNotSaved">
+	  <singular><![CDATA[Eftersom du spelar utan ett Playforiakonto sparas inte din personliga spelstatistik.<br><br>Då du skapar ett konto gratis får du ett unikt <b>namn</b>, en egen <b>figur</b>, personlig <b>spelstatistik</b> och dessutom <b>rankningsikoner</b> som visar de andra spelarna hur bra du är!]]></singular>
+	</str>
+	<str key="GameFin_WS_ScoreNotSaved">
+	  <singular><![CDATA[Dina poäng sparas inte, eftersom du inte ännu skapat ett Playforia konto.<br><br>Genom att skapa ett konto på Playforia kan du få din <b>personliga</b> spelstatistik och dina rekord sparade, och du kan dessutom skapa helt egna inställningar!]]></singular>
+	</str>
+	<str key="GameFin_W_Continue">
+	  <singular><![CDATA[Fortsätt utan användarnamn]]></singular>
+	</str>
+	<str key="GameFin_W_CreateAccount">
+	  <singular><![CDATA[Registrera nytt Playraykonto nu, det är gratis!]]></singular>
+	</str>
+	<str key="GameFin_W_GameOver">
+	  <singular><![CDATA[Spelet tog slut!]]></singular>
+	</str>
+	<str key="GoodWords" reverse="yes">
+	  <singular><![CDATA[illukreh,nutivhak,nutivrat,nutivos,sutivar,sutivaar,sutivaak,iutivar,iutivaar,iutivaak,nutivar,nutivaar,nutivaak,uttivrat,uttivos,uttivar,uttivaar,uttivaak]]></singular>
+	</str>
+	<str key="Key_Add">
+	  <singular><![CDATA[+]]></singular>
+	</str>
+	<str key="Key_Alt">
+	  <singular><![CDATA[Alt]]></singular>
+	</str>
+	<str key="Key_ArrowDown">
+	  <singular><![CDATA[Pil ner]]></singular>
+	</str>
+	<str key="Key_ArrowLeft">
+	  <singular><![CDATA[Pil vänster]]></singular>
+	</str>
+	<str key="Key_ArrowRight">
+	  <singular><![CDATA[Pil höger]]></singular>
+	</str>
+	<str key="Key_ArrowUp">
+	  <singular><![CDATA[Pil upp]]></singular>
+	</str>
+	<str key="Key_BackSpace">
+	  <singular><![CDATA[Back space]]></singular>
+	</str>
+	<str key="Key_Control">
+	  <singular><![CDATA[Control]]></singular>
+	</str>
+	<str key="Key_Delete">
+	  <singular><![CDATA[Delete]]></singular>
+	</str>
+	<str key="Key_Divide">
+	  <singular><![CDATA[/]]></singular>
+	</str>
+	<str key="Key_End">
+	  <singular><![CDATA[End]]></singular>
+	</str>
+	<str key="Key_Enter">
+	  <singular><![CDATA[Enter]]></singular>
+	</str>
+	<str key="Key_EnterNew">
+	  <singular><![CDATA[(Tryck knapp)]]></singular>
+	</str>
+	<str key="Key_Escape">
+	  <singular><![CDATA[Escape]]></singular>
+	</str>
+	<str key="Key_Home">
+	  <singular><![CDATA[Home]]></singular>
+	</str>
+	<str key="Key_Insert">
+	  <singular><![CDATA[Insert]]></singular>
+	</str>
+	<str key="Key_Multiply">
+	  <singular><![CDATA[*]]></singular>
+	</str>
+	<str key="Key_NotSet">
+	  <singular><![CDATA[(Icke Inställd)]]></singular>
+	</str>
+	<str key="Key_Numpad0">
+	  <singular><![CDATA[Siffra 0]]></singular>
+	</str>
+	<str key="Key_Numpad1">
+	  <singular><![CDATA[Siffra 1]]></singular>
+	</str>
+	<str key="Key_Numpad2">
+	  <singular><![CDATA[Siffra 2]]></singular>
+	</str>
+	<str key="Key_Numpad3">
+	  <singular><![CDATA[Siffra 3]]></singular>
+	</str>
+	<str key="Key_Numpad4">
+	  <singular><![CDATA[Siffra 4]]></singular>
+	</str>
+	<str key="Key_Numpad5">
+	  <singular><![CDATA[Siffra 5]]></singular>
+	</str>
+	<str key="Key_Numpad6">
+	  <singular><![CDATA[Siffra 6]]></singular>
+	</str>
+	<str key="Key_Numpad7">
+	  <singular><![CDATA[Siffra 7]]></singular>
+	</str>
+	<str key="Key_Numpad8">
+	  <singular><![CDATA[Siffra 8]]></singular>
+	</str>
+	<str key="Key_Numpad9">
+	  <singular><![CDATA[Siffra 9]]></singular>
+	</str>
+	<str key="Key_PageDown">
+	  <singular><![CDATA[Page Down]]></singular>
+	</str>
+	<str key="Key_PageUp">
+	  <singular><![CDATA[Page Up]]></singular>
+	</str>
+	<str key="Key_Pause">
+	  <singular><![CDATA[Paus]]></singular>
+	</str>
+	<str key="Key_PrintScreen">
+	  <singular><![CDATA[Print Screen]]></singular>
+	</str>
+	<str key="Key_ScrollLock">
+	  <singular><![CDATA[Scroll Lock]]></singular>
+	</str>
+	<str key="Key_Shift">
+	  <singular><![CDATA[Shift]]></singular>
+	</str>
+	<str key="Key_Space">
+	  <singular><![CDATA[Mellanslag]]></singular>
+	</str>
+	<str key="Key_Subtrack">
+	  <singular><![CDATA[- (minus)]]></singular>
+	</str>
+	<str key="Key_Tab">
+	  <singular><![CDATA[Tabulator]]></singular>
+	</str>
+	<str key="Language_bg">
+	  <singular><![CDATA[Bulgariska]]></singular>
+	</str>
+	<str key="Language_de">
+	  <singular><![CDATA[Tyska]]></singular>
+	</str>
+	<str key="Language_en">
+	  <singular><![CDATA[Engelska]]></singular>
+	</str>
+	<str key="Language_es">
+	  <singular><![CDATA[Spanska]]></singular>
+	</str>
+	<str key="Language_et">
+	  <singular><![CDATA[Estniska]]></singular>
+	</str>
+	<str key="Language_fi">
+	  <singular><![CDATA[Finska]]></singular>
+	</str>
+	<str key="Language_fr">
+	  <singular><![CDATA[Franska]]></singular>
+	</str>
+	<str key="Language_hu">
+	  <singular><![CDATA[Ungerska]]></singular>
+	</str>
+	<str key="Language_it">
+	  <singular><![CDATA[Italienska]]></singular>
+	</str>
+	<str key="Language_lt">
+	  <singular><![CDATA[Litauiska]]></singular>
+	</str>
+	<str key="Language_lv">
+	  <singular><![CDATA[Lettiska]]></singular>
+	</str>
+	<str key="Language_nl">
+	  <singular><![CDATA[Holländska]]></singular>
+	</str>
+	<str key="Language_no">
+	  <singular><![CDATA[Norska]]></singular>
+	</str>
+	<str key="Language_null">
+	  <singular><![CDATA[Obekant]]></singular>
+	</str>
+	<str key="Language_pl">
+	  <singular><![CDATA[Polska]]></singular>
+	</str>
+	<str key="Language_pt">
+	  <singular><![CDATA[Portugisiska]]></singular>
+	</str>
+	<str key="Language_ro">
+	  <singular><![CDATA[Rumänska]]></singular>
+	</str>
+	<str key="Language_ru">
+	  <singular><![CDATA[Ryska]]></singular>
+	</str>
+	<str key="Language_sv">
+	  <singular><![CDATA[Svenska]]></singular>
+	</str>
+	<str key="Language_tr">
+	  <singular><![CDATA[Turkiska]]></singular>
+	</str>
+	<str key="Limit_NeedConfirmEmailNote">
+	  <singular><![CDATA[(måste bekräfta email)]]></singular>
+	</str>
+	<str key="Limit_OnlyForRegisteredNote">
+	  <singular><![CDATA[(endast för registrerade)]]></singular>
+	</str>
+	<str key="Limit_OnlyWithCreditsNote">
+	  <singular><![CDATA[(endast mynt)]]></singular>
+	</str>
+	<str key="Loader_AdClickNote">
+	  <singular><![CDATA[(att klicka på reklamen avbryter inte laddningen av spelet)]]></singular>
+	</str>
+	<str key="Loader_Button_MorePaymentOptions">
+	  <singular><![CDATA[Fler betalningsalternativ]]></singular>
+	</str>
+	<str key="Loader_Button_StartGame">
+	  <singular><![CDATA[Starta spel]]></singular>
+	</str>
+	<str key="Loader_LoadingGame">
+	  <singular><![CDATA[Laddar spel...]]></singular>
+	</str>
+	<str key="Loader_LoadingGfxSfx">
+	  <singular><![CDATA[Laddar grafik och ljud...]]></singular>
+	</str>
+	<str key="Login_EnterNick">
+	  <singular><![CDATA[Ditt smeknamn:]]></singular>
+	</str>
+	<str key="Login_EnterNick1">
+	  <singular><![CDATA[Du har inte loggat in!]]></singular>
+	</str>
+	<str key="Login_EnterNick2">
+	  <singular><![CDATA[Du kan fortfarande gå direkt till spelet med att ge ditt användarnamn nedan:]]></singular>
+	</str>
+	<str key="Login_EnterNick3">
+	  <singular><![CDATA[( framför ditt namn sätter vi märket ~ så andra vet att du är gästspelare )]]></singular>
+	</str>
+	<str key="Login_ForbiddenNick">
+	  <singular><![CDATA[Förbjudet användarnamn]]></singular>
+	</str>
+	<str key="Login_InvalidNick">
+	  <singular><![CDATA[Felaktigt smeknamn (använd bara bokstäver och nummer)]]></singular>
+	</str>
+	<str key="Login_NeedNick">
+	  <singular><![CDATA[Du måste ha ett användarnamn]]></singular>
+	</str>
+	<str key="Login_NickInUse">
+	  <singular><![CDATA[Användarnamnet används redan, välj annat]]></singular>
+	</str>
+	<str key="Login_NickTooLong">
+	  <singular><![CDATA[Användarnamn för långt]]></singular>
+	</str>
+	<str key="Login_NickTooShort">
+	  <singular><![CDATA[Användarnamn för kort]]></singular>
+	</str>
+	<str key="Login_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="Login_Quit">
+	  <singular><![CDATA[Avlägsna]]></singular>
+	</str>
+	<str key="Login_RegBenefits1">
+	  <singular><![CDATA[Registreringen är gratis men man får t.ex följande fördelar:]]></singular>
+	</str>
+	<str key="Login_RegBenefits2">
+	  <singular><![CDATA[- ett unikt användarnamn samt spelarkort]]></singular>
+	</str>
+	<str key="Login_RegBenefits3">
+	  <singular><![CDATA[- dina poäng sparas i topp-listor]]></singular>
+	</str>
+	<str key="Login_RegBenefits4">
+	  <singular><![CDATA[- dina spelinställningar sparas]]></singular>
+	</str>
+	<str key="Login_RegBenefits5">
+	  <singular><![CDATA[- samt mycket mer...]]></singular>
+	</str>
+	<str key="Login_RegLoginFailed">
+	  <singular><![CDATA[Inloggning som registrerad användare misslyckades!]]></singular>
+	</str>
+	<str key="Login_Wait">
+	  <singular><![CDATA[Loggar in...]]></singular>
+	</str>
+	<str key="Login_WantRegister1">
+	  <singular><![CDATA[Om du vill registrera dig eller logga in, kan du göra det på framsidan.]]></singular>
+	</str>
+	<str key="Login_WantRegister2">
+	  <singular><![CDATA[Klicka på följande knapp för att återvända till framsidan:]]></singular>
+	</str>
+	<str key="Match_CantChallenge">
+	  <singular><![CDATA[Et voi haastaa vielä, vastustajasi ei ole paikalla]]></singular>
+	</str>
+	<str key="Match_Challenge">
+	  <singular><![CDATA[Haasta vastustajasi]]></singular>
+	</str>
+	<str key="Match_CreateOrJoin">
+	  <singular><![CDATA[Aloita klaanipeli]]></singular>
+	</str>
+	<str key="Match_MatchGameNote">
+	  <singular><![CDATA[HUOM! Tämä on klaanipeli joka päätyy klaanin tilastoihin!]]></singular>
+	</str>
+	<str key="Match_MessageError">
+	  <singular><![CDATA[Match-fel uppstod! Kan inte starta klanmatch.]]></singular>
+	</str>
+	<str key="Match_MessageErrorHelp1">
+	  <singular><![CDATA[Spelinställningarna är ogiltiga eller inloggningen misslyckades]]></singular>
+	</str>
+	<str key="Match_MessageErrorHelp2">
+	  <singular><![CDATA[(Försök igen eller kontakta Playforia's administration)]]></singular>
+	</str>
+	<str key="Match_Quit">
+	  <singular><![CDATA[Poistu]]></singular>
+	</str>
+	<str key="Message_BannedInitially">
+	  <singular><![CDATA[Du har bannats från detta spel]]></singular>
+	</str>
+	<str key="Message_BannedInitiallyHelp">
+	  <singular><![CDATA[Försök på nytt senare...]]></singular>
+	</str>
+	<str key="Message_BannedNow">
+	  <singular><![CDATA[Du har avlägsnats från spelet]]></singular>
+	</str>
+	<str key="Message_BannedNowHelp">
+	  <singular><![CDATA[Sheriffen sparkade ut dig och bannade dig från spelet]]></singular>
+	</str>
+	<str key="Message_CE0_1_Long">
+	  <singular><![CDATA[Brandväggen förhindrar TCP-anslutningen till servern %1 porten %2. Om du användar en publikdator (till exempel på skolan eller på biblioteket), kontakta lokal administratör.]]></singular>
+	</str>
+	<str key="Message_CE0_1_Short">
+	  <singular><![CDATA[Brandväggen förhindrar anslutningen till servern]]></singular>
+	</str>
+	<str key="Message_CE0_2_Long">
+	  <singular><![CDATA[Kolla om att din internetförbindelse fungerar, uppdatera till exempel den här sidan en gång till.]]></singular>
+	</str>
+	<str key="Message_CE0_2_Short">
+	  <singular><![CDATA[Din internetförbindelse avbröts]]></singular>
+	</str>
+	<str key="Message_CE0_3_Long">
+	  <singular><![CDATA[Om det är på det här viset, Playrays administratorer får en anmälning automatiskt. Sök igen efter några minuter.]]></singular>
+	</str>
+	<str key="Message_CE0_3_Short">
+	  <singular><![CDATA[Spelserver är inte i gång (möjligt men osannolikt)]]></singular>
+	</str>
+	<str key="Message_CE1_1_Long">
+	  <singular><![CDATA[De flesta spelen kan behandla korta serveravbrott. Om avbrottet är längre, avbryts spelet. Sök uppdatera den här sidan igen.]]></singular>
+	</str>
+	<str key="Message_CE1_1_Short">
+	  <singular><![CDATA[Din internetförbindelse avbröts]]></singular>
+	</str>
+	<str key="Message_CE1_2_Long">
+	  <singular><![CDATA[Det skedde ett fel som spelet inte klarade av. Anmälan av sådana här fel skickas automatiskt till Playrays administratorer. Playrays personal åtgärdar felet så snart som möjligt.]]></singular>
+	</str>
+	<str key="Message_CE1_2_Short">
+	  <singular><![CDATA[Programfel uppstod]]></singular>
+	</str>
+	<str key="Message_CE1_3_Long">
+	  <singular><![CDATA[Anmälan av sådana här fel skickas automatiskt till Playrays administratorer. Playrays personal åtgärdar felet så snart som möjligt. Försök igen om en liten stund.]]></singular>
+	</str>
+	<str key="Message_CE1_3_Short">
+	  <singular><![CDATA[Spelservern har stängts av p.g.a. fel (möjligt men osannolikt)]]></singular>
+	</str>
+	<str key="Message_CE_ConnectionError">
+	  <singular><![CDATA[Serveranslutningsfel]]></singular>
+	</str>
+	<str key="Message_CE_PossibleReasons">
+	  <singular><![CDATA[Tänkbara orsaker:]]></singular>
+	</str>
+	<str key="Message_CE_RetryButton">
+	  <singular><![CDATA[Sök igen nu]]></singular>
+	</str>
+	<str key="Message_Connecting">
+	  <singular><![CDATA[Ansluter till servern...]]></singular>
+	</str>
+	<str key="Message_ConnectionError">
+	  <singular><![CDATA[Anslutningsfel!]]></singular>
+	</str>
+	<str key="Message_ConnectionErrorHelp">
+	  <singular><![CDATA[Din internätanslutning är inte kopplad eller så förhindrar en brandvägg anslutningen till servern.]]></singular>
+	</str>
+	<str key="Message_DuplicateNick">
+	  <singular><![CDATA[Du har loggat in i spelet från en annan lokalsajt.]]></singular>
+	</str>
+	<str key="Message_KickedNow">
+	  <singular><![CDATA[Du har sparkats ut från spelet]]></singular>
+	</str>
+	<str key="Message_KickedNowHelp">
+	  <singular><![CDATA[Sheriffen sparkade ut dig från spelet]]></singular>
+	</str>
+	<str key="Message_LoginFailedReg">
+	  <singular><![CDATA[Misslyckades att logga in på Playraykontot]]></singular>
+	</str>
+	<str key="Message_LoginFailedRegHelp">
+	  <singular><![CDATA[Servern lyckas inte logga in dig i spelet med ditt konto. Var god och gå tillbaka till framsidan och kolla att du är fortfarande inloggad.]]></singular>
+	</str>
+	<str key="Message_PE_ErrorDesc">
+	  <singular><![CDATA[Felet: %1]]></singular>
+	</str>
+	<str key="Message_PE_GameClosed">
+	  <singular><![CDATA[Vi är ledsna men spelet stängdes p.g.a. oväntat fel. Om spelet var ännu uppkopplat till servern då felet uppstod kommer Playrays personal att automatiskt informeras om saken.]]></singular>
+	</str>
+	<str key="Message_PE_ProgramError">
+	  <singular><![CDATA[Programfel uppstod]]></singular>
+	</str>
+	<str key="Message_PE_RetryButton">
+	  <singular><![CDATA[Starta om spelet]]></singular>
+	</str>
+	<str key="Message_QuitGame">
+	  <singular><![CDATA[Lämnar spelet...]]></singular>
+	</str>
+	<str key="Message_QuitGame_ToBuyCoins">
+	  <singular><![CDATA[Går till myntförsäljningssidan...]]></singular>
+	</str>
+	<str key="Message_QuitGame_ToRegister">
+	  <singular><![CDATA[Förflyttas till sidan för nytt konto...]]></singular>
+	</str>
+	<str key="Message_ServerFullError">
+	  <singular><![CDATA[Denna spelserver är för tillfället full.]]></singular>
+	</str>
+	<str key="Message_ServerFullErrorHelp">
+	  <singular><![CDATA[(Var god försök pånytt om en stund eller spela andra Playrays spel)]]></singular>
+	</str>
+	<str key="Message_ServerShutting">
+	  <singular><![CDATA[Servern stänger av. Försök igen om en stund!]]></singular>
+	</str>
+	<str key="Message_TooManySameIP">
+	  <singular><![CDATA[För många uppkopplingar från samma IP-adress]]></singular>
+	</str>
+	<str key="Message_TooManySameIPHelp">
+	  <singular><![CDATA[(Försök senare på nytt)]]></singular>
+	</str>
+	<str key="Message_VersionError">
+	  <singular><![CDATA[Server/kund version-konflikt, försök att tömma buffertminne och omstarta webbläsaren.]]></singular>
+	</str>
+	<str key="Message_VersionErrorHelp">
+	  <singular><![CDATA[(I flere webbläsare räcker det med att man uppfriskar sidan med att trycka på Shift- eller Ctrl-knappen och samtidigt klicka på webbläsarens Uppfriska-knapp))]]></singular>
+	</str>
+	<str key="Message_WaitWhile">
+	  <singular><![CDATA[Var god vänta...]]></singular>
+	</str>
+	<str key="NeedAccount_CreateButton">
+	  <singular><![CDATA[Skapa ett gratis konto nu]]></singular>
+	</str>
+	<str key="NeedAccount_Info1">
+	  <singular><![CDATA[Du kan använda denna feature bara om du har ett Playraykonto. Det är enkelt och smidigt att skapa ett konto - gratis också.]]></singular>
+	</str>
+	<str key="NeedAccount_Info2">
+	  <singular><![CDATA[Efter att du har skapat ditt konto har du fritt tillträde alltid. Du får också tillgång till många extra grejer på Playforia.]]></singular>
+	</str>
+	<str key="NeedAccount_LaterButton">
+	  <singular><![CDATA[Kanske senare]]></singular>
+	</str>
+	<str key="NeedAccount_LoginButton">
+	  <singular><![CDATA[Logga in nu]]></singular>
+	</str>
+	<str key="NeedAccount_NotLoggedIn">
+	  <singular><![CDATA[Om du har ett konto är du tydligen inte inloggad för tillfället. Logga in på Playrays framsida.]]></singular>
+	</str>
+	<str key="NeedAccount_Title">
+	  <singular><![CDATA[Det krävs ett Playraykonto]]></singular>
+	</str>
+	<str key="OrderFrame_AfterOrderInstructions">
+	  <singular><![CDATA[Efter att ha skickat ett sms, vänta, stäng inte fönstret. Stäng detta fönster endast om du inte vill skicka sms.]]></singular>
+	</str>
+	<str key="OrderFrame_Bought">
+	  <singular><![CDATA[Köp godkänt]]></singular>
+	</str>
+	<str key="OrderFrame_Error">
+	  <singular><![CDATA[Fel uppstod]]></singular>
+	</str>
+	<str key="OrderFrame_Error_Info">
+	  <singular><![CDATA[Tjänsten är otillgänglig för tillfället. Vi arbetar på att lösa problemet så fort som möjligt, försök igen senare. Stäng detta fönster för att fortsätta.]]></singular>
+	</str>
+	<str key="OrderFrame_Instructions">
+	  <singular><![CDATA[Skicka meddelandet <br><center><big><strong>%1</strong></big><br> till numret <strong>%2</strong></center><br><br><small>Meddelandet kostar %1 och meddelandet fungerar med följande operatörer: %1</small>]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOut">
+	  <singular><![CDATA[Erbjudande tidavbröts]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOutNote">
+	  <singular><![CDATA[Denna beställning måste göras inom %1, efter detta avbryts erbjudandet automatiskt.]]></singular>
+	</str>
+	<str key="OrderFrame_TimeOut_Info">
+	  <singular><![CDATA[Detta köp kan inte utföras längre. Stäng detta fönster för att forsätta.]]></singular>
+	</str>
+	<str key="OrderFrame_Title">
+	  <singular><![CDATA[Gör en SMS-beställning]]></singular>
+	</str>
+	<str key="OrderFrame_Wait">
+	  <singular><![CDATA[Vänta en stund...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionOpeningCreditPurchase">
+	  <singular><![CDATA[Öppnar Myntsidan...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionProductPurchase">
+	  <singular><![CDATA[Vänta...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ActionRefreshingCredits">
+	  <singular><![CDATA[Förfriskar Myntkontot...]]></singular>
+	</str>
+	<str key="PurchaseFrame_ButtonGetCredits">
+	  <singular><![CDATA[Skaffa Mynt]]></singular>
+	</str>
+	<str key="PurchaseFrame_ButtonRefresh">
+	  <singular><![CDATA[Förfriska Myntkontot]]></singular>
+	</str>
+	<str key="PurchaseFrame_Credits">
+	  <singular><![CDATA[Mynt kvar:]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_ButtonBack">
+	  <singular><![CDATA[Återvänd till lobbyn]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_ButtonContinue">
+	  <singular><![CDATA[Fortsätt till spelet]]></singular>
+	</str>
+	<str key="PurchaseFrame_Default_FrameTitle">
+	  <singular><![CDATA[Fortsätt till spelet]]></singular>
+	</str>
+	<str key="PurchaseFrame_Error_FrameTitle">
+	  <singular><![CDATA[Error]]></singular>
+	</str>
+	<str key="PurchaseFrame_Error_Message">
+	  <singular><![CDATA[For some reason, this product is not currently available with credits. Please try again later.]]></singular>
+	</str>
+	<str key="PurchaseFrame_NoProductDescription">
+	  <singular><![CDATA[(Ingen beskrivning tillgänglig för '%1')]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseFailed">
+	  <singular><![CDATA[Behandlingen misslyckades, stäng denna ruta och försök pånytt.]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseNoBalance">
+	  <singular><![CDATA[Behandlingen misslyckades, det finns inte tillräckligt med Mynt på ditt konto.]]></singular>
+	</str>
+	<str key="PurchaseFrame_PurchaseOk">
+	  <singular><![CDATA[Behandlingen färdig, du kan fortsätta med att stänga denna ruta.]]></singular>
+	</str>
+	<str key="PurchaseFrame_RefreshAfterGet">
+	  <singular><![CDATA[Klicka på knappen nedanom för att förfriska Myntkontot efter att du köpt Mynten.]]></singular>
+	</str>
+	<str key="QuitConfirm_ButtonNo">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="QuitConfirm_ButtonYes">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="QuitConfirm_Text">
+	  <singular><![CDATA[Spelet är inte slut ännu! Är du säker på att du vill sluta spela?]]></singular>
+	</str>
+	<str key="QuitConfirm_Title">
+	  <singular><![CDATA[Är du säker?]]></singular>
+	</str>
+	<str key="RegRemind_ClickHere">
+	  <singular><![CDATA[Klicka <här> för att registrera dig gratis!]]></singular>
+	</str>
+	<str key="RegRemind_GameOver">
+	  <singular><![CDATA[Spelet är slut. Dina poäng har inte sparats på resultatlistan eftersom du inte är en registrerad användare.]]></singular>
+	</str>
+	<str key="RegRemind_Title">
+	  <singular><![CDATA[Registrera dig]]></singular>
+	</str>
+	<str key="SDM_BadMessages">
+	  <singular><![CDATA[Du uppför dig olämpligt. Om du inte slutar kommer du att bli utsparkad från spelet!]]></singular>
+	</str>
+	<str key="SDM_BadNickReg">
+	  <singular><![CDATA[Ditt användarnamn är olämpligt! Ändra användarnamn med att registrera ett nytt. Om du fortsätter att använda detta användarnamn, kommer hela kontot att tas bort.]]></singular>
+	</str>
+	<str key="SDM_BadNickWorm">
+	  <singular><![CDATA[Ditt användarnamn är olämpligt! Ändra användarnamnet med att sluta spelet och logga in pånytt.]]></singular>
+	</str>
+	<str key="SDM_ChatCleared">
+	  <singular><![CDATA[Chatten rensades av en sheriff eller admin-användare då privata eller opassande meddelanden skrevs i chatten.]]></singular>
+	</str>
+	<str key="SDM_SexMessages">
+	  <singular><![CDATA[Playrays spelrum är ingen plats att söka sex i. Sluta genast med att skriva denna typs meddelanden!]]></singular>
+	</str>
+	<str key="SeparatorDayHour">
+	  <singular><![CDATA[d]]></singular>
+	</str>
+	<str key="SeparatorDecimal">
+	  <singular><![CDATA[,]]></singular>
+	</str>
+	<str key="SeparatorHourMinute">
+	  <singular><![CDATA[:]]></singular>
+	</str>
+	<str key="SeparatorMinuteSecond">
+	  <singular><![CDATA[.]]></singular>
+	</str>
+	<str key="SeparatorSecondFraction">
+	  <singular><![CDATA[,]]></singular>
+	</str>
+	<str key="SeparatorThousand">
+	  <singular><![CDATA[.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffGaveWarning">
+	  <singular><![CDATA[Sheriff varnade användare %1.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffMutedUser">
+	  <singular><![CDATA[Sheriff tystade användare %1 i %2 minuter.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffMutedYou">
+	  <singular><![CDATA[Du har tystats av sheriff i %1 minuter.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffUnMutedUser">
+	  <singular><![CDATA[Användare %1 tystades av av Sheriff.]]></singular>
+	</str>
+	<str key="ServerSay_SheriffUnMutedYou">
+	  <singular><![CDATA[Du har tystats av av en sheriff.]]></singular>
+	</str>
+	<str key="ServerSay_YouAreMuted">
+	  <singular><![CDATA[Du är för närvarande tystad av sheriff i 1% minuter, andra kan inte se dina chattinlägg.]]></singular>
+	</str>
+	<str key="TellFriend_ButtonClose">
+	  <singular><![CDATA[Stäng]]></singular>
+	</str>
+	<str key="TellFriend_ButtonSend">
+	  <singular><![CDATA[Skicka]]></singular>
+	</str>
+	<str key="TellFriend_EmailAdd">
+	  <singular><![CDATA[Fler e-postadresser...]]></singular>
+	</str>
+	<str key="TellFriend_EmailHelp">
+	  <singular><![CDATA[(kamratens e-postadress)]]></singular>
+	</str>
+	<str key="TellFriend_EmailNotSent">
+	  <singular><![CDATA[Ett fel uppstod då e-brevet skickades. Vi beklagar detta och kommer inte att störa dig mer angående detta ärende.]]></singular>
+	</str>
+	<str key="TellFriend_EmailRemove">
+	  <singular><![CDATA[X]]></singular>
+	</str>
+	<str key="TellFriend_EmailSent">
+	  <singular><![CDATA[E-brev skickat, tack!]]></singular>
+	</str>
+	<str key="TellFriend_EmailTitle">
+	  <singular><![CDATA[E-postadresser:]]></singular>
+	</str>
+	<str key="TellFriend_ExtButton">
+	  <singular><![CDATA[Tipsa en kompis]]></singular>
+	</str>
+	<str key="TellFriend_Info">
+	  <singular><![CDATA[Tipsa dina kamrater om detta spel, det tar endast några sekunder. Skriv in dina kamraters e-postadresser nedan och klicka på "Skicka". (Vi sparar inte adresserna som du skriver in här och vi använder inte dem på nytt, e-brevet skickas endast en gång.)]]></singular>
+	</str>
+	<str key="TellFriend_MessageTitle">
+	  <singular><![CDATA[Bifogat meddelande (frivilligt):]]></singular>
+	</str>
+	<str key="TellFriend_Title">
+	  <singular><![CDATA[Tipsa en kompis !]]></singular>
+	</str>
+	<str key="Tournament_QuitGameButton">
+	  <singular><![CDATA[Avsluta spel]]></singular>
+	</str>
+	<str key="UserList_Ignore">
+	  <singular><![CDATA[Ignorera vald användare]]></singular>
+	</str>
+	<str key="UserList_OpenPlayerCard">
+	  <singular><![CDATA[Öppna spelarkort]]></singular>
+	</str>
+	<str key="UserList_Privately">
+	  <singular><![CDATA[Skicka privat]]></singular>
+	</str>
+	<str key="UserList_Sheriff">
+	  <singular><![CDATA[(sheriff)]]></singular>
+	</str>
+	<str key="UserList_SortByNick">
+	  <singular><![CDATA[Användarnamn]]></singular>
+	</str>
+	<str key="UserList_SortByRanking">
+	  <singular><![CDATA[R]]></singular>
+	</str>
+</localization>

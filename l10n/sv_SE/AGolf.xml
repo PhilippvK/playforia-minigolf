@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="AGolf" lang="sv_SE">
+	<str key="GameChat_GS_MaxStrokes">
+	  <singular><![CDATA[max. %1 slag per bana]]></singular>
+	</str>
+	<str key="GameChat_GS_MaxStrokesUnlimited">
+	  <singular><![CDATA[obegränsat antal slag]]></singular>
+	</str>
+	<str key="GameChat_GS_NoCollision">
+	  <singular><![CDATA[inga krockar]]></singular>
+	</str>
+	<str key="GameChat_GS_Password">
+	  <singular><![CDATA[Skyddat med lösenord]]></singular>
+	</str>
+	<str key="GameChat_GS_Players">
+	  <singular><![CDATA[%1 spelare]]></singular>
+	</str>
+	<str key="GameChat_GS_RegOnly">
+	  <singular><![CDATA[Endast för registrerade]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitMin">
+	  <singular><![CDATA[slagtid %1 min]]></singular>
+	</str>
+	<str key="GameChat_GS_TimeLimitSec">
+	  <singular><![CDATA[slagtid %1 sek]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoring">
+	  <singular><![CDATA[bansegrar]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd1">
+	  <singular><![CDATA[poängräkningen betonar slutet lite grann]]></singular>
+	</str>
+	<str key="GameChat_GS_TrackScoringEnd2">
+	  <singular><![CDATA[poängräkningen betonar slutet mycket]]></singular>
+	</str>
+	<str key="GameChat_GS_Tracks">
+	  <singular><![CDATA[%1 banor]]></singular>
+	</str>
+	<str key="GameChat_GS_WaterShore">
+	  <singular><![CDATA[bollen i vattnet -> hålls på stranden]]></singular>
+	</str>
+	<str key="GameChat_GameName">
+	  <singular><![CDATA[Spel: %1]]></singular>
+	</str>
+	<str key="GameChat_GameSettings">
+	  <singular><![CDATA[Inställningar: %1]]></singular>
+	</str>
+	<str key="GameChat_Join">
+	  <singular><![CDATA[%1 anslöt sig till spelet]]></singular>
+	</str>
+	<str key="GameChat_JoinClan">
+	  <singular><![CDATA[%1 [klan: %2] anslöt sig till spelet]]></singular>
+	</str>
+	<str key="GameChat_Part">
+	  <singular><![CDATA[%1 lämnade spelet]]></singular>
+	</str>
+	<str key="GameChat_Say">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="GameChat_ScoreMultiNotify">
+	  <singular><![CDATA[* %1x poäng för denna bana *]]></singular>
+	</str>
+	<str key="GameChat_Text">
+	  <singular><![CDATA[<%1> %2]]></singular>
+	</str>
+	<str key="GameChat_TypeHere">
+	  <singular><![CDATA[Skriv ditt meddelande här]]></singular>
+	</str>
+	<str key="GameControl_Back">
+	  <singular><![CDATA[<- Till menyn]]></singular>
+	</str>
+	<str key="GameControl_BackSure">
+	  <singular><![CDATA[Är du säker?]]></singular>
+	</str>
+	<str key="GameControl_Names0">
+	  <singular><![CDATA[Inga namn]]></singular>
+	</str>
+	<str key="GameControl_Names1">
+	  <singular><![CDATA[Initialer]]></singular>
+	</str>
+	<str key="GameControl_Names2">
+	  <singular><![CDATA[Användarnamn]]></singular>
+	</str>
+	<str key="GameControl_Names3">
+	  <singular><![CDATA[Namn + klan]]></singular>
+	</str>
+	<str key="GameControl_New">
+	  <singular><![CDATA[Nytt spel]]></singular>
+	</str>
+	<str key="GameControl_Skip">
+	  <singular><![CDATA[Skippa bana]]></singular>
+	</str>
+	<str key="GamePlayerInfo_AfterLeader">
+	  <singular><![CDATA[(%1)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfAllTime">
+	  <singular><![CDATA[Tidernas bästa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultBestOfDay">
+	  <singular><![CDATA[Dagens bästa]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultIdeal">
+	  <singular><![CDATA[Banrekord]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNick">
+	  <singular><![CDATA[(Jämförande resultat)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultNone">
+	  <singular><![CDATA[Inget jämförande resultat]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultOwn">
+	  <singular><![CDATA[%1s bästa på listan]]></singular>
+	</str>
+	<str key="GamePlayerInfo_CompareResultTop100Average">
+	  <singular><![CDATA[Genomsnitt bland topp-100]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Draw">
+	  <singular><![CDATA[Oavgjort]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Leader">
+	  <singular><![CDATA[(L)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_OwnTurn">
+	  <singular><![CDATA[Din tur]]></singular>
+	</str>
+	<str key="GamePlayerInfo_PlayerTurn">
+	  <singular><![CDATA[Har turen]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_ConnectionProblem">
+	  <singular><![CDATA[(Kontakten bröts)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Quit_Part">
+	  <singular><![CDATA[(Lämnade spelet)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_ReadyForNewGame">
+	  <singular><![CDATA[(Vill ha nytt spel!)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Skipped">
+	  <singular><![CDATA[X]]></singular>
+	</str>
+	<str key="GamePlayerInfo_VoteSkipTrack">
+	  <singular><![CDATA[(Röstar: skippa bana)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_WaitingPlayer">
+	  <singular><![CDATA[(Väntar på spelare)]]></singular>
+	</str>
+	<str key="GamePlayerInfo_Winner">
+	  <singular><![CDATA[Vinnaren!]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultL">
+	  <singular><![CDATA[Medeltal: %1 slag]]></singular>
+	</str>
+	<str key="GameTrackInfo_AverageResultS">
+	  <singular><![CDATA[Genomsnitt: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByL">
+	  <singular><![CDATA[(rekordet gjort av %1 %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByS">
+	  <singular><![CDATA[(%1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownL">
+	  <singular><![CDATA[(rekordet gjort av okänd)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultFirstByUnknownS">
+	  <singular><![CDATA[(okänd)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultL">
+	  <singular><![CDATA[Bäst: %1 slag]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByL">
+	  <singular><![CDATA[(bästa resultat sist av %1 %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultLastByS">
+	  <singular><![CDATA[(%1, %2)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentL">
+	  <singular><![CDATA[(%1% av spelade)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultPercentS">
+	  <singular><![CDATA[(%1%)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultS">
+	  <singular><![CDATA[Bäst: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultToday">
+	  <singular><![CDATA[idag]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueL">
+	  <singular><![CDATA[(unikt resultat)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultUniqueS">
+	  <singular><![CDATA[(unik)]]></singular>
+	</str>
+	<str key="GameTrackInfo_BestResultYesterday">
+	  <singular><![CDATA[igår]]></singular>
+	</str>
+	<str key="GameTrackInfo_CurrentTrack">
+	  <singular><![CDATA[Bana %1/%2]]></singular>
+	</str>
+	<str key="GameTrackInfo_GiveRating">
+	  <singular><![CDATA[Sätt betyg på banan:]]></singular>
+	</str>
+	<str key="GameTrackInfo_NumberOfTracks">
+	  <singular><![CDATA[Banor: %1]]></singular>
+	</str>
+	<str key="GameTrackInfo_Rating">
+	  <singular><![CDATA[Medelbetyg: %1]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeNone">
+	  <singular><![CDATA[Välj någon från listan (till vänster) som du vill utmana]]></singular>
+	</str>
+	<str key="LobbyChat_CantChallengeSelf">
+	  <singular><![CDATA[Du kan inte utmana dig själv, välj annan spelare]]></singular>
+	</str>
+	<str key="LobbyChat_InputHelp">
+	  <singular><![CDATA[Skriv ditt meddelande här och tryck Enter]]></singular>
+	</str>
+	<str key="LobbyChat_NoGameMessages">
+	  <singular><![CDATA[Inga spelmeddelanden]]></singular>
+	</str>
+	<str key="LobbyChat_NoInfoOfUnregistered">
+	  <singular><![CDATA[Spelarkort inte tillgängligt för oregistrerade spelare (%1)]]></singular>
+	</str>
+	<str key="LobbyChat_NoJoinPartMessages">
+	  <singular><![CDATA[Inga inträdes-/utgångsnotiser]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpDual">
+	  <singular><![CDATA[(I menyn ovan kan du utmana andra spelare eller acceptera utmaningar från andra)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpMulti">
+	  <singular><![CDATA[(Använd menyerna ovan för att skapa ett nytt ensam- eller multispel eller ansluta dig till något existerande multispel)]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelpSingle">
+	  <singular><![CDATA[(Välj i menyn ovan för att börja ett träningsspel eller spela något av banseten med topplistor)]]></singular>
+	</str>
+	<str key="LobbyChat_SayButton">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="LobbyChat_UserCreatedMp">
+	  <singular><![CDATA[%1 gjorde nytt multispel '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserJoined">
+	  <singular><![CDATA[%1 anlände till lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UserJoinedMp">
+	  <singular><![CDATA[%1 anslöt sig till multispel '%2']]></singular>
+	</str>
+	<str key="LobbyChat_UserLeft">
+	  <singular><![CDATA[%1 lämnade lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UserLeftConnectionProblem">
+	  <singular><![CDATA[%1 lämnade lobbyn (kontakten bröts)]]></singular>
+	</str>
+	<str key="LobbyChat_UserReturnedFromGame">
+	  <singular><![CDATA[%1 återvände från spel]]></singular>
+	</str>
+	<str key="LobbyChat_UserStartedSp">
+	  <singular><![CDATA[%1 påbörjade ett ensamspel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobby1">
+	  <singular><![CDATA[1 användare i duell]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInDualPlayerLobbyX">
+	  <singular><![CDATA[%1 användare i duell]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobby1">
+	  <singular><![CDATA[1 användare i duell]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInMultiPlayerLobbyX">
+	  <singular><![CDATA[%1 användare i duell]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobby1">
+	  <singular><![CDATA[1 användare i ensamspel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInSinglePlayerLobbyX">
+	  <singular><![CDATA[%1 användare i ensamspel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby00">
+	  <singular><![CDATA[Inga andra användare i denna lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby10">
+	  <singular><![CDATA[1 annan användare i denna lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobby11">
+	  <singular><![CDATA[1 annan användare i denna lobby, just nu i ett spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX0">
+	  <singular><![CDATA[%1 andra användare i denna lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyX1">
+	  <singular><![CDATA[%1 andra användare i denna lobby, 1 i ett spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInThisLobbyXX">
+	  <singular><![CDATA[%1 andra användare i denna lobby, %2 av dem i spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedDp">
+	  <singular><![CDATA[%1 och %2 började spela]]></singular>
+	</str>
+	<str key="LobbyChat_UsersStartedGame">
+	  <singular><![CDATA[%1 och %2 började spela]]></singular>
+	</str>
+	<str key="LobbyChat_Welcome">
+	  <singular><![CDATA[V ä l k o m m e n !]]></singular>
+	</str>
+	<str key="LobbyControl_Dual">
+	  <singular><![CDATA[Duell]]></singular>
+	</str>
+	<str key="LobbyControl_Main">
+	  <singular><![CDATA[<- Huvudlobby]]></singular>
+	</str>
+	<str key="LobbyControl_Multi">
+	  <singular><![CDATA[Multispel]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Lämna]]></singular>
+	</str>
+	<str key="LobbyControl_Single">
+	  <singular><![CDATA[Ensamspel]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Annullera]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Ge spelets lösenord]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[Ok]]></singular>
+	</str>
+	<str key="LobbyReal_Accept">
+	  <singular><![CDATA[Acceptera]]></singular>
+	</str>
+	<str key="LobbyReal_BeepOnChallenge">
+	  <singular><![CDATA[Ljudton vid utmaning]]></singular>
+	</str>
+	<str key="LobbyReal_Cancel">
+	  <singular><![CDATA[Ställ in utmaning]]></singular>
+	</str>
+	<str key="LobbyReal_Challenge">
+	  <singular><![CDATA[Utmana]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeRefused">
+	  <singular><![CDATA[Din utmaning blev inte antaget]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengeTitle">
+	  <singular><![CDATA[Utmana till spel:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedByOther">
+	  <singular><![CDATA[Användaren svarar på en annan utmaning.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedLeft">
+	  <singular><![CDATA[Den utmanade spelaren lämnade lobbyn.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengedTitle">
+	  <singular><![CDATA[%1 utmanar dig till spel:]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingOther">
+	  <singular><![CDATA[Användaren har precis utmanat någon annan.]]></singular>
+	</str>
+	<str key="LobbyReal_ChallengingTitle">
+	  <singular><![CDATA[%1 utmanad till spel:]]></singular>
+	</str>
+	<str key="LobbyReal_ChampionshipTitle">
+	  <singular><![CDATA[Mästerskap:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision">
+	  <singular><![CDATA[Kollisioner:]]></singular>
+	</str>
+	<str key="LobbyReal_Collision1">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="LobbyReal_Collision2">
+	  <singular><![CDATA[Ja]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Skapa spel]]></singular>
+	</str>
+	<str key="LobbyReal_CreateTitle">
+	  <singular><![CDATA[Skapa ett nytt spel:]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Spelets namn:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Spelets lösenord:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError1">
+	  <singular><![CDATA[Spelet existerar inte längre]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError2">
+	  <singular><![CDATA[Spelet har redan börjat]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError3">
+	  <singular><![CDATA[Fel lösenord]]></singular>
+	</str>
+	<str key="LobbyReal_JoinError4">
+	  <singular><![CDATA[Endast för registrerade användare]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Anslut till spelet]]></singular>
+	</str>
+	<str key="LobbyReal_JoinTitle">
+	  <singular><![CDATA[Anslut dig till spel:]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[Lös]]]></singular>
+	</str>
+	<str key="LobbyReal_ListPlayers">
+	  <singular><![CDATA[%1/%2]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleGame">
+	  <singular><![CDATA[Spel]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitlePlayers">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleTracks">
+	  <singular><![CDATA[Banor]]></singular>
+	</str>
+	<str key="LobbyReal_ListTitleUserLimit">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_ListTracks">
+	  <singular><![CDATA[%1]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokes">
+	  <singular><![CDATA[Max. slag per bana:]]></singular>
+	</str>
+	<str key="LobbyReal_MaxStrokesUnlimited">
+	  <singular><![CDATA[Obegränsat]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengedUser">
+	  <singular><![CDATA[Den utmanade spelaren lämnade lobbyn.]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallenges">
+	  <singular><![CDATA[Användaren tar inte emot utmaningar]]></singular>
+	</str>
+	<str key="LobbyReal_NoChallengesToMe">
+	  <singular><![CDATA[Inga utmaningar till mig]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Spelet tillgängligt för:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Endast registrerade]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerCount">
+	  <singular><![CDATA[Antal spelare:]]></singular>
+	</str>
+	<str key="LobbyReal_Refuse">
+	  <singular><![CDATA[Tacka nej]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring">
+	  <singular><![CDATA[Poängräkning:]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring1">
+	  <singular><![CDATA[Slag]]></singular>
+	</str>
+	<str key="LobbyReal_Scoring2">
+	  <singular><![CDATA[Banvinster]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd">
+	  <singular><![CDATA[Betona slutet:]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd0">
+	  <singular><![CDATA[Nej]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd1">
+	  <singular><![CDATA[Lite]]></singular>
+	</str>
+	<str key="LobbyReal_ScoringEnd2">
+	  <singular><![CDATA[Mycket]]></singular>
+	</str>
+	<str key="LobbyReal_Start">
+	  <singular><![CDATA[Start]]></singular>
+	</str>
+	<str key="LobbyReal_TS_AllTimeBest">
+	  <singular><![CDATA[Alla tiders bästa:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_DayBest">
+	  <singular><![CDATA[Dagens bästa:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level1">
+	  <singular><![CDATA[Lätt]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level2">
+	  <singular><![CDATA[Mellansvår]]></singular>
+	</str>
+	<str key="LobbyReal_TS_Level3">
+	  <singular><![CDATA[Svår]]></singular>
+	</str>
+	<str key="LobbyReal_TS_MonthBest">
+	  <singular><![CDATA[Månadens bästa:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleDifficulty">
+	  <singular><![CDATA[Svårighetsgrad]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleName">
+	  <singular><![CDATA[Banset]]></singular>
+	</str>
+	<str key="LobbyReal_TS_TitleTracks">
+	  <singular><![CDATA[Banor]]></singular>
+	</str>
+	<str key="LobbyReal_TS_WeekBest">
+	  <singular><![CDATA[Veckans bästa:]]></singular>
+	</str>
+	<str key="LobbyReal_TS_alkula">
+	  <singular><![CDATA[Börjarby]]></singular>
+	</str>
+	<str key="LobbyReal_TS_hollola">
+	  <singular><![CDATA[Hålldalen]]></singular>
+	</str>
+	<str key="LobbyReal_TS_karstula">
+	  <singular><![CDATA[Sotby]]></singular>
+	</str>
+	<str key="LobbyReal_TS_koivikko">
+	  <singular><![CDATA[Björkskog]]></singular>
+	</str>
+	<str key="LobbyReal_TS_kuusikko">
+	  <singular><![CDATA[Grandalen]]></singular>
+	</str>
+	<str key="LobbyReal_TS_raakkyla">
+	  <singular><![CDATA[Kraxdalen]]></singular>
+	</str>
+	<str key="LobbyReal_TS_tammela">
+	  <singular><![CDATA[Ekdalen]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimit">
+	  <singular><![CDATA[Slagets tidsbegränsning:]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitMin">
+	  <singular><![CDATA[%1 min]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitNo">
+	  <singular><![CDATA[Ingen]]></singular>
+	</str>
+	<str key="LobbyReal_TimeLimitSec">
+	  <singular><![CDATA[%1 sek]]></singular>
+	</str>
+	<str key="LobbyReal_TrackCount">
+	  <singular><![CDATA[Antal banor:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes">
+	  <singular><![CDATA[Bantyper:]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes0">
+	  <singular><![CDATA[Alla banor]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes1">
+	  <singular><![CDATA[Endast "basicbanor"]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes2">
+	  <singular><![CDATA[Endast traditionella]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes3">
+	  <singular><![CDATA[Endast moderna]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes4">
+	  <singular><![CDATA[Endast hole-in-ones]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes5">
+	  <singular><![CDATA[Endast korta]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes6">
+	  <singular><![CDATA[Endast långa]]></singular>
+	</str>
+	<str key="LobbyReal_TrackTypes7">
+	  <singular><![CDATA[Endast nyaste]]></singular>
+	</str>
+	<str key="LobbyReal_TrainingTitle">
+	  <singular><![CDATA[Träning:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent">
+	  <singular><![CDATA[När bollen hamnar i vattnet:]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent1">
+	  <singular><![CDATA[Tillbaka till utslagstället]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEvent2">
+	  <singular><![CDATA[Bollen hålls på stranden]]></singular>
+	</str>
+	<str key="LobbyReal_WaterEventWarning">
+	  <singular><![CDATA[(Obs! Du kan inte göra banrekord med denna inställning!)]]></singular>
+	</str>
+	<str key="LobbySelect_DualPlayer">
+	  <singular><![CDATA[Duell]]></singular>
+	</str>
+	<str key="LobbySelect_Full">
+	  <singular><![CDATA[(Fullt)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx">
+	  <singular><![CDATA[Grafik:]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx0">
+	  <singular><![CDATA[Gallrad (minimum)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx1">
+	  <singular><![CDATA[Några detaljer (snabb)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx2">
+	  <singular><![CDATA[Full (långsammare)]]></singular>
+	</str>
+	<str key="LobbySelect_Gfx3">
+	  <singular><![CDATA[Full + animeringar]]></singular>
+	</str>
+	<str key="LobbySelect_MultiPlayer">
+	  <singular><![CDATA[Multispel]]></singular>
+	</str>
+	<str key="LobbySelect_PlayHidden">
+	  <singular><![CDATA[Spela i smyg (utan lobbychat)]]></singular>
+	</str>
+	<str key="LobbySelect_Players0">
+	  <singular><![CDATA[(Inga spelare)]]></singular>
+	</str>
+	<str key="LobbySelect_Players1">
+	  <singular><![CDATA[1 spelare]]></singular>
+	</str>
+	<str key="LobbySelect_PlayersX">
+	  <singular><![CDATA[%1 spelare]]></singular>
+	</str>
+	<str key="LobbySelect_QuickStart">
+	  <singular><![CDATA[Snabbstart]]></singular>
+	</str>
+	<str key="LobbySelect_Quit">
+	  <singular><![CDATA[Lämna]]></singular>
+	</str>
+	<str key="LobbySelect_SinglePlayer">
+	  <singular><![CDATA[Ensamspel]]></singular>
+	</str>
+</localization>

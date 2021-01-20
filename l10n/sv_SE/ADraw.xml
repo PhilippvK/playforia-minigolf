@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ADraw" lang="sv_SE">
+	<str key="GameChat_BeepOnRoundStart">
+	  <singular><![CDATA[Ljudton vid början av omgången]]></singular>
+	</str>
+	<str key="GameChat_CantChatOrGuess">
+	  <singular><![CDATA[(Du kan inte diskutera eller gissa när du är i turen att rita)]]></singular>
+	</str>
+	<str key="GameChat_ClearOnRoundStart">
+	  <singular><![CDATA[Töm chat vid början av omgången]]></singular>
+	</str>
+	<str key="GameChat_DrawerLeft">
+	  <singular><![CDATA[%1 (ritaren) lämnade rummet]]></singular>
+	</str>
+	<str key="GameChat_GuessButton">
+	  <singular><![CDATA[-> Gissa]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Skriv ditt meddelande/din gissning här och tryck [Enter]]]></singular>
+	</str>
+	<str key="GameChat_NewRound">
+	  <singular><![CDATA[Ny omgång!]]></singular>
+	</str>
+	<str key="GameChat_NewRoundOtherDraw">
+	  <singular><![CDATA[Ny omgång! %1 är i turen att rita]]></singular>
+	</str>
+	<str key="GameChat_NewRoundYouDraw">
+	  <singular><![CDATA[Ny omgång! Din tur att rita, ordet att ritas är '%1']]></singular>
+	</str>
+	<str key="GameChat_NoDrawer">
+	  <singular><![CDATA[Ingen har anmält sig som frivillig ritare! Om du vill rita, tryck på Rita-knappen till vänster]]></singular>
+	</str>
+	<str key="GameChat_NotEnoughPlayers">
+	  <singular><![CDATA[Väntar på mera spelare, minst %1 spelarebehövs för att börja spelet]]></singular>
+	</str>
+	<str key="GameChat_OtherGuessedPartially">
+	  <singular><![CDATA[%1 gissade delvist rätt]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoined">
+	  <singular><![CDATA[%1 anslöt sig till rummet]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 lämnade rummet]]></singular>
+	</str>
+	<str key="GameChat_RemovingDrawerByVotes">
+	  <singular><![CDATA[Ritaren borttages]]></singular>
+	</str>
+	<str key="GameChat_RoundEndNoneGuessed">
+	  <singular><![CDATA[Omgången slutade! Ordet var '%1' men ingen gissade det]]></singular>
+	</str>
+	<str key="GameChat_RoundEndOtherGuessed">
+	  <singular><![CDATA[Omgången slutade! %2 gissade ordet som var '%1']]></singular>
+	</str>
+	<str key="GameChat_RoundEndYouGuessed">
+	  <singular><![CDATA[Omgången slutade! Du gissade ordet som var '%1']]></singular>
+	</str>
+	<str key="GameChat_RunningRound">
+	  <singular><![CDATA[Omgången är igång! %1 är i turen att rita]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[-> Säg]]></singular>
+	</str>
+	<str key="GameChat_VoteKickDrawerSent">
+	  <singular><![CDATA[Ritaren har blivit föreslagen att bli tagen bort från rummet (ritaren tages bort om tillräckligt många gissare föreslår det)]]></singular>
+	</str>
+	<str key="GameChat_YouGuessedPartially">
+	  <singular><![CDATA[Du gissade delvist rätt]]></singular>
+	</str>
+	<str key="GameDraw_SplashDrawerIs">
+	  <singular><![CDATA[Nästa ritare:]]></singular>
+	</str>
+	<str key="GameDraw_SplashOtherTurn">
+	  <singular><![CDATA[Ny omgång]]></singular>
+	</str>
+	<str key="GameDraw_SplashRoundEnd">
+	  <singular><![CDATA[Omgången tog slut! Ordet var '%1']]></singular>
+	</str>
+	<str key="GameDraw_SplashWordIs">
+	  <singular><![CDATA[Ord att ritas:]]></singular>
+	</str>
+	<str key="GameDraw_SplashYourTurn">
+	  <singular><![CDATA[Din tur]]></singular>
+	</str>
+	<str key="GameFaces_Drawer">
+	  <singular><![CDATA[Ritare:]]></singular>
+	</str>
+	<str key="GameFaces_Guesser">
+	  <singular><![CDATA[Gissare:]]></singular>
+	</str>
+	<str key="GameInfo_NumberOfPlayers">
+	  <singular><![CDATA[%1 / %2 spelare]]></singular>
+	</str>
+	<str key="GameInfo_OnlyForRegistered">
+	  <singular><![CDATA[(endast registrerade)]]></singular>
+	</str>
+	<str key="GameInfo_PasswordProtected">
+	  <singular><![CDATA[(lösenordskyddat)]]></singular>
+	</str>
+	<str key="GamePlayers_Drawing">
+	  <singular><![CDATA[Ritare]]></singular>
+	</str>
+	<str key="GamePlayers_DrawingOnly">
+	  <singular><![CDATA[*Ritare*]]></singular>
+	</str>
+	<str key="GamePlayers_OpenPlayerCard">
+	  <singular><![CDATA[Öppna figursida]]></singular>
+	</str>
+	<str key="GamePlayers_TitleDrawQueue">
+	  <singular><![CDATA[Rit-tur]]></singular>
+	</str>
+	<str key="GamePlayers_TitleNick">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="GamePlayers_TitleScore">
+	  <singular><![CDATA[Poäng]]></singular>
+	</str>
+	<str key="GameTools_Clear">
+	  <singular><![CDATA[Töm]]></singular>
+	</str>
+	<str key="GameTools_Fill">
+	  <singular><![CDATA[Fyll]]></singular>
+	</str>
+	<str key="GameTools_Undo">
+	  <singular><![CDATA[Annullera]]></singular>
+	</str>
+	<str key="GameWord_Adjective">
+	  <singular><![CDATA[adjektiv]]></singular>
+	</str>
+	<str key="GameWord_Noun">
+	  <singular><![CDATA[substantiv]]></singular>
+	</str>
+	<str key="GameWord_Score">
+	  <singular><![CDATA[(%1 poäng)]]></singular>
+	</str>
+	<str key="GameWord_Verb">
+	  <singular><![CDATA[verb]]></singular>
+	</str>
+	<str key="Game_Back">
+	  <singular><![CDATA[<- Tillbaka till lobbyn]]></singular>
+	</str>
+	<str key="Game_CancelDrawQueue">
+	  <singular><![CDATA[Annullera din rit-tur]]></singular>
+	</str>
+	<str key="Game_CancelledDrawQueue">
+	  <singular><![CDATA[Du har blivit borttagen från ritarnas kö]]></singular>
+	</str>
+	<str key="Game_CantEnterDrawQueue">
+	  <singular><![CDATA[Du kommer inte ännu tillbaka till ritkön för att du precis ställde in din tur att rita]]></singular>
+	</str>
+	<str key="Game_EnterDrawQueue">
+	  <singular><![CDATA[Jag vill rita]]></singular>
+	</str>
+	<str key="Game_EnteredDrawQueue">
+	  <singular><![CDATA[Du har adderats till villiga ritarnas kö]]></singular>
+	</str>
+	<str key="Game_VoteKickDrawer">
+	  <singular><![CDATA[Föreslå borttagande av ritare]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[I ovanstående menyer kan du skapa ett nytt spelrum eller ansluta dig till rum andra skapat]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 spelare i spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 spelare i spel]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[Inga andra användare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 annan användare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 andra användare i lobbyn]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Lämna]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Annullera]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Ge lösenord]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Skapa nytt rum]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Skapa nytt spelrum]]></singular>
+	</str>
+	<str key="LobbyReal_ForAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleGameName">
+	  <singular><![CDATA[Rum]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleHosted">
+	  <singular><![CDATA[BSR]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitlePlayers">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleProtection">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleRoundTime">
+	  <singular><![CDATA[Tid]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleWordType">
+	  <singular><![CDATA[Ord]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Rummets namn:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Rummets lösenord:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorBanned">
+	  <singular><![CDATA[Du har blivit bannad från detta rum]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorDuplicateAccess">
+	  <singular><![CDATA[Tillgång till rummet förhindrat]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorGameFull">
+	  <singular><![CDATA[Rummet fullt]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[Rummet togs just bort]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[Rummet endast för registrerade]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Fel lösenord]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Anslut dig till rummet]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Anslut dig till spelrummet]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedNo">
+	  <singular><![CDATA[]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedYes">
+	  <singular><![CDATA[BSR]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[LÖS]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAdjective">
+	  <singular><![CDATA[Adjekt.]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeNoun">
+	  <singular><![CDATA[Subst.]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeVerb">
+	  <singular><![CDATA[Verb]]></singular>
+	</str>
+	<str key="LobbyReal_MaxPlayers">
+	  <singular><![CDATA[Max spelare:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDraw">
+	  <singular><![CDATA[Bara rumskaparen ritar:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNo">
+	  <singular><![CDATA[Nej (normal)]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNote">
+	  <singular><![CDATA[Bara rumskaparen kan rita i detta rum]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawYes">
+	  <singular><![CDATA[Javisst]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Till rummet slipper:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Endast registrerade]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyPassword">
+	  <singular><![CDATA[Bara med lösenord]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerListTitle">
+	  <singular><![CDATA[Spelare]]></singular>
+	</str>
+	<str key="LobbyReal_RoundTime">
+	  <singular><![CDATA[Rundtid:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevel">
+	  <singular><![CDATA[Ord:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasy">
+	  <singular><![CDATA[Lätta]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasyMedium">
+	  <singular><![CDATA[Lätta-Medelsvårat]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelHard">
+	  <singular><![CDATA[Svåra]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMedium">
+	  <singular><![CDATA[Medelsvåra]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMediumHard">
+	  <singular><![CDATA[Medelsvåra-Svåra]]></singular>
+	</str>
+	<str key="LobbyReal_WordType">
+	  <singular><![CDATA[Ordklasser:]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAdjective">
+	  <singular><![CDATA[Adjektiv]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAll">
+	  <singular><![CDATA[Alla]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeNoun">
+	  <singular><![CDATA[Substantiv]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeVerb">
+	  <singular><![CDATA[Verb]]></singular>
+	</str>
+</localization>
