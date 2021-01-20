@@ -1,8 +1,0 @@
-shared -> com.aapeli....
-shared2 -> com.playray....
-
-acannons -> shared2
-adraw -> shared
-agolf -> shared
-agolf2 -> shared
-apool -> shared2
