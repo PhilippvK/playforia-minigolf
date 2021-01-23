@@ -51,6 +51,7 @@ public class EncodedXmlReader {
 
 
         PushbackInputStream in = new PushbackInputStream(instream, 3);
+        System.out.println("url="+url+" instream="+instream+" in="+in);
         int char1 = in.read();
         int char2 = in.read();
         int char3 = in.read();

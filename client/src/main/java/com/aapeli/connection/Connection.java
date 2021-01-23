@@ -13,7 +13,7 @@ import java.io.InterruptedIOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.Socket;
+import phi.net.Socket;
 import java.util.Vector;
 
 public final class Connection implements Runnable {
@@ -193,7 +193,8 @@ public final class Connection implements Runnable {
         try {
             String serverIp = this.params.getServerIp();
             int serverPort = this.params.getServerPort();
-            this.socket = new Socket(serverIp, serverPort);
+            boolean isApplet = Boolean.parseBoolean(this.params.getParameter("is_applet"));
+            this.socket = new phi.net.Socket(serverIp, serverPort, isApplet);
             InputStream in = this.socket.getInputStream();
             OutputStream out = this.socket.getOutputStream();
 

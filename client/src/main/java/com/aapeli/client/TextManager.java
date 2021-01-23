@@ -571,6 +571,7 @@ public final class TextManager implements Runnable {
         this.aHashtable1515 = this.method1733(var2);
 
         try {
+            System.out.println("FileUtil.isFileUrl: "+ var2);
             if (FileUtil.isFileUrl(var2)) {
                 var2 = new URL(var2, FileUtil.RESOURCE_DIR);
             } else {
@@ -591,6 +592,7 @@ public final class TextManager implements Runnable {
         try {
             URL var5 = new URL(var1, "locale/");
             var5 = new URL(var5, var4);
+            System.out.println("URL: "+var5);
             InputStream var6 = var5.openStream();
 
             InputStreamReader var7;
@@ -663,7 +665,7 @@ public final class TextManager implements Runnable {
         String var4;
         String var7;
         int var8;
-        if (FileUtil.isFileUrl(var2)) {
+        if (false) { //FileUtil.isFileUrl(var2)) {
             var7 = var2.toString();
             var8 = var7.indexOf(58, var7.indexOf(58) + 1) + 2;
             int var9 = var7.indexOf(47, var8);
@@ -676,7 +678,9 @@ public final class TextManager implements Runnable {
                 var3 = "file:" + FileUtil.LANGUAGE_DIR + this.aString1514 + "/";
             }
 
-            var4 = var7.substring(var8, var9);
+            //var4 = var7.substring(var8, var9);
+            var4 = "AGolf";
+            var3 = "file:/"+var3.substring(5,var3.length());
         } else {
             var7 = var2.toString();
             var8 = var7.length();
