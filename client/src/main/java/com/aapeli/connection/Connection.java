@@ -411,6 +411,8 @@ public final class Connection implements Runnable {
                     System.out.println("CLIENT> READ \"" + line + "\"");
                 return line;
             }
+            return null;
+
         } catch (InterruptedIOException ex) {
             ex.printStackTrace();
             return null;
