@@ -36,7 +36,6 @@ public final class Connection implements Runnable {
     /* Other Constants */
     private static final String encoding = "UTF-8";
     public static final int CIPHER_MAGIC_DEFAULT = 4;
-    
     private AApplet gameApplet;
     private Parameters params;
     private ConnListener connListener;
@@ -123,8 +122,10 @@ public final class Connection implements Runnable {
             } while (this.state != STATE_DISCONNECTED);
         } catch (Exception ex) {
             ; // TODO: hanlde
+            ex.printStackTrace();
         } catch (Error err) {
             ; // TODO: handle
+            err.printStackTrace();
         }
 
         this.close();
@@ -214,6 +215,7 @@ public final class Connection implements Runnable {
             this.connActivityTime = System.currentTimeMillis();
             return true;
         } catch (Exception ex) {
+            ex.printStackTrace(System.out);
             return false;
         }
     }
@@ -409,9 +411,11 @@ public final class Connection implements Runnable {
                 return line;
             }
         } catch (InterruptedIOException ex) {
+            ex.printStackTrace();
             return null;
         } catch (IOException ex) {
             ;
+            ex.printStackTrace();
         }
 
         this.disconnect();
