@@ -19,7 +19,8 @@ var socket;
 var clientConnect = function(host, port, timeout) {
   console.log("clientConnect! "+host+"-"+port+"-"+timeout);
   var v = cjCall("phi.net.CheerpJSocket", "cheerpJNotify", "connected").then(console.warn)
-  socket = new WebSocket("wss://185ff702eb48.ngrok.io"); // TODO: get port via cheerpj
+  //socket = new WebSocket("ws://185ff702eb48.ngrok.io"); // TODO: get port via cheerpj
+  socket = new WebSocket("ws://"+host); // TODO: get port via cheerpj
   socket.onmessage = function(event) {
     console.warn(`[message] Data received from server: ${event.data}`);
     //reader.readAsText(event.data);

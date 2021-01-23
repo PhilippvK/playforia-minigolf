@@ -2,24 +2,47 @@
 <head>
   <script type="text/javascript" src="alert2.js"></script>
   <script src="https://cjrtnc.leaningtech.com/2.1/loader.js"></script>
-<script>cheerpjInit();</script>
+  <!--<script>cheerpjInit();</script>-->
+  <script type="text/javascript">
+    function createApplet() {
+      var app = document.createElement('cheerpj-applet');
+      app.setAttribute("archive", "client-2.1.0.0-BETA.jar");
+      app.setAttribute("code", "agolf/GameApplet.class");
+      app.setAttribute("width", "735");
+      app.setAttribute("height", "525");
+
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const server = urlParams.get('server')
+      //console.log(product);
+
+      var params = {
+        "lang": "en_US",
+        "locale": "en",
+        "server": server,
+        "initmessage": "Loading game...",
+        "verbose": "true",
+        "startupdebug": "false"
+      };
+
+      for (var param in params) {
+        var p = document.createElement('param');
+        p.setAttribute("name", param);
+        p.setAttribute("value", params[param]);
+        app.appendChild(p);
+      }
+
+      document.getElementsByTagName('div')[0].appendChild(app);
+
+      cheerpjInit();
+    }
+  </script>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <meta charset="utf-8"/>
 
 </head>
 
-<body>
-
-	<div>
-		<cheerpj-applet code="agolf/GameApplet.class" width="735" height="525" archive="client-2.1.0.0-BETA.jar">
-      <param name="lang" value="en_US">
-      <param name="locale" value="en">
-      <param name="server" value="127.0.0.1:4242">
-      <param name="initmessage" value="Loading game...">
-      <param name="verbose" value="true">
-      <param name="startupdebug" value="false">
-    </cheerpj-applet>
-	</div>
-
+<body onload="createApplet()">
+  <div>Change server <a href="../index.html">here</a><br></div>
 </body>
 </html>
