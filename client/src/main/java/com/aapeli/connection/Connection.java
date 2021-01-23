@@ -119,6 +119,7 @@ public final class Connection implements Runnable {
                     this.state = STATE_DISCONNECTED;
                     this.disconnectReason = DCR_HANDLEFAILED;
                 }
+                Thread.sleep(1);
             } while (this.state != STATE_DISCONNECTED);
         } catch (Exception ex) {
             ; // TODO: hanlde
