@@ -28,7 +28,7 @@
             <artifactId>shared</artifactId>
         </dependency>
         <dependency>
-      			<groupId>com.learningtech</groupId>
+      			<groupId>com.leaningtech</groupId>
 			      <artifactId>cheerpj-dom</artifactId>
       			<version>2.1</version>
     		</dependency>
