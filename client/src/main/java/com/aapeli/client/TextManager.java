@@ -53,9 +53,11 @@ public final class TextManager implements Runnable {
         this.aParameters1512 = var1;
         String var4 = var1.getTranslationLang();
         if (var4 != null) {
+            System.out.println("VAR4 NOT NULL - "+var4);
             this.aString1514 = var4;
             this.aBoolean1518 = true;
         } else {
+            System.out.println("VAR4 NULL");
             this.aString1514 = var1.getLocale();
             this.aBoolean1518 = false;
         }
@@ -573,6 +575,7 @@ public final class TextManager implements Runnable {
 
     private void method1732(Applet var1) {
         URL var2 = var1.getCodeBase();
+        System.out.println("(2) VAR1="+var1+ "VAR2="+var2);
         this.aHashtable1515 = this.method1733(var2);
 
         try {
@@ -590,6 +593,7 @@ public final class TextManager implements Runnable {
     }
 
     private Hashtable method1733(URL var1) {
+        System.out.println("method1733");
         Hashtable var2 = new Hashtable();
         BufferedReader var3 = null;
         String var4 = this.aString1514 + ".loc";
@@ -659,7 +663,7 @@ public final class TextManager implements Runnable {
 
     private void method1734(Applet var1) {
         URL var2 = var1.getCodeBase();
-        System.out.println("VAR1="+var1);
+        System.out.println("(1) VAR1="+var1+ "VAR2="+var2);
         String var5 = null;
         int var6 = this.aString1514.indexOf(47);
         if (var6 > 0) {
