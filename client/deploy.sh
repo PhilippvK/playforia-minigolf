@@ -1,4 +1,4 @@
-mkdir -p ../public/AGolf
+cp -r ../assets/html/ ../public/
 cp target/client-*.jar ../public/AGolf/
 cp -r target/classes/agolf ../public/AGolf/agolf
 cd ../public/AGolf
