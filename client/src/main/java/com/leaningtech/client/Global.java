@@ -8,11 +8,13 @@ package com.leaningtech.client;
  */
 public
 class Global {
-  public static Object jsCall(String funcName, Object... arg) {
-    return null;
-  }
+    public static Object jsCall(String funcName, Object... arg) {
+        System.out.println("Called dummy jsCall()");
+        return null;
+    }
 
-  public static int jsCallI(String funcName, Object... arg) {
-    return -1;
-  }
+    public static int jsCallI(String funcName, Object... arg) {
+        System.out.println("Called dummy jsCallI()");
+        return -1;
+    }
 }
