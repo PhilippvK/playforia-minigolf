@@ -17,9 +17,11 @@ jobs:
         run: wget https://d3415aa6bfa4.leaningtech.com/cheerpj_linux_2.1.tar.gz
       - name: Install CheerpJ (2/3)
         run: tar xvf cheerpj_linux_2.1.tar.gz
+      - name: Build with Maven (1/2)
+        run: mvn -B install --file pom.xml
       - name: Install CheerpJ (3/3)
         run: mvn install:install-file -Dfile=cheerpj_2.1/cheerpj-dom.jar -DgroupId=com.learningtech -DartifactId=cheerpj-dom -Dversion=1.0 -Dpackaging
-      - name: Build with Maven
+      - name: Build with Maven (2/2)
         run: cd client && mvn -B install --file pom_applet.xml && cd ..
       - name: Run custom deploy script
         run: cd client && ./deploy.sh && cd ..
