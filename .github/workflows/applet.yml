@@ -1,0 +1,31 @@
+name: Build and Deploy Applet
+on:
+  push:
+    branches:
+      - cheerpj
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Install CheerpJ
+        run:
+          - wget https://d3415aa6bfa4.leaningtech.com/cheerpj_linux_2.1.tar.gz
+          - tar xvf cheerpj_linux_2.1.tar.gz
+          - mvn install:install-file -Dfile=cheerpj_2.1/cheerpj-dom.jar -DgroupId=com.learningtech -DartifactId=cheerpj-dom -Dversion=1.0 -Dpackaging
+      - name: Build with Maven
+        run:
+          - cd client && mvn -B install --file pom_applet.xml && cd ..
+          - cd client && ./deploy.sh && cd ..
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: cheerjpj_pages # The branch the action should deploy to.
+          FOLDER: public # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
