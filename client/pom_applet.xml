@@ -14,7 +14,7 @@
     </parent>
 
     <properties>
-        <project.mainClass>agolf.GameApplet</project.mainClass>
+        <project.mainClass>agolf.AGolf</project.mainClass>
         <project.name>Playforia Minigolf Client</project.name>
     </properties>
 
