@@ -35,6 +35,7 @@ public final class TextManager implements Runnable {
         this(var3);
         this.aString1514 = var2;
         this.aBoolean1518 = false;
+        System.out.println("LINE 38");
         this.method1731(var1);
     }
 
@@ -62,6 +63,7 @@ public final class TextManager implements Runnable {
             this.aThread1513 = new Thread(this);
             this.aThread1513.start();
         } else {
+            System.out.println("LINE 65");
             this.method1731(var1.getApplet());
         }
 
@@ -80,6 +82,7 @@ public final class TextManager implements Runnable {
             System.out.println("TextManager.run(): Start loading texts");
         }
 
+        System.out.println("LINE 84");
         this.method1731(this.aParameters1512.getApplet());
         this.aThread1513 = null;
         if (this.aBoolean1519) {
