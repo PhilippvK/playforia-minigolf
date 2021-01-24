@@ -3,6 +3,7 @@ package com.aapeli.client;
 import com.aapeli.tools.EncodedXmlReader;
 import com.aapeli.tools.Tools;
 import com.aapeli.tools.XmlUnit;
+import com.aapeli.applet.AApplet;
 
 import java.applet.Applet;
 import java.io.BufferedReader;
@@ -574,7 +575,7 @@ public final class TextManager implements Runnable {
     }
 
     private void method1732(Applet var1) {
-        URL var2 = var1.getCodeBase();
+        URL var2 = ((AApplet)var1).getServerBase();
         System.out.println("(2) VAR1="+var1+ "VAR2="+var2);
         this.aHashtable1515 = this.method1733(var2);
 
@@ -662,7 +663,7 @@ public final class TextManager implements Runnable {
     }
 
     private void method1734(Applet var1) {
-        URL var2 = var1.getCodeBase();
+        URL var2 = ((AApplet)var1).getServerBase();
         System.out.println("(1) VAR1="+var1+ "VAR2="+var2);
         String var5 = null;
         int var6 = this.aString1514.indexOf(47);

@@ -835,4 +835,20 @@ public abstract class AApplet extends Applet implements Runnable, ActionListener
         }
 
     }
+
+    public URL getServerBase() {
+        if (!Boolean.parseBoolean(this.param.getParameter("is_applet"))) {
+            return this.getCodeBase();
+        } else {
+            try {
+                String server = this.param.getServerIp();
+                System.out.println("this.server="+server+"|...="+"http://" + server + "/AGolf/");
+                return new URL("http://" + server + "/AGolf/");
+            } catch (Exception ex) {
+                System.err.println("getdocumentbase exc eption");
+                return null;
+            }
+        }
+    }
 }
+
