@@ -49,6 +49,7 @@ public final class TextManager implements Runnable {
 
     public TextManager(Parameters var1, boolean var2, boolean var3) {
         this(var3);
+        System.out.println("var1="+var1+"|var2="+var2+"|var3="+var3);
         this.aParameters1512 = var1;
         String var4 = var1.getTranslationLang();
         if (var4 != null) {
@@ -60,6 +61,7 @@ public final class TextManager implements Runnable {
         }
 
         if (var2) {
+            System.out.println("NEW THREAD");
             this.aThread1513 = new Thread(this);
             this.aThread1513.start();
         } else {
