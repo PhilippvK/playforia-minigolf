@@ -35,6 +35,7 @@ public class Game {
 
         public Stub(String server, String lang, int port, boolean verbose) {
             this.server = server;
+            System.out.println("SERVER="+server);
             params = new HashMap<String, String>();
             params.put("initmessage", "Loading game...");
             params.put("ld_page", "javascript:Playray.Notify.delegate({ jvm: { version: '%v', vendor: '%w', t1: '%r', t2: '%f' } })");
@@ -81,6 +82,7 @@ public class Game {
 
         public URL getDocumentBase() {
             try {
+                System.out.println("this.server="+this.server+"|...="+"http://" + this.server + "/AGolf/");
                 return new URL("http://" + this.server + "/AGolf/");
             } catch (Exception ex) {
                 System.err.println("getdocumentbase exc eption");
@@ -89,6 +91,7 @@ public class Game {
         }
 
         public URL getCodeBase() {
+            System.out.println("getCodeBase");
             return getDocumentBase();
         }
 

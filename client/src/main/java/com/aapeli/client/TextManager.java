@@ -654,6 +654,7 @@ public final class TextManager implements Runnable {
 
     private void method1734(Applet var1) {
         URL var2 = var1.getCodeBase();
+        System.out.println("VAR1="+var1);
         String var5 = null;
         int var6 = this.aString1514.indexOf(47);
         if (var6 > 0) {
@@ -665,6 +666,7 @@ public final class TextManager implements Runnable {
         String var4;
         String var7;
         int var8;
+        System.out.println("var2:"+var2+" |FileUtil.isFileUrl(var2):"+FileUtil.isFileUrl(var2));
         if (false) { //FileUtil.isFileUrl(var2)) {
             var7 = var2.toString();
             var8 = var7.indexOf(58, var7.indexOf(58) + 1) + 2;
