@@ -13,15 +13,16 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Install CheerpJ
-        run:
-          - wget https://d3415aa6bfa4.leaningtech.com/cheerpj_linux_2.1.tar.gz
-          - tar xvf cheerpj_linux_2.1.tar.gz
-          - mvn install:install-file -Dfile=cheerpj_2.1/cheerpj-dom.jar -DgroupId=com.learningtech -DartifactId=cheerpj-dom -Dversion=1.0 -Dpackaging
+      - name: Install CheerpJ (1/3)
+        run: wget https://d3415aa6bfa4.leaningtech.com/cheerpj_linux_2.1.tar.gz
+      - name: Install CheerpJ (2/3)
+        run: tar xvf cheerpj_linux_2.1.tar.gz
+      - name: Install CheerpJ (3/3)
+        run: mvn install:install-file -Dfile=cheerpj_2.1/cheerpj-dom.jar -DgroupId=com.learningtech -DartifactId=cheerpj-dom -Dversion=1.0 -Dpackaging
       - name: Build with Maven
-        run:
-          - cd client && mvn -B install --file pom_applet.xml && cd ..
-          - cd client && ./deploy.sh && cd ..
+        run: cd client && mvn -B install --file pom_applet.xml && cd ..
+      - name: Run custom deploy script
+        run: cd client && ./deploy.sh && cd ..
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
