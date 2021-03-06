@@ -39,8 +39,8 @@ class Socket extends java.net.Socket implements java.io.Closeable {
         if (!isApplet) {
             this.socket = new java.net.Socket(host, port);
         } else {
-            if (address == null)
-                throw new NullPointerException();
+            //if (address == null)
+            //    throw new NullPointerException();
             this.address = host != null ? new InetSocketAddress(host, port) : new InetSocketAddress(InetAddress.getByName(null), port);
             CheerpJSocket.create();
             try {
