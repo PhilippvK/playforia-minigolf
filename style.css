@@ -14,10 +14,32 @@ body{
 	background-color: #fff;
 	border-radius: 5px;
 }
- h1{
+.container2{
+	margin: 20px auto;
+	padding: 10px;
+	width: 300px;
+	//height: 80px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+h1{
  	width: 70%;
 	color: #777;
 	font-size: 32px;
+	margin: 28px auto;
+	margin-bottom: 20px;
+	text-align: center;
+	/*padding-top: 40px;*/
+}
+h2{
+	color: #777;
+	margin: 28px auto;
+	margin-bottom: 20px;
+	text-align: center;
+	/*padding-top: 40px;*/
+}
+h5{
+	color: #777;
 	margin: 28px auto;
 	margin-bottom: 20px;
 	text-align: center;
