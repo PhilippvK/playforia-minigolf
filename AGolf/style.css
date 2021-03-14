@@ -1,0 +1,9 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	background-color: #3498DB;
+	font-family: "Courier New", sans-serif;
+	padding: 40px;
+	text-align: center;
+}
