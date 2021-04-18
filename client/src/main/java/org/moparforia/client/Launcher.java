@@ -9,6 +9,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.concurrent.Callable;
+import java.util.prefs.Preferences;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 @CommandLine.Command(
@@ -41,12 +44,51 @@ public class Launcher implements Callable<Void> {
     @CommandLine.Option(names = {"--verbose", "-v"}, description = "Set if you want verbose information")
     private static boolean verbose = false;
 
+    @CommandLine.Option(names = {"--reset", "-r"}, description = "Reset user preferences at launch")
+    private static boolean reset = false;
+
     public static boolean debug() {
         return verbose;
     }
 
     public static boolean isUsingCustomServer() {
         return true;//instance.serverBox.isSelected();
+    }
+
+    public void loadPreferences() {
+        Preferences prefs = Preferences.userRoot().node(this.getClass().getName());
+        long last_time = prefs.getLong("timestamp", 0);
+        String last_version = prefs.get("version", "unknown"); // TODO: check version
+        String last_hostname = prefs.get("hostname", "");
+        int last_port = prefs.getInt("port", 0);
+        if (!last_hostname.isEmpty() && last_port != 0) {
+            hostname = last_hostname;
+            port = last_port;
+            System.out.printf("Successfully loaded old user preferences written with v%s at %s\n",
+                last_version, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(last_time));
+        } else {
+            System.err.println("No old user preferences found. Using the default settings...");
+        }
+    }
+
+    public void savePreferences() {
+        Preferences prefs = Preferences.userRoot().node(this.getClass().getName());
+        System.out.println("this.getClass().getName()=="+this.getClass().getName());
+
+        prefs.putLong("timestamp", new Date().getTime());
+        prefs.put("version", Launcher.class.getPackage().getImplementationVersion());
+        prefs.put("hostname", hostname);
+        prefs.putInt("port", port);
+        System.out.println("User preferences have been saved successfully");
+    }
+
+    public void resetPreferences() {
+        Preferences prefs = Preferences.userRoot().node(this.getClass().getName());
+        prefs.remove("timestamp");
+        prefs.remove("version");
+        prefs.remove("hostname");
+        prefs.remove("port");
+        System.out.println("Removed old preferences as requested by user");
     }
 
     public static void main(String... args) {
@@ -113,8 +155,13 @@ public class Launcher implements Callable<Void> {
     @Override
     public Void call() throws Exception{
         JFrame frame = createFrame();
+        // Remove preferences if requested
+        if (reset) {
+            resetPreferences();
+        }
         if (hostname.isEmpty() || port == 0) {
             // Determine which of these was actually false
+            loadPreferences();
             String temp_hostname = hostname.isEmpty() ? DEFAULT_SERVER : hostname;
             int temp_port = port == 0 ? DEFAULT_PORT : port;
             if (!showSettingDialog(frame, temp_hostname, temp_port)) {
@@ -123,6 +170,7 @@ public class Launcher implements Callable<Void> {
                 return null;
             }
         }
+        savePreferences();
 
         launchGame(frame, hostname, port, lang, verbose);
         return null;
