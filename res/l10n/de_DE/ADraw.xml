@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<localization id="ADraw" lang="en_US">
+	<str key="GameChat_BeepOnRoundStart">
+	  <singular><![CDATA[Beep on start round]]></singular>
+	</str>
+	<str key="GameChat_CantChatOrGuess">
+	  <singular><![CDATA[(You can't chat or guess when it is your turn to draw)]]></singular>
+	</str>
+	<str key="GameChat_ClearOnRoundStart">
+	  <singular><![CDATA[Clear chat on start round]]></singular>
+	</str>
+	<str key="GameChat_DrawerLeft">
+	  <singular><![CDATA[%1 (drawer) left the room]]></singular>
+	</str>
+	<str key="GameChat_GuessButton">
+	  <singular><![CDATA[-> Guess]]></singular>
+	</str>
+	<str key="GameChat_InputHelp">
+	  <singular><![CDATA[Type your text/guesses here and press <Enter>]]></singular>
+	</str>
+	<str key="GameChat_NewRound">
+	  <singular><![CDATA[New Round!]]></singular>
+	</str>
+	<str key="GameChat_NewRoundOtherDraw">
+	  <singular><![CDATA[New round! %1 is drawing]]></singular>
+	</str>
+	<str key="GameChat_NewRoundYouDraw">
+	  <singular><![CDATA[New round! It's your turn to draw, the word is '%1']]></singular>
+	</str>
+	<str key="GameChat_NoDrawer">
+	  <singular><![CDATA[No drawer! If you want to draw, click the button on the left]]></singular>
+	</str>
+	<str key="GameChat_NotEnoughPlayers">
+	  <singular><![CDATA[Waiting for more players, %1 more are needed to start the game]]></singular>
+	</str>
+	<str key="GameChat_OtherGuessedPartially">
+	  <singular><![CDATA[%1 guessed partially right]]></singular>
+	</str>
+	<str key="GameChat_PlayerJoined">
+	  <singular><![CDATA[%1 joined the room]]></singular>
+	</str>
+	<str key="GameChat_PlayerLeft">
+	  <singular><![CDATA[%1 left the room]]></singular>
+	</str>
+	<str key="GameChat_RemovingDrawerByVotes">
+	  <singular><![CDATA[Kicking drawer by votes]]></singular>
+	</str>
+	<str key="GameChat_RoundEndNoneGuessed">
+	  <singular><![CDATA[End of round! The word was '%1', no one guessed it]]></singular>
+	</str>
+	<str key="GameChat_RoundEndOtherGuessed">
+	  <singular><![CDATA[End of round! The word was '%1' and %2 guessed it]]></singular>
+	</str>
+	<str key="GameChat_RoundEndYouGuessed">
+	  <singular><![CDATA[End of round! You guessed the word '%1']]></singular>
+	</str>
+	<str key="GameChat_RunningRound">
+	  <singular><![CDATA[Round is running! %1 is currently drawing]]></singular>
+	</str>
+	<str key="GameChat_SayButton">
+	  <singular><![CDATA[» Chat]]></singular>
+	</str>
+	<str key="GameChat_VoteKickDrawerSent">
+	  <singular><![CDATA[Voted to kick drawer (drawer will be kicked if multiple players vote)]]></singular>
+	</str>
+	<str key="GameChat_YouGuessedPartially">
+	  <singular><![CDATA[You guessed partially right]]></singular>
+	</str>
+	<str key="GameDraw_SplashDrawerIs">
+	  <singular><![CDATA[Next Drawer:]]></singular>
+	</str>
+	<str key="GameDraw_SplashOtherTurn">
+	  <singular><![CDATA[New Round]]></singular>
+	</str>
+	<str key="GameDraw_SplashRoundEnd">
+	  <singular><![CDATA[End of round! The word was '%1']]></singular>
+	</str>
+	<str key="GameDraw_SplashWordIs">
+	  <singular><![CDATA[The word is:]]></singular>
+	</str>
+	<str key="GameDraw_SplashYourTurn">
+	  <singular><![CDATA[Your turn]]></singular>
+	</str>
+	<str key="GameFaces_Drawer">
+	  <singular><![CDATA[Drawer:]]></singular>
+	</str>
+	<str key="GameFaces_Guesser">
+	  <singular><![CDATA[Guesser:]]></singular>
+	</str>
+	<str key="GameInfo_NumberOfPlayers">
+	  <singular><![CDATA[%1 / %2 players]]></singular>
+	</str>
+	<str key="GameInfo_OnlyForRegistered">
+	  <singular><![CDATA[(only for registered players)]]></singular>
+	</str>
+	<str key="GameInfo_PasswordProtected">
+	  <singular><![CDATA[(password protected)]]></singular>
+	</str>
+	<str key="GamePlayers_Drawing">
+	  <singular><![CDATA[Drawing]]></singular>
+	</str>
+	<str key="GamePlayers_DrawingOnly">
+	  <singular><![CDATA[*Drawing*]]></singular>
+	</str>
+	<str key="GamePlayers_OpenPlayerCard">
+	  <singular><![CDATA[Open Player Card]]></singular>
+	</str>
+	<str key="GamePlayers_TitleDrawQueue">
+	  <singular><![CDATA[Drawing]]></singular>
+	</str>
+	<str key="GamePlayers_TitleNick">
+	  <singular><![CDATA[Player]]></singular>
+	</str>
+	<str key="GamePlayers_TitleScore">
+	  <singular><![CDATA[Score]]></singular>
+	</str>
+	<str key="GameTools_Clear">
+	  <singular><![CDATA[Clear]]></singular>
+	</str>
+	<str key="GameTools_Fill">
+	  <singular><![CDATA[Fill]]></singular>
+	</str>
+	<str key="GameTools_Undo">
+	  <singular><![CDATA[Undo]]></singular>
+	</str>
+	<str key="GameWord_Adjective">
+	  <singular><![CDATA[adjective]]></singular>
+	</str>
+	<str key="GameWord_Noun">
+	  <singular><![CDATA[noun]]></singular>
+	</str>
+	<str key="GameWord_Score">
+	  <singular><![CDATA[(%1 points)]]></singular>
+	</str>
+	<str key="GameWord_Verb">
+	  <singular><![CDATA[verb]]></singular>
+	</str>
+	<str key="Game_Back">
+	  <singular><![CDATA[« Back]]></singular>
+	</str>
+	<str key="Game_CancelDrawQueue">
+	  <singular><![CDATA[I don't want to draw]]></singular>
+	</str>
+	<str key="Game_CancelledDrawQueue">
+	  <singular><![CDATA[You have been removed from the drawing queue]]></singular>
+	</str>
+	<str key="Game_CantEnterDrawQueue">
+	  <singular><![CDATA[You can't enter the drawing queue for a while since you just cancelled your drawing turn]]></singular>
+	</str>
+	<str key="Game_EnterDrawQueue">
+	  <singular><![CDATA[I want to draw]]></singular>
+	</str>
+	<str key="Game_EnteredDrawQueue">
+	  <singular><![CDATA[You have been added to the drawing queue]]></singular>
+	</str>
+	<str key="Game_VoteKickDrawer">
+	  <singular><![CDATA[Vote: Kick Drawer From Room]]></singular>
+	</str>
+	<str key="LobbyChat_QuickHelp">
+	  <singular><![CDATA[Use the menu above to create a new room or join an existing room]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGame1">
+	  <singular><![CDATA[1 player in a game]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInGameX">
+	  <singular><![CDATA[%1 players in games]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby0">
+	  <singular><![CDATA[No other users present in the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobby1">
+	  <singular><![CDATA[1 other user present in the lobby]]></singular>
+	</str>
+	<str key="LobbyChat_UsersInLobbyX">
+	  <singular><![CDATA[%1 other users present in the lobby]]></singular>
+	</str>
+	<str key="LobbyControl_Quit">
+	  <singular><![CDATA[Quit]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Cancel">
+	  <singular><![CDATA[Cancel]]></singular>
+	</str>
+	<str key="LobbyRealPassword_EnterPassword">
+	  <singular><![CDATA[Enter password]]></singular>
+	</str>
+	<str key="LobbyRealPassword_Ok">
+	  <singular><![CDATA[OK]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGame">
+	  <singular><![CDATA[Create Room]]></singular>
+	</str>
+	<str key="LobbyReal_CreateGameTitle">
+	  <singular><![CDATA[Create Your Own Room]]></singular>
+	</str>
+	<str key="LobbyReal_ForAll">
+	  <singular><![CDATA[All users]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleGameName">
+	  <singular><![CDATA[Room name]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleHosted">
+	  <singular><![CDATA[OCD]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitlePlayers">
+	  <singular><![CDATA[# of players]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleProtection">
+	  <singular><![CDATA[[..]]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleRoundTime">
+	  <singular><![CDATA[Time]]></singular>
+	</str>
+	<str key="LobbyReal_GameListTitleWordType">
+	  <singular><![CDATA[Words]]></singular>
+	</str>
+	<str key="LobbyReal_GameName">
+	  <singular><![CDATA[Room name:]]></singular>
+	</str>
+	<str key="LobbyReal_GamePassword">
+	  <singular><![CDATA[Password:]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorBanned">
+	  <singular><![CDATA[You have been banned from this room]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorDuplicateAccess">
+	  <singular><![CDATA[Unable to access the room]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorGameFull">
+	  <singular><![CDATA[The room is full]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorNotExist">
+	  <singular><![CDATA[The room no longer exists]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorRegOnly">
+	  <singular><![CDATA[The room is for registered players only]]></singular>
+	</str>
+	<str key="LobbyReal_JoinErrorWrongPassword">
+	  <singular><![CDATA[Incorrect password]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGame">
+	  <singular><![CDATA[Join Room]]></singular>
+	</str>
+	<str key="LobbyReal_JoinGameTitle">
+	  <singular><![CDATA[Join Room]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedNo">
+	  <singular><![CDATA[]]></singular>
+	</str>
+	<str key="LobbyReal_ListHostedYes">
+	  <singular><![CDATA[Yes]]></singular>
+	</str>
+	<str key="LobbyReal_ListPassword">
+	  <singular><![CDATA[[PW]]]></singular>
+	</str>
+	<str key="LobbyReal_ListRegOnly">
+	  <singular><![CDATA[[Reg]]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAdjective">
+	  <singular><![CDATA[Adj.]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeAll">
+	  <singular><![CDATA[All]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeNoun">
+	  <singular><![CDATA[Noun]]></singular>
+	</str>
+	<str key="LobbyReal_ListWordTypeVerb">
+	  <singular><![CDATA[Verb]]></singular>
+	</str>
+	<str key="LobbyReal_MaxPlayers">
+	  <singular><![CDATA[Max. players:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDraw">
+	  <singular><![CDATA[Only the creator draws:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNo">
+	  <singular><![CDATA[No (normal)]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawNote">
+	  <singular><![CDATA[Only the creator of the room can draw in this game]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyCreatorDrawYes">
+	  <singular><![CDATA[Yes (hosted)]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyFor">
+	  <singular><![CDATA[Only for:]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyForReg">
+	  <singular><![CDATA[Registered]]></singular>
+	</str>
+	<str key="LobbyReal_OnlyPassword">
+	  <singular><![CDATA[Password]]></singular>
+	</str>
+	<str key="LobbyReal_PlayerListTitle">
+	  <singular><![CDATA[Players]]></singular>
+	</str>
+	<str key="LobbyReal_RoundTime">
+	  <singular><![CDATA[Round time:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevel">
+	  <singular><![CDATA[Word level:]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelAll">
+	  <singular><![CDATA[All]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasy">
+	  <singular><![CDATA[Easy]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelEasyMedium">
+	  <singular><![CDATA[Easy & Medium]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelHard">
+	  <singular><![CDATA[Hard]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMedium">
+	  <singular><![CDATA[Medium]]></singular>
+	</str>
+	<str key="LobbyReal_WordLevelMediumHard">
+	  <singular><![CDATA[Medium & Hard]]></singular>
+	</str>
+	<str key="LobbyReal_WordType">
+	  <singular><![CDATA[Word types:]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAdjective">
+	  <singular><![CDATA[Adjectives]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeAll">
+	  <singular><![CDATA[All]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeNoun">
+	  <singular><![CDATA[Nouns]]></singular>
+	</str>
+	<str key="LobbyReal_WordTypeVerb">
+	  <singular><![CDATA[Verbs]]></singular>
+	</str>
+</localization>
