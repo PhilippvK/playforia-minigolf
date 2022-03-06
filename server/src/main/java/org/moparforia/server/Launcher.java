@@ -1,8 +1,11 @@
 package org.moparforia.server;
 
+import org.moparforia.new_server.GolfServer;
 import org.moparforia.shared.ManifestVersionProvider;
 import picocli.CommandLine;
 
+import javax.net.ssl.SSLException;
+import java.security.cert.CertificateException;
 import java.util.concurrent.Callable;
 
 @CommandLine.Command(
@@ -33,6 +36,13 @@ public class Launcher implements Callable<Integer> {
     )
     private int port;
 
+    @CommandLine.Option(
+            names = {"--allow-cheating"},
+            description = "Sets server port",
+            defaultValue = "false"
+    )
+    private boolean allowCheating;
+
     public static void main(String... args) {
         Launcher launcher = new Launcher();
         new CommandLine(launcher)
@@ -42,11 +52,15 @@ public class Launcher implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        getServer(host, port).start();
+        try {
+            getServer(host, port, allowCheating).start();
+        } catch (CertificateException | SSLException | InterruptedException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 
-    public Server getServer(String host, int port) {
-        return new Server(host, port);
+    public GolfServer getServer(String host, int port, boolean allowCheating) {
+        return new GolfServer(host, port, allowCheating);
     }
 }
