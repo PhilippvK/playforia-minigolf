@@ -5,6 +5,8 @@ import com.aapeli.colorgui.Choicer;
 import com.aapeli.colorgui.ColorButton;
 import com.aapeli.colorgui.ColorCheckbox;
 import com.aapeli.tools.Tools;
+import org.moparforia.shared.game.LobbyType;
+import org.moparforia.shared.networking.packets.SelectGameTypePacket;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -36,7 +38,6 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
     private ColorCheckbox checkboxPlayHidden;
     private Choicer choicerGraphics;
     private int[] lobbyNumPlayers;
-    private LobbySelectRNOPspammer lobbySelectRNOP;
     private static final String[] aStringArray544 = new String[22];
 
 
@@ -143,34 +144,6 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         this.gameContainer.graphicsQualityIndex = this.choicerGraphics.getSelectedIndex();
     }
 
-    public static String method442(int var0) {
-        if (aLongArray528 == null) {
-            aLongArray528 = new long[anInt527];
-
-            for (int var1 = 0; var1 < anInt527; ++var1) {
-                aLongArray528[var1] = 0L;
-            }
-        }
-
-        long var2 = System.currentTimeMillis();
-        long var4 = 0L;
-
-        for (int var6 = 0; var6 < anInt527; ++var6) {
-            long var7 = aLongArray528[var6] + (long) anIntArray526[var6] - var2;
-            if (var7 > var4) {
-                var4 = var7;
-            }
-        }
-
-        for (int var9 = anInt527 - 1; var9 >= 1; --var9) {
-            aLongArray528[var9] = aLongArray528[var9 - 1];
-        }
-
-        aLongArray528[0] = var2 + var4;
-        Tools.sleep(var4);
-        return "select\t" + (var0 <= 2 ? String.valueOf(var0) : "x") + (var0 == 1 && playHidden ? "h" : "");
-    }
-
     protected boolean method443(int var1, boolean var2) {
         if (this.gameContainer.disableSinglePlayer && var1 == 1) {
             return false;
@@ -181,32 +154,15 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         }
     }
 
-    protected void resetRNOP() {
-        this.destroyRNOP();
-        this.lobbySelectRNOP = new LobbySelectRNOPspammer(this);
-    }
-
-    protected void destroyRNOP() {
-        if (this.lobbySelectRNOP != null) {
-            this.lobbySelectRNOP.stop();
-            this.lobbySelectRNOP = null;
-        }
-
-    }
-
-    protected void handlePacket(String[] args) {
-        if (args[1].equals("nop")) {
-            for (int i = 0; i < 3; ++i) {
-                this.lobbyNumPlayers[i] = Integer.parseInt(args[2 + i]);
-            }
-
-            this.repaint();
-        }
-
+    public void setNumberOfPlayers(int single, int dual, int multi) {
+        lobbyNumPlayers[0] = single;
+        lobbyNumPlayers[1] = dual;
+        lobbyNumPlayers[2] = multi;
+        this.repaint();
     }
 
     protected void writeData(String var1) {
-        this.gameContainer.connection.writeData("lobbyselect\t" + var1);
+//        this.gameContainer.connection.writeData("lobbyselect\t" + var1);
     }
 
     private void create() {
@@ -281,17 +237,9 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         }
     }
 
-    private boolean selectLobby(int var1) {
-        if (this.lobbyNumPlayers[var1 - 1] >= this.lobbyMaxPlayers && this.gameContainer.gameApplet.getPlayerAccessLevel() == 0) {
-            return false;
-        } else {
-            this.gameContainer.gameApplet.setGameState(0);
-            this.writeData(method442(var1));
-            return true;
-        }
-    }
-
-    protected void requestNumberOfPlayers() {
-        this.writeData("rnop");
+    private boolean selectLobby(int lobby) {
+        this.gameContainer.gameApplet.setGameState(0);
+        this.gameContainer.gameApplet.connection.send(new SelectGameTypePacket(LobbyType.getLobby(lobby)));
+        return true;
     }
 }

@@ -6,7 +6,9 @@ import agolf.lobby.LobbyPanel;
 import com.aapeli.applet.AApplet;
 import com.aapeli.client.*;
 import org.moparforia.client.Launcher;
+import org.moparforia.client.networking.Client;
 
+import javax.net.ssl.SSLException;
 import java.awt.*;
 
 public class GameApplet extends AApplet {
@@ -25,14 +27,16 @@ public class GameApplet extends AApplet {
     public static final Font fontDialog14b = new Font("Dialog", 1, 14);
     public static final Font fontDialog12 = new Font("Dialog", 0, 12);
     public static final Font fontDialog11 = new Font("Dialog", 0, 11);
-    private GameContainer gameContainer;
+    public GameContainer gameContainer;
     private int anInt3769;
-    private SynchronizedBool syncUnknownBool;
+    private SynchronizedBool emailVerified;
     private SynchronizedInteger syncPlayerAccessLevel;
     private boolean disableGuestChat;
     private boolean aBoolean3773;
     private Image anImage3774;
     private boolean verbose = false;
+
+    public Client connection;
 
 
     public void initApplet(Parameters var1) {
@@ -84,9 +88,14 @@ public class GameApplet extends AApplet {
     }
 
     public void connectToServer() {
-        this.gameContainer.connection = new Conn(this.gameContainer);
-        if (!this.gameContainer.connection.method1158()) {
-            this.setEndState(END_ERROR_CONNECTION);
+        this.connection = new Client(this.param.getServerIp(), this.param.getServerPort(), this);
+        try {
+            this.connection.connect();
+//            if (!this.connection.connect()) {
+//                this.setEndState(END_ERROR_CONNECTION);
+//            }
+        } catch (InterruptedException | SSLException e) {
+            e.printStackTrace();
         }
 
     }
@@ -97,10 +106,17 @@ public class GameApplet extends AApplet {
         this.setGameSettings(false, 0, true, true); // enabled Bad Word Filter!
         this.gameContainer.trackCollection = new TrackCollection();
         this.anImage3774 = this.createImage(735, 375);
-        this.gameContainer.connection.sendVersion();
+        this.setGameState(1);
     }
 
     public void destroyApplet() {
+        if (this.connection != null) {
+            try {
+                this.connection.disconnect();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         this.gameContainer.destroy();
     }
 
@@ -116,16 +132,13 @@ public class GameApplet extends AApplet {
         this.setGameState(var1, 0, 0);
     }
 
-    protected void setGameState(int var1, int var2) {
+    public void setGameState(int var1, int var2) {
         this.setGameState(var1, var2, 0);
     }
 
     protected void setGameState(int panelActive, int lobbyId, int lobbyExtra) {
         if (panelActive != this.anInt3769 && this.syncIsValidSite.get()) {
             this.anInt3769 = panelActive;
-            if (this.gameContainer.lobbySelectionPanel != null) {
-                this.gameContainer.lobbySelectionPanel.destroyRNOP();
-            }
 
             this.clearContent();
             if (panelActive == 1) {
@@ -140,16 +153,17 @@ public class GameApplet extends AApplet {
                     TrackTestLoginPanel var4 = new TrackTestLoginPanel(this, super.appletWidth, super.appletHeight);
                     var4.setLocation(0, 0);
                     this.addToContent(var4);
-                } else if (this.hasSession()) {
-                    super.param.noGuestAutoLogin();
-                    this.gameContainer.connection.writeData("login\t" + super.param.getSession());
-                    this.anInt3769 = 0;
-                } else if (!this.gameContainer.synchronizedTrackTestMode.get()) {
-                    this.gameContainer.connection.writeData("login");
-                    this.anInt3769 = 0;
-                } else {
-
                 }
+//                else if (this.hasSession()) {
+//                    super.param.noGuestAutoLogin();
+//                    this.gameContainer.connection.writeData("login\t" + super.param.getSession());
+//                    this.anInt3769 = 0;
+//                } else if (!this.gameContainer.synchronizedTrackTestMode.get()) {
+//                    this.gameContainer.connection.writeData("login");
+//                    this.anInt3769 = 0;
+//                } else {
+//
+//                }
             }
 
             if (panelActive == 2) {
@@ -175,7 +189,6 @@ public class GameApplet extends AApplet {
 
                 if (!var5) {
                     this.addToContent(this.gameContainer.lobbySelectionPanel);
-                    this.gameContainer.lobbySelectionPanel.resetRNOP();
                 }
             }
 
@@ -212,20 +225,20 @@ public class GameApplet extends AApplet {
         }
     }
 
-    protected void setGameSettings(boolean emailUnconfirmed, int var2, boolean useBadWordFilter, boolean var4) {
-        this.syncUnknownBool = new SynchronizedBool(emailUnconfirmed);
-        this.syncPlayerAccessLevel = new SynchronizedInteger(var2);
+    public void setGameSettings(boolean emailVerified, int playerAccessLevel, boolean useBadWordFilter, boolean var4) {
+        this.emailVerified = new SynchronizedBool(emailVerified);
+        this.syncPlayerAccessLevel = new SynchronizedInteger(playerAccessLevel);
         this.gameContainer.badWordFilter = useBadWordFilter ? new BadWordFilter(super.textManager) : null;
         this.disableGuestChat = var4;
     }
 
     protected void trackTestLogin(String username, String password) {
         this.setGameState(0);
-        this.gameContainer.connection.writeData("ttlogin\t" + username + "\t" + password);
+        this.gameContainer.gameApplet.connection.login(username);
     }
 
     public boolean isEmailVerified() {
-        return this.syncUnknownBool.get();
+        return this.emailVerified.get();
     }
 
     public int getPlayerAccessLevel() {
@@ -266,7 +279,11 @@ public class GameApplet extends AApplet {
 
     public void quit(String from) {
         this.setEndState(END_QUIT);
-        this.gameContainer.connection.writeData((from != null ? from + "\t" : "") + "quit");
+        try {
+            this.connection.disconnect();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.setGameState(5);
     }
 

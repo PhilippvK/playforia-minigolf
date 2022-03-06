@@ -1,5 +1,7 @@
 package org.moparforia.server.game;
 
+import org.moparforia.shared.game.LobbyType;
+
 /**
  * Playforia
  * 24.6.2013

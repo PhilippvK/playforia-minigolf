@@ -3,6 +3,7 @@ package agolf.lobby;
 import agolf.GameApplet;
 import agolf.GameContainer;
 import com.aapeli.colorgui.ColorButton;
+import org.moparforia.shared.game.Lobby;
 
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -16,17 +17,17 @@ class LobbyGamePasswordPanel extends Panel implements KeyListener, ActionListene
 
     private GameContainer gameContainer;
     private LobbyMultiPlayerPanel lobbyMultiPlayerPanel;
-    private int gameId;
+    private Lobby lobby;
     private TextField textField;
     private ColorButton buttonOk;
     private ColorButton buttonCancel;
     private boolean emptyField;
 
 
-    protected LobbyGamePasswordPanel(GameContainer gameContainer, LobbyMultiPlayerPanel lobbyMultiPlayerPanel, int gameId) {
+    protected LobbyGamePasswordPanel(GameContainer gameContainer, LobbyMultiPlayerPanel lobbyMultiPlayerPanel, Lobby lobby) {
         this.gameContainer = gameContainer;
         this.lobbyMultiPlayerPanel = lobbyMultiPlayerPanel;
-        this.gameId = gameId;
+        this.lobby = lobby;
         this.setSize(200, 60);
         this.emptyField = true;
         this.create();
@@ -74,7 +75,7 @@ class LobbyGamePasswordPanel extends Panel implements KeyListener, ActionListene
         }
 
         if (evtSource == this.buttonCancel) {
-            this.lobbyMultiPlayerPanel.joinMultiPlayerGame(this.gameId, (String) null);
+            this.gameContainer.gameApplet.connection.joinLobby(this.lobby);
         }
 
     }
@@ -99,10 +100,11 @@ class LobbyGamePasswordPanel extends Panel implements KeyListener, ActionListene
 
     private void joinGame() {
         String password = this.textField.getText().trim();
-        if (!this.emptyField && password.length() != 0) {
-            this.lobbyMultiPlayerPanel.joinMultiPlayerGame(this.gameId, password);
-        } else {
-            this.lobbyMultiPlayerPanel.joinMultiPlayerGame(this.gameId, (String) null);
-        }
+        this.gameContainer.gameApplet.connection.joinLobby(this.lobby, password);
+//        if (!this.emptyField && password.length() != 0) {
+//            this.gameContainer.gameApplet.connection.joinLobby(this.lobby);
+//        } else {
+//            this.lobbyMultiPlayerPanel.joinMultiPlayerGame(this.gameId, (String) null);
+//        }
     }
 }

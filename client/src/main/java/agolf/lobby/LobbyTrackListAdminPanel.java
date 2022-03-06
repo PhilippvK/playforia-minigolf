@@ -6,10 +6,9 @@ import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.ColorButton;
 import com.aapeli.colorgui.MultiColorList;
 import com.aapeli.colorgui.MultiColorListItem;
+import org.moparforia.shared.Colors;
 
-import java.awt.Checkbox;
-import java.awt.Graphics;
-import java.awt.Panel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -60,6 +59,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
         }
     }
 
+    // TODO: Not working after rewrite, due to changing data to Lobby class
     public void actionPerformed(ActionEvent var1) {
         Object var2 = var1.getSource();
         if (var2 == this.buttonRefresh) {
@@ -80,7 +80,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
                     String[] tracksData = new String[selectedItemsLen];
 
                     for (int index = 0; index < selectedItemsLen; ++index) {
-                        tracksData[index] = (String) selectedItems[index].getData();
+//                        tracksData[index] = (String) selectedItems[index].getData();
                     }
 
                     this.gameContainer.safeMode = this.checkboxSafeMode.getState();
@@ -225,6 +225,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
 
     }
 
+    // TODO: Not working after rewrite, due to changing data to Lobby class
     private void createTrackList(String[][] tracksInfo, boolean isAdmin) {
         if (this.trackList == null) {
             this.setVisible(false);
@@ -249,27 +250,27 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
 
         this.trackList.removeAllItems();
         int tracksInfoLen = tracksInfo.length;
-        byte colour = -1;
+        Color colour = null;
 
         for (int index = 0; index < tracksInfoLen; ++index) {
             int trackStatus = Integer.parseInt(tracksInfo[index][0]);
             if (trackStatus == 0) {
-                colour = MultiColorListItem.COLOR_RED;
+                colour = Colors.RED;
                 tracksInfo[index][0] = "Private";
             }
 
             if (trackStatus == 1) {
-                colour = MultiColorListItem.COLOR_YELLOW;
+                colour = Colors.YELLOW;
                 tracksInfo[index][0] = "Pending";
             }
 
             if (trackStatus == 2) {
-                colour = MultiColorListItem.COLOR_GREEN;
+                colour = Colors.GREEN;
                 tracksInfo[index][0] = "Public";
             }
 
             if (trackStatus == 3) {
-                colour = MultiColorListItem.COLOR_BLUE;
+                colour = Colors.BLUE;
                 tracksInfo[index][0] = "TrackSet";
             }
 
@@ -277,12 +278,12 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
 
             MultiColorListItem listItem;
             if (isAdmin) {
-                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1] + ":" + tracksInfo[index][2]);
+//                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1] + ":" + tracksInfo[index][2]);
             } else {
-                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1]);
+//                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1]);
             }
 
-            this.trackList.addItem(listItem);
+//            this.trackList.addItem(listItem);
         }
 
     }

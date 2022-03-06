@@ -2,7 +2,7 @@ package org.moparforia.server.net.packethandlers.golf;
 
 import org.moparforia.server.Server;
 import org.moparforia.server.game.Lobby;
-import org.moparforia.server.game.LobbyType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.net.Packet;
 import org.moparforia.server.net.PacketHandler;
@@ -44,7 +44,7 @@ public class LobbyHandler implements PacketHandler {
                 lobby.removePlayer(player, Lobby.PART_REASON_USERLEFT);
             }
         } else if (message.group(1).equals("select")) {
-            LobbyType newLobbyType = LobbyType.getLobby(message.group(2));
+            LobbyType newLobbyType = LobbyType.getLobby(Integer.parseInt(message.group(2)));
             Lobby lobby = server.getLobby(newLobbyType);
             player.setChatHidden(message.group(3) != null && message.group(3).equals("h"));
             if (player.getLobby() == null) {

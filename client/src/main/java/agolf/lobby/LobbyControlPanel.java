@@ -66,7 +66,7 @@ class LobbyControlPanel extends Panel implements ActionListener {
 
             if (lobbyId > 0) {
                 this.gameContainer.gameApplet.setGameState(0);
-                this.gameContainer.lobbyPanel.writeData(LobbySelectPanel.method442(lobbyId));
+//                this.gameContainer.lobbyPanel.writeData(LobbySelectPanel.method442(lobbyId));
             }
 
         }

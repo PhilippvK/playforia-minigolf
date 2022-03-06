@@ -35,7 +35,7 @@ class LauncherCLITest {
                 .lenient()
                 .withoutAnnotations());
 
-        doReturn(mock(Server.class)).when(launcher).getServer(anyString(), anyInt());
+        doReturn(mock(Server.class)).when(launcher).getServer(anyString(), anyInt(), anyBoolean());
         when(launcher.call()).thenCallRealMethod();
 
         cmd = new CommandLine(launcher);
@@ -59,36 +59,36 @@ class LauncherCLITest {
         assertNotEquals(0, cmd.execute("--port=test"));
         assertNotEquals(0, cmd.execute("-p"));
 
-        verify(launcher, never()).getServer(anyString(), anyInt());
+        verify(launcher, never()).getServer(anyString(), anyInt(), anyBoolean());
     }
 
     @Test
     void testValidPortAndHostname() {
         assertEquals(0, cmd.execute("-p", "1111", "-ip", "128.128.128.128"));
-        verify(launcher).getServer(eq("128.128.128.128"), eq(1111));
+        verify(launcher).getServer(eq("128.128.128.128"), eq(1111), anyBoolean());
 
         assertEquals(0, cmd.execute("-p=2222", "-ip=127.127.127.127"));
-        verify(launcher).getServer(eq("127.127.127.127"), eq(2222));
+        verify(launcher).getServer(eq("127.127.127.127"), eq(2222), anyBoolean());
 
         assertEquals(0, cmd.execute("-p=3333", "-ip=126.126.126.126"));
-        verify(launcher).getServer(eq("126.126.126.126"), eq(3333));
+        verify(launcher).getServer(eq("126.126.126.126"), eq(3333), anyBoolean());
     }
 
     @Test
     void testOnlyPort() {
         assertEquals(0, cmd.execute("-p", "1111"));
-        verify(launcher).getServer(eq(Launcher.DEFAULT_HOST), eq(1111));
+        verify(launcher).getServer(eq(Launcher.DEFAULT_HOST), eq(1111), anyBoolean());
     }
 
     @Test
     void testOnlyHostname() {
         assertEquals(0, cmd.execute("-ip", "127.127.127.127"));
-        verify(launcher).getServer(eq("127.127.127.127"), eq(DEFAULT_PORT));
+        verify(launcher).getServer(eq("127.127.127.127"), eq(DEFAULT_PORT), anyBoolean());
     }
 
     @Test
     void testDefaultValues() {
         assertEquals(0, cmd.execute());
-        verify(launcher).getServer(eq(Launcher.DEFAULT_HOST), eq(DEFAULT_PORT));
+        verify(launcher).getServer(eq(Launcher.DEFAULT_HOST), eq(DEFAULT_PORT), anyBoolean());
     }
 }

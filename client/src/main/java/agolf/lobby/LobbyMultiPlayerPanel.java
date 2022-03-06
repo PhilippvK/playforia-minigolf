@@ -6,6 +6,10 @@ import com.aapeli.client.FilterTextField;
 import com.aapeli.client.InputTextField;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.*;
+import org.moparforia.shared.Colors;
+import org.moparforia.shared.game.Lobby;
+import org.moparforia.shared.game.WeightEnd;
+import org.moparforia.shared.tracks.TrackCategory;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -16,8 +20,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 
-class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColorListListener {
+public class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColorListListener {
 
     private GameContainer gameContainer;
     private int width;
@@ -98,49 +103,49 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         StringDraw.drawOutlinedString(this.graphics, var2, this.gameContainer.textManager.getGame("LobbyReal_Scoring"), this.width / 2 - 185, yPos + 232, 1);
         StringDraw.drawOutlinedString(this.graphics, var2, this.gameContainer.textManager.getGame("LobbyReal_ScoringEnd"), this.width / 2 - 185, yPos + 255, 1);
         if (this.lobbyGamePasswordPanel == null) {
-            int[] gameData = this.getSelectedGameData();
+            Lobby gameData = this.getSelectedGameData();
             if (gameData != null) {
                 int yPos2 = 220;
                 this.graphics.setFont(GameApplet.fontDialog11);
-                if (gameData[3] != 0) {
+                if (gameData.getTrackType() != TrackCategory.ALL) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_TrackTypes"), this.width - 170, yPos2, 1);
-                    this.graphics.drawString(this.gameContainer.textManager.getIfAvailable("LobbyReal_TrackTypes" + gameData[3], this.gameContainer.textManager.getGame("LobbyReal_TrackTypesTest")), this.width - 165, yPos2);
+                    this.graphics.drawString(this.gameContainer.textManager.getIfAvailable("LobbyReal_TrackTypes" + gameData.getTrackType().getId(), this.gameContainer.textManager.getGame("LobbyReal_TrackTypesTest")), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[4] != 20) {
+                if (gameData.getMaxStrokes() != 20) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_MaxStrokes"), this.width - 170, yPos2, 1);
-                    this.graphics.drawString(gameData[4] == 0 ? this.gameContainer.textManager.getGame("LobbyReal_MaxStrokesUnlimited") : String.valueOf(gameData[4]), this.width - 165, yPos2);
+                    this.graphics.drawString(gameData.getMaxStrokes() == 0 ? this.gameContainer.textManager.getGame("LobbyReal_MaxStrokesUnlimited") : String.valueOf(gameData.getMaxStrokes()), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[5] > 0) {
+                if (gameData.getTimeLimit() > 0) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_TimeLimit"), this.width - 170, yPos2, 1);
-                    this.graphics.drawString(this.gameContainer.lobbyPanel.getTime(gameData[5]), this.width - 165, yPos2);
+                    this.graphics.drawString(this.gameContainer.lobbyPanel.getTime(gameData.getTimeLimit()), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[6] == 1) {
+                if (gameData.waterOnStart()) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_WaterEvent"), this.width - 170, yPos2, 1);
                     this.graphics.drawString(this.gameContainer.textManager.getGame("LobbyReal_WaterEvent2"), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[7] == 0) {
+                if (!gameData.hasCollision()) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_Collision"), this.width - 170, yPos2, 1);
                     this.graphics.drawString(this.gameContainer.textManager.getGame("LobbyReal_Collision1"), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[8] == 1) {
+                if (gameData.isStrokeScoring()) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_Scoring"), this.width - 170, yPos2, 1);
                     this.graphics.drawString(this.gameContainer.textManager.getGame("LobbyReal_Scoring2"), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
 
-                if (gameData[9] > 0) {
+                if (gameData.getScoringEnd() != WeightEnd.NO) {
                     StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_ScoringEnd"), this.width - 170, yPos2, 1);
-                    this.graphics.drawString(this.gameContainer.textManager.getGame("LobbyReal_ScoringEnd" + gameData[9]), this.width - 165, yPos2);
+                    this.graphics.drawString(this.gameContainer.textManager.getGame("LobbyReal_ScoringEnd" + gameData.getScoringEnd().getId()), this.width - 165, yPos2);
                     yPos2 += 15;
                 }
             }
@@ -192,17 +197,24 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
                 if (gameName.length() == 0) {
                     gameName = "-";
                 }
-
                 if (gamePassword.length() == 0) {
-                    gamePassword = "-";
+                    gamePassword = null;
                 }
-
-                this.gameContainer.lobbyPanel.writeData("cmpt\t" + gameName + "\t" + gamePassword + "\t" + this.choicerPermission.getSelectedIndex() + "\t" + (this.choicerNumPlayers.getSelectedIndex() + 2) + "\t" + (this.choicerNumTracks.getSelectedIndex() + 1) + "\t" + this.choicerTrackTypes.getSelectedIndex() + "\t" + (this.choicerMaxStrokes.getSelectedIndex() + 1) * 5 + "\t" + LobbyPanel.gameTimeLimits[this.choicerTimeLimit.getSelectedIndex()] + "\t" + this.choicerWaterEvent.getSelectedIndex() + "\t" + this.choicerCollision.getSelectedIndex() + "\t" + this.choicerScoring.getSelectedIndex() + "\t" + this.choicerScoringEnd.getSelectedIndex());
+                Lobby lobby = new Lobby(
+                        null,false, gamePassword != null, gameName,
+                        this.choicerNumPlayers.getSelectedIndex() + 2, this.choicerNumTracks.getSelectedIndex() + 1,
+                        TrackCategory.getByTypeId(this.choicerTrackTypes.getSelectedIndex()),  this.choicerMaxStrokes.getSelectedIndex() + 1,
+                        LobbyPanel.gameTimeLimits[this.choicerTimeLimit.getSelectedIndex()], this.choicerWaterEvent.getSelectedIndex() > 0,
+                        this.choicerCollision.getSelectedIndex() > 0, this.choicerScoring.getSelectedIndex() > 0,
+                        WeightEnd.getByTypeId(this.choicerScoringEnd.getSelectedIndex())
+                );
+                this.gameContainer.gameApplet.connection.createLobby(lobby, gamePassword);
+//                this.gameContainer.lobbyPanel.writeData("cmpt\t" + gameName + "\t" + gamePassword + "\t" + this.choicerPermission.getSelectedIndex() + "\t" + (this.choicerNumPlayers.getSelectedIndex() + 2) + "\t" + (this.choicerNumTracks.getSelectedIndex() + 1) + "\t" + this.choicerTrackTypes.getSelectedIndex() + "\t" + (this.choicerMaxStrokes.getSelectedIndex() + 1) * 5 + "\t" + LobbyPanel.gameTimeLimits[this.choicerTimeLimit.getSelectedIndex()] + "\t" + this.choicerWaterEvent.getSelectedIndex() + "\t" + this.choicerCollision.getSelectedIndex() + "\t" + this.choicerScoring.getSelectedIndex() + "\t" + this.choicerScoringEnd.getSelectedIndex());
             } else {
                 if (evtSource == this.buttonJoin) {
                     this.joinError = 0;
                     this.repaint();
-                    int[] gameData = this.getSelectedGameData();
+                    Lobby gameData = this.getSelectedGameData();
                     if (gameData == null) {
                         return;
                     }
@@ -219,47 +231,34 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         this.repaint();
     }
 
-    protected void joinMultiPlayerGame(int gameId, String password) {
-        this.setVisible(false);
-        this.remove(this.lobbyGamePasswordPanel);
-        this.lobbyGamePasswordPanel = null;
-        this.add(this.trackList);
-        this.add(this.buttonJoin);
-        this.setVisible(true);
-        if (password != null) {
-            this.gameContainer.gameApplet.setGameState(0);
-            this.gameContainer.lobbyPanel.writeData("jmpt\t" + gameId + "\t" + password);
-        }
-    }
-
-    protected boolean handlePacket(String[] args) {
-        if (args[1].equals("gamelist")) {
-            if (args[2].equals("full")) {
-                this.gameListFull(args);
-                this.repaint();
-                return true;
-            }
-
-            if (args[2].equals("add")) {
-                this.gameListAdd(args, 3, this.trackList.getItemCount() == 0 ? Integer.parseInt(args[3]) : -1);
-                this.repaint();
-                return true;
-            }
-
-            if (args[2].equals("change")) {
-                this.gameListChange(args);
-                return true;
-            }
-
-            if (args[2].equals("remove")) {
-                this.gameListRemove(args);
-                this.repaint();
-                return true;
-            }
-        }
-
-        return false;
-    }
+//    protected boolean handlePacket(String[] args) {
+//        if (args[1].equals("gamelist")) {
+//            if (args[2].equals("full")) {
+//                this.gameListFull(args);
+//                this.repaint();
+//                return true;
+//            }
+//
+//            if (args[2].equals("add")) {
+//                this.gameListAdd(args, 3, this.trackList.getItemCount() == 0 ? Integer.parseInt(args[3]) : -1);
+//                this.repaint();
+//                return true;
+//            }
+//
+//            if (args[2].equals("change")) {
+//                this.gameListChange(args);
+//                return true;
+//            }
+//
+//            if (args[2].equals("remove")) {
+//                this.gameListRemove(args);
+//                this.repaint();
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
 
     protected void create() {
         this.setLayout((LayoutManager) null);
@@ -280,7 +279,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
             this.add(this.textFieldGameName);
         }
 
-        this.textFieldGamePassword = new InputTextField("-", 15);
+        this.textFieldGamePassword = new InputTextField("", 15);
         this.textFieldGamePassword.setBounds(this.width / 2 - 170, 143, 150, 20);
         this.textFieldGamePassword.setBackground(Color.white);
         this.add(this.textFieldGamePassword);
@@ -325,128 +324,85 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         this.add(this.buttonJoin);
     }
 
-    private void askPassword(int gameId) {
+    private void askPassword(Lobby lobby) {
         this.setVisible(false);
         this.remove(this.trackList);
         this.remove(this.buttonJoin);
-        this.lobbyGamePasswordPanel = new LobbyGamePasswordPanel(this.gameContainer, this, gameId);
+        this.lobbyGamePasswordPanel = new LobbyGamePasswordPanel(this.gameContainer, this, lobby);
         this.lobbyGamePasswordPanel.setLocation(this.width * 3 / 4 - 100, this.height / 2 - 30 + 10);
         this.add(this.lobbyGamePasswordPanel);
         this.setVisible(true);
     }
 
-    private void gameListFull(String[] args) {
+    public void setLobbies(List<Lobby> lobbies) {
         // lobby	gamelist	full	1	1595122	test	f	0	3	-1	10	0	25	90	0	1	0	1	1
         // lobby	gamelist	full	2	1595122	test	f	0	3	-1	10	0	25	90	0	1	0	1	1	1595167	sdm	t	0	3	-1	6	1	20	120	0	0	0	0	1
-        int numGames = Integer.parseInt(args[3]);
-        int defaultGameId = numGames != 1 ? this.getSelectedGameId() : Integer.parseInt(args[4]);
+//        int numGames = Integer.parseInt(args[3]);
+//        int defaultGameId = numGames != 1 ? this.getSelectedGameId() : Integer.parseInt(args[4]);
         this.trackList.removeAllItems();
 
-        for (int game = 0; game < numGames; ++game) {
-            this.gameListAdd(args, game * 15 + 4, defaultGameId);
+        for (Lobby lobby: lobbies) {
+            this.addLobby(lobby);
         }
 
         this.joinError = 0;
         this.repaint();
     }
 
-    private void gameListAdd(String[] args, int offset, int defaultGameId) {
+    public void addLobby(Lobby lobby) {
         // lobby	gamelist	add	1595163	#1595163	f	0	3	-1	10	1	20	60	0	1	0	0	1
-        int id = Integer.parseInt(args[offset]);
-        String name = args[offset + 1];
-        boolean passworded = args[offset + 2].equals("t");
-        int permission = Integer.parseInt(args[offset + 3]);
-        int maxPlayers = Integer.parseInt(args[offset + 4]);
-        int numTracks = Integer.parseInt(args[offset + 6]);
-        int trackTypes = Integer.parseInt(args[offset + 7]);// unsure
-        int maxStrokes = Integer.parseInt(args[offset + 8]);// unsure
-        int timeLimit = Integer.parseInt(args[offset + 9]);// unsure
-        int waterEvent = Integer.parseInt(args[offset + 10]);// unsure
-        int collision = Integer.parseInt(args[offset + 11]);// unsure
-        int scoring = Integer.parseInt(args[offset + 12]);// unsure
-        int scoringEnd = Integer.parseInt(args[offset + 13]);// unsure
-        int numPlayers = Integer.parseInt(args[offset + 14]);
-        //int trackCategory = isUsingCustomServer ? Integer.parseInt(args[offset + 15]) : -1;
-        byte colourIndex = MultiColorListItem.COLOR_BLACK;
+        String name = lobby.getName();
+        boolean passworded = lobby.hasPassword();
+        int maxPlayers = lobby.getMaxPlayers();
+        int numTracks = lobby.getNumTracks();
+        int numPlayers = lobby.getPlayers().size();Color colour = Colors.BLACK;
         boolean bold = false;
         String[] cols = new String[4];
         if (passworded) {
             cols[0] = this.gameContainer.textManager.getGame("LobbyReal_ListPassword");
-            colourIndex = MultiColorListItem.COLOR_RED;
-        } else if (permission == 2) {
-            cols[0] = this.gameContainer.textManager.getGame("LobbyReal_ListVipOnly");
-            colourIndex = MultiColorListItem.COLOR_GREEN;
-            bold = true;
-        } else if (permission == 1) {
-            cols[0] = this.gameContainer.textManager.getGame("LobbyReal_ListRegOnly");
-            bold = true;
+            colour = Colors.RED;
         }
 
         cols[1] = name;
         cols[2] = this.gameContainer.textManager.getGame("LobbyReal_ListPlayers", numPlayers, maxPlayers);
         cols[3] = this.gameContainer.textManager.getGame("LobbyReal_ListTracks", numTracks);
-        int[] trackInfo;
         /*if(isUsingCustomServer) {
             trackInfo = new int[]{id, passworded ? 1 : 0, permission, trackTypes, maxStrokes, timeLimit, waterEvent, collision, scoring, scoringEnd, trackCategory};
         }
         else {*/
-            trackInfo = new int[]{id, passworded ? 1 : 0, permission, trackTypes, maxStrokes, timeLimit, waterEvent, collision, scoring, scoringEnd};
+//        trackInfo = new int[]{this.trackList.getItemCount(), passworded ? 1 : 0, permission, trackTypes, maxStrokes, timeLimit, waterOnStart, collision, strokeScoring, scoringEnd};
         //}
-        MultiColorListItem track = new MultiColorListItem(colourIndex, bold, cols, trackInfo, id == defaultGameId);
+        MultiColorListItem track = new MultiColorListItem(colour, bold, cols, lobby, false);
         this.trackList.addItem(track);
     }
 
-    private void gameListChange(String[] args) {
+    public void updateLobby(Lobby lobby) {
         // lobby	gamelist	change	1595163	#1595163	f	0	3	-1	10	1	20	60	0	1	0	0	1
-        int selectedGameId = this.getSelectedGameId();
-        this.removeTrack(Integer.parseInt(args[3]));
-        this.gameListAdd(args, 3, selectedGameId);
+        this.removeLobby(lobby.getName());
+        this.addLobby(lobby);
     }
 
-    private void gameListRemove(String[] args) {
-        int selectedGameId = this.getSelectedGameId();
-        int gameId = Integer.parseInt(args[3]);
-        this.removeTrack(gameId);
-        if (selectedGameId == gameId) {
-            this.joinError = 0;
-            this.repaint();
-        }
-
-    }
-
-    private void removeTrack(int var1) {
+    public void removeLobby(String name) {
         synchronized (trackList) {
-            MultiColorListItem[] tracks = this.trackList.getAllItems();
-            if (tracks != null) {
-                int tracksLen = tracks.length;
-
-                for (int index = 0; index < tracksLen; ++index) {
-                    int[] trackData = (int[]) tracks[index].getData();
-                    if (trackData[0] == var1) {
-                        this.trackList.removeItem(tracks[index]);
-                        return;
-                    }
+            for (MultiColorListItem item : this.trackList.getAllItems()) {
+                if (name.equals(item.getData().getName())) {
+                    this.trackList.removeItem(item);
                 }
-
             }
         }
     }
 
-    private int getSelectedGameId() {
-        int[] var1 = this.getSelectedGameData();
-        return var1 != null ? var1[0] : -1;
-    }
 
-    private int[] getSelectedGameData() {
+    private Lobby getSelectedGameData() {
         MultiColorListItem var1 = this.trackList.getSelectedItem();
-        return var1 == null ? null : (int[]) var1.getData();
+        return var1 == null ? null : var1.getData();
     }
 
     @Override
     public void mouseDoubleClicked(MultiColorListItem clickedItem) {
         this.joinError = 0;
         this.repaint();
-        int[] gameData = (int[]) clickedItem.getData();
+        Lobby gameData = clickedItem.getData();
         if (gameData == null) {
             return;
         }
@@ -454,19 +410,19 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         attemptJoinGame(gameData);
     }
 
-    private void attemptJoinGame(int[] gameData) {
-        if (gameData[1] == 1) {
-            this.askPassword(gameData[0]);
+    private void attemptJoinGame(Lobby lobby) {
+        if (lobby.hasPassword()) {
+            this.askPassword(lobby);
             return;
         }
 
-        if ((gameData[2] == 1 || gameData[2] == 2) && !this.gameContainer.gameApplet.isEmailVerified()) {
-            this.joinError = 4;
-            this.repaint();
-            return;
-        }
+//        if ((gameData[2] == 1 || gameData[2] == 2) && !this.gameContainer.gameApplet.isEmailVerified()) {
+//            this.joinError = 4;
+//            this.repaint();
+//            return;
+//        }
 
         this.gameContainer.gameApplet.setGameState(0);
-        this.gameContainer.lobbyPanel.writeData("jmpt\t" + gameData[0]);
+        this.gameContainer.gameApplet.connection.joinLobby(lobby);
     }
 }
