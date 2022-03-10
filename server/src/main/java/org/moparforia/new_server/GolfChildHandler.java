@@ -4,10 +4,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.moparforia.new_server.handlers.ClientInitializerGroup;
+import org.moparforia.new_server.handlers.ServerHandlerGroup;
 import org.moparforia.shared.networking.PacketHandler;
 import org.moparforia.shared.networking.packets.PingPacket;
 
-public class GolfChildHandler extends PacketHandler {
+public class GolfChildHandler extends ServerPacketHandler {
 
     private final GolfServer server;
 
@@ -48,6 +49,7 @@ public class GolfChildHandler extends PacketHandler {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         Player player = new Player(ctx, this);
+        this.disconnect(player);
         server.removePlayer(player);
         logger.info("User disconnected");
         super.channelInactive(ctx);

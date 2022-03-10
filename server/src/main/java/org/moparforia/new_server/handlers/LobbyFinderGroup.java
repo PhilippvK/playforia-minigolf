@@ -5,7 +5,6 @@ import org.moparforia.new_server.Player;
 import org.moparforia.new_server.ServerLobby;
 import org.moparforia.shared.game.Lobby;
 import org.moparforia.shared.game.LobbyType;
-import org.moparforia.shared.networking.HandlerGroup;
 import org.moparforia.shared.networking.Packet;
 import org.moparforia.shared.networking.PacketReceiveHandler;
 import org.moparforia.shared.networking.PacketReceivePair;
@@ -13,22 +12,21 @@ import org.moparforia.shared.networking.packets.CreateLobbyPacket;
 import org.moparforia.shared.networking.packets.LobbyFinderPacket;
 import org.moparforia.shared.networking.packets.LobbyPacket;
 import org.moparforia.shared.networking.packets.PlayerPacket;
+import org.moparforia.shared.networking.packets.SelectGameTypePacket;
 import org.moparforia.shared.networking.packets.headers.ChatMessageHeaders;
 import org.moparforia.shared.networking.packets.headers.PacketHeaders;
-import org.moparforia.shared.networking.packets.SelectGameTypePacket;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class LobbyFinderGroup implements HandlerGroup {
+public class LobbyFinderGroup implements ServerHandlerGroup {
     private GolfServer server;
     private final PacketReceiveHandler<SelectGameTypePacket> selectGameType = ((packet, ctx, handler) -> {
         Player player = server.findPlayer(ctx);
         LobbyType type = packet.getType();
-        server.getFindingPlayers(type).forEach(p -> p.getCtx().writeAndFlush(new PlayerPacket(ChatMessageHeaders.PLAYER_JOINED, player.getNick())));
+        PlayerPacket joined_packet = new PlayerPacket(ChatMessageHeaders.PLAYER_JOINED, player.getNick());
+        server.getFindingPlayers(type).forEach(p -> p.getCtx().writeAndFlush(joined_packet));
 
         server.addFindingPlayer(type, player);
         if (type == LobbyType.MULTI) {
@@ -40,8 +38,6 @@ public class LobbyFinderGroup implements HandlerGroup {
                     )
             );
         }
-//        ctx.writeAndFlush(new PlayerPacket(ChatMessageHeaders.PLAYER_LEFT, player.getNick())
-
     });
     private final PacketReceiveHandler<CreateLobbyPacket> createLobby = ((packet, ctx, handler) -> {
         Lobby lobby = packet.getLobby();
@@ -51,10 +47,14 @@ public class LobbyFinderGroup implements HandlerGroup {
         server.getFindingPlayers(LobbyType.MULTI).forEach(p -> p.getCtx().writeAndFlush(lobbyPacket));
     });
 
+    @Override
+    public void disconnect(Player player) {
+        server.removeFinderPlayer(player);
+    }
+
     public LobbyFinderGroup(GolfServer server) {
         this.server = server;
     }
-
 
     @Override
     public Map<String, PacketReceivePair<? extends Packet>> register() {

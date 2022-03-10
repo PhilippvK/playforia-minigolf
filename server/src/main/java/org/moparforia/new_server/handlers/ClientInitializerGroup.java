@@ -16,7 +16,7 @@ import org.moparforia.shared.utils.MinigolfVersion;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ClientInitializerGroup implements HandlerGroup {
+public class ClientInitializerGroup implements ServerHandlerGroup {
     private GolfServer server;
 
     private final PacketReceiveHandler<InitialPacket> infoSent = ((packet, ctx, handler) -> {

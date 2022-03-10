@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 /**
      * Modification of which utilizes Java object serialization.
      */
-public final class GolfServer {
+public class GolfServer {
 
     private final Map<ChannelHandlerContext, Player> players = new HashMap<>();
     private final Map<LobbyType, List<ServerLobby>> lobbies = new HashMap<>();
@@ -96,12 +96,15 @@ public final class GolfServer {
 
     public void removePlayer(Player player) {
         players.remove(player.getCtx());
-        for (LobbyType type : LobbyType.values()) {
-            Set<Player> players = finderPlayers.get(type);
+    }
+
+    public void removeFinderPlayer(Player player) {
+        for (Set<Player> players: finderPlayers.values()) {
             if (players.contains(player)) {
                 players.remove(player);
+                PlayerPacket packet = new PlayerPacket(ChatMessageHeaders.PLAYER_LEFT, player.getNick());
                 players.forEach(
-                        p -> p.getCtx().writeAndFlush(new PlayerPacket(ChatMessageHeaders.PLAYER_LEFT, player.getNick()))
+                        p -> p.getCtx().writeAndFlush(packet)
                 );
             }
         }
