@@ -5,6 +5,7 @@ import org.moparforia.server.Server;
 import org.moparforia.server.game.gametypes.golf.MultiGame;
 import org.moparforia.server.net.Packet;
 import org.moparforia.server.net.PacketType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.shared.Tools;
 
 import java.util.ArrayList;

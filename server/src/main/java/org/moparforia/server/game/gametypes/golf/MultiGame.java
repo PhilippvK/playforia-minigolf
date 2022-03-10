@@ -1,7 +1,7 @@
 package org.moparforia.server.game.gametypes.golf;
 
 import org.moparforia.server.game.Lobby;
-import org.moparforia.server.game.LobbyType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.game.gametypes.GolfGame;
 import org.moparforia.server.net.Packet;

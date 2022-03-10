@@ -21,7 +21,7 @@ public final class Parameters {
     private AApplet anAApplet1422;
     private String aString1423;
     private String aString1424;
-    private String aString1425;
+    private String serverIp;
     private String aString1426;
     private String aString1427;
     private String aString1428;
@@ -46,7 +46,7 @@ public final class Parameters {
     private boolean tellFriend;
     private boolean guestAutoLogin;
     private boolean disableGuestLobbyChat;
-    private int anInt1450;
+    private int serverPort;
     private URL urlCreditPage;
     private URL anURL1452;
     private String[][] imageAliases;
@@ -98,11 +98,11 @@ public final class Parameters {
     }
 
     public String getServerIp() {
-        return this.aString1425;
+        return this.serverIp;
     }
 
     public int getServerPort() {
-        return this.anInt1450;
+        return this.serverPort;
     }
 
     public String getLocale() {
@@ -388,7 +388,7 @@ public final class Parameters {
     }
 
     public void destroy() {
-        this.aString1425 = null;
+        this.serverIp = null;
         this.aString1426 = null;
         this.aString1427 = null;
         this.aString1428 = null;
@@ -444,8 +444,8 @@ public final class Parameters {
     }
 
     private void method1660() {
-        this.aString1425 = this.getParamServer();
-        this.anInt1450 = this.getParamPort();
+        this.serverIp = this.getParamServer();
+        this.serverPort = this.getParamPort();
         this.aString1426 = this.getParamLocale();
         this.aString1427 = this.getParamLanguage();
         this.aString1428 = this.getParamChatLanguage();

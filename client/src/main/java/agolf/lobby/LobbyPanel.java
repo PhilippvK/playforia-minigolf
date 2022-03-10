@@ -19,10 +19,10 @@ public class LobbyPanel extends Panel {
     private int activeLobby;
     private LobbySinglePlayerPanel lobbySinglePlayerPanel;
     private LobbyDualPlayerPanel lobbyDualPlayerPanel;
-    private LobbyMultiPlayerPanel lobbyMultiPlayerPanel;
+    public LobbyMultiPlayerPanel lobbyMultiPlayerPanel;
     private LobbyChatPanel lobbyChatPanelSingle;
     private LobbyChatPanel lobbyChatPanelDual;
-    private LobbyChatPanel lobbyChatPanelMulti;
+    public LobbyChatPanel lobbyChatPanelMulti;
     private LobbyControlPanel lobbyControlPanel;
     private LobbyTrackListAdminPanel lobbyTrackListAdminPanel;
     public static boolean aBoolean465;
@@ -150,46 +150,46 @@ public class LobbyPanel extends Panel {
     }
 
     public void handlePacket(String[] args) {
-        boolean dummy = false;
-        if (this.activeLobby > 0) {
-            if (this.activeLobby == 1) {
-                if (this.lobbySinglePlayerPanel.handlePacket(args)) {
-                    dummy = true;
-                }
-
-                if (this.lobbyChatPanelSingle != null && this.lobbyChatPanelSingle.handlePacket(args)) {
-                    dummy = true;
-                }
-            }
-
-            if (this.activeLobby == 2) {
-                if (this.lobbyDualPlayerPanel.handlePacket(args)) {
-                    dummy = true;
-                }
-
-                if (this.lobbyChatPanelDual.handlePacket(args)) {
-                    dummy = true;
-                }
-            }
-
-            if (this.activeLobby == 3) {
-                if (this.lobbyMultiPlayerPanel.handlePacket(args)) {
-                    dummy = true;
-                }
-
-                if (this.lobbyChatPanelMulti.handlePacket(args)) {
-                    dummy = true;
-                }
-            }
-        }
-
-        if (this.activeLobby == -1 && this.lobbyTrackListAdminPanel.handlePacket(args)) {
-            dummy = true;
-        }
-
-        if (dummy) {
-            ;
-        }
+//        boolean dummy = false;
+//        if (this.activeLobby > 0) {
+//            if (this.activeLobby == 1) {
+//                if (this.lobbySinglePlayerPanel.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//
+//                if (this.lobbyChatPanelSingle != null && this.lobbyChatPanelSingle.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//            }
+//
+//            if (this.activeLobby == 2) {
+//                if (this.lobbyDualPlayerPanel.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//
+//                if (this.lobbyChatPanelDual.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//            }
+//
+//            if (this.activeLobby == 3) {
+//                if (this.lobbyMultiPlayerPanel.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//
+//                if (this.lobbyChatPanelMulti.handlePacket(args)) {
+//                    dummy = true;
+//                }
+//            }
+//        }
+//
+//        if (this.activeLobby == -1 && this.lobbyTrackListAdminPanel.handlePacket(args)) {
+//            dummy = true;
+//        }
+//
+//        if (dummy) {
+//            ;
+//        }
 
     }
 
@@ -209,7 +209,7 @@ public class LobbyPanel extends Panel {
     }
 
     protected void writeData(String var1) {
-        this.gameContainer.connection.writeData("lobby\t" + var1);
+//        this.gameContainer.connection.writeData("lobby\t" + var1);
     }
 
     protected String getSelectedNickForChallenge() {

@@ -388,7 +388,7 @@ public class GamePanel extends Panel {
 
     protected void sendChatMessage(String var1) {
         String var2 = "say\t" + var1;
-        this.gameContainer.connection.writeData("game\t" + var2);
+//        this.gameContainer.connection.writeData("game\t" + var2);
         this.gameChatPanel.addSay(this.gamePlayerInfoPanel.currentPlayerId, this.gamePlayerInfoPanel.playerNames[this.gamePlayerInfoPanel.currentPlayerId], var1, true);
     }
 
@@ -396,7 +396,7 @@ public class GamePanel extends Panel {
         this.gameTrackInfoPanel.method384();
         this.gamePlayerInfoPanel.method363(playerId, false);
         String data = "beginstroke\t" + this.encodeCoords(x, y, keycount);
-        this.gameContainer.connection.writeData("game\t" + data);
+//        this.gameContainer.connection.writeData("game\t" + data);
     }
 
     protected void method336() {
@@ -404,7 +404,7 @@ public class GamePanel extends Panel {
         if (var1 != null) {
             this.gamePlayerInfoPanel.method363(0, false);
             String var2 = "beginstroke\t" + var1;
-            this.gameContainer.connection.writeData("game\t" + var2);
+//            this.gameContainer.connection.writeData("game\t" + var2);
             this.gameCanvas.decodeCoords(0, true, var1);
         }
     }
@@ -425,7 +425,7 @@ public class GamePanel extends Panel {
             }
         }
 
-        this.gameContainer.connection.writeData("game\t" + data);
+//        this.gameContainer.connection.writeData("game\t" + data);
     }
 
     protected boolean method339(boolean var1) {
@@ -436,14 +436,14 @@ public class GamePanel extends Panel {
                     this.gameCanvas.restartGame();
                 }
 
-                this.gameContainer.connection.writeData("game\tvoteskip");
+//                this.gameContainer.connection.writeData("game\tvoteskip");
                 return true;
             }
 
             if (this.gameCanvas.method137()) {
                 this.gameCanvas.restartGame();
                 this.gamePlayerInfoPanel.method372();
-                this.gameContainer.connection.writeData("game\tskip");
+//                this.gameContainer.connection.writeData("game\tskip");
                 return true;
             }
         }
@@ -456,30 +456,30 @@ public class GamePanel extends Panel {
     }
 
     protected void requestNewGame() {
-        this.gameContainer.connection.writeData("game\tnewgame");
+//        this.gameContainer.connection.writeData("game\tnewgame");
     }
 
     protected void method342() {
         this.gameCanvas.restartGame();
         this.gamePlayerInfoPanel.stop();
         this.gameContainer.gameApplet.setGameState(0);
-        this.gameContainer.connection.writeData("game\tback");
+//        this.gameContainer.connection.writeData("game\tback");
         this.gameContainer.gameApplet.removePlayerList();
     }
 
     protected void rateTrack(int track, int rating) {
         String var3 = "rate\t" + track + "\t" + rating;
-        this.gameContainer.connection.writeData("game\t" + var3);
+//        this.gameContainer.connection.writeData("game\t" + var3);
     }
 
     protected void respondNewGame(int track, boolean accept) {// why track
         String var3 = "rejectaccept\t" + track + "\t" + (accept ? "t" : "f");
-        this.gameContainer.connection.writeData("game\t" + var3);
+//        this.gameContainer.connection.writeData("game\t" + var3);
     }
 
     protected void method345(int var1) {
         String var2 = "backtoprivate\t" + var1;
-        this.gameContainer.connection.writeData("game\t" + var2);
+//        this.gameContainer.connection.writeData("game\t" + var2);
     }
 
     protected boolean maxFps() {
@@ -563,5 +563,9 @@ public class GamePanel extends Panel {
         }
 
         return out;
+    }
+
+    public boolean isCheating() {
+        return gameCanvas.allowCheating;
     }
 }

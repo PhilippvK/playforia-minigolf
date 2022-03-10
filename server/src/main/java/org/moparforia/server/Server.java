@@ -11,7 +11,7 @@ import org.jboss.netty.handler.timeout.IdleStateHandler;
 import org.jboss.netty.util.HashedWheelTimer;
 import org.moparforia.server.event.Event;
 import org.moparforia.server.game.Lobby;
-import org.moparforia.server.game.LobbyType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.net.*;
 import org.moparforia.shared.tracks.TrackLoadException;

@@ -5,6 +5,7 @@ import agolf.GameContainer;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.*;
 import org.moparforia.client.Launcher;
+import org.moparforia.shared.game.Lobby;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -107,70 +108,75 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         g.drawImage(this.image, 0, 0, this);
     }
 
+    // TODO: Not working after rewrite, due to changing data to Lobby class
     public void itemStateChanged(ItemEvent evt) {
-        if (evt.getSource() == this.trackSetList) {
-            this.selectedTrackData = this.getSelectedTrackSetData();
-            if (this.selectedTrackData != null) {
-                this.selectedTrackData = this.selectedTrackData.substring(this.selectedTrackData.indexOf(9) + 1);
-            }
-        }
-
-        this.repaint();
+//        if (evt.getSource() == this.trackSetList) {
+//            this.selectedTrackData = this.getSelectedTrackSetData();
+//            if (this.selectedTrackData != null) {
+//                this.selectedTrackData = this.selectedTrackData.substring(this.selectedTrackData.indexOf(9) + 1);
+//            }
+//        }
+//
+//        this.repaint();
     }
+
+    // TODO: Not working after rewrite, due to changing data to Lobby class
 
     public void actionPerformed(ActionEvent evt) {
-        if (this.gameContainer.gameApplet.syncIsValidSite.get()) {
-            Object var2 = evt.getSource();
-            if (var2 == this.buttonStartTraining) {
-                this.gameContainer.gameApplet.setGameState(0);
-                this.gameContainer.lobbyPanel.writeData("cspt\t" + (this.choicerTracksNum.getSelectedIndex() + 1) + "\t" + this.choicerTrackTypes.getSelectedIndex() + "\t" + this.choicerWaterEvent.getSelectedIndex() /*+ (isUsingCustomServer ? ("\t" + this.choicerTrackCategory.getSelectedIndex()) : "")*/);
-            } else {
-                if (var2 == this.buttonStartChampionship) {
-                    String var3 = this.getSelectedTrackSetData();
-                    if (var3 != null) {
-                        startChampionship(Integer.parseInt(var3.substring(0, var3.indexOf(9))));
-                    }
-                }
-
-            }
-        }
+//        if (this.gameContainer.gameApplet.syncIsValidSite.get()) {
+//            Object var2 = evt.getSource();
+//            if (var2 == this.buttonStartTraining) {
+//                this.gameContainer.gameApplet.setGameState(0);
+//                this.gameContainer.lobbyPanel.writeData("cspt\t" + (this.choicerTracksNum.getSelectedIndex() + 1) + "\t" + this.choicerTrackTypes.getSelectedIndex() + "\t" + this.choicerWaterEvent.getSelectedIndex() /*+ (isUsingCustomServer ? ("\t" + this.choicerTrackCategory.getSelectedIndex()) : "")*/);
+//            } else {
+//                if (var2 == this.buttonStartChampionship) {
+//                    String var3 = this.getSelectedTrackSetData();
+//                    if (var3 != null) {
+//                        startChampionship(Integer.parseInt(var3.substring(0, var3.indexOf(9))));
+//                    }
+//                }
+//
+//            }
+//        }
     }
 
-    protected boolean handlePacket(String[] args) {
-        if (args[1].equals("tracksetlist")) {
-            this.trackSetList.removeAllItems();
-            int numTrackSets = (args.length - 2) / 11;
-            byte var3 = -1;
-
-            for (int off = 0; off < numTrackSets; ++off) {
-                String setName = args[2 + off * 11];
-                int setDifficulty = Integer.parseInt(args[3 + off * 11]);
-                String[] var7 = new String[]{isUsingCustomServer ? setName : this.gameContainer.textManager.getGame("LobbyReal_TS_" + setName), this.gameContainer.textManager.getGame("LobbyReal_TS_Level" + setDifficulty), args[4 + off * 11]};
-                if (setDifficulty == 1) {
-                    var3 = 2;
-                } else if (setDifficulty == 2) {
-                    var3 = 4;
-                } else if (setDifficulty == 3) {
-                    var3 = 1;
-                }
-
-                String var8 = args[5 + off * 11] + "\t" + args[6 + off * 11] + "\t" + args[7 + off * 11] + "\t" + args[8 + off * 11] + "\t" + args[9 + off * 11] + "\t" + args[10 + off * 11] + "\t" + args[11 + off * 11] + "\t" + args[12 + off * 11];
-                boolean var9;
-                if (var9 = off == numTrackSets - 1) {
-                    this.selectedTrackData = var8;
-                }
-
-                MultiColorListItem var10 = new MultiColorListItem(var3, false, var7, off + "\t" + var8, var9);
-                this.trackSetList.addItem(var10);
-            }
-
-            this.requestTrackSetList = false;
-            this.repaint();
-            return true;
-        } else {
-            return false;
-        }
-    }
+//    TODO: Not working after rewrite, due to changing data to Lobby class
+//
+//    protected boolean handlePacket(String[] args) {
+//        if (args[1].equals("tracksetlist")) {
+//            this.trackSetList.removeAllItems();
+//            int numTrackSets = (args.length - 2) / 11;
+//            byte var3 = -1;
+//
+//            for (int off = 0; off < numTrackSets; ++off) {
+//                String setName = args[2 + off * 11];
+//                int setDifficulty = Integer.parseInt(args[3 + off * 11]);
+//                String[] var7 = new String[]{isUsingCustomServer ? setName : this.gameContainer.textManager.getGame("LobbyReal_TS_" + setName), this.gameContainer.textManager.getGame("LobbyReal_TS_Level" + setDifficulty), args[4 + off * 11]};
+//                if (setDifficulty == 1) {
+//                    var3 = 2;
+//                } else if (setDifficulty == 2) {
+//                    var3 = 4;
+//                } else if (setDifficulty == 3) {
+//                    var3 = 1;
+//                }
+//
+//                String var8 = args[5 + off * 11] + "\t" + args[6 + off * 11] + "\t" + args[7 + off * 11] + "\t" + args[8 + off * 11] + "\t" + args[9 + off * 11] + "\t" + args[10 + off * 11] + "\t" + args[11 + off * 11] + "\t" + args[12 + off * 11];
+//                boolean var9;
+//                if (var9 = off == numTrackSets - 1) {
+//                    this.selectedTrackData = var8;
+//                }
+//
+////                MultiColorListItem var10 = new MultiColorListItem(var3, false, var7, off + "\t" + var8, var9);
+//                this.trackSetList.addItem(var10);
+//            }
+//
+//            this.requestTrackSetList = false;
+//            this.repaint();
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     protected void setRequestTrackSetList() {
         this.requestTrackSetList = true;
@@ -213,17 +219,19 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         this.add(this.buttonStartChampionship);
     }
 
-    private String getSelectedTrackSetData() {
+    // TODO: Not working after rewrite, due to changing data to Lobby class
+    private Lobby getSelectedTrackSetData() {
         MultiColorListItem var1 = this.trackSetList.getSelectedItem();
-        return var1 == null ? null : (String) var1.getData();
+        return var1 == null ? null : var1.getData();
     }
 
+    // TODO: Not working after rewrite, due to changing data to Lobby class
     @Override
     public void mouseDoubleClicked(MultiColorListItem clickedItem) {
-        String itemData = (String) clickedItem.getData();
-        if (itemData != null) {
-            startChampionship(Integer.parseInt(itemData.substring(0, itemData.indexOf(9))));
-        }
+//        String itemData = (Lobby) clickedItem.getData();
+//        if (itemData != null) {
+//            startChampionship(Integer.parseInt(itemData.substring(0, itemData.indexOf(9))));
+//        }
     }
 
     private void startChampionship(int index) {

@@ -1,13 +1,12 @@
 package org.moparforia.server.game.gametypes.golf;
 
 import org.moparforia.shared.tracks.Track;
-import org.moparforia.server.game.LobbyType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.game.gametypes.GolfGame;
 import org.moparforia.server.net.Packet;
 import org.moparforia.server.net.PacketType;
 import org.moparforia.shared.tracks.TrackCategory;
-import org.moparforia.shared.tracks.filesystem.FileSystemTrackManager;
 import org.moparforia.shared.Tools;
 
 import java.util.List;

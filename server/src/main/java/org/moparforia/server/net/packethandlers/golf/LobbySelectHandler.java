@@ -2,7 +2,7 @@ package org.moparforia.server.net.packethandlers.golf;
 
 import org.moparforia.server.Server;
 import org.moparforia.server.game.Lobby;
-import org.moparforia.server.game.LobbyType;
+import org.moparforia.shared.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.net.Packet;
 import org.moparforia.server.net.PacketHandler;
@@ -33,7 +33,7 @@ public class LobbySelectHandler implements PacketHandler {
             packet.getChannel().write("d lobbyselect\tnop\t" + Tools.tabularize(server.getLobby(LobbyType.SINGLE).totalPlayerCount(), server.getLobby(LobbyType.DUAL).totalPlayerCount(), server.getLobby(LobbyType.MULTI).totalPlayerCount()));
         } else if (message.group(1).equals("select")) {
             // 1 for single, 1h for single hidden chat, 2 for dual, x for multi
-            LobbyType lobbyType = LobbyType.getLobby(message.group(2));
+            LobbyType lobbyType = LobbyType.getLobby(Integer.parseInt(message.group(2)));
             Player player = (Player) packet.getChannel().getAttachment();
             player.setChatHidden(message.group(3) != null && message.group(3).equals("h"));
             server.getLobby(lobbyType).addPlayer(player, Lobby.JOIN_TYPE_NORMAL);

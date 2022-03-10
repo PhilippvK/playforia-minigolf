@@ -1,59 +1,44 @@
 package com.aapeli.colorgui;
 
+import org.moparforia.shared.game.Lobby;
+
 import java.awt.Color;
 import java.awt.Image;
 
 public class MultiColorListItem {
 
-    public static final int COLOR_BLACK = 0;
-    public static final int COLOR_RED = 1;
-    public static final int COLOR_GREEN = 2;
-    public static final int COLOR_BLUE = 3;
-    public static final int COLOR_YELLOW = 4;
-    public static final int COLOR_MAGENTA = 5;
-    public static final int COLOR_CYAN = 6;
-    public static final int COLOR_GRAY = 7;
-    public static final int COLOR_WHITE = 8;
-    private static final Color[] colours = new Color[] {
-            new Color(0, 0, 0), new Color(240, 0, 0), new Color(0, 160, 0),
-            new Color(0, 0, 255), new Color(144, 144, 0), new Color(176, 0, 176),
-            new Color(0, 160, 176), new Color(112, 112, 112), new Color(255, 255, 255)
-    };
+
 
     private Color colour;
     private Color colourOverride;
     private boolean bold;
     private String[] strings;
     private Image[] images;
-    private Object data;
+    private Lobby lobby;
     private boolean selected;
 
 
-    public MultiColorListItem(String[] strings) {
-        this(colours[0], false, strings, (Object) null, false);
-    }
+//    public MultiColorListItem(int colourIndex, boolean bold, String[] strings) {
+//        this(colours[colourIndex], bold, strings, (Object) null, false);
+//    }
+//
+//    public MultiColorListItem(int colourIndex, String[] strings, Lobby data) {
+//        this(colours[colourIndex], false, strings, data, false);
+//    }
+//
+//    public MultiColorListItem(int colourIndex, boolean bold, String[] strings, Lobby lobby) {
+//        this(colours[colourIndex], bold, strings, data, false);
+//    }
+//
+//    public MultiColorListItem(int colourIndex, boolean bold, String[] strings, Lobby lobby, boolean selected) {
+//        this(colours[colourIndex], bold, strings, data, selected);
+//    }
 
-    public MultiColorListItem(int colourIndex, boolean bold, String[] strings) {
-        this(colours[colourIndex], bold, strings, (Object) null, false);
-    }
-
-    public MultiColorListItem(int colourIndex, String[] strings, Object data) {
-        this(colours[colourIndex], false, strings, data, false);
-    }
-
-    public MultiColorListItem(int colourIndex, boolean bold, String[] strings, Object data) {
-        this(colours[colourIndex], bold, strings, data, false);
-    }
-
-    public MultiColorListItem(int colourIndex, boolean bold, String[] strings, Object data, boolean selected) {
-        this(colours[colourIndex], bold, strings, data, selected);
-    }
-
-    public MultiColorListItem(Color colour, boolean bold, String[] strings, Object data, boolean selected) {
+    public MultiColorListItem(Color colour, boolean bold, String[] strings, Lobby lobby, boolean selected) {
         this.colour = colour;
         this.bold = bold;
         this.strings = strings;
-        this.data = data;
+        this.lobby = lobby;
         this.selected = selected;
         this.images = new Image[strings.length];
         this.colourOverride = null;
@@ -69,20 +54,12 @@ public class MultiColorListItem {
             }
         }
 
-        s = s + "} data=\"" + this.data + "\" selected=" + this.selected + "]";
+        s = s + "} data=\"" + this.lobby + "\" selected=" + this.selected + "]";
         return s;
-    }
-
-    public void setColor(int colourIndex) {
-        this.setColor(colours[colourIndex]);
     }
 
     public void setColor(Color colour) {
         this.colour = colour;
-    }
-
-    public void setOverrideColor(int colourIndex) {
-        this.setOverrideColor(colourIndex >= 0 ? colours[colourIndex] : null);
     }
 
     public void setOverrideColor(Color colour) {
@@ -125,12 +102,12 @@ public class MultiColorListItem {
         return this.images;
     }
 
-    public void setData(Object data) {
-        this.data = data;
+    public void setData(Lobby lobby) {
+        this.lobby = lobby;
     }
 
-    public Object getData() {
-        return this.data;
+    public Lobby getData() {
+        return this.lobby;
     }
 
     public void setSelected(boolean selected) {

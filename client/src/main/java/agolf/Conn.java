@@ -54,7 +54,7 @@ public class Conn implements ConnListener {
     public void notifyConnectionUp() {
     }
 
-    protected boolean method1158() {
+    protected boolean connect() {
         this.connection = new Connection(this.gameContainer.gameApplet, this, cipherCmds);
         return this.connection.openConnection();
     }
@@ -176,7 +176,7 @@ public class Conn implements ConnListener {
         }
 
         if (args[0].equals("lobbyselect")) {
-            this.gameContainer.lobbySelectionPanel.handlePacket(args);
+//            this.gameContainer.lobbySelectionPanel.handlePacket(args);
         } else if (args[0].equals("lobby")) {
             this.gameContainer.lobbyPanel.handlePacket(args);
         }

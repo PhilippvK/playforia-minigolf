@@ -10,6 +10,7 @@ import com.aapeli.client.Parameters;
 import com.aapeli.client.SoundManager;
 import com.aapeli.client.TextManager;
 import com.aapeli.tools.Tools;
+import org.moparforia.client.networking.Client;
 
 public class GameContainer {// some kind of a container for everything
 
@@ -22,7 +23,6 @@ public class GameContainer {// some kind of a container for everything
     public BadWordFilter badWordFilter;
     public AutoPopups autoPopup;
     public TrackCollection trackCollection;
-    public Conn connection;
     public LobbySelectPanel lobbySelectionPanel;
     public LobbyPanel lobbyPanel;
     public String defaultLobby;
@@ -47,11 +47,6 @@ public class GameContainer {// some kind of a container for everything
         if (this.autoPopup != null) {
             this.autoPopup.close();
         }
-
-        if (this.connection != null) {
-            this.connection.disconnect();
-        }
-
     }
 
     private void init() {
