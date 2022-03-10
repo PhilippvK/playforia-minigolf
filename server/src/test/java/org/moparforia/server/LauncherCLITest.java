@@ -4,8 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.moparforia.new_server.GolfServer;
 import picocli.CommandLine;
 
 import java.io.PrintWriter;
@@ -13,8 +13,17 @@ import java.io.StringWriter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.withSettings;
 
 /**
  * Tests that CLI parsing works as expected, it doesn't test the main method, but it tests the picocli annotations
@@ -35,7 +44,7 @@ class LauncherCLITest {
                 .lenient()
                 .withoutAnnotations());
 
-        doReturn(mock(Server.class)).when(launcher).getServer(anyString(), anyInt(), anyBoolean());
+        doReturn(mock(GolfServer.class)).when(launcher).getServer(anyString(), anyInt(), anyBoolean());
         when(launcher.call()).thenCallRealMethod();
 
         cmd = new CommandLine(launcher);
