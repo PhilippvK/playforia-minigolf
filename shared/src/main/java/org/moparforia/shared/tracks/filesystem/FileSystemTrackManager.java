@@ -95,7 +95,7 @@ public class FileSystemTrackManager implements TrackManager {
             Scanner scanner = new Scanner(filePath);
             String setName = scanner.nextLine();
             TrackSetDifficulty trackSetDifficulty = TrackSetDifficulty.valueOf(scanner.nextLine());
-            List<String> trackNames = new ArrayList<String>();
+            List<String> trackNames = new ArrayList<>();
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine().trim();
                 if (!line.isEmpty()) {
@@ -106,8 +106,9 @@ public class FileSystemTrackManager implements TrackManager {
             // Convert fileNames to already loaded tracks
             List<Track> tracks = getTracks().stream()
                     .filter(track -> trackNames.contains(track.getName()))
+                    .sorted(Comparator.comparing((track) -> trackNames.indexOf(track.getName())))
                     .collect(Collectors.toList());
-            if (tracks.size() < 1) {
+            if (tracks.isEmpty()) {
                 logger.warning("TrackSet " + setName + " has no valid tracks associated with it, ignoring");
                 continue;
             }
@@ -119,6 +120,7 @@ public class FileSystemTrackManager implements TrackManager {
             }
             trackSets.add(new TrackSet(setName, trackSetDifficulty, tracks));
         }
+        trackSets.sort(Comparator.comparing(TrackSet::getName));
         return trackSets;
     }
 

@@ -15,8 +15,8 @@
         <project.mainClass>org.moparforia.client.Launcher</project.mainClass>
         <project.name>Playforia Minigolf Client</project.name>
         <project.download.directory>${project.build.directory}/downloads</project.download.directory>
-        <project.jre.osx.link>https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.7%2B7/OpenJDK17U-jre_x64_mac_hotspot_17.0.7_7.tar.gz</project.jre.osx.link>
-        <project.jre.osx.name>jdk-17.0.7+7-jre</project.jre.osx.name>
+        <project.jre.osx.link>https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.2_13.tar.gz</project.jre.osx.link>
+        <project.jre.osx.name>jdk-21.0.2+13-jre</project.jre.osx.name>
     </properties>
 
     <dependencies>
@@ -84,7 +84,7 @@
             <plugin>
                 <groupId>com.googlecode.maven-download-plugin</groupId>
                 <artifactId>download-maven-plugin</artifactId>
-                <version>1.6.8</version>
+                <version>1.9.0</version>
                 <executions>
                     <execution>
                       <id>download-osx-jre</id>
@@ -104,7 +104,6 @@
             <plugin>
                 <groupId>sh.tak.appbundler</groupId>
                 <artifactId>appbundle-maven-plugin</artifactId>
-                <version>1.2.0</version>
                 <configuration>
                     <bundleName>${project.name}</bundleName>
                     <iconFile>src/main/resources/icons/playforia.icns</iconFile>
@@ -133,7 +132,6 @@
             <plugin>
                 <groupId>com.akathist.maven.plugins.launch4j</groupId>
                 <artifactId>launch4j-maven-plugin</artifactId>
-                <version>2.3.3</version>
                 <executions>
                     <execution>
                         <id>windows-build</id>
@@ -154,7 +152,7 @@
                             <icon>src/main/resources/icons/playforia.ico</icon>
                             <jre>
                                 <path>jre</path>
-                                <minVersion>17</minVersion>
+                                <minVersion>21</minVersion>
                             </jre>
                             <versionInfo>
                                 <fileVersion>1.0.0.0</fileVersion>
@@ -174,7 +172,7 @@
             <plugin>
                 <artifactId>plantuml-generator-maven-plugin</artifactId>
                 <groupId>de.elnarion.maven</groupId>
-                <version>1.1.2</version>
+                <version>2.4.1</version>
                 <executions>
                     <execution>
                         <id>generate-simple-diagram</id>

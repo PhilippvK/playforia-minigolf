@@ -28,7 +28,7 @@ public class QuitHandler implements PacketHandler {
     public boolean handle(Server server, Packet packet, Matcher message) {
         Player player = (Player) packet.getChannel().getAttachment();
         if (message.group(1).contains("lobby")) {
-            player.getLobby().removePlayer(player, Lobby.PART_REASON_USERLEFT, null);
+            player.getLobby().removePlayer(player, Lobby.PART_REASON_USERLEFT);
         }
         packet.getChannel().disconnect();
         packet.getChannel().close();

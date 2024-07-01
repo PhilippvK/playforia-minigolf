@@ -50,6 +50,9 @@ public class Server implements Runnable {
     private int port;
     private Optional<String> tracksDirectory;
 
+    private Channel serverChannel;
+    private boolean running;
+
     private HashMap<LobbyType, Lobby> lobbies = new HashMap<LobbyType, Lobby>();
     //private ArrayList<LobbyRef> lobbies = new ArrayList<LobbyRef>();
     //private HashMap<Integer, Game> games = new HashMap<Integer, Game>();
@@ -188,17 +191,23 @@ public class Server implements Runnable {
         bootstrap.setOption("child.tcpNoDelay", true);
         bootstrap.setOption("child.keepAlive", true);
         try {
-            bootstrap.bind(new InetSocketAddress(host, port));
+            this.serverChannel = bootstrap.bind(new InetSocketAddress(host, port));
+            this.running = true;
             new Thread(this).start();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
+    public void stop() throws InterruptedException {
+        this.serverChannel.close().sync();
+        this.running = false;
+    }
+
     @Override
     public void run() {
         System.out.println("Started server on host " + this.host + " with port " + this.port);
-        while (true) {
+        while (this.running) {
             try {
                 Thread.sleep(10);
                 Iterator<Event> iterator = events.iterator();

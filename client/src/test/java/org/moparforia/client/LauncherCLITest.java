@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.quality.Strictness;
 import picocli.CommandLine;
 
 import javax.swing.JFrame;
@@ -42,7 +43,7 @@ class LauncherCLITest {
     void setUp() throws Exception {
         // Mock game
         launcher = mock(Launcher.class, withSettings()
-                .lenient()
+                .strictness(Strictness.LENIENT)
                 .withoutAnnotations());
 
         // Use real methods

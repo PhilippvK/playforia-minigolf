@@ -35,7 +35,7 @@ The Java Applet-based Minigolf Client was one of the most popular multiplayer ga
 
 ### Prerequisites
 - Clone this repo: `git clone git@github.com:PhilippvK/playforia-minigolf.git`
-- Install Java Development Kit 17 (https://adoptium.net/en-GB/temurin/releases/)
+- Install Java Development Kit 21 (https://adoptium.net/en-GB/temurin/releases/)
 - Install Apache `maven` for building: https://maven.apache.org/install.html
 - *Optional:* Install IntelliJ IDEA Java IDE (https://www.jetbrains.com/idea/download/) and import this repository as project
 
@@ -62,7 +62,13 @@ java -jar client.jar -server 192.168.1.7 -lang en_US # Replace IP with the one o
 
 #### Running Minigolf Server in Docker Container
 
-We provide an experimental Dockerfile for easy hosting of the server application. You can either build the image by yourself or download the pre-build images from [quay.io](https://quay.io/repository/philippvk/minigolf) via `docker pull quay.io/philippvk/minigolf:latest`.
+We provide an experimental Dockerfile for easy hosting of the server application. 
+You can either build and run the image:
+```sh
+docker build -t pfmg .
+docker run pfmg
+```
+or download the pre-built images from [quay.io](https://quay.io/repository/philippvk/minigolf) via `docker pull quay.io/philippvk/minigolf:latest`.
 
 Running the Editor is quite straightforward as it can be started like expected: `java -jar editor.jar`
 
@@ -83,7 +89,7 @@ Client CLI options:
 ## Compatibility
 
 Tested:
-- Ubuntu 22.04 with Java version `17.0.6`
+- Ubuntu 22.04 with Java version `21.0.3`
 - Windows 10/11
 
 ## Problems

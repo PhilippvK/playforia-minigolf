@@ -4,7 +4,6 @@ import com.github.marschall.memoryfilesystem.MemoryFileSystemBuilder;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.softsmithy.lib.nio.file.CopyFileVisitor;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -43,7 +42,7 @@ public class FileSystemExtension implements BeforeEachCallback, AfterEachCallbac
     public void copyFile(String src) throws IOException, URISyntaxException {
         Path srcPath = getRootDir().resolve(src);
         Path targetPath = fileSystem.getPath(src);
-        CopyFileVisitor.copy(srcPath, targetPath);
+        Files.copy(srcPath, targetPath);
     }
 
     /**
@@ -58,7 +57,7 @@ public class FileSystemExtension implements BeforeEachCallback, AfterEachCallbac
                 .collect(Collectors.toList());
         for (Path file : files) {
             Path relative_path = fileSystem.getPath(base.relativize(file).toString().replace(FileSystems.getDefault().getSeparator(), fileSystem.getSeparator()));
-            CopyFileVisitor.copy(base.resolve(file), relative_path);
+            Files.copy(base.resolve(file), relative_path);
         }
     }
 
