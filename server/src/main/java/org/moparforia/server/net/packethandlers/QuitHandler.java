@@ -26,7 +26,7 @@ public class QuitHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         if (message.group(1).contains("lobby")) {
             player.getLobby().removePlayer(player, Lobby.PART_REASON_USERLEFT);
         }

@@ -28,7 +28,7 @@ public class LobbyCreateSinglePlayerHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         int number = Integer.parseInt(message.group(2));
         if (message.group(1).equals("t")) {
             int trackType = Integer.parseInt(message.group(3));

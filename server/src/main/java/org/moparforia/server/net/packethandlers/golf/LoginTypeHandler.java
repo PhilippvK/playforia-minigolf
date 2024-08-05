@@ -26,7 +26,7 @@ public class LoginTypeHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        packet.getChannel().write(new Packet(PacketType.DATA, Tools.tabularize("status", "login")));
+        packet.getChannel().writeAndFlush(new Packet(PacketType.DATA, Tools.tabularize("status", "login")));
         return true;
     }
 }

@@ -1,6 +1,6 @@
 package org.moparforia.server.net.packethandlers;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import org.moparforia.server.Server;
 import org.moparforia.server.event.PlayerConnectedEvent;
 import org.moparforia.server.game.Player;
@@ -32,8 +32,8 @@ public class ReconnectHandler implements PacketHandler {
             Player p = server.getPlayer(id);
             Channel c = packet.getChannel();
             p.setChannel(c);
-            c.setAttachment(p);
-            c.write("c rcok\n");
+            c.attr(Player.PLAYER_ATTRIBUTE_KEY).set(p);
+            c.writeAndFlush("c rcok\n");
             server.addEvent(new PlayerConnectedEvent(id, true));
         }
         return true;

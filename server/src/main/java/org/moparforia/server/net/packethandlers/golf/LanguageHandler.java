@@ -23,7 +23,7 @@ public class LanguageHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         player.setLocale(message.group(1)); // todo: check if we axly support this locale
         return true;
     }

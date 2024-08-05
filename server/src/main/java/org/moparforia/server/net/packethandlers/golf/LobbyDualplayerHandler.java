@@ -29,12 +29,12 @@ public class LobbyDualplayerHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         if (message.group(1).equals("lobby")) {
             if (message.group(2).equals("challenge")) {
                 Player other = getPlayer(server, message.group(3));
                 if (other == null) {// || other.isNotAcceptingChallenges()) {
-                    player.getChannel().write(new Packet(PacketType.DATA,
+                    player.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                             Tools.tabularize("lobby", "cfail", "nochall")));
                     return true;
                 }
@@ -51,7 +51,7 @@ public class LobbyDualplayerHandler implements PacketHandler {
             } else if (message.group(2).equals("accept")) {
                 Player other = getPlayer(server, message.group(3));
                 if (other == null || !(other.getGame() instanceof DualGame)) {
-                    player.getChannel().write(new Packet(PacketType.DATA,
+                    player.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                             Tools.tabularize("lobby", "cfail", "nouser")));//todo kick the faggot
                     return true;
                 }
@@ -60,20 +60,20 @@ public class LobbyDualplayerHandler implements PacketHandler {
             } else if (message.group(2).equals("cancel")) {
                 Player other = getPlayer(server, message.group(3));
                 if (other == null || !(other.getGame() instanceof DualGame)) {
-                    player.getChannel().write(new Packet(PacketType.DATA,
+                    player.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                             Tools.tabularize("lobby", "cfail", "nouser")));//todo kick the faggot
                     return true;
                 }
-                other.getChannel().write(new Packet(PacketType.DATA,
+                other.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                         Tools.tabularize("lobby", "cancel")));
             } else if (message.group(2).equals("cfail") && message.group(4).equals("refuse")) {
                 Player other = getPlayer(server, message.group(3));
                 if (other == null || !(other.getGame() instanceof DualGame)) {
-                    player.getChannel().write(new Packet(PacketType.DATA,//todo kick the faggot
+                    player.getChannel().writeAndFlush(new Packet(PacketType.DATA,//todo kick the faggot
                             Tools.tabularize("lobby", "cfail", "nouser")));
                     return true;
                 }
-                other.getChannel().write(new Packet(PacketType.DATA,
+                other.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                         Tools.tabularize("lobby", "cfail", "refuse")));
                 //todo HOW TO REMOVE THE GAME FROM THE SERVER
             } else if (message.group(2).equals("nc")) {

@@ -29,7 +29,7 @@ public class ChatHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         PlayerCollection destination;
         if (message.group(1).equals("game")) {
             destination = player.getGame();
@@ -43,10 +43,10 @@ public class ChatHandler implements PacketHandler {
             for (Player otherPlayer : destination.getPlayers()) {
                 if (player != otherPlayer) {
                     if (message.group(1).equals("game")) {
-                        otherPlayer.getChannel().write(new Packet(PacketType.DATA,
+                        otherPlayer.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                                 Tools.tabularize("game", "say", ((Game) destination).getPlayerId(player), message.group(3))));
                     } else {
-                        otherPlayer.getChannel().write(new Packet(PacketType.DATA,
+                        otherPlayer.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                                 Tools.tabularize("lobby", "say", message.group(3), player.getNick(), message.group(4))));
                     }
                 }
@@ -54,7 +54,7 @@ public class ChatHandler implements PacketHandler {
         } else if (message.group(2).equals("sayp")) {
             for (Player otherPlayer : destination.getPlayers()) {
                 if (otherPlayer.getNick().equals(message.group(3))) {
-                    otherPlayer.getChannel().write(new Packet(PacketType.DATA,
+                    otherPlayer.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                             Tools.tabularize(message.group(1), "sayp", player.getNick(), message.group(4))));
                     break;
                 }

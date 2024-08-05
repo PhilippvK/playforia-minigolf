@@ -1,14 +1,20 @@
 package org.moparforia.server;
 
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.*;
-import org.jboss.netty.channel.group.ChannelGroup;
-import org.jboss.netty.channel.group.DefaultChannelGroup;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-import org.jboss.netty.handler.codec.frame.DelimiterBasedFrameDecoder;
-import org.jboss.netty.handler.codec.frame.Delimiters;
-import org.jboss.netty.handler.timeout.IdleStateHandler;
-import org.jboss.netty.util.HashedWheelTimer;
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.group.ChannelGroup;
+import io.netty.channel.group.DefaultChannelGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.Delimiters;
+import io.netty.handler.timeout.IdleStateHandler;
+import io.netty.util.concurrent.GlobalEventExecutor;
 import org.moparforia.server.event.Event;
 import org.moparforia.server.game.Lobby;
 import org.moparforia.server.game.LobbyType;
@@ -32,8 +38,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 
 public class Server implements Runnable {
@@ -42,7 +46,7 @@ public class Server implements Runnable {
     public static final String DEFAULT_TRACKS_DIRECTORY = "tracks";
 
     private HashMap<Integer, Player> players = new HashMap<>();
-    private ChannelGroup allChannels = new DefaultChannelGroup();
+    private ChannelGroup allChannels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
     private ConcurrentLinkedQueue<Event> events = new ConcurrentLinkedQueue<>();
     private HashMap<PacketType, ArrayList<PacketHandler>> packetHandlers = new HashMap<>();
 
@@ -50,7 +54,7 @@ public class Server implements Runnable {
     private int port;
     private Optional<String> tracksDirectory;
 
-    private Channel serverChannel;
+    private ChannelFuture serverChannelFuture;
     private boolean running;
 
     private HashMap<LobbyType, Lobby> lobbies = new HashMap<LobbyType, Lobby>();
@@ -175,23 +179,29 @@ public class Server implements Runnable {
         packetHandlers = PacketHandlerFactory.getPacketHandlers();
         System.out.println("Loaded " + packetHandlers.size() + " packet handler type(s)");
 
-        ChannelFactory factory = new NioServerSocketChannelFactory(
-                Executors.newCachedThreadPool(),
-                Executors.newCachedThreadPool());
-
-        ServerBootstrap bootstrap = new ServerBootstrap(factory);
-        final ClientChannelHandler clientHandler = new ClientChannelHandler(this);
-        final IdleStateHandler idleState = new IdleStateHandler(new HashedWheelTimer(1, TimeUnit.SECONDS), 2, 0, 0);
-        bootstrap.setPipelineFactory(() -> Channels.pipeline(
-                new DelimiterBasedFrameDecoder(250, Delimiters.lineDelimiter()),
-                new PacketDecoder(),
-                new PacketEncoder(),
-                idleState,
-                clientHandler));
-        bootstrap.setOption("child.tcpNoDelay", true);
-        bootstrap.setOption("child.keepAlive", true);
+        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        ServerBootstrap bootstrap = new ServerBootstrap()
+            .group(bossGroup, workerGroup)
+            .channel(NioServerSocketChannel.class)
+            .childHandler(new ChannelInitializer<SocketChannel>() {
+                @Override
+                protected void initChannel(SocketChannel ch) {
+                    ch.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).set(new ClientState());
+                    ch.pipeline()
+                        .addLast(
+                            new DelimiterBasedFrameDecoder(250, Delimiters.lineDelimiter()),
+                            new PacketDecoder(),
+                            new PacketEncoder(),
+                            new IdleStateHandler(2, 0, 0),
+                            new ClientChannelHandler(Server.this)
+                            );
+                        }
+                })
+            .childOption(ChannelOption.TCP_NODELAY, true)
+            .childOption(ChannelOption.SO_KEEPALIVE, true);
         try {
-            this.serverChannel = bootstrap.bind(new InetSocketAddress(host, port));
+            this.serverChannelFuture = bootstrap.bind(new InetSocketAddress(host, port)).sync();
             this.running = true;
             new Thread(this).start();
         } catch (Exception ex) {
@@ -200,7 +210,7 @@ public class Server implements Runnable {
     }
 
     public void stop() throws InterruptedException {
-        this.serverChannel.close().sync();
+        this.serverChannelFuture.channel().close().sync();
         this.running = false;
     }
 

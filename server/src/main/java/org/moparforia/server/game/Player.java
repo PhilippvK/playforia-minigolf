@@ -1,10 +1,12 @@
 package org.moparforia.server.game;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
+import io.netty.util.AttributeKey;
 import org.moparforia.shared.Tools;
 
 public class Player {
 
+    public static final AttributeKey<Player> PLAYER_ATTRIBUTE_KEY = AttributeKey.newInstance("PLAYER_ATTRIBUTE");
     public static final int ACCESSLEVEL_NORMAL = 0; // todo: enum this ?
     public static final int ACCESSLEVEL_SHERIFF = 1;
     public static final int ACCESSLEVEL_ADMIN = 2;

@@ -34,20 +34,20 @@ public class PlayerCollection {
 
     public void writeAll(Packet packet) {
         for (Player player : getPlayers()) {
-            player.getChannel().write(packet);
+            player.getChannel().writeAndFlush(packet);
         }
     }
 
     public void writeAll(String message) {
         for (Player player : getPlayers()) {
-            player.getChannel().write(message);
+            player.getChannel().writeAndFlush(message);
         }
     }
 
     public void writeExcluding(Player exclude, Packet packet) {
         for (Player player : getPlayers()) {
             if (player != exclude) {
-                player.getChannel().write(packet);
+                player.getChannel().writeAndFlush(packet);
             }
         }
     }
@@ -55,7 +55,7 @@ public class PlayerCollection {
     public void writeExcluding(Player exclude, String message) {
         for (Player player : getPlayers()) {
             if (player != exclude) {
-                player.getChannel().write(message);
+                player.getChannel().writeAndFlush(message);
             }
         }
     }

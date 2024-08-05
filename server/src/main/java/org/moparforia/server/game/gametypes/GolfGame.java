@@ -1,6 +1,6 @@
 package org.moparforia.server.game.gametypes;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import org.moparforia.server.Server;
 import org.moparforia.server.game.Game;
 import org.moparforia.server.game.Lobby;
@@ -137,8 +137,8 @@ public abstract class GolfGame extends Game {
 
     public void sendGameInfo(Player player) {
         Channel c = player.getChannel();
-        c.write(new Packet(PacketType.DATA, Tools.tabularize("status", "game")));
-        c.write(new Packet(PacketType.DATA, Tools.tabularize("game", "gameinfo",
+        c.writeAndFlush(new Packet(PacketType.DATA, Tools.tabularize("status", "game")));
+        c.writeAndFlush(new Packet(PacketType.DATA, Tools.tabularize("game", "gameinfo",
                 name, passworded ? "t" : "f", gameId, numPlayers, tracks.size(),
                 tracksType, maxStrokes, strokeTimeout, waterEvent, collision, trackScoring,
                 trackScoringEnd, "f")));

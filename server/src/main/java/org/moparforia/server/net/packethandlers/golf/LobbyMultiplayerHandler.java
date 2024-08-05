@@ -30,7 +30,7 @@ public class LobbyMultiplayerHandler implements PacketHandler {
     }
 
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         Lobby lobby = player.getLobby();
 
         if (message.group(1).equals("c")) {

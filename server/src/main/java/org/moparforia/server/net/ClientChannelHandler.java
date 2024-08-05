@@ -1,13 +1,15 @@
 package org.moparforia.server.net;
 
-import org.jboss.netty.channel.*;
-import org.jboss.netty.handler.timeout.IdleState;
-import org.jboss.netty.handler.timeout.IdleStateAwareChannelHandler;
-import org.jboss.netty.handler.timeout.IdleStateEvent;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelDuplexHandler;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.timeout.IdleState;
+import io.netty.handler.timeout.IdleStateEvent;
 import org.moparforia.server.Server;
 import org.moparforia.server.event.*;
+import org.moparforia.server.game.Player;
 
-public class ClientChannelHandler extends IdleStateAwareChannelHandler {
+public class ClientChannelHandler extends ChannelDuplexHandler {
 
     private final Server server;
 
@@ -16,42 +18,46 @@ public class ClientChannelHandler extends IdleStateAwareChannelHandler {
     }
 
     @Override
-    public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
-        Packet packet = (Packet) e.getMessage();
-        System.out.println(">>> " + e.getMessage());
+    public void channelRead(ChannelHandlerContext ctx, Object msg) {
+        Packet packet = (Packet) msg;
+        System.out.println("<<< " + packet);
+        ctx.channel().attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().setLastActivityTime(System.currentTimeMillis());
         server.addEvent(new PacketReceivedEvent(packet));
     }
 
     @Override
-    public void channelIdle(ChannelHandlerContext ctx, IdleStateEvent e) throws Exception {
-        if (e.getState() == IdleState.READER_IDLE) {
-            long time = System.currentTimeMillis() - e.getLastActivityTimeMillis();
-            if (time > 20000) {
-                e.getChannel().close();
-            } else if (time > 5000) {
-                e.getChannel().write("c ping\n");
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
+        if (evt instanceof IdleStateEvent e) {
+            if (e.state() == IdleState.READER_IDLE) {
+                ClientState state = ctx.channel().attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get();
+                long time = System.currentTimeMillis() - state.getLastActivityTime();
+                if (time > 20000) {
+                    ctx.channel().close();
+                } else if (time > 5000) {
+                    ctx.channel().writeAndFlush("c ping\n");
+                }
             }
         }
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) {
-        //noinspection ThrowableResultOfMethodCallIgnored
-        e.getCause().printStackTrace();
-        e.getChannel().close();
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+        ctx.channel().close();
     }
 
     @Override
-    public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) {
-        server.addEvent(new ClientConnectedEvent(e.getChannel()));
+    public void channelActive(ChannelHandlerContext ctx) {
+        server.addEvent(new ClientConnectedEvent(ctx.channel()));
     }
 
     @Override
-    public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) {
-        Channel channel = e.getChannel();
+    public void channelInactive(ChannelHandlerContext ctx) {
+        Channel channel = ctx.channel();
         server.addEvent(new ClientDisconnectedEvent(channel));
-        final int id = channel.getId();
-        if (server.hasPlayer(id)) {
+        Player player = channel.attr(Player.PLAYER_ATTRIBUTE_KEY).get();
+        if (player != null && server.hasPlayer(player.getId())) {
+            int id = player.getId();
             server.addEvent(new TimedEvent(30_000) { // todo: confirm this time
                 @Override
                 public void process(Server server) {

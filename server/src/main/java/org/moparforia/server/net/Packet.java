@@ -1,6 +1,6 @@
 package org.moparforia.server.net;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 
 @SuppressWarnings("SameParameterValue")
 public class Packet {

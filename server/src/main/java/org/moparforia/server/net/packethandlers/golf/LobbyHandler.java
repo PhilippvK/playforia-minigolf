@@ -35,7 +35,7 @@ public class LobbyHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         if (message.group(1).equals("back")) {
             if (player.getLobby() == null) {
                 packet.getChannel().close();
@@ -73,7 +73,7 @@ public class LobbyHandler implements PacketHandler {
             for (int i = 0; i < tracksInfo.length; i++) {
                 cmd += Tools.tabularize(tracksInfo[i]) + (i == tracksInfo.length - 1 ? "" : '\t');
             }
-            packet.getChannel().write(new Packet(PacketType.DATA,
+            packet.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                     Tools.tabularize("lobby", "tracksetlist", cmd)));
         }
         return true;

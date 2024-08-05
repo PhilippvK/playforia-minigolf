@@ -30,10 +30,10 @@ public class VersionHandler implements PacketHandler {
             packet.getChannel().close();
             return true;
         }
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         player.setGameType(gameType);
         if(gameType == GameType.GOLF) {
-            player.getChannel().write(new Packet(PacketType.DATA, Tools.tabularize("status", "login")));
+            player.getChannel().writeAndFlush(new Packet(PacketType.DATA, Tools.tabularize("status", "login")));
         }//todo
         return true;
     }

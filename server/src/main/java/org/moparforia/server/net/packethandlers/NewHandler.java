@@ -1,6 +1,6 @@
 package org.moparforia.server.net.packethandlers;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import org.moparforia.server.Server;
 import org.moparforia.server.event.PlayerConnectedEvent;
 import org.moparforia.server.game.Player;
@@ -28,9 +28,9 @@ public class NewHandler implements PacketHandler {
         Channel channel = packet.getChannel();
         int id = server.getNextPlayerId();
         Player player = new Player(channel, id);
-        channel.setAttachment(player);
+        channel.attr(Player.PLAYER_ATTRIBUTE_KEY).set(player);
         server.addPlayer(player);
-        channel.write("c id " + id + "\n");
+        channel.writeAndFlush("c id " + id + "\n");
         server.addEvent(new PlayerConnectedEvent(player.getId(), false));
         return true;
     }

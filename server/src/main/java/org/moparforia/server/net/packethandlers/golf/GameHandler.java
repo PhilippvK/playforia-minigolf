@@ -28,7 +28,7 @@ public class GameHandler implements PacketHandler {
 
     @Override
     public boolean handle(Server server, Packet packet, Matcher message) {
-        Player player = (Player) packet.getChannel().getAttachment();
+        Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
         Game game = player.getGame();
         return game.handlePacket(server, player, message);
     }

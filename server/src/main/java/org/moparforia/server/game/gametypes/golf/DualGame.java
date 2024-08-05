@@ -26,7 +26,7 @@ public class DualGame extends GolfGame {
                 false, numberOfTracks, -1, tracksType,
                 maxStrokes, strokeTimeout, waterEvent, collision,
                 trackScoring, trackScoringEnd, 2);
-        challenged.getChannel().write(new Packet(PacketType.DATA,
+        challenged.getChannel().writeAndFlush(new Packet(PacketType.DATA,
                 Tools.tabularize("lobby", "challenge", challenger.getNick(), numberOfTracks,
                         tracksType, maxStrokes, strokeTimeout, waterEvent,
                         collision, trackScoring, trackScoringEnd)));

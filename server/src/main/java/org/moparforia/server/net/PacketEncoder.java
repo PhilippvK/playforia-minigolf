@@ -1,44 +1,44 @@
 package org.moparforia.server.net;
 
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
-import org.jboss.netty.util.CharsetUtil;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToByteEncoder;
+import io.netty.util.CharsetUtil;
 
-import static org.jboss.netty.buffer.ChannelBuffers.copiedBuffer;
+import static io.netty.buffer.Unpooled.copiedBuffer;
 
-public class PacketEncoder extends OneToOneEncoder {
+public class PacketEncoder extends MessageToByteEncoder<Object> {
 
     @Override
-    protected Object encode(ChannelHandlerContext ctx, Channel channel, Object msg) throws Exception {
-        if (msg instanceof Packet) {
-            Packet packet = (Packet) msg;
+    protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) {
+        Channel channel = ctx.channel();
+        if (msg instanceof Packet packet) {
             String encoded;
             if (packet.getType() != PacketType.NONE) {
                 encoded = packet.getType().toString().toLowerCase().charAt(0) + " ";
                 if (packet.getType() == PacketType.DATA) {
-                    long count = ClientState.sentCount.get(channel);
+                    long count = channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().getSentCount();
                     encoded += count + " ";
-                    ClientState.sentCount.set(channel, count + 1);
+                    channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().setSentCount(count + 1);
                 }
             } else {
                 encoded = "";
             }
             encoded += packet.getMessage() + '\n';
-            return copiedBuffer(ctx.getChannel().getConfig().getBufferFactory().getDefaultOrder(), encoded, CharsetUtil.UTF_8);
-        } else if (msg instanceof String) {
-            String m = (String) msg;
+            out.writeBytes(copiedBuffer(encoded, CharsetUtil.UTF_8));
+        } else if (msg instanceof String m) {
             if (!m.endsWith("\n")) {
                 m += "\n";
             }
             if (m.startsWith("d ")) {
-                long count = ClientState.sentCount.get(channel);
+                long count = channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().getSentCount();
                 m = "d " + count + " " + m.substring(2);
-                ClientState.sentCount.set(channel, count + 1);
+                channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().setSentCount(count + 1);
             }
-            return copiedBuffer(ctx.getChannel().getConfig().getBufferFactory().getDefaultOrder(), m, CharsetUtil.UTF_8);
+            out.writeBytes(copiedBuffer(m, CharsetUtil.UTF_8));
+        } else {
+            out.writeBytes((ByteBuf) msg);
         }
-        return msg;
     }
-
 }
