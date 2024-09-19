@@ -20,7 +20,7 @@ public class LobbySelectHandler implements PacketHandler {
 
     @Override
     public Pattern getPattern() {
-        return Pattern.compile("lobbyselect\\t(rnop|select)(?:\\t([12x])(h)?)?");
+        return Pattern.compile("lobbyselect\\t(rnop|select|qmpt)(?:\\t([12x])(h)?)?");
     }
 
     @Override
@@ -33,6 +33,10 @@ public class LobbySelectHandler implements PacketHandler {
             Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
             player.setChatHidden(message.group(3) != null && message.group(3).equals("h"));
             server.getLobby(lobbyType).addPlayer(player, Lobby.JOIN_TYPE_NORMAL);
+        } else if (message.group(1).equals("qmpt")) { // multiplayer quick start
+            Player player = packet.getChannel().attr(Player.PLAYER_ATTRIBUTE_KEY).get();
+            player.setChatHidden(message.group(3) != null && message.group(3).equals("h"));
+            server.getLobby(LobbyType.MULTI).addPlayer(player, Lobby.JOIN_TYPE_NORMAL);
         }
         return true;
     }

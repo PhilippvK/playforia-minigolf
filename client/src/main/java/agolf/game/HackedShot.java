@@ -7,9 +7,6 @@ import com.aapeli.tools.Tools;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * mmmkay children.
- */
 public class HackedShot implements Runnable {
 
     private static final double aDouble2798 = Math.sqrt(2.0D) / 2.0D;

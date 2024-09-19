@@ -10,6 +10,12 @@ import static io.netty.buffer.Unpooled.copiedBuffer;
 
 public class PacketEncoder extends MessageToByteEncoder<Object> {
 
+    private final boolean verbose;
+
+    public PacketEncoder(boolean verbose) {
+        this.verbose = verbose;
+    }
+
     @Override
     protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) {
         Channel channel = ctx.channel();
@@ -25,6 +31,9 @@ public class PacketEncoder extends MessageToByteEncoder<Object> {
             } else {
                 encoded = "";
             }
+            if (this.verbose) {
+                System.out.println(">> " + encoded);
+            }
             encoded += packet.getMessage() + '\n';
             out.writeBytes(copiedBuffer(encoded, CharsetUtil.UTF_8));
         } else if (msg instanceof String m) {
@@ -35,6 +44,9 @@ public class PacketEncoder extends MessageToByteEncoder<Object> {
                 long count = channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().getSentCount();
                 m = "d " + count + " " + m.substring(2);
                 channel.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).get().setSentCount(count + 1);
+            }
+            if (this.verbose) {
+                System.out.println(">>> " + m);
             }
             out.writeBytes(copiedBuffer(m, CharsetUtil.UTF_8));
         } else {

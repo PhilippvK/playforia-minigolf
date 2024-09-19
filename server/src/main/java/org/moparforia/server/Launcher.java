@@ -35,6 +35,12 @@ public class Launcher implements Callable<Integer> {
     private int port;
 
     @CommandLine.Option(
+            names = {"--verbose", "-v"},
+            description = "Sets server to log more verbosely"
+    )
+    private boolean verbose = false;
+
+    @CommandLine.Option(
             names = {"--tracks-dir", "-t"},
             description = "Sets where to look for tracks and track sets"
     )
@@ -49,11 +55,11 @@ public class Launcher implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        getServer(this.host, this.port, this.tracksDirectory).start();
+        getServer(this.host, this.port, this.verbose, this.tracksDirectory).start();
         return 0;
     }
 
-    public Server getServer(String host, int port, String tracksDirectory) {
-        return new Server(host, port, Optional.ofNullable(tracksDirectory));
+    public Server getServer(String host, int port, boolean verbose, String tracksDirectory) {
+        return new Server(host, port, verbose, Optional.ofNullable(tracksDirectory));
     }
 }

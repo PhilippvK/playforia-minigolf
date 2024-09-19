@@ -1,8 +1,5 @@
 package org.moparforia.editor;
 
-/**
- * tileinit
- */
 public class Tile {
 
     /**

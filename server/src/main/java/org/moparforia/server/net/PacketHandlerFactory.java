@@ -14,7 +14,8 @@ public class PacketHandlerFactory {
                 new LanguageHandler(), new LobbyHandler(), new LobbySelectHandler(), new LoginHandler(),
                 new LoginTypeHandler(), new NewHandler(), new PongHandler(), new ReconnectHandler(),
                 new TlogHandler(), new TrackTestLoginHandler(), new VersionHandler(), new LobbyCreateSinglePlayerHandler(),
-                new LobbyMultiplayerHandler(), new LobbyDualplayerHandler(), new QuitHandler()};
+                new LobbyMultiplayerHandler(), new LobbyDualplayerHandler(), new QuitHandler(), new ErrorDebugHandler(),
+                new EndHandler()};
         ArrayList<PacketHandler> data = new ArrayList<>();
         ArrayList<PacketHandler> command = new ArrayList<>();
         ArrayList<PacketHandler> string = new ArrayList<>();
@@ -35,7 +36,7 @@ public class PacketHandlerFactory {
                     break;
             }
         }
-        HashMap<PacketType, ArrayList<PacketHandler>> map = new HashMap<PacketType, ArrayList<PacketHandler>>();
+        HashMap<PacketType, ArrayList<PacketHandler>> map = new HashMap<>();
         map.put(PacketType.DATA, data);
         map.put(PacketType.COMMAND, command);
         map.put(PacketType.STRING, string);

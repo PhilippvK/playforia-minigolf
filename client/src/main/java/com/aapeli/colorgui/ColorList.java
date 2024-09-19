@@ -236,9 +236,9 @@ public final class ColorList extends Panel implements ComponentListener, Adjustm
         this.lastMouseClickY = e.getY();
         ColorListItem item = this.getItemAt(this.lastMouseClickY);
         if (item != null) {
-            boolean isMetaDown = e.isMetaDown();
+            boolean isRightClick = e.getButton() == MouseEvent.BUTTON3;
             boolean isDoubleClick = e.getClickCount() == 2;
-            int clickMode = isMetaDown ? ID_RIGHTCLICKED : (isDoubleClick ? ID_DOUBLECLICKED : ID_CLICKED);
+            int eventId = isRightClick ? ID_RIGHTCLICKED : (isDoubleClick ? ID_DOUBLECLICKED : ID_CLICKED);
             short newState = 701;
             if (!item.isSelected()) {
                 if (this.selectable == SELECTABLE_NONE) {
@@ -251,14 +251,14 @@ public final class ColorList extends Panel implements ComponentListener, Adjustm
 
                 item.setSelected(true);
                 newState = ItemEvent.SELECTED;
-            } else if (!isMetaDown) {
+            } else if (!isRightClick) {
                 item.setSelected(false);
                 newState = ItemEvent.DESELECTED;
             }
 
             if (this.selectable == SELECTABLE_MULTI) {
                 int i = this.items.indexOf(item);
-                if (clickMode == ID_CLICKED && (newState == ItemEvent.SELECTED || newState == ItemEvent.DESELECTED)) {
+                if (eventId == ID_CLICKED && (newState == ItemEvent.SELECTED || newState == ItemEvent.DESELECTED)) {
                     if (this.rangeSelectionLastIndex >= 0 && e.isShiftDown()) {
                         int startOfRange = Math.min(this.rangeSelectionLastIndex, i);
                         int endOfRange = Math.max(this.rangeSelectionLastIndex, i);
@@ -275,11 +275,11 @@ public final class ColorList extends Panel implements ComponentListener, Adjustm
                 }
             }
 
-            if (isMetaDown) {
+            if (isRightClick) {
                 this.update(this.getGraphics());
             }
 
-            this.itemPressed(item, clickMode, newState);
+            this.itemPressed(item, eventId, newState);
             this.repaint();
         }
     }

@@ -7,9 +7,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-/**
- * Canvas to draw map!??!?!
- */
 public class MapCanvas extends JPanel implements MouseListener, MouseMotionListener, MouseWheelListener {
 
     SpriteManager spriteManager = null;

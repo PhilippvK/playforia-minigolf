@@ -1,8 +1,5 @@
 package org.moparforia.editor;
 
-/**
- * Map derp
- */
 public class Map {
 
     public Tile[][] tiles = new Tile[49][25];

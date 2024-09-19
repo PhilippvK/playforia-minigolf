@@ -6,13 +6,9 @@ import org.moparforia.server.game.LobbyType;
 import org.moparforia.server.game.Player;
 import org.moparforia.server.game.gametypes.GolfGame;
 import org.moparforia.shared.tracks.TrackCategory;
-import org.moparforia.shared.tracks.filesystem.FileSystemTrackManager;
 
 import java.util.List;
 
-/**
- * training init
- */
 public class TrainingGame extends GolfGame {
 
     public TrainingGame(Player p, int gameId, int tracksType, int numberOfTracks, int water) {

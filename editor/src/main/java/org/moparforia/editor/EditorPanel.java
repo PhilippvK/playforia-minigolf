@@ -12,9 +12,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
 
-/**
- * panel to hold shit like the tileset, open, save, exit etc etc
- */
 public class EditorPanel extends JPanel {
 
     MapCanvas canvas;

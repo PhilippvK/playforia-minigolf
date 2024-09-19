@@ -78,7 +78,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         this.graphics.setFont(GameApplet.fontSerif26b);
         StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbySelect_MultiPlayer"), this.width / 2, 35, 0);
         this.graphics.setFont(GameApplet.fontSerif20);
-        StringDraw.drawOutlinedString(this.graphics, var2, this.gameContainer.textManager.getGame("LobbyReal_CreateTitle"), this.width / 2 - 185, 50, 1);
+        StringDraw.drawOutlinedString(this.graphics, var2, this.gameContainer.textManager.getGame("LobbyReal_CreateTitle"), this.width / 2 - 165, 50, 1);
         StringDraw.drawString(this.graphics, this.gameContainer.textManager.getGame("LobbyReal_JoinTitle"), this.width * 3 / 4, 60, 0);
         byte yPos = 86;
         this.graphics.setFont(GameApplet.fontDialog12);

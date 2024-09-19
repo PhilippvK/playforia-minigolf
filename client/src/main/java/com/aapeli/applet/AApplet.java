@@ -5,7 +5,7 @@ import com.aapeli.client.Parameters;
 import com.aapeli.client.SoundManager;
 import com.aapeli.client.StringDraw;
 import com.aapeli.client.TextManager;
-import com.aapeli.connection.Connection;
+import com.aapeli.connection.SocketConnection;
 import com.aapeli.tools.QuickTimer;
 import com.aapeli.tools.QuickTimerListener;
 import com.aapeli.tools.Tools;
@@ -67,7 +67,7 @@ public abstract class AApplet extends Applet implements Runnable, ActionListener
     private Image splashImage;
     private long splashTimestamp;
     private QuickTimer popupTimer;
-    private Connection connection;
+    private SocketConnection socketConnection;
     private Image appletImage;
     private Graphics appletGraphics;
     private boolean verbose;
@@ -484,7 +484,7 @@ public abstract class AApplet extends Applet implements Runnable, ActionListener
                                     }
 
                                     this.sendLoadTimes(readyTime, finishedTime, time1, time2, time3, time4, time5, time6);
-                                    this.writeThriftDebug("clientconnect", "loadtime:i:" + readyTime + "^loadertime:i:" + finishedTime);
+                                    this.writeMetadataLog1("clientconnect", "loadtime:i:" + readyTime + "^loadertime:i:" + finishedTime);
                                     this.loadingPanel.displayButtons();
                                     if (this.endState == 0 && !this.destroyed) {
                                         this.remove(this.loadingPanel);
@@ -692,20 +692,20 @@ public abstract class AApplet extends Applet implements Runnable, ActionListener
         this.callJavaScriptJSON("{\"block\":\"false\"}");
     }
 
-    public void setConnectionReference(Connection var1) {
-        this.connection = var1;
+    public void setConnectionReference(SocketConnection var1) {
+        this.socketConnection = var1;
     }
 
-    public void writeThriftLog(String var1, String var2) {
-        if (this.connection != null) {
-            this.connection.writeThriftLog(0, var1, var2);
+    public void writeMetadataLog0(String dataType, String data) {
+        if (this.socketConnection != null) {
+            this.socketConnection.writeMetadataLog(0, dataType, data);
         }
 
     }
 
-    public void writeThriftDebug(String var1, String var2) {
-        if (this.connection != null) {
-            this.connection.writeThriftLog(1, var1, var2);
+    public void writeMetadataLog1(String dataType, String data) {
+        if (this.socketConnection != null) {
+            this.socketConnection.writeMetadataLog(1, dataType, data);
         }
 
     }

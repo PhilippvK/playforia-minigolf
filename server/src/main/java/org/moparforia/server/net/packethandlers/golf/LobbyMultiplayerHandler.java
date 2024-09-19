@@ -11,9 +11,6 @@ import org.moparforia.server.net.PacketType;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * handelz the multiplayer lobby shit
- */
 public class LobbyMultiplayerHandler implements PacketHandler {
 
     public PacketType getType() {

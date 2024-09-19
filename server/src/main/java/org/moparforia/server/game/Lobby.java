@@ -121,7 +121,6 @@ public class Lobby extends PlayerCollection {
     }
 
     /**
-     * counts all the players errywhar
      * @return number of players in the lobby and in all games created from this lobby.
      */
     public int totalPlayerCount() {

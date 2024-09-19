@@ -6,16 +6,16 @@ import java.util.List;
 
 class GamePacketQueue implements Runnable {
 
-    private Connection conn;
-    private ConnListener connListener;
+    private SocketConnection socketConnection;
+    private SocketConnectionListener socketConnectionListener;
     private List<String> packets;
     private boolean running;
     private Thread thread;
 
 
-    protected GamePacketQueue(Connection conn, ConnListener connListener) {
-        this.conn = conn;
-        this.connListener = connListener;
+    protected GamePacketQueue(SocketConnection socketConnection, SocketConnectionListener socketConnectionListener) {
+        this.socketConnection = socketConnection;
+        this.socketConnectionListener = socketConnectionListener;
         this.packets = new ArrayList<>();
         this.running = true;
         this.thread = new Thread(this);
@@ -29,7 +29,7 @@ class GamePacketQueue implements Runnable {
 
                 String packet;
                 while ((packet = this.nextGamePacket()) != null) {
-                    this.connListener.dataReceived(packet);
+                    this.socketConnectionListener.dataReceived(packet);
                 }
 
                 if (this.running) {
@@ -37,7 +37,7 @@ class GamePacketQueue implements Runnable {
                 }
             } catch (Exception e) {
                 this.running = false;
-                this.conn.handleCrash();
+                this.socketConnection.handleCrash();
             }
 
             return;

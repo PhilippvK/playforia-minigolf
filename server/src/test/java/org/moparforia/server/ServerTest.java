@@ -25,7 +25,7 @@ public class ServerTest {
 
     @Test
     void testSinglePlayerFlow() throws IOException, InterruptedException {
-        Server server = new Server("127.0.0.1", 4243, Optional.empty());
+        Server server = new Server("127.0.0.1", 4243, false,Optional.empty());
         server.start();
 
         Socket socket = new Socket("127.0.0.1", 4243);

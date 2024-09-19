@@ -40,11 +40,6 @@ public class Player {
         resetVals();
     }
 
-    /**
-     * USE WITH CARE!!11 LOL
-     *
-     * @see {java.lang.String}
-     */
     public void resetVals() {
         nick = "-";
         locale = "-";

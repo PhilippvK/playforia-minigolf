@@ -1,8 +1,5 @@
 package org.moparforia.editor;
 
-/**
- * uncompress/decompress maps init!!!11!!
- */
 public class MapDecompressor {
 
     private static final String mapChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

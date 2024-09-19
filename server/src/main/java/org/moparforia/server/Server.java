@@ -52,6 +52,7 @@ public class Server implements Runnable {
 
     private String host;
     private int port;
+    private final boolean verbose;
     private Optional<String> tracksDirectory;
 
     private ChannelFuture serverChannelFuture;
@@ -65,9 +66,10 @@ public class Server implements Runnable {
     private int gameIdCounter;
 
 
-    public Server(String host, int port, Optional<String> tracksDirectory) {
+    public Server(String host, int port, boolean verbose, Optional<String> tracksDirectory) {
         this.host = host;
         this.port = port;
+        this.verbose = verbose;
         this.tracksDirectory = tracksDirectory;
         for (LobbyType lt : LobbyType.values()) {
             lobbies.put(lt, new Lobby(lt));
@@ -192,9 +194,9 @@ public class Server implements Runnable {
                     ch.attr(ClientState.CLIENT_STATE_ATTRIBUTE_KEY).set(new ClientState());
                     ch.pipeline()
                         .addLast(
-                            new DelimiterBasedFrameDecoder(250, Delimiters.lineDelimiter()),
+                            new DelimiterBasedFrameDecoder(2000, Delimiters.lineDelimiter()),
                             new PacketDecoder(),
-                            new PacketEncoder(),
+                            new PacketEncoder(Server.this.verbose),
                             new IdleStateHandler(2, 0, 0),
                             new ClientChannelHandler(Server.this)
                             );

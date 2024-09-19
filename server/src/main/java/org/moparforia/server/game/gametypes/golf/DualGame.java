@@ -7,14 +7,10 @@ import org.moparforia.server.game.gametypes.GolfGame;
 import org.moparforia.server.net.Packet;
 import org.moparforia.server.net.PacketType;
 import org.moparforia.shared.tracks.TrackCategory;
-import org.moparforia.shared.tracks.filesystem.FileSystemTrackManager;
 import org.moparforia.shared.Tools;
 
 import java.util.List;
 
-/**
- * dual shizzle
- */
 public class DualGame extends GolfGame {
 
     private boolean started;

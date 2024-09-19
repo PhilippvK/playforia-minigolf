@@ -16,7 +16,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Connection implements Runnable {
+public final class SocketConnection implements Runnable {
 
     /* DCR Constants */
     public static final int DISCONNECT_REASON_UNDEFINED = 0;
@@ -38,7 +38,7 @@ public final class Connection implements Runnable {
     
     private AApplet gameApplet;
     private Parameters params;
-    private ConnListener connListener;
+    private SocketConnectionListener socketConnectionListener;
     private GameCipher gameCipher;
     private int state;
     private int disconnectReason;
@@ -51,25 +51,25 @@ public final class Connection implements Runnable {
     private int retryTimeoutS;
     private GameQueue gameQueue;
     private GamePacketQueue gamePacketQueue;
-    private List<String> thriftLogs;
+    private List<String> metadataLogs;
     private long numReceivedGamePackets;
     private long connActivityTime;
     private ConnCipher connCipher;
     private Thread thread;
 
 
-    public Connection(AApplet gameApplet, ConnListener connListener, String[] gameCipherCmds) {
-        this(gameApplet, gameApplet.param, connListener, gameCipherCmds);
+    public SocketConnection(AApplet gameApplet, SocketConnectionListener socketConnectionListener, String[] gameCipherCmds) {
+        this(gameApplet, gameApplet.param, socketConnectionListener, gameCipherCmds);
     }
 
-    public Connection(Parameters params, ConnListener connListener, String[] gameCipherCmds) {
-        this(null, params, connListener, gameCipherCmds);
+    public SocketConnection(Parameters params, SocketConnectionListener socketConnectionListener, String[] gameCipherCmds) {
+        this(null, params, socketConnectionListener, gameCipherCmds);
     }
 
-    private Connection(AApplet gameApplet, Parameters params, ConnListener connListener, String[] gameCipherCmds) {
+    private SocketConnection(AApplet gameApplet, Parameters params, SocketConnectionListener socketConnectionListener, String[] gameCipherCmds) {
         this.gameApplet = gameApplet;
         this.params = params;
-        this.connListener = connListener;
+        this.socketConnectionListener = socketConnectionListener;
         if (gameApplet != null) {
             gameApplet.setConnectionReference(this);
         }
@@ -85,7 +85,7 @@ public final class Connection implements Runnable {
         this.clientId = -1L;
         this.retryTimeoutS = 25;
         this.gameQueue = new GameQueue();
-        this.thriftLogs = new ArrayList<>();
+        this.metadataLogs = new ArrayList<>();
         this.numReceivedGamePackets = -1L;
         this.state = STATE_OPENING;
         this.disconnectReason = DISCONNECT_REASON_UNDEFINED;
@@ -94,7 +94,7 @@ public final class Connection implements Runnable {
     }
 
     public void run() {
-        this.gamePacketQueue = new GamePacketQueue(this, this.connListener);
+        this.gamePacketQueue = new GamePacketQueue(this, this.socketConnectionListener);
 
         try {
             do {
@@ -128,7 +128,7 @@ public final class Connection implements Runnable {
 
         this.close();
         this.gamePacketQueue.stop();
-        this.connListener.connectionLost(this.disconnectReason);
+        this.socketConnectionListener.connectionLost(this.disconnectReason);
     }
 
     public boolean openConnection() {
@@ -159,14 +159,14 @@ public final class Connection implements Runnable {
         }
     }
 
-    public void writeThriftLog(int var1, String var2, String var3) { // TODO: replace var1...var4
-        String var4 = "tlog\t" + var1 + "\t" + var2;
-        if (var3 != null) {
-            var4 = var4 + "\t" + var3;
+    public void writeMetadataLog(int i, String dataType, String data) {
+        String log = "tlog\t" + i + "\t" + dataType;
+        if (data != null) {
+            log = log + "\t" + data;
         }
 
-        synchronized (this.thriftLogs) {
-            this.thriftLogs.add(var4);
+        synchronized (this.metadataLogs) {
+            this.metadataLogs.add(log);
         }
     }
 
@@ -232,7 +232,7 @@ public final class Connection implements Runnable {
     private void handleGameQueue() {
         this.processGameQueueDisconnect();
         if (this.state == STATE_CONNECTED) {
-            this.processThriftLogs();
+            this.processMetadataLogs();
         }
 
     }
@@ -251,11 +251,12 @@ public final class Connection implements Runnable {
 
     }
 
-    private void processThriftLogs() {
-        synchronized (this.thriftLogs) {
+    private void processMetadataLogs() {
+        synchronized (this.metadataLogs) {
             while (true) {
-                if (this.state == STATE_CONNECTED && !this.thriftLogs.isEmpty()) {
-                    String str = this.thriftLogs.removeFirst();
+                if (this.state == STATE_CONNECTED && !this.metadataLogs.isEmpty()) {
+                    String str = this.metadataLogs.getFirst();
+                    this.metadataLogs.removeFirst();
                     if (this.writeLineS(str)) {
                         continue;
                     }
@@ -285,7 +286,7 @@ public final class Connection implements Runnable {
         if (this.state == STATE_CONNECTED && this.retryTimeoutS > 0) {
             this.close();
             this.state = STATE_DOWN;
-            this.connListener.notifyConnectionDown();
+            this.socketConnectionListener.notifyConnectionDown();
         } else {
             this.state = STATE_DISCONNECTED;
             this.disconnectReason = DISCONNECT_REASON_NORETRY;
@@ -350,7 +351,7 @@ public final class Connection implements Runnable {
                     this.state = STATE_CONNECTED;
                 } else if (cmd.equals("rcok")) { // reconnect ok
                     this.state = STATE_CONNECTED;
-                    this.connListener.notifyConnectionUp();
+                    this.socketConnectionListener.notifyConnectionUp();
                 } else if (cmd.equals("rcf")) { // reconnect ok
                     this.state = STATE_DISCONNECTED;
                     this.disconnectReason = DISCONNECT_REASON_RETRYFAIL;

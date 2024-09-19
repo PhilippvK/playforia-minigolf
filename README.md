@@ -77,12 +77,12 @@ Common CLI options for both the client and the server:
 - `-ip` to set the hostname
 - `-p` to set the port
 - `-h` to learn about all the available options
+- `--verbose` to enable debug logging
 
 Server CLI options:
 - `--tracks-dir` to use custom tracks instead of the default set of bundled tracks
 
 Client CLI options:
-- `--verbose` to enable debug logging
 - `--norandom` to disable randomization for shots
 - `--username` to set username from CLI and skip inputting it
 

@@ -3,14 +3,10 @@ package org.moparforia.shared.tracks;
 import org.moparforia.shared.Tools;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-/**
- * track shit
- */
 public class Track {
 
     private final String track;
@@ -21,13 +17,6 @@ public class Track {
 
     private Set<TrackCategory> categories;
 
-    /**
-     * man thats an ugly constructor
-     *
-     * @param name        name of this track
-     * @param author      the author homie that wrote this track
-     * @param map         the track data/map string
-     */
     public Track(String name, String author, String map, Set<TrackCategory> categories) {
         this.track = name;
         this.author = author;

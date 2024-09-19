@@ -56,7 +56,8 @@ public class ChatHandler implements PacketHandler {
                 }
             }
         } else if (message.group(2).equals("command")) {
-            //todo
+            System.out.println("Unhandled lobby command: " + message.group());
+            // TODO
         }
         return true;
     }

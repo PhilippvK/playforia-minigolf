@@ -9,9 +9,6 @@ import org.moparforia.shared.tracks.filesystem.FileSystemTrackManager;
 
 import java.util.List;
 
-/**
-
- */
 public class ChampionshipGame extends GolfGame {
 
     private int championshipId;

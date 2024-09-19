@@ -22,7 +22,7 @@ public class GameContainer {// some kind of a container for everything
     public BadWordFilter badWordFilter;
     public AutoPopups autoPopup;
     public TrackCollection trackCollection;
-    public Conn connection;
+    public GolfConnection connection;
     public LobbySelectPanel lobbySelectionPanel;
     public LobbyPanel lobbyPanel;
     public String defaultLobby;
