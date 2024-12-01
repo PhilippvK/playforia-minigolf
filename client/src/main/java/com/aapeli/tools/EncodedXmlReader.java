@@ -5,19 +5,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PushbackInputStream;
-import java.net.URL;
 
 public class EncodedXmlReader {
 
-    private String xmlURL;
+    private String resourcePath;
     private boolean isDebug;
 
-    public EncodedXmlReader(String fileURL) {
-        this(fileURL, false);
-    }
-
-    public EncodedXmlReader(String fileURL, boolean debug) {
-        this.xmlURL = fileURL;
+    public EncodedXmlReader(String resourcePath, boolean debug) {
+        this.resourcePath = resourcePath;
         this.isDebug = debug;
     }
 
@@ -27,8 +22,8 @@ public class EncodedXmlReader {
             return XmlUnit.parseString(xmlData, true, true);
         } catch (Exception ex) {
             if (this.isDebug) {
-                System.out.println(
-                        "EncodedXmlReader.readXmlUnit(): Failed to read or parse xml-file \"" + this.xmlURL + "\"");
+                System.out.println("EncodedXmlReader.readXmlUnit(): Failed to read or parse xml-file \""
+                        + this.resourcePath + "\"");
                 ex.printStackTrace();
             }
 
@@ -38,19 +33,7 @@ public class EncodedXmlReader {
 
     private String readFile() throws Exception {
         String encoding = "UTF-8";
-        URL url = new URL(this.xmlURL);
-
-        /*
-        try {
-            url = new File("res", url.getFile()).toURI().toURL();//todo
-
-        } catch (Exception ex) {
-        }
-
-        InputStream instream = url.openStream();
-        */
-
-        InputStream instream = this.getClass().getResourceAsStream(url.getFile());
+        InputStream instream = this.getClass().getResourceAsStream(resourcePath);
 
         PushbackInputStream in = new PushbackInputStream(instream, 3);
         int char1 = in.read();

@@ -8,14 +8,12 @@ import java.awt.Image;
 import java.awt.Panel;
 import java.awt.Point;
 
-public class IPanel extends Panel {
+public abstract class IPanel extends Panel {
 
     private Image backgroundImage;
     private int backgroundImageXOffset;
     private int backgroundImageYOffset;
-    private BackgroundLoaderThread backgroundLoaderThread;
-    private Object anObject648 = new Object();
-    public static int anInt649;
+    private Object lock = new Object();
 
     public void paint(Graphics graphics) {
         this.update(graphics);
@@ -41,43 +39,32 @@ public class IPanel extends Panel {
     }
 
     public void setBackground(ImageManager imageManager, String imageKey, int xOffset, int yOffset) {
-        Image image = imageManager.getGameImageIfLoaded(imageKey);
+        Image image = imageManager.getGameImage(imageKey);
         if (image != null) {
             this.setBackground(image, xOffset, yOffset);
         } else {
-            Object var6 = this.anObject648;
-            synchronized (this.anObject648) {
-                if (this.backgroundLoaderThread != null) {
-                    this.backgroundLoaderThread.stop();
-                }
-
-                this.backgroundLoaderThread =
-                        new BackgroundLoaderThread(this, this, imageManager, imageKey, xOffset, yOffset, false);
+            synchronized (this.lock) {
+                this.setBackground(imageManager.getShared(imageKey), xOffset, yOffset);
             }
         }
     }
 
-    public void setSharedBackground(ImageManager var1, String var2, int var3, int var4) {
-        Object var5 = this.anObject648;
-        synchronized (this.anObject648) {
-            if (this.backgroundLoaderThread != null) {
-                this.backgroundLoaderThread.stop();
-            }
-
-            this.backgroundLoaderThread = new BackgroundLoaderThread(this, this, var1, var2, var3, var4, true);
+    public void setSharedBackground(ImageManager imageManager, String imageKey, int xOffset, int yOffset) {
+        synchronized (this.lock) {
+            this.setBackground(imageManager.getShared(imageKey), xOffset, yOffset);
         }
     }
 
-    public void drawBackground(Graphics var1) {
-        if (!this.drawBackgroundImage(var1)) {
-            Component var2 = this.getParent();
-            if (var2 == null) {
-                var2 = this;
+    public void drawBackground(Graphics graphics) {
+        if (!this.drawBackgroundImage(graphics)) {
+            Component parent = this.getParent();
+            if (parent == null) {
+                parent = this;
             }
 
-            Dimension var3 = this.getSize();
-            var1.setColor(var2.getBackground());
-            var1.fillRect(0, 0, var3.width, var3.height);
+            Dimension size = this.getSize();
+            graphics.setColor(parent.getBackground());
+            graphics.fillRect(0, 0, size.width, size.height);
         }
     }
 
@@ -122,23 +109,22 @@ public class IPanel extends Panel {
         }
     }
 
-    public Object[] getBackgroundAndLocation(int var1, int var2) {
+    public Object[] getBackgroundAndLocation(int offsetX, int offsetY) {
         if (this.backgroundImage != null) {
             return new Object[] {
-                this.backgroundImage, this.backgroundImageXOffset + var1, this.backgroundImageYOffset + var2
+                this.backgroundImage, this.backgroundImageXOffset + offsetX, this.backgroundImageYOffset + offsetY
             };
         } else {
-            Container var3 = this.getParent();
-            if (var3 == null) {
+            Container parent = this.getParent();
+            if (parent == null) {
                 return null;
-            } else if (!(var3 instanceof IPanel)) {
+            } else if (!(parent instanceof IPanel iPanelParent)) {
                 return null;
             } else {
-                Point var4 = this.getLocation();
-                var1 -= var4.x;
-                var2 -= var4.y;
-                IPanel var5 = (IPanel) var3;
-                return var5.getBackgroundAndLocation(var1, var2);
+                Point location = this.getLocation();
+                offsetX -= location.x;
+                offsetY -= location.y;
+                return iPanelParent.getBackgroundAndLocation(offsetX, offsetY);
             }
         }
     }

@@ -177,7 +177,7 @@ public final class User {
             imageManager.defineGameImage(imageAlias, imageAlias);
         }
 
-        this.colorListItem.setIcon(imageManager.getGameImageNonblocking(imageAlias));
+        this.colorListItem.setIcon(imageManager.getGameImage(imageAlias));
         playersList.repaint();
     }
 

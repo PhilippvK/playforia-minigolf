@@ -159,12 +159,7 @@ public class GolfConnection implements SocketConnectionListener {
 
             this.socketConnection.closeConnection();
         } else if (args[0].equals("versok")) {
-            this.writeData("language\t" + this.gameContainer.params.getChatLocale());
-            String var4 = this.gameContainer.params.getSessionLocale();
-            if (var4 != null) {
-                this.writeData("sessionlocale\t" + var4);
-            }
-
+            this.writeData("language\t" + this.gameContainer.params.getLocale());
             this.writeData("logintype\t"
                     + (this.gameContainer.synchronizedTrackTestMode.get()
                             ? "ttm"

@@ -1,58 +1,21 @@
 package com.aapeli.client;
 
-import com.aapeli.applet.AApplet;
-import com.aapeli.tools.Tools;
-import java.applet.Applet;
-import java.awt.Component;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.IOException;
 import java.util.Hashtable;
+import javax.imageio.ImageIO;
 
 public final class ImageManager {
-
-    private Applet applet;
-    private Hashtable<String, String> imageAliases;
-    private boolean validImageDir;
     private final boolean isDebug;
-    private final ImageLoaderThread imageLoaderThread;
+    private Hashtable<String, Image> gameImages;
+    private Hashtable<String, Image> sharedImages;
 
-    public ImageManager(Applet applet) {
-        this(applet, "src/main/resources/picture/", true);
-    }
-
-    public ImageManager(Applet applet, boolean isDebug) {
-        this(applet, "src/main/resources/picture/", isDebug);
-    }
-
-    public ImageManager(Applet applet, String imageDir) {
-        this(applet, imageDir, true);
-    }
-
-    public ImageManager(Applet applet, String imageDir, boolean isDebug) {
-        this.applet = applet;
+    public ImageManager(boolean isDebug) {
         this.isDebug = isDebug;
-
-        // TODO: Remove this code if it doesn't cause any problems in a few releases, I rewritten
-        // the functionality
-        this.validImageDir = true;
-        if (imageDir != null && imageDir.length() > 0) {
-            this.validImageDir = false;
-        }
-
-        this.imageAliases = new Hashtable<>();
-        this.imageLoaderThread = new ImageLoaderThread(applet, isDebug);
-    }
-
-    public void setImageAliases(String[][] imageAliases) {
-        if (imageAliases != null) {
-            for (String[] aliases : imageAliases) {
-                this.imageAliases.put(aliases[0], aliases[1]);
-            }
-        }
+        this.gameImages = new Hashtable<>();
+        this.sharedImages = new Hashtable<>();
     }
 
     public String defineGameImage(String fileName) {
@@ -64,9 +27,13 @@ public final class ImageManager {
             System.out.println("ImageManager.defineGameImage(\"" + name + "\",\"" + imageFileName + "\")");
         }
 
-        Image image = Toolkit.getDefaultToolkit()
-                .createImage(this.getClass().getResource("/picture/agolf/" + getAlias(imageFileName)));
-        this.imageLoaderThread.registerGameImage(name, image);
+        try {
+            Image image = ImageIO.read(this.getClass().getResource("/picture/agolf/" + imageFileName));
+            this.gameImages.put(name, image);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         return name;
     }
 
@@ -79,112 +46,43 @@ public final class ImageManager {
             System.out.println("ImageManager.defineSharedImage(\"" + name + "\",\"" + imageFileName + "\")");
         }
 
-        Image image = Toolkit.getDefaultToolkit()
-                .createImage(this.getClass().getResource("/picture/shared/" + getAlias(imageFileName)));
-        this.imageLoaderThread.registerSharedImage(name, image);
+        try {
+            Image image = ImageIO.read(this.getClass().getResource("/picture/shared/" + imageFileName));
+            this.sharedImages.put(name, image);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         return name;
     }
 
     public void unloadGameImage(String name) {
-        this.imageLoaderThread.unloadGameImage(name);
-    }
-
-    public void startLoadingImages() {
-        this.imageLoaderThread.startLoaderThread();
-    }
-
-    public boolean isLoadingFinished() {
-        return this.imageLoaderThread.getLoadQueueSize() == 0;
-    }
-
-    public int getPercentOfImagesLoaded() {
-        if (this.imageLoaderThread.getLoadQueueSize() == 0) {
-            return 100;
-        } else {
-            int p = (int) (100.0D * this.getImageLoadProgress() + 0.5D);
-            if (p == 0 && this.imageLoaderThread.getNumberOfLoadedImages() > 0) {
-                p = 1;
-            } else if (p == 100) {
-                p = 99;
-            }
-
-            return p;
-        }
+        this.gameImages.remove(name);
     }
 
     public double getImageLoadProgress() {
-        int queueSize = this.imageLoaderThread.getLoadQueueSize();
-        if (queueSize == 0) {
-            return 1.0D;
-        } else {
-            int loadedImages = this.imageLoaderThread.getNumberOfLoadedImages();
-            int total = loadedImages + queueSize;
-            return (double) loadedImages / (double) total;
-        }
+        return 1.0D;
     }
 
     public Image getGameImage(String name) {
-        return this.imageLoaderThread.getGameImage(this.getAlias(name));
+        return this.gameImages.get(name);
     }
 
     public boolean isGameImageDefined(String name) {
-        return this.imageLoaderThread.containsGameImage(this.getAlias(name));
-    }
-
-    public Image getGameImageIfLoaded(String name) {
-        return this.imageLoaderThread.getGameImageIfLoaded(this.getAlias(name));
-    }
-
-    public Image getGameImageNonblocking(String name) {
-        return this.imageLoaderThread.getGameImageNonblocking(this.getAlias(name));
+        return this.gameImages.contains(name);
     }
 
     public Image getShared(String name) {
-        return this.getShared(name, false);
-    }
-
-    public Image getShared(String name, boolean nonblocking) {
         String extensionlessName = this.removeExtension(name);
-        Image image = this.imageLoaderThread.getSharedImageIfLoaded(extensionlessName);
-        if (image != null) {
-            return image;
-        } else {
-            synchronized (this) {
-                if (!this.imageLoaderThread.containsSharedImage(extensionlessName)) {
-                    URL codebaseURL = this.applet.getCodeBase();
-
-                    try {
-                        if (codebaseURL.getProtocol().equalsIgnoreCase("file")) {
-                            codebaseURL = new URL(codebaseURL, FileUtil.RESOURCE_DIR + "picture/");
-                        } else {
-                            codebaseURL = new URL(codebaseURL, "../Shared/picture/");
-                        }
-                    } catch (MalformedURLException e) {
-                    }
-
-                    URL url = codebaseURL;
-                    try {
-                        url = new URL(codebaseURL, name);
-                    } catch (Exception ex) {
-                    }
-                    image = Toolkit.getDefaultToolkit().createImage(url);
-                    this.imageLoaderThread.registerSharedImage(extensionlessName, image);
-                }
-            }
-            return nonblocking ? null : this.imageLoaderThread.getSharedImage(extensionlessName);
-        }
+        return this.sharedImages.get(extensionlessName);
     }
 
     public int getWidth(Image image) {
-        return image.getWidth(this.applet);
+        return image.getWidth(null);
     }
 
     public int getHeight(Image image) {
-        return image.getHeight(this.applet);
-    }
-
-    public int[] getPixels(Image image) {
-        return this.getPixels(image, 0, 0, this.getWidth(image), this.getHeight(image));
+        return image.getHeight(null);
     }
 
     public int[] getPixels(Image image, int width, int height) {
@@ -204,21 +102,7 @@ public final class ImageManager {
     }
 
     public Image createImage(int[] pixels, int width, int height) {
-        return this.createImage(pixels, width, height, null);
-    }
-
-    public Image createImage(int[] pixels, int width, int height, Component parent) {
-        if (parent == null) {
-            parent = this.applet;
-        }
-
-        Image image = parent.createImage(new MemoryImageSource(width, height, pixels, 0, width));
-
-        while (!parent.prepareImage(image, parent)) {
-            Tools.sleep(20L);
-        }
-
-        return image;
+        return Toolkit.getDefaultToolkit().createImage(new MemoryImageSource(width, height, pixels, 0, width));
     }
 
     public Image[] separateImages(Image image, int length) {
@@ -268,66 +152,9 @@ public final class ImageManager {
         return images;
     }
 
-    public Image getAlphaMultipliedImage(Image image, double opacity) {
-        int width = this.getWidth(image);
-        int height = this.getHeight(image);
-        int[] pixels = this.getPixels(image, width, height);
-        return this.createImage(this.multiplyAlpha(pixels, opacity), width, height);
-    }
-
-    public int[] multiplyAlpha(int[] pixels, double opacity) {
-        int length = pixels.length;
-        int[] newPixels = new int[length];
-
-        for (int i = 0; i < length; ++i) {
-            long alpha = ((long) pixels[i] & 4278190080L) >> 24;
-            alpha = (long) ((double) alpha * opacity);
-            if (alpha < 0L) {
-                alpha = 0L;
-            } else if (alpha > 255L) {
-                alpha = 255L;
-            }
-
-            newPixels[i] = (int) ((alpha << 24) + ((long) pixels[i] & 16777215L));
-        }
-
-        return newPixels;
-    }
-
-    public void destroy() {
-        this.imageLoaderThread.destroy();
-        this.imageAliases.clear();
-        this.imageAliases = null;
-        this.applet = null;
-    }
-
-    public Applet getApplet() {
-        return this.applet;
-    }
-
-    public void enableSUD(AApplet applet) {
-        this.imageLoaderThread.setStartupDebugApplet(applet);
-    }
-
-    protected void registerRemoteImage(URL url) {
-        String stringUrl = url.toString();
-        synchronized (this) {
-            if (!this.imageLoaderThread.containsRemoteImage(stringUrl)) {
-                Image var4 = Toolkit.getDefaultToolkit().createImage(url);
-                this.imageLoaderThread.registerRemoteImage(stringUrl, var4);
-            }
-        }
-    }
-
-    protected Image getRemoteImageIfLoaded(String name) {
-        return this.imageLoaderThread.getRemoteImageIfLoaded(name);
-    }
+    public void destroy() {}
 
     private String removeExtension(String fileName) {
         return fileName.substring(0, fileName.lastIndexOf('.'));
-    }
-
-    private String getAlias(String image) {
-        return this.imageAliases.getOrDefault(image, image);
     }
 }

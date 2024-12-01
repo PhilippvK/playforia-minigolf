@@ -62,7 +62,7 @@ public class GameApplet extends AApplet {
         this.gameContainer.soundManager = soundManager;
     }
 
-    public void defineImages(ImageManager imageManager, String var2) {
+    public void defineImages(ImageManager imageManager) {
         this.gameContainer.imageManager = imageManager;
         imageManager.defineGameImage("bg-lobbyselect.gif");
         imageManager.defineGameImage("bg-lobby-single.gif");
@@ -161,7 +161,6 @@ public class GameApplet extends AApplet {
                         this.trackTestLogin(username, "");
                     }
                 } else if (this.hasSession()) {
-                    super.param.noGuestAutoLogin();
                     this.gameContainer.connection.writeData("login\t" + super.param.getSession());
                     this.activePanel = 0;
                 } else if (!this.gameContainer.synchronizedTrackTestMode.get()) {
@@ -249,7 +248,7 @@ public class GameApplet extends AApplet {
     }
 
     protected void trackTestLogin(String username, String password, Locale locale) {
-        this.textManager.setLocale(locale, this);
+        this.textManager.setLocale(locale);
         this.gameContainer.connection.writeData("language\t" + locale);
         this.trackTestLogin(username, password);
     }

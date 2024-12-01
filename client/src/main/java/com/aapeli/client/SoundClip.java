@@ -1,50 +1,47 @@
 package com.aapeli.client;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
+import java.io.IOException;
 import java.net.URL;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 class SoundClip {
-
-    private Applet applet;
-    private URL dir;
-    private String file;
+    private URL url;
     private boolean debug;
-    private AudioClip audioClip;
-    private boolean defined;
+    private Clip clip;
+    private boolean loaded;
 
-    protected SoundClip(Applet applet, URL dir, String file, boolean debug) {
-        this.applet = applet;
-        this.dir = dir;
-        this.file = file;
+    protected SoundClip(URL url, boolean debug) {
         this.debug = debug;
-        this.audioClip = null;
-        this.defined = false;
+        this.loaded = false;
+        this.url = url;
     }
 
-    protected boolean isDefined() {
-        return this.defined;
+    public boolean isLoaded() {
+        return loaded;
     }
 
-    protected void defineClip() {
-        if (!this.defined) {
+    public URL getUrl() {
+        return url;
+    }
+
+    protected void load() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
+        if (!this.loaded) {
             if (this.debug) {
-                System.out.println("SoundClip.defineClip(): 'dir'=\"" + this.dir + "\", 'file'=\"" + this.file + "\"");
+                System.out.println("SoundClip.load(): 'url'=\"" + this.url + "\"");
             }
 
-            // todo this.audioClip = this.applet.getAudioClip(this.dir, this.file);
-            URL url = dir;
-            try {
-                url = new URL(dir, file);
-            } catch (Exception ex) {
-                System.out.println("SoundClip.defineClip(): failed to load sound clip");
-            }
-            audioClip = Applet.newAudioClip(url);
-            this.defined = true;
+            AudioInputStream sound = AudioSystem.getAudioInputStream(url);
+            this.clip = AudioSystem.getClip();
+            clip.open(sound);
+            this.loaded = true;
         }
     }
 
-    protected AudioClip getAudioClip() {
-        return this.audioClip;
+    protected Clip getClip() {
+        return this.clip;
     }
 }

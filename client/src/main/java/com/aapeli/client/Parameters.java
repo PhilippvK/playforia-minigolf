@@ -6,14 +6,11 @@ import java.applet.Applet;
 import java.applet.AppletContext;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.StringTokenizer;
-import org.moparforia.shared.Language;
 import org.moparforia.shared.Locale;
 
 public final class Parameters {
 
     private static final String LOCALHOST = "127.0.0.1";
-    // private static final String aString1416 = "192.168.1.23";
     private static final String PLAYFORIA_SITE_NAME = "playforia";
     private static final String PLAYFORIA_QUIT_PAGE = "http://www.playforia.com/";
     private static final String QUIT_TARGET = "_top";
@@ -22,44 +19,25 @@ public final class Parameters {
     private String codeBaseHost;
     private String documentBaseHost;
     private String serverIp;
-    private Language language;
-    private Locale translationLocale;
-    private Locale chatLocale;
+    private Locale locale;
     private String siteName;
     private String username;
-    private String sessionLocale;
     private String session;
-    private String welcomeMessage;
-    private String quitTarget;
     private String urlRegisterPage;
-    private String urlVipPage;
     private String urlUserInfoPage;
     private String urlTargetUserInfo;
     private String urlUserListPage;
     private String urlTargetUserList;
     private String urlTellFriendPage;
     private String urlTargetTellFriend;
-    private String characterImageDir;
-    private String tournamentRound;
-    private String subgame;
-    private String ticket;
     private String json;
     private boolean tellFriend;
-    private boolean guestAutoLogin;
-    private boolean disableGuestLobbyChat;
     private int serverPort;
     private URL urlCreditPage;
-    private URL quitPageUrl;
-    private String[][] imageAliases;
-    private int[] anIntArray1454;
     private int anInt1455;
     private String[] aStringArray1456;
     private String aString1457;
     private boolean debug;
-
-    public Parameters(Applet applet) {
-        this(applet, false);
-    }
 
     public Parameters(Applet applet, boolean debug) {
         this.applet = applet;
@@ -113,32 +91,16 @@ public final class Parameters {
         return this.serverPort;
     }
 
-    public Language language() {
-        return this.language;
-    }
-
-    public Locale getTranslationLocale() {
-        return this.translationLocale;
-    }
-
     public String getUsername() {
         return this.username;
     }
 
-    public Locale getChatLocale() {
-        return this.chatLocale != null ? this.chatLocale : this.translationLocale;
-    }
-
     public Locale getLocale() {
-        return this.getChatLocale();
+        return this.locale;
     }
 
     public String getSiteName() {
         return this.siteName;
-    }
-
-    public String getSessionLocale() {
-        return this.sessionLocale;
     }
 
     public String getSession() {
@@ -149,20 +111,8 @@ public final class Parameters {
         this.session = null;
     }
 
-    public String getWelcomeMessage() {
-        return this.welcomeMessage;
-    }
-
-    public void removeWelcomeMessage() {
-        this.welcomeMessage = null;
-    }
-
     public String getRegisterPage() {
         return this.urlRegisterPage;
-    }
-
-    public String getVipPage() {
-        return this.urlVipPage;
     }
 
     public boolean showPlayerCard(String var1) {
@@ -293,40 +243,12 @@ public final class Parameters {
         return this.showUrl(this.toURL(this.urlRegisterPage), null);
     }
 
-    public void showCreditPurchasePage() {
-        this.showCreditPurchasePage(true);
-    }
-
     public void showCreditPurchasePage(boolean openInNewTab) {
         this.showUrl(this.urlCreditPage, openInNewTab ? "_blank" : null);
     }
 
     public boolean isCreditPurchasePageAvailable() {
         return this.urlCreditPage != null;
-    }
-
-    public void showQuitPage() {
-        this.showUrl(this.quitPageUrl, this.quitTarget);
-    }
-
-    public String[][] getImageAliases() {
-        return this.imageAliases;
-    }
-
-    public boolean isGuestAutoLogin() {
-        return this.guestAutoLogin;
-    }
-
-    public void noGuestAutoLogin() {
-        this.guestAutoLogin = false;
-    }
-
-    public boolean isGuestLobbyChattingDisabled() {
-        return this.disableGuestLobbyChat;
-    }
-
-    public String getTicket() {
-        return this.ticket;
     }
 
     public boolean callJavaScriptJSON(String json) {
@@ -353,36 +275,6 @@ public final class Parameters {
         }
     }
 
-    public void updateWebPageInfoBox(int var1, int var2, int var3) {
-        if (this.json != null) {
-            if (var1 >= 0 || var2 >= 0 || var3 >= 0) {
-                String var4 = "{info:{";
-                if (var1 >= 0) {
-                    var4 = var4 + "credits:" + var1;
-                }
-
-                if (var2 >= 0) {
-                    if (var1 >= 0) {
-                        var4 = var4 + ',';
-                    }
-
-                    var4 = var4 + "chips:" + var2;
-                }
-
-                if (var3 >= 0) {
-                    if (var1 >= 0 || var2 >= 0) {
-                        var4 = var4 + ',';
-                    }
-
-                    var4 = var4 + "ranking:" + var3;
-                }
-
-                var4 = var4 + "}}";
-                this.callJavaScriptJSON(var4);
-            }
-        }
-    }
-
     public Applet getApplet() {
         return this.applet;
     }
@@ -393,30 +285,18 @@ public final class Parameters {
 
     public void destroy() {
         this.serverIp = null;
-        this.language = null;
-        this.translationLocale = null;
-        this.chatLocale = null;
+        this.locale = null;
         this.siteName = null;
-        this.sessionLocale = null;
         this.session = null;
-        this.welcomeMessage = null;
-        this.quitTarget = null;
         this.urlRegisterPage = null;
-        this.urlVipPage = null;
         this.urlUserInfoPage = null;
         this.urlTargetUserInfo = null;
         this.urlUserListPage = null;
         this.urlTargetUserList = null;
         this.urlTellFriendPage = null;
         this.urlTargetTellFriend = null;
-        this.characterImageDir = null;
-        this.tournamentRound = null;
-        this.subgame = null;
-        this.ticket = null;
         this.json = null;
         this.urlCreditPage = null;
-        this.imageAliases = null;
-        this.anIntArray1454 = null;
         this.aStringArray1456 = null;
         this.aString1457 = null;
         this.documentBaseHost = null;
@@ -439,32 +319,13 @@ public final class Parameters {
         return this.urlTargetTellFriend;
     }
 
-    protected String getTournamentRound() {
-        return this.tournamentRound;
-    }
-
-    protected String getSubgame() {
-        return this.subgame;
-    }
-
     private void init() {
         this.serverIp = this.getParamServer();
         this.serverPort = this.getParamPort();
-        this.language = this.getParamLanguage();
-        this.translationLocale = this.getParamLocale();
-        this.chatLocale = this.getParamChatLocale();
+        this.locale = this.getParamLocale();
         this.siteName = this.getParamSiteName();
-        this.sessionLocale = this.getParameter("sessionlocale");
         this.session = this.getParameter("session");
-        this.welcomeMessage = this.getParameter("welcomemessage");
-        if (this.welcomeMessage == null) {
-            this.welcomeMessage = this.getParameter("gamewelcome");
-        }
-
-        this.quitPageUrl = this.getParamQuitPage();
-        this.quitTarget = this.getParamQuitTarget();
         this.urlRegisterPage = this.getParameter("registerpage");
-        this.urlVipPage = this.getParameter("vippage");
         this.urlCreditPage = this.toURL(this.getParameter("creditpage"));
         this.urlUserInfoPage = this.getParameter("userinfopage");
         this.urlTargetUserInfo = this.getParameter("userinfotarget");
@@ -473,14 +334,6 @@ public final class Parameters {
         this.tellFriend = Tools.getBoolean(this.getParameter("tellfriend"));
         this.urlTellFriendPage = this.getParameter("tellfriendpage");
         this.urlTargetTellFriend = this.getParameter("tellfriendtarget");
-        this.anIntArray1454 = this.getParamRegRemindShowTime();
-        this.characterImageDir = this.getParameter("characterimagedir");
-        this.imageAliases = this.getParamImageAliases();
-        this.guestAutoLogin = Tools.getBoolean(this.getParameter("guestautologin"));
-        this.disableGuestLobbyChat = Tools.getBoolean(this.getParameter("disableguestlobbychat"));
-        this.tournamentRound = this.getParameter("tournamentround");
-        this.subgame = this.getParameter("subgame");
-        this.ticket = this.getParameter("ticket");
         this.json = this.getParameter("json");
         this.username = this.getParameter("username");
         if (this.json != null) {
@@ -515,45 +368,6 @@ public final class Parameters {
         }
     }
 
-    private Language getParamLanguage() {
-        String language;
-        try {
-            language = this.getParameter("language");
-            if (language != null) {
-                return Language.fromString(language);
-            }
-        } catch (Exception e) {
-        }
-
-        if (this.codeBaseHost.endsWith("aapeli.com")) {
-            return Language.FINNISH;
-        } else if (this.codeBaseHost.endsWith("playray.com")) {
-            return Language.ENGLISH;
-        } else {
-            if (this.codeBaseHost.endsWith(".playforia.com")) {
-                try {
-                    language = this.codeBaseHost.substring(0, this.codeBaseHost.indexOf(46));
-                    if (language.length() > 0 && !language.equals("www")) {
-                        return Language.fromString(language);
-                    }
-                } catch (Exception e) {
-                }
-            }
-
-            if (this.codeBaseHost.contains("playray")) {
-                try {
-                    language = this.codeBaseHost.substring(this.codeBaseHost.lastIndexOf(46) + 1);
-                    if (language.length() > 0) {
-                        return Language.fromString(language);
-                    }
-                } catch (Exception e) {
-                }
-            }
-
-            return Language.ENGLISH;
-        }
-    }
-
     private Locale getParamLocale() {
         try {
             String locale = this.getParameter("locale");
@@ -561,23 +375,6 @@ public final class Parameters {
                 return Locale.fromString(locale);
             }
 
-        } catch (Exception e) {
-        }
-
-        return null;
-    }
-
-    private Locale getParamChatLocale() {
-        try {
-            String chatLocale = this.getParameter("chatlocale");
-            if (chatLocale != null) {
-                return Locale.fromString(chatLocale);
-            }
-
-            chatLocale = this.getParameter("serverlocale");
-            if (chatLocale != null) {
-                return Locale.fromString(chatLocale);
-            }
         } catch (Exception e) {
         }
 
@@ -601,101 +398,6 @@ public final class Parameters {
             return "playray";
         }
         return PLAYFORIA_SITE_NAME;
-    }
-
-    private URL getParamQuitPage() {
-        URL quitPage = this.toURL(this.getParameter("quitpage"));
-        if (quitPage != null) {
-            return quitPage;
-        } else {
-            quitPage = this.toURL(this.documentBaseHost);
-            return quitPage != null ? quitPage : this.toURL(PLAYFORIA_QUIT_PAGE);
-        }
-    }
-
-    private String getParamQuitTarget() {
-        String quitTarget = this.getParameter("quittarget");
-        return quitTarget != null ? quitTarget : QUIT_TARGET;
-    }
-
-    private String[][] getParamImageAliases() {
-        String imageAliases = this.getParameter("imagealias");
-        if (imageAliases == null) {
-            return null;
-        } else {
-            StringTokenizer tokenizer = new StringTokenizer(imageAliases, " ");
-            int tokenCount = tokenizer.countTokens();
-            if (tokenCount == 0) {
-                return null;
-            } else {
-                String[][] result = new String[tokenCount][2];
-
-                for (int i = 0; i < tokenCount; ++i) {
-                    String token = tokenizer.nextToken();
-                    int var6 = token.indexOf(':');
-                    if (var6 <= 0 || var6 == token.length() - 1) {
-                        return null;
-                    }
-
-                    result[i][0] = token.substring(0, var6);
-                    result[i][1] = this.method1670(token.substring(var6 + 1));
-                }
-
-                return result;
-            }
-        }
-    }
-
-    private String method1670(String var1) {
-        StringTokenizer var2 = new StringTokenizer(var1, ",");
-        int var3 = var2.countTokens();
-        if (var3 <= 1) {
-            return var1;
-        } else {
-            int var4 = (int) (Math.random() * (double) var3);
-
-            while (true) {
-                var1 = var2.nextToken();
-                if (var4 == 0) {
-                    return var1;
-                }
-
-                --var4;
-            }
-        }
-    }
-
-    private int[] getParamRegRemindShowTime() {
-        String regRemindShowTime = this.getParameter("regremindshowtime");
-        if (regRemindShowTime == null) {
-            return null;
-        } else {
-            StringTokenizer tokenizer = new StringTokenizer(regRemindShowTime, ",");
-            int tokenCount = tokenizer.countTokens();
-            if (tokenCount == 0) {
-                return null;
-            } else {
-                int[] result = new int[tokenCount];
-
-                for (int i = 0; i < tokenCount; ++i) {
-                    try {
-                        result[i] = Integer.parseInt(tokenizer.nextToken());
-                    } catch (NumberFormatException e) {
-                        return null;
-                    }
-
-                    if (result[i] <= 0) {
-                        return null;
-                    }
-
-                    if (i > 0 && result[i] <= result[i - 1]) {
-                        return null;
-                    }
-                }
-
-                return result;
-            }
-        }
     }
 
     private URL toURL(String s) {

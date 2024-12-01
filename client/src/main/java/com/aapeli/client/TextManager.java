@@ -3,7 +3,6 @@ package com.aapeli.client;
 import com.aapeli.tools.EncodedXmlReader;
 import com.aapeli.tools.Tools;
 import com.aapeli.tools.XmlUnit;
-import java.applet.Applet;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Hashtable;
@@ -19,24 +18,16 @@ public final class TextManager implements Runnable {
     private String errorMessage;
     private boolean debug;
 
-    public TextManager(Parameters parameters) {
-        this(parameters, false, false);
-    }
-
-    public TextManager(Parameters parameters, boolean debug) {
-        this(parameters, false, debug);
-    }
-
     public TextManager(Parameters parameters, boolean loadTextsInSeparateThread, boolean debug) {
         this(debug);
         this.parameters = parameters;
-        this.locale = parameters.getTranslationLocale();
+        this.locale = parameters.getLocale();
 
         if (loadTextsInSeparateThread) {
             this.textLoaderThread = new Thread(this);
             this.textLoaderThread.start();
         } else {
-            this.loadTexts(parameters.getApplet());
+            this.loadTexts();
         }
     }
 
@@ -53,16 +44,16 @@ public final class TextManager implements Runnable {
             System.out.println("TextManager.run(): Start loading texts");
         }
 
-        this.loadTexts(this.parameters.getApplet());
+        this.loadTexts();
         this.textLoaderThread = null;
         if (this.debug) {
             System.out.println("TextManager.run(): Finished loading texts");
         }
     }
 
-    public void setLocale(Locale locale, Applet applet) {
+    public void setLocale(Locale locale) {
         this.locale = locale;
-        this.loadTexts(applet);
+        this.loadTexts();
     }
 
     public String getGame(String key) {
@@ -530,29 +521,21 @@ public final class TextManager implements Runnable {
         return localizationNode == null ? null : localizationNode.getLocalization(quantity);
     }
 
-    private void loadTexts(Applet applet) {
-        this.loadLocaleFiles(applet);
+    private void loadTexts() {
+        this.loadLocaleFiles();
     }
 
-    private void loadLocaleFiles(Applet applet) {
-        String codeBasePath = applet.getCodeBase().toString();
-        if (codeBasePath.endsWith("/")) {
-            codeBasePath = codeBasePath.substring(0, codeBasePath.length() - 1);
-        }
-
-        int slashLocation = codeBasePath.lastIndexOf('/');
-        String languageDirectoryPath = codeBasePath.substring(0, slashLocation + 1) + "l10n/" + this.locale + "/";
-        String gameFilename = codeBasePath.substring(slashLocation + 1);
-
-        this.gameTable = this.readTable(languageDirectoryPath + gameFilename + ".xml");
-        this.sharedTable = this.readTable(languageDirectoryPath + "Shared.xml");
+    private void loadLocaleFiles() {
+        String localizationResourcePath = "/l10n/" + this.locale + "/";
+        this.gameTable = this.readTable(localizationResourcePath + "AGolf.xml");
+        this.sharedTable = this.readTable(localizationResourcePath + "Shared.xml");
     }
 
-    private Hashtable<String, LocalizationNode> readTable(String fileUrl) {
-        EncodedXmlReader reader = new EncodedXmlReader(fileUrl, true);
+    private Hashtable<String, LocalizationNode> readTable(String resourcePath) {
+        EncodedXmlReader reader = new EncodedXmlReader(resourcePath, true);
         XmlUnit unit = reader.readXmlUnit();
         if (unit == null) {
-            System.out.println("Failed to read localization file '" + fileUrl + "'");
+            System.out.println("Failed to read localization file '" + resourcePath + "'");
             this.errorMessage = "XML read error";
             return null;
         } else {
