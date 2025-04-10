@@ -3,7 +3,7 @@ package com.aapeli.colorgui;
 import java.awt.Color;
 import java.awt.Image;
 
-public class MultiColumnListItem {
+public class MultiColumnListItem<T> {
 
     public static final int COLOR_BLACK = 0;
     public static final int COLOR_RED = 1;
@@ -25,18 +25,18 @@ public class MultiColumnListItem {
     private boolean bold;
     private String[] strings;
     private Image[] images;
-    private Object data;
+    private T data;
     private boolean selected;
 
-    public MultiColumnListItem(int colourIndex, String[] strings, Object data) {
+    public MultiColumnListItem(int colourIndex, String[] strings, T data) {
         this(colours[colourIndex], false, strings, data, false);
     }
 
-    public MultiColumnListItem(int colourIndex, boolean bold, String[] strings, Object data, boolean selected) {
+    public MultiColumnListItem(int colourIndex, boolean bold, String[] strings, T data, boolean selected) {
         this(colours[colourIndex], bold, strings, data, selected);
     }
 
-    public MultiColumnListItem(Color colour, boolean bold, String[] strings, Object data, boolean selected) {
+    public MultiColumnListItem(Color colour, boolean bold, String[] strings, T data, boolean selected) {
         this.colour = colour;
         this.bold = bold;
         this.strings = strings;
@@ -112,11 +112,11 @@ public class MultiColumnListItem {
         return this.images;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public Object getData() {
+    public T getData() {
         return this.data;
     }
 

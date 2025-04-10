@@ -21,7 +21,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private GameContainer gameContainer;
     private int width;
     private int height;
-    private MultiColumnSelectableList trackList;
+    private MultiColumnSelectableList<String> trackList;
     private Button buttonRefresh;
     private Button buttonUnselect;
     private Button buttonPlay;
@@ -74,14 +74,14 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             }
 
         } else {
-            MultiColumnListItem[] selectedItems = this.trackList.getSelectedItems();
+            MultiColumnListItem<String>[] selectedItems = this.trackList.getSelectedItems();
             if (selectedItems != null) {
                 int selectedItemsLen = selectedItems.length;
                 if (selectedItemsLen >= 1) {
                     String[] tracksData = new String[selectedItemsLen];
 
                     for (int index = 0; index < selectedItemsLen; ++index) {
-                        tracksData[index] = (String) selectedItems[index].getData();
+                        tracksData[index] = selectedItems[index].getData();
                     }
 
                     this.gameContainer.safeMode = this.checkboxSafeMode.getState();

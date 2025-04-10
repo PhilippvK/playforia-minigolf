@@ -5,6 +5,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 import org.moparforia.shared.Tools;
 import org.moparforia.shared.tracks.*;
 import org.moparforia.shared.tracks.parsers.TrackParser;
@@ -86,7 +87,11 @@ public class FileSystemTrackManager implements TrackManager {
 
         DirectoryStream<Path> directoryStream = Files.newDirectoryStream(
                 sets, entry -> entry.getFileName().toString().endsWith(".trackset"));
-        for (Path filePath : directoryStream) {
+        List<Path> paths = StreamSupport.stream(directoryStream.spliterator(), false)
+                .sorted(Comparator.comparing(Path::toString))
+                .toList();
+        for (int i = 0; i < paths.size(); i++) {
+            Path filePath = paths.get(i);
             Scanner scanner = new Scanner(filePath);
             String setName = scanner.nextLine();
             TrackSetDifficulty trackSetDifficulty = TrackSetDifficulty.valueOf(scanner.nextLine());
@@ -117,7 +122,7 @@ public class FileSystemTrackManager implements TrackManager {
                         + Arrays.toString(trackNames.toArray())
                         + ")");
             }
-            trackSets.add(new TrackSet(setName, trackSetDifficulty, tracks));
+            trackSets.add(new TrackSet(i, setName, trackSetDifficulty, tracks));
         }
         trackSets.sort(Comparator.comparing(TrackSet::getName));
         return trackSets;

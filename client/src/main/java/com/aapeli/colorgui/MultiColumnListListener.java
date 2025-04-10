@@ -1,6 +1,6 @@
 package com.aapeli.colorgui;
 
-public interface MultiColumnListListener {
+public interface MultiColumnListListener<T> {
 
-    void mouseDoubleClicked(MultiColumnListItem clickedItem);
+    void mouseDoubleClicked(MultiColumnListItem<T> clickedItem);
 }

@@ -54,21 +54,9 @@ public class LobbyHandler implements PacketHandler {
             }
             lobby.addPlayer(player, Lobby.JOIN_TYPE_NORMAL);
         } else if (message.group(1).equals("tracksetlist")) {
-            List<TrackSet> trackSets = manager.getTrackSets();
-            String[][] tracksInfo = new String[trackSets.size()][11];
-            for (int i = 0; i < trackSets.size(); i++) {
-                TrackSet trackSet = trackSets.get(i);
-                tracksInfo[i][0] = trackSet.getName();
-                tracksInfo[i][1] = String.valueOf(trackSet.getDifficulty().getId());
-                tracksInfo[i][2] = String.valueOf(trackSet.getTracks().size());
-                for (int j = 3; j < 11; j++) { // todo track records
-                    tracksInfo[i][j] = j % 2 == 0 ? "1" : "No one";
-                }
-            }
-            String cmd = "";
-            for (int i = 0; i < tracksInfo.length; i++) {
-                cmd += Tools.tabularize(tracksInfo[i]) + (i == tracksInfo.length - 1 ? "" : '\t');
-            }
+            List<String> tracksInfo =
+                    manager.getTrackSets().stream().map(TrackSet::serialize).toList();
+            String cmd = String.join("\t", tracksInfo);
             packet.getChannel()
                     .writeAndFlush(new Packet(PacketType.DATA, Tools.tabularize("lobby", "tracksetlist", cmd)));
         }

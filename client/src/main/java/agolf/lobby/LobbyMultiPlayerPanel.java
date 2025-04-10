@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener {
+class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener<int[]> {
 
     private GameContainer gameContainer;
     private int width;
@@ -39,7 +39,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
     private Choicer choicerScoringEnd;
     private Button buttonCreate;
     private Button buttonJoin;
-    private MultiColumnSelectableList trackList;
+    private MultiColumnSelectableList<int[]> trackList;
     private int joinError;
     private LobbyGamePasswordPanel lobbyGamePasswordPanel;
     private Image image;
@@ -496,7 +496,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         SortOrder[] columnSortTypes = new SortOrder[] {
             SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_123_FIRST, SortOrder.ORDER_321_FIRST
         };
-        this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, this.width / 2 - 40, 125);
+        this.trackList = new MultiColumnSelectableList<>(listTitles, columnSortTypes, 1, this.width / 2 - 40, 125);
         this.trackList.setLocation(this.width / 2 + 20, 75);
         this.trackList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-multi-fade"), this.width / 2 + 20, 75);
@@ -590,7 +590,8 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
             scoringEnd
         };
         // }
-        MultiColumnListItem track = new MultiColumnListItem(colourIndex, bold, cols, trackInfo, id == defaultGameId);
+        MultiColumnListItem<int[]> track =
+                new MultiColumnListItem<>(colourIndex, bold, cols, trackInfo, id == defaultGameId);
         this.trackList.addItem(track);
     }
 
@@ -613,10 +614,10 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
 
     private void removeTrack(int var1) {
         synchronized (trackList) {
-            MultiColumnListItem[] tracks = this.trackList.getAllItems();
+            MultiColumnListItem<int[]>[] tracks = this.trackList.getAllItems();
             if (tracks != null) {
-                for (MultiColumnListItem track : tracks) {
-                    int[] trackData = (int[]) track.getData();
+                for (MultiColumnListItem<int[]> track : tracks) {
+                    int[] trackData = track.getData();
                     if (trackData[0] == var1) {
                         this.trackList.removeItem(track);
                         return;
@@ -632,15 +633,15 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
     }
 
     private int[] getSelectedGameData() {
-        MultiColumnListItem var1 = this.trackList.getSelectedItem();
-        return var1 == null ? null : (int[]) var1.getData();
+        MultiColumnListItem<int[]> var1 = this.trackList.getSelectedItem();
+        return var1 == null ? null : var1.getData();
     }
 
     @Override
-    public void mouseDoubleClicked(MultiColumnListItem clickedItem) {
+    public void mouseDoubleClicked(MultiColumnListItem<int[]> clickedItem) {
         this.joinError = 0;
         this.repaint();
-        int[] gameData = (int[]) clickedItem.getData();
+        int[] gameData = clickedItem.getData();
         if (gameData == null) {
             return;
         }

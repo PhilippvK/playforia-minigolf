@@ -18,7 +18,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MultiColumnSelectableList extends Panel implements AdjustmentListener, MouseListener, ItemSelectable {
+public class MultiColumnSelectableList<T> extends Panel implements AdjustmentListener, MouseListener, ItemSelectable {
     public static final int SELECTABLE_NONE = 0;
     public static final int SELECTABLE_ONE = 1;
     public static final int SELECTABLE_MULTI = 2;
@@ -50,7 +50,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
     private int rows;
     private int[] columnWidths;
     private int selectable;
-    private List<MultiColumnListItem> items;
+    private List<MultiColumnListItem<T>> items;
     private int lastMouseClickX;
     private int lastMouseClickY;
     private int rangeSelectionLastIndex;
@@ -159,7 +159,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
             int itemIndex = itemIndexStart;
 
             for (int i = 0; i < this.rows + 1 && itemIndex < itemCount; ++i) {
-                MultiColumnListItem item = this.getItem(itemIndex);
+                MultiColumnListItem<T> item = this.getItem(itemIndex);
                 colors[i] = item.getColor();
                 bolds[i] = item.isBold();
                 strings[i] = item.getStrings();
@@ -242,7 +242,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
             } else {
                 i = this.getItemIndex(y);
                 if (i != -1) {
-                    MultiColumnListItem item = this.getItem(i);
+                    MultiColumnListItem<T> item = this.getItem(i);
                     boolean isRightClick = evt.getButton() == MouseEvent.BUTTON3;
                     boolean isDoubleClick = evt.getClickCount() == 2;
                     int eventId = isRightClick ? ID_RIGHTCLICKED : (isDoubleClick ? ID_DOUBLECLICKED : ID_CLICKED);
@@ -371,7 +371,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         return selectedCount;
     }
 
-    public synchronized void addItem(MultiColumnListItem item) {
+    public synchronized void addItem(MultiColumnListItem<T> item) {
         int itemColumnCount = item.getColumnCount();
         if (this.columnCount == 0) {
             this.columnCount = itemColumnCount;
@@ -393,17 +393,17 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.repaint();
     }
 
-    public synchronized MultiColumnListItem getItem(int i) {
+    public synchronized MultiColumnListItem<T> getItem(int i) {
         return this.items.get(i);
     }
 
-    public synchronized MultiColumnListItem getItem(int column, String text) {
+    public synchronized MultiColumnListItem<T> getItem(int column, String text) {
         int itemsCount = this.items.size();
         if (itemsCount == 0) {
             return null;
         } else {
             for (int i = 0; i < itemsCount; ++i) {
-                MultiColumnListItem item = this.getItem(i);
+                MultiColumnListItem<T> item = this.getItem(i);
                 if (text.equals(item.getString(column))) {
                     return item;
                 }
@@ -413,16 +413,16 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         }
     }
 
-    public synchronized MultiColumnListItem getSelectedItem() {
-        MultiColumnListItem[] selectedItems = this.getSelectedItems();
+    public synchronized MultiColumnListItem<T> getSelectedItem() {
+        MultiColumnListItem<T>[] selectedItems = this.getSelectedItems();
         return selectedItems == null ? null : (selectedItems.length != 1 ? null : selectedItems[0]);
     }
 
-    public synchronized MultiColumnListItem[] getSelectedItems() {
+    public synchronized MultiColumnListItem<T>[] getSelectedItems() {
         return this.getItems(true);
     }
 
-    public synchronized MultiColumnListItem[] getAllItems() {
+    public synchronized MultiColumnListItem<T>[] getAllItems() {
         return this.getItems(false);
     }
 
@@ -430,7 +430,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.removeItem(this.getItem(column, text));
     }
 
-    public synchronized void removeItem(MultiColumnListItem item) {
+    public synchronized void removeItem(MultiColumnListItem<T> item) {
         int idx = this.items.indexOf(item);
         if (idx >= 0) {
             this.items.remove(idx);
@@ -484,7 +484,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
     public synchronized void reSort() {
         int itemsCount = this.items.size();
         if (itemsCount != 0) {
-            MultiColumnListItem[] itemsCopy = this.getAllItems();
+            MultiColumnListItem<T>[] itemsCopy = this.getAllItems();
             this.items.clear();
 
             for (int i = 0; i < itemsCount; ++i) {
@@ -539,17 +539,17 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         }
     }
 
-    private synchronized MultiColumnListItem[] getItems(boolean selectedItemsOnly) {
+    private synchronized MultiColumnListItem<T>[] getItems(boolean selectedItemsOnly) {
         int count = selectedItemsOnly ? this.getSelectedItemCount() : this.getItemCount();
         if (count == 0) {
             return null;
         } else {
-            MultiColumnListItem[] items = new MultiColumnListItem[count];
+            MultiColumnListItem<T>[] items = new MultiColumnListItem[count];
             int itemsCount = this.items.size();
             int itemIndex = 0;
 
             for (int i = 0; i < itemsCount; ++i) {
-                MultiColumnListItem item = this.getItem(i);
+                MultiColumnListItem<T> item = this.getItem(i);
                 if (!selectedItemsOnly || item.isSelected()) {
                     items[itemIndex] = item;
                     ++itemIndex;
@@ -560,7 +560,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         }
     }
 
-    private synchronized int getPositionFor(MultiColumnListItem item) {
+    private synchronized int getPositionFor(MultiColumnListItem<T> item) {
         int itemsCount = this.items.size();
         if (itemsCount == 0) {
             return 0;
@@ -653,7 +653,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.repaint();
     }
 
-    private synchronized void itemPressed(MultiColumnListItem item, int eventId, int newState) {
+    private synchronized void itemPressed(MultiColumnListItem<T> item, int eventId, int newState) {
         if (this.listeners.size() != 0) {
             ItemEvent event = new ItemEvent(this, eventId, item, newState);
             for (ItemListener listener : this.listeners) {
