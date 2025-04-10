@@ -4,6 +4,7 @@ import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
+import com.aapeli.colorgui.MultiColumnListColumn;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnSelectableList;
 import com.aapeli.colorgui.SortOrder;
@@ -14,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 
 class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemListener {
 
@@ -227,18 +229,18 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private void createTrackList(String[][] tracksInfo, boolean isAdmin) {
         if (this.trackList == null) {
             this.setVisible(false);
-            String[] listTitles;
-            SortOrder[] columnSortTypes;
             if (isAdmin) {
-                listTitles = new String[] {"Status", "Author", "Track", "Rating"};
-                columnSortTypes = new SortOrder[] {
-                    SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_321_ALL
-                };
-                this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 2, 450, 250);
+                List<MultiColumnListColumn> columns = List.of(
+                        new MultiColumnListColumn("Status", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Author", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Track", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Rating", SortOrder.ORDER_321_ALL));
+                this.trackList = new MultiColumnSelectableList<>(columns, 2, 450, 250);
             } else {
-                listTitles = new String[] {"Status", "Track"};
-                columnSortTypes = new SortOrder[] {SortOrder.ORDER_ABC, SortOrder.ORDER_ABC};
-                this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, 450, 250);
+                List<MultiColumnListColumn> columns = List.of(
+                        new MultiColumnListColumn("Status", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Track", SortOrder.ORDER_ABC));
+                this.trackList = new MultiColumnSelectableList<>(columns, 1, 450, 250);
             }
 
             this.trackList.setLocation(this.width / 2 - 125 - 100 - 50, 100);

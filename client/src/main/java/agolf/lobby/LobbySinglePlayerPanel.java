@@ -5,6 +5,7 @@ import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
+import com.aapeli.colorgui.MultiColumnListColumn;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnListListener;
 import com.aapeli.colorgui.MultiColumnSelectableList;
@@ -281,14 +282,14 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         this.buttonStartTraining.setBounds(this.width / 2 - 170, /*isUsingCustomServer ? 300 :*/ 270, 100, 25);
         this.buttonStartTraining.addActionListener(this);
         this.add(this.buttonStartTraining);
-        String[] trackSetListTitles = new String[] {
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleName"),
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"),
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks")
-        };
-        SortOrder[] columnSortTypes =
-                new SortOrder[] {SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_123_ALL};
-        this.trackSetList = new MultiColumnSelectableList<>(trackSetListTitles, columnSortTypes, 1, 250, 130);
+        List<MultiColumnListColumn> columns = List.of(
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleName"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks"), SortOrder.ORDER_123_ALL));
+        this.trackSetList = new MultiColumnSelectableList<>(columns, 1, 250, 130);
         this.trackSetList.setLocation(this.width - 290, 130);
         this.trackSetList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-single-fade"), this.width - 290, 130);

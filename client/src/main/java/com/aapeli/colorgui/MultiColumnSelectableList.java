@@ -31,6 +31,7 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
     private static final Color BORDER_COLOR_DARK = new Color(64, 64, 64);
     private static final Color DEFAULT_FOREGROUND_COLOR = new Color(192, 192, 192);
 
+    private final List<MultiColumnListColumn> columns;
     private Scrollbar scrollbar;
     private boolean scrollbarVisible;
     private Image backgroundImage;
@@ -40,8 +41,6 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
     private Color foregroundColor;
     private FontMetrics fontMetrics;
     private String emptyListText;
-    private String[] columnTitles;
-    private SortOrder[] columnSortTypes;
     private int columnCount;
     private int sortColumnIndex;
     private int width;
@@ -60,16 +59,14 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
     private List<ItemListener> listeners;
     private MultiColumnListListener listListener;
 
-    public MultiColumnSelectableList(
-            String[] columnTitles, SortOrder[] columnSortTypes, int sortColumnIndex, int width, int height) {
-        this.columnTitles = columnTitles;
-        this.columnSortTypes = columnSortTypes;
+    public MultiColumnSelectableList(List<MultiColumnListColumn> columns, int sortColumnIndex, int width, int height) {
+        this.columns = columns;
         this.sortColumnIndex = sortColumnIndex;
         this.width = width;
         this.height = height;
         this.setSize(width, height);
         this.emptyListText = null;
-        this.columnCount = columnTitles != null ? columnTitles.length : 0;
+        this.columnCount = columns.size();
         this.items = new ArrayList<>();
         this.selectable = 0;
         this.usableWidth = width - 6 - 16;
@@ -130,13 +127,13 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
             String[][] text = new String[1][this.columnCount];
 
             for (int i = 0; i < this.columnCount; ++i) {
-                text[0][i] = this.columnTitles[i];
+                text[0][i] = this.columns.get(i).title();
             }
 
             this.columnWidths = this.getColumnWidths(text);
 
             for (int i = 0; i < this.columnCount; ++i) {
-                this.imageGraphics.drawString(this.columnTitles[i], 3 + this.columnWidths[i], rowTextSize);
+                this.imageGraphics.drawString(this.columns.get(i).title(), 3 + this.columnWidths[i], rowTextSize);
             }
 
             if (this.emptyListText != null) {
@@ -171,7 +168,7 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
             this.columnWidths = this.getColumnWidths(strings);
 
             for (int i = 0; i < this.columnCount; ++i) {
-                this.imageGraphics.drawString(this.columnTitles[i], 3 + this.columnWidths[i], rowTextSize);
+                this.imageGraphics.drawString(this.columns.get(i).title(), 3 + this.columnWidths[i], rowTextSize);
             }
 
             int y = rowTextSize + 16;
@@ -499,18 +496,6 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
         return new int[] {this.lastMouseClickX, this.lastMouseClickY};
     }
 
-    public void setTitle(String text, int column) {
-        this.columnTitles[column] = text;
-        this.repaint();
-    }
-
-    public void setSortOrder(SortOrder sortOrder, int column) {
-        this.columnSortTypes[column] = sortOrder;
-        if (column == this.sortColumnIndex) {
-            this.reSort();
-        }
-    }
-
     private synchronized void configureScrollbar(int offset) {
         int maximum = this.items.size();
         if (maximum <= this.rows) {
@@ -573,7 +558,7 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
             for (int i = 0; i < itemsCount; ++i) {
                 String otherText = this.getItem(i).getString(this.sortColumnIndex);
                 otherText = otherText != null ? otherText.toLowerCase() : "";
-                SortOrder sortOrder = this.columnSortTypes[this.sortColumnIndex];
+                SortOrder sortOrder = this.columns.get(this.sortColumnIndex).sortOrder();
                 int compValue = sortOrder.getComparator().compare(text, otherText);
                 if (compValue < 0) {
                     return i;
@@ -594,7 +579,8 @@ public class MultiColumnSelectableList<T> extends Panel implements AdjustmentLis
         int[] maxColumnWidths = new int[columns];
 
         for (int i = 0; i < columns; ++i) {
-            maxColumnWidths[i] = this.fontMetrics.stringWidth(this.columnTitles[i]);
+            maxColumnWidths[i] =
+                    this.fontMetrics.stringWidth(this.columns.get(i).title());
         }
 
         for (int i = 0; i < rows; ++i) {

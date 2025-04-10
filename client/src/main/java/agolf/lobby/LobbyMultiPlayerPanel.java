@@ -7,6 +7,7 @@ import com.aapeli.client.InputTextField;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
+import com.aapeli.colorgui.MultiColumnListColumn;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnListListener;
 import com.aapeli.colorgui.MultiColumnSelectableList;
@@ -19,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 
 class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener<int[]> {
 
@@ -487,16 +489,18 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
                 this.width / 2 - 170, /*isUsingCustomServer ? 372 :*/ 365, 100, /*isUsingCustomServer ? 20 :*/ 25);
         this.buttonCreate.addActionListener(this);
         this.add(this.buttonCreate);
-        String[] listTitles = new String[] {
-            this.gameContainer.textManager.getText("LobbyReal_ListTitleUserLimit"),
-            this.gameContainer.textManager.getText("LobbyReal_ListTitleGame"),
-            this.gameContainer.textManager.getText("LobbyReal_ListTitlePlayers"),
-            this.gameContainer.textManager.getText("LobbyReal_ListTitleTracks")
-        };
-        SortOrder[] columnSortTypes = new SortOrder[] {
-            SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_123_FIRST, SortOrder.ORDER_321_FIRST
-        };
-        this.trackList = new MultiColumnSelectableList<>(listTitles, columnSortTypes, 1, this.width / 2 - 40, 125);
+        List<MultiColumnListColumn> columns = List.of(
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_ListTitleUserLimit"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_ListTitleGame"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_ListTitlePlayers"),
+                        SortOrder.ORDER_123_FIRST),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_ListTitleTracks"),
+                        SortOrder.ORDER_321_FIRST));
+        this.trackList = new MultiColumnSelectableList<>(columns, 1, this.width / 2 - 40, 125);
         this.trackList.setLocation(this.width / 2 + 20, 75);
         this.trackList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-multi-fade"), this.width / 2 + 20, 75);
