@@ -5,9 +5,9 @@ import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.MultiColorList;
-import com.aapeli.colorgui.MultiColorListItem;
-import com.aapeli.colorgui.MultiColorListListener;
+import com.aapeli.colorgui.MultiColumnListItem;
+import com.aapeli.colorgui.MultiColumnListListener;
+import com.aapeli.colorgui.MultiColumnSelectableList;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -19,7 +19,7 @@ import java.awt.event.ItemListener;
 import java.util.StringTokenizer;
 import org.moparforia.client.Launcher;
 
-class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListener, MultiColorListListener {
+class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener {
 
     private GameContainer gameContainer;
     private int width;
@@ -27,7 +27,7 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
     private Choicer choicerTracksNum;
     private Choicer choicerTrackTypes;
     private Choicer choicerWaterEvent;
-    private MultiColorList trackSetList;
+    private MultiColumnSelectableList trackSetList;
     private Button buttonStartTraining;
     private Button buttonStartChampionship;
     private String selectedTrackData;
@@ -247,7 +247,7 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
                     this.selectedTrackData = var8;
                 }
 
-                MultiColorListItem var10 = new MultiColorListItem(var3, false, var7, off + "\t" + var8, var9);
+                MultiColumnListItem var10 = new MultiColumnListItem(var3, false, var7, off + "\t" + var8, var9);
                 this.trackSetList.addItem(var10);
             }
 
@@ -291,8 +291,12 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
             this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"),
             this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks")
         };
-        int[] var2 = new int[] {0, 0, 4};
-        this.trackSetList = new MultiColorList(trackSetListTitles, var2, 1, 250, 130);
+        int[] columnSortTypes = new int[] {
+            MultiColumnSelectableList.ORDER_ABC,
+            MultiColumnSelectableList.ORDER_ABC,
+            MultiColumnSelectableList.ORDER_123_ALL
+        };
+        this.trackSetList = new MultiColumnSelectableList(trackSetListTitles, columnSortTypes, 1, 250, 130);
         this.trackSetList.setLocation(this.width - 290, 130);
         this.trackSetList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-single-fade"), this.width - 290, 130);
@@ -308,12 +312,12 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
     }
 
     private String getSelectedTrackSetData() {
-        MultiColorListItem var1 = this.trackSetList.getSelectedItem();
+        MultiColumnListItem var1 = this.trackSetList.getSelectedItem();
         return var1 == null ? null : (String) var1.getData();
     }
 
     @Override
-    public void mouseDoubleClicked(MultiColorListItem clickedItem) {
+    public void mouseDoubleClicked(MultiColumnListItem clickedItem) {
         String itemData = (String) clickedItem.getData();
         if (itemData != null) {
             startChampionship(Integer.parseInt(itemData.substring(0, itemData.indexOf(9))));

@@ -7,9 +7,9 @@ import com.aapeli.client.InputTextField;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.MultiColorList;
-import com.aapeli.colorgui.MultiColorListItem;
-import com.aapeli.colorgui.MultiColorListListener;
+import com.aapeli.colorgui.MultiColumnListItem;
+import com.aapeli.colorgui.MultiColumnListListener;
+import com.aapeli.colorgui.MultiColumnSelectableList;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColorListListener {
+class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener {
 
     private GameContainer gameContainer;
     private int width;
@@ -38,7 +38,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
     private Choicer choicerScoringEnd;
     private Button buttonCreate;
     private Button buttonJoin;
-    private MultiColorList trackList;
+    private MultiColumnSelectableList trackList;
     private int joinError;
     private LobbyGamePasswordPanel lobbyGamePasswordPanel;
     private Image image;
@@ -492,8 +492,13 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
             this.gameContainer.textManager.getText("LobbyReal_ListTitlePlayers"),
             this.gameContainer.textManager.getText("LobbyReal_ListTitleTracks")
         };
-        int[] var3 = new int[] {0, 0, 2, 3};
-        this.trackList = new MultiColorList(listTitles, var3, 1, this.width / 2 - 40, 125);
+        int[] columnSortTypes = new int[] {
+            MultiColumnSelectableList.ORDER_ABC,
+            MultiColumnSelectableList.ORDER_ABC,
+            MultiColumnSelectableList.ORDER_123_FIRST,
+            MultiColumnSelectableList.ORDER_321_FIRST
+        };
+        this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, this.width / 2 - 40, 125);
         this.trackList.setLocation(this.width / 2 + 20, 75);
         this.trackList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-multi-fade"), this.width / 2 + 20, 75);
@@ -551,15 +556,15 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         int scoringEnd = Integer.parseInt(args[offset + 13]); // unsure
         int numPlayers = Integer.parseInt(args[offset + 14]);
         // int trackCategory = isUsingCustomServer ? Integer.parseInt(args[offset + 15]) : -1;
-        byte colourIndex = MultiColorListItem.COLOR_BLACK;
+        byte colourIndex = MultiColumnListItem.COLOR_BLACK;
         boolean bold = false;
         String[] cols = new String[4];
         if (passworded) {
             cols[0] = this.gameContainer.textManager.getText("LobbyReal_ListPassword");
-            colourIndex = MultiColorListItem.COLOR_RED;
+            colourIndex = MultiColumnListItem.COLOR_RED;
         } else if (permission == 2) {
             cols[0] = this.gameContainer.textManager.getText("LobbyReal_ListVipOnly");
-            colourIndex = MultiColorListItem.COLOR_GREEN;
+            colourIndex = MultiColumnListItem.COLOR_GREEN;
             bold = true;
         } else if (permission == 1) {
             cols[0] = this.gameContainer.textManager.getText("LobbyReal_ListRegOnly");
@@ -587,7 +592,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
             scoringEnd
         };
         // }
-        MultiColorListItem track = new MultiColorListItem(colourIndex, bold, cols, trackInfo, id == defaultGameId);
+        MultiColumnListItem track = new MultiColumnListItem(colourIndex, bold, cols, trackInfo, id == defaultGameId);
         this.trackList.addItem(track);
     }
 
@@ -610,9 +615,9 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
 
     private void removeTrack(int var1) {
         synchronized (trackList) {
-            MultiColorListItem[] tracks = this.trackList.getAllItems();
+            MultiColumnListItem[] tracks = this.trackList.getAllItems();
             if (tracks != null) {
-                for (MultiColorListItem track : tracks) {
+                for (MultiColumnListItem track : tracks) {
                     int[] trackData = (int[]) track.getData();
                     if (trackData[0] == var1) {
                         this.trackList.removeItem(track);
@@ -629,12 +634,12 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
     }
 
     private int[] getSelectedGameData() {
-        MultiColorListItem var1 = this.trackList.getSelectedItem();
+        MultiColumnListItem var1 = this.trackList.getSelectedItem();
         return var1 == null ? null : (int[]) var1.getData();
     }
 
     @Override
-    public void mouseDoubleClicked(MultiColorListItem clickedItem) {
+    public void mouseDoubleClicked(MultiColumnListItem clickedItem) {
         this.joinError = 0;
         this.repaint();
         int[] gameData = (int[]) clickedItem.getData();

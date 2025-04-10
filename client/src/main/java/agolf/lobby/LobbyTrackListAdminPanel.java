@@ -4,8 +4,8 @@ import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
-import com.aapeli.colorgui.MultiColorList;
-import com.aapeli.colorgui.MultiColorListItem;
+import com.aapeli.colorgui.MultiColumnListItem;
+import com.aapeli.colorgui.MultiColumnSelectableList;
 import java.awt.Checkbox;
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -20,7 +20,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private GameContainer gameContainer;
     private int width;
     private int height;
-    private MultiColorList trackList;
+    private MultiColumnSelectableList trackList;
     private Button buttonRefresh;
     private Button buttonUnselect;
     private Button buttonPlay;
@@ -73,7 +73,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             }
 
         } else {
-            MultiColorListItem[] selectedItems = this.trackList.getSelectedItems();
+            MultiColumnListItem[] selectedItems = this.trackList.getSelectedItems();
             if (selectedItems != null) {
                 int selectedItemsLen = selectedItems.length;
                 if (selectedItemsLen >= 1) {
@@ -227,15 +227,20 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
         if (this.trackList == null) {
             this.setVisible(false);
             String[] listTitles;
-            int[] var4;
+            int[] columnSortTypes;
             if (isAdmin) {
                 listTitles = new String[] {"Status", "Author", "Track", "Rating"};
-                var4 = new int[] {0, 0, 0, 5};
-                this.trackList = new MultiColorList(listTitles, var4, 2, 450, 250);
+                columnSortTypes = new int[] {
+                    MultiColumnSelectableList.ORDER_ABC,
+                    MultiColumnSelectableList.ORDER_ABC,
+                    MultiColumnSelectableList.ORDER_ABC,
+                    MultiColumnSelectableList.ORDER_321_ALL
+                };
+                this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 2, 450, 250);
             } else {
                 listTitles = new String[] {"Status", "Track"};
-                var4 = new int[2];
-                this.trackList = new MultiColorList(listTitles, var4, 1, 450, 250);
+                columnSortTypes = new int[2];
+                this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, 450, 250);
             }
 
             this.trackList.setLocation(this.width / 2 - 125 - 100 - 50, 100);
@@ -252,33 +257,33 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
         for (int index = 0; index < tracksInfoLen; ++index) {
             int trackStatus = Integer.parseInt(tracksInfo[index][0]);
             if (trackStatus == 0) {
-                colour = MultiColorListItem.COLOR_RED;
+                colour = MultiColumnListItem.COLOR_RED;
                 tracksInfo[index][0] = "Private";
             }
 
             if (trackStatus == 1) {
-                colour = MultiColorListItem.COLOR_YELLOW;
+                colour = MultiColumnListItem.COLOR_YELLOW;
                 tracksInfo[index][0] = "Pending";
             }
 
             if (trackStatus == 2) {
-                colour = MultiColorListItem.COLOR_GREEN;
+                colour = MultiColumnListItem.COLOR_GREEN;
                 tracksInfo[index][0] = "Public";
             }
 
             if (trackStatus == 3) {
-                colour = MultiColorListItem.COLOR_BLUE;
+                colour = MultiColumnListItem.COLOR_BLUE;
                 tracksInfo[index][0] = "TrackSet";
             }
 
             // Status", "Author", "Track", "Rating
 
-            MultiColorListItem listItem;
+            MultiColumnListItem listItem;
             if (isAdmin) {
-                listItem = new MultiColorListItem(
+                listItem = new MultiColumnListItem(
                         colour, tracksInfo[index], tracksInfo[index][1] + ":" + tracksInfo[index][2]);
             } else {
-                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1]);
+                listItem = new MultiColumnListItem(colour, tracksInfo[index], tracksInfo[index][1]);
             }
 
             this.trackList.addItem(listItem);
