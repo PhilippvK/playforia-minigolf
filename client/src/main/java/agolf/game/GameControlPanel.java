@@ -2,8 +2,8 @@ package agolf.game;
 
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
+import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
 import java.awt.Checkbox;
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -19,9 +19,9 @@ class GameControlPanel extends Panel implements ActionListener, ItemListener {
     private int anInt342;
     private int anInt343;
     private int playerCount;
-    private ColorButton buttonSkip;
-    private ColorButton buttonNewGame;
-    private ColorButton buttonBack;
+    private Button buttonSkip;
+    private Button buttonNewGame;
+    private Button buttonBack;
     private Choicer playerNamesDisplayModeChoicer;
     private Checkbox checkboxMaxFps;
     private boolean skipButtonVisible;
@@ -104,14 +104,14 @@ class GameControlPanel extends Panel implements ActionListener, ItemListener {
         this.removeAll();
         this.skipButtonVisible = false;
         if (state == 2) {
-            this.buttonNewGame = new ColorButton(this.gameContainer.textManager.getText("GameControl_New"));
+            this.buttonNewGame = new Button(this.gameContainer.textManager.getText("GameControl_New"));
             this.buttonNewGame.setBounds(0, this.anInt343 - 55, this.anInt342, 25);
             this.buttonNewGame.setBackground(GolfGameFrame.colourButtonGreen);
             this.buttonNewGame.setForeground(GolfGameFrame.colourTextBlack);
             this.buttonNewGame.addActionListener(this);
             this.add(this.buttonNewGame);
         } else {
-            this.buttonSkip = new ColorButton(this.gameContainer.textManager.getText("GameControl_Skip"));
+            this.buttonSkip = new Button(this.gameContainer.textManager.getText("GameControl_Skip"));
             this.buttonSkip.setBounds(0, this.anInt343 - 55, this.anInt342, 25);
             this.buttonSkip.setBackground(GolfGameFrame.colourButtonBlue);
             this.buttonSkip.setForeground(GolfGameFrame.colourTextBlack);
@@ -139,7 +139,7 @@ class GameControlPanel extends Panel implements ActionListener, ItemListener {
             }
         }
 
-        this.buttonBack = new ColorButton(this.gameContainer.textManager.getText("GameControl_Back"));
+        this.buttonBack = new Button(this.gameContainer.textManager.getText("GameControl_Back"));
         this.buttonBack.setBounds(0, this.anInt343 - 25, this.anInt342, 25);
         this.buttonBack.setBackground(GolfGameFrame.colourButtonYellow);
         this.buttonBack.setForeground(GolfGameFrame.colourTextBlack);

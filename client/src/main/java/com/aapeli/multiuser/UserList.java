@@ -3,11 +3,11 @@ package com.aapeli.multiuser;
 import com.aapeli.client.IPanel;
 import com.aapeli.client.ImageManager;
 import com.aapeli.client.TextManager;
-import com.aapeli.colorgui.ColorCheckbox;
+import com.aapeli.colorgui.Checkbox;
 import com.aapeli.colorgui.ColorList;
 import com.aapeli.colorgui.ColorListItem;
 import com.aapeli.colorgui.ColorListItemGroup;
-import com.aapeli.colorgui.ColorTextArea;
+import com.aapeli.colorgui.TextArea;
 import com.aapeli.tools.Tools;
 import java.awt.CheckboxMenuItem;
 import java.awt.Color;
@@ -53,8 +53,8 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     private Image[] rankingIcons;
     private boolean rankingsShown;
     private ColorList playersList;
-    private ColorCheckbox sendPrivatelyCheckbox;
-    private ColorCheckbox ignoreUserCheckbox;
+    private Checkbox sendPrivatelyCheckbox;
+    private Checkbox ignoreUserCheckbox;
     private RoundedUpperCornersButton sortByRankingButton;
     private RoundedUpperCornersButton sortByNicknameButton;
     private Image backgroundImage;
@@ -88,7 +88,7 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     private List<String> ignoredUsers;
     private boolean sheriffMarkEnabled;
     private boolean dimmerNicksEnabled;
-    private ColorTextArea chatOutput;
+    private TextArea chatOutput;
     private ChatBase chat;
     private Languages languages;
     private Hashtable<Language, ColorListItemGroup> languageGroups;
@@ -656,7 +656,7 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
         return this.playersList.getItemCount();
     }
 
-    public void setChatOutputReference(ColorTextArea chatOutput) {
+    public void setChatOutputReference(TextArea chatOutput) {
         this.chatOutput = chatOutput;
     }
 
@@ -800,14 +800,14 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
         this.add(this.playersList);
         this.setSorting(UserList.SORT_NICKNAME_ABC);
         if (addSendPrivately) {
-            this.sendPrivatelyCheckbox = new ColorCheckbox(this.textManager.getText("UserList_Privately"));
+            this.sendPrivatelyCheckbox = new Checkbox(this.textManager.getText("UserList_Privately"));
             this.sendPrivatelyCheckbox.setBounds(0, this.height - 18 - (addIgnoreUser ? 18 : 0), this.width, 18);
             this.sendPrivatelyCheckbox.addItemListener(this);
             this.add(this.sendPrivatelyCheckbox);
         }
 
         if (addIgnoreUser) {
-            this.ignoreUserCheckbox = new ColorCheckbox(this.textManager.getText("UserList_Ignore"));
+            this.ignoreUserCheckbox = new Checkbox(this.textManager.getText("UserList_Ignore"));
             this.ignoreUserCheckbox.setBounds(0, this.height - 18, this.width, 18);
             this.ignoreUserCheckbox.addItemListener(this);
             this.add(this.ignoreUserCheckbox);

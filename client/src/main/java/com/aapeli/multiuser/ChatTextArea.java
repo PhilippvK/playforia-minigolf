@@ -3,11 +3,11 @@ package com.aapeli.multiuser;
 import com.aapeli.client.BadWordFilter;
 import com.aapeli.client.TextManager;
 import com.aapeli.colorgui.ColorListItem;
-import com.aapeli.colorgui.ColorTextArea;
+import com.aapeli.colorgui.TextArea;
 import java.awt.Font;
 import java.util.Hashtable;
 
-public class ChatTextArea extends ColorTextArea {
+public class ChatTextArea extends TextArea {
 
     public static final Font DEFAULT_FONT = new Font("Dialog", Font.PLAIN, 12);
     public static final Font SMALL_FONT = new Font("Dialog", Font.PLAIN, 11);

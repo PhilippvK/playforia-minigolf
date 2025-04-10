@@ -17,7 +17,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class ColorTextArea extends IPanel implements ComponentListener, AdjustmentListener {
+public class TextArea extends IPanel implements ComponentListener, AdjustmentListener {
 
     public static final int COLOR_BLACK = 0;
     public static final int COLOR_RED = 1;
@@ -59,8 +59,8 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
     private int maxLineWidth;
     private int lineHeight;
     private int scrollWindowNumberOfLines;
-    private List<ColorText> lines;
-    private List<ColorText> texts;
+    private List<TextAreaText> lines;
+    private List<TextAreaText> texts;
     private Image image;
     private Graphics graphics;
     private int imageWidth;
@@ -68,7 +68,7 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
     private int borderStyle;
     private Object synchronizationObject;
 
-    public ColorTextArea(int width, int height, Font font) {
+    public TextArea(int width, int height, Font font) {
         this.synchronizationObject = new Object();
         this.width = width;
         this.height = height;
@@ -136,11 +136,11 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
                 int scrollbarOffset = this.hasScrollbar ? this.scrollbar.getValue() : 0;
 
                 for (int i = 0; i <= this.scrollWindowNumberOfLines && scrollbarOffset < linesCount; ++i) {
-                    ColorText colorText = this.lines.get(scrollbarOffset);
-                    if (!colorText.isTextEmpty()) {
-                        this.graphics.setFont(colorText.isBold() ? this.fontBold : this.font);
-                        this.graphics.setColor(colorText.getColor());
-                        this.graphics.drawString(colorText.getText(), 3, y);
+                    TextAreaText text = this.lines.get(scrollbarOffset);
+                    if (!text.isTextEmpty()) {
+                        this.graphics.setFont(text.isBold() ? this.fontBold : this.font);
+                        this.graphics.setColor(text.getColor());
+                        this.graphics.drawString(text.getText(), 3, y);
                     }
 
                     y += this.lineHeight;
@@ -222,12 +222,12 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
             String[] textWithTimestamps = new String[textCount];
             if (textCount > 0) {
                 for (int i = 0; i < textCount; ++i) {
-                    ColorText colorText = this.texts.get(i);
-                    if (colorText.isTextEmpty()) {
+                    TextAreaText text = this.texts.get(i);
+                    if (text.isTextEmpty()) {
                         textWithTimestamps[i] = "";
                     } else {
                         Calendar calendar = Calendar.getInstance();
-                        calendar.setTime(new Date(colorText.getCreated()));
+                        calendar.setTime(new Date(text.getCreated()));
                         int hour = calendar.get(Calendar.HOUR_OF_DAY);
                         int minute = calendar.get(Calendar.MINUTE);
                         textWithTimestamps[i] = "["
@@ -237,7 +237,7 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
                                 + (minute < 10 ? "0" : "")
                                 + minute
                                 + "] "
-                                + colorText.getText();
+                                + text.getText();
                     }
                 }
             }
@@ -291,8 +291,8 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
                     break;
                 }
 
-                ColorText colorText = this.texts.get(i);
-                this.splitTextToLines(colorText.getColor(), colorText.getText(), colorText.isBold());
+                TextAreaText text = this.texts.get(i);
+                this.splitTextToLines(text.getColor(), text.getText(), text.isBold());
                 ++i;
             }
         }
@@ -312,7 +312,7 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
 
     private void addText(Color color, String text, boolean bold, boolean scrollToBottom) {
         synchronized (this.synchronizationObject) {
-            this.texts.add(new ColorText(color, text, bold));
+            this.texts.add(new TextAreaText(color, text, bold));
             int lineCount = this.lines.size();
             this.splitTextToLines(color, text, bold);
             this.updateScrollWindow(lineCount, scrollToBottom);
@@ -355,7 +355,7 @@ public class ColorTextArea extends IPanel implements ComponentListener, Adjustme
 
     private void addLine(Color color, String text, boolean bold) {
         synchronized (this.synchronizationObject) {
-            this.lines.add(new ColorText(color, text, bold));
+            this.lines.add(new TextAreaText(color, text, bold));
         }
     }
 

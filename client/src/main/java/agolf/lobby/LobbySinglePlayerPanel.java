@@ -3,8 +3,8 @@ package agolf.lobby;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
+import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
 import com.aapeli.colorgui.MultiColorList;
 import com.aapeli.colorgui.MultiColorListItem;
 import com.aapeli.colorgui.MultiColorListListener;
@@ -28,8 +28,8 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
     private Choicer choicerTrackTypes;
     private Choicer choicerWaterEvent;
     private MultiColorList trackSetList;
-    private ColorButton buttonStartTraining;
-    private ColorButton buttonStartChampionship;
+    private Button buttonStartTraining;
+    private Button buttonStartChampionship;
     private String selectedTrackData;
     private boolean requestTrackSetList;
     private Image image;
@@ -281,7 +281,7 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         this.choicerWaterEvent = this.gameContainer.lobbyPanel.addChoicerWaterEvent(
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 235 :*/ 205, 150, 20);
         this.choicerWaterEvent.addItemListener(this);
-        this.buttonStartTraining = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Start"));
+        this.buttonStartTraining = new Button(this.gameContainer.textManager.getText("LobbyReal_Start"));
         this.buttonStartTraining.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonStartTraining.setBounds(this.width / 2 - 170, /*isUsingCustomServer ? 300 :*/ 270, 100, 25);
         this.buttonStartTraining.addActionListener(this);
@@ -300,7 +300,7 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         this.trackSetList.addItemListener(this);
         trackSetList.setListListener(this);
         this.add(this.trackSetList);
-        this.buttonStartChampionship = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Start"));
+        this.buttonStartChampionship = new Button(this.gameContainer.textManager.getText("LobbyReal_Start"));
         this.buttonStartChampionship.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonStartChampionship.setBounds(this.width - 290 + 75 - 20, 270, 100, 25);
         this.buttonStartChampionship.addActionListener(this);

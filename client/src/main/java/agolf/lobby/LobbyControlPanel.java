@@ -3,7 +3,7 @@ package agolf.lobby;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import agolf.LobbySelectPanel;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
@@ -14,11 +14,11 @@ class LobbyControlPanel extends Panel implements ActionListener {
     private GameContainer gameContainer;
     private int width;
     private int height;
-    private ColorButton buttonBack;
-    private ColorButton buttonSingle;
-    // private ColorButton buttonDual;
-    private ColorButton buttonMulti;
-    private ColorButton buttonQuit;
+    private Button buttonBack;
+    private Button buttonSingle;
+    // private Button buttonDual;
+    private Button buttonMulti;
+    private Button buttonQuit;
 
     protected LobbyControlPanel(GameContainer gameContainer, int width, int height) {
         this.gameContainer = gameContainer;
@@ -95,27 +95,27 @@ class LobbyControlPanel extends Panel implements ActionListener {
 
     private void create() {
         this.setLayout(null);
-        this.buttonBack = new ColorButton(this.gameContainer.textManager.getText("LobbyControl_Main"));
+        this.buttonBack = new Button(this.gameContainer.textManager.getText("LobbyControl_Main"));
         this.buttonBack.setBackground(GolfGameFrame.colourButtonYellow);
         this.buttonBack.setBounds(0, 0, this.width, 20);
         this.buttonBack.addActionListener(this);
         this.add(this.buttonBack);
         if (!this.gameContainer.disableSinglePlayer) {
-            this.buttonSingle = new ColorButton(this.gameContainer.textManager.getText("LobbyControl_Single"));
+            this.buttonSingle = new Button(this.gameContainer.textManager.getText("LobbyControl_Single"));
             this.buttonSingle.setBounds(0, 27, this.width, 20);
             this.buttonSingle.addActionListener(this);
         }
 
         /*
-        this.buttonDual = new ColorButton(this.gameContainer.textManager.getGame("LobbyControl_Dual"));
+        this.buttonDual = new Button(this.gameContainer.textManager.getGame("LobbyControl_Dual"));
         this.buttonDual.setBounds(0, 52, this.height, 20);
         this.buttonDual.addActionListener(this);
         */
 
-        this.buttonMulti = new ColorButton(this.gameContainer.textManager.getText("LobbyControl_Multi"));
+        this.buttonMulti = new Button(this.gameContainer.textManager.getText("LobbyControl_Multi"));
         this.buttonMulti.setBounds(0, 77, this.width, 20);
         this.buttonMulti.addActionListener(this);
-        this.buttonQuit = new ColorButton(this.gameContainer.textManager.getText("LobbyControl_Quit"));
+        this.buttonQuit = new Button(this.gameContainer.textManager.getText("LobbyControl_Quit"));
         this.buttonQuit.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonQuit.setBounds(0, this.height - 20, this.width, 20);
         this.buttonQuit.addActionListener(this);

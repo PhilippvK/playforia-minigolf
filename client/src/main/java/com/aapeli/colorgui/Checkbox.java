@@ -14,7 +14,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorCheckbox extends IPanel implements ItemSelectable, MouseListener {
+public class Checkbox extends IPanel implements ItemSelectable, MouseListener {
 
     public static final int ALIGN_LEFT = -1;
     public static final int ALIGN_CENTER = 0;
@@ -33,18 +33,18 @@ public class ColorCheckbox extends IPanel implements ItemSelectable, MouseListen
     private String text;
     private int alignment;
     private boolean checked;
-    private ColorCheckboxGroup checkboxGroup;
+    private CheckboxGroup checkboxGroup;
     private List<ItemListener> listeners;
     private Image image;
     private Graphics graphics;
     private int width;
     private int height;
 
-    public ColorCheckbox(String text) {
+    public Checkbox(String text) {
         this(text, false);
     }
 
-    public ColorCheckbox(String text, boolean checked) {
+    public Checkbox(String text, boolean checked) {
         this.text = text;
         this.checked = checked;
         this.listeners = new ArrayList<>();
@@ -293,7 +293,7 @@ public class ColorCheckbox extends IPanel implements ItemSelectable, MouseListen
                 preferredHeight + 4 + this.getFontMetrics(this.font).stringWidth(this.text) + 4, preferredHeight);
     }
 
-    public void setGroup(ColorCheckboxGroup group) {
+    public void setGroup(CheckboxGroup group) {
         this.checkboxGroup = group;
         group.addCheckbox(this);
         this.repaint();

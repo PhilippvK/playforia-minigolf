@@ -3,11 +3,11 @@ package com.aapeli.colorgui;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ColorCheckboxGroup {
+public final class CheckboxGroup {
 
-    private List<ColorCheckbox> checkboxes = new ArrayList<>();
+    private List<Checkbox> checkboxes = new ArrayList<>();
 
-    protected void addCheckbox(ColorCheckbox checkbox) {
+    protected void addCheckbox(Checkbox checkbox) {
         synchronized (this.checkboxes) {
             this.checkboxes.add(checkbox);
         }
@@ -23,8 +23,8 @@ public final class ColorCheckboxGroup {
     }
 
     private void updateCheckboxes() {
-        for (ColorCheckbox colorCheckbox : checkboxes) {
-            colorCheckbox.realSetState(false);
+        for (Checkbox checkbox : checkboxes) {
+            checkbox.realSetState(false);
         }
     }
 }

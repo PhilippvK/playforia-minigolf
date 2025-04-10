@@ -3,7 +3,7 @@ package agolf.game;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -43,11 +43,11 @@ class TrackInfoPanel extends Panel implements ActionListener {
     private double resultBestPercent;
     private double resultAverage;
     private double trackAverageRating;
-    private ColorButton buttonNoVote;
-    private ColorButton[] buttonsVote;
-    private ColorButton buttonReject;
-    private ColorButton buttonAccept;
-    private ColorButton buttonR;
+    private Button buttonNoVote;
+    private Button[] buttonsVote;
+    private Button buttonReject;
+    private Button buttonAccept;
+    private Button buttonR;
     private ConfirmButton buttonBack;
     private boolean hasNotRatedTrack;
     private boolean trackPending;
@@ -351,23 +351,23 @@ class TrackInfoPanel extends Panel implements ActionListener {
 
     private void create() {
         this.setLayout(null);
-        this.buttonNoVote = new ColorButton("-");
+        this.buttonNoVote = new Button("-");
         this.buttonNoVote.setBounds(this.width - 264, this.height - 15, 22, 15);
         this.buttonNoVote.addActionListener(this);
-        this.buttonsVote = new ColorButton[11];
+        this.buttonsVote = new Button[11];
 
         for (int i = 0; i <= 10; ++i) {
-            this.buttonsVote[i] = new ColorButton(String.valueOf(i));
+            this.buttonsVote[i] = new Button(String.valueOf(i));
             this.buttonsVote[i].setBounds(this.width - 264 + 22 * (i + 1), this.height - 15, 22, 15);
             this.buttonsVote[i].setBackground(voteColours[i]);
             this.buttonsVote[i].addActionListener(this);
         }
 
-        this.buttonReject = new ColorButton("Reject");
+        this.buttonReject = new Button("Reject");
         this.buttonReject.setBounds(this.width - 10 - 80 - 10 - 80, this.height - 15, 70, 15);
         this.buttonReject.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonReject.addActionListener(this);
-        this.buttonAccept = new ColorButton("Accept");
+        this.buttonAccept = new Button("Accept");
         this.buttonAccept.setBounds(this.width - 10 - 80 - 10, this.height - 15, 70, 15);
         this.buttonAccept.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonAccept.addActionListener(this);
@@ -375,7 +375,7 @@ class TrackInfoPanel extends Panel implements ActionListener {
         this.buttonBack.setBounds(this.width - 10 - 130, this.height - 15, 95, 15);
         this.buttonBack.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonBack.setActionListener(this);
-        this.buttonR = new ColorButton("R");
+        this.buttonR = new Button("R");
         this.buttonR.setBounds(this.width - 10 - 20 - 5, this.height - 15, 25, 15);
         this.buttonR.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonR.addActionListener(this);

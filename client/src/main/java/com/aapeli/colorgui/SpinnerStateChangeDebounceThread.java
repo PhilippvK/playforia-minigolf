@@ -2,14 +2,14 @@ package com.aapeli.colorgui;
 
 import com.aapeli.tools.Tools;
 
-class ColorSpinnerStateChangeDebounceThread implements Runnable {
+class SpinnerStateChangeDebounceThread implements Runnable {
 
-    private ColorSpinner colorSpinner;
+    private Spinner spinner;
     private int delay;
     private boolean running;
 
-    protected ColorSpinnerStateChangeDebounceThread(ColorSpinner spinner, int delay) {
-        this.colorSpinner = spinner;
+    protected SpinnerStateChangeDebounceThread(Spinner spinner, int delay) {
+        this.spinner = spinner;
         this.delay = delay;
         this.running = true;
         Thread thread = new Thread(this);
@@ -20,7 +20,7 @@ class ColorSpinnerStateChangeDebounceThread implements Runnable {
     public void run() {
         Tools.sleep(this.delay);
         if (this.running) {
-            this.colorSpinner.notifyListeners();
+            this.spinner.notifyListeners();
         }
     }
 

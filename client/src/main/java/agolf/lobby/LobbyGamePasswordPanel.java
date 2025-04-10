@@ -2,7 +2,7 @@ package agolf.lobby;
 
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.TextField;
@@ -17,8 +17,8 @@ class LobbyGamePasswordPanel extends Panel implements KeyListener, ActionListene
     private LobbyMultiPlayerPanel lobbyMultiPlayerPanel;
     private int gameId;
     private TextField textField;
-    private ColorButton buttonOk;
-    private ColorButton buttonCancel;
+    private Button buttonOk;
+    private Button buttonCancel;
     private boolean emptyField;
 
     protected LobbyGamePasswordPanel(
@@ -79,12 +79,12 @@ class LobbyGamePasswordPanel extends Panel implements KeyListener, ActionListene
         this.textField.setBounds(25, 9, 150, 20);
         this.textField.addKeyListener(this);
         this.add(this.textField);
-        this.buttonCancel = new ColorButton(this.gameContainer.textManager.getText("LobbyRealPassword_Cancel"));
+        this.buttonCancel = new Button(this.gameContainer.textManager.getText("LobbyRealPassword_Cancel"));
         this.buttonCancel.setBounds(25, 31, 50, 20);
         this.buttonCancel.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonCancel.addActionListener(this);
         this.add(this.buttonCancel);
-        this.buttonOk = new ColorButton(this.gameContainer.textManager.getText("LobbyRealPassword_Ok"));
+        this.buttonOk = new Button(this.gameContainer.textManager.getText("LobbyRealPassword_Ok"));
         this.buttonOk.setBounds(125, 31, 50, 20);
         this.buttonOk.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonOk.addActionListener(this);

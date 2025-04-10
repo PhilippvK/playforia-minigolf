@@ -8,7 +8,7 @@ import com.aapeli.client.InputTextFieldListener;
 import com.aapeli.client.Parameters;
 import com.aapeli.client.TextManager;
 import com.aapeli.client.UrlLabel;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -570,7 +570,7 @@ public abstract class ChatBase extends IPanel
 
         this.inputTextField.addInputTextFieldListener(this);
         this.add(this.inputTextField);
-        ColorButton sayButton = new ColorButton(this.textManager.getText("Chat_SayButton"));
+        Button sayButton = new Button(this.textManager.getText("Chat_SayButton"));
         sayButton.setBackground(sayButtonColor);
         sayButton.addActionListener(this);
         this.add(sayButton);

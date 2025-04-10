@@ -5,8 +5,8 @@ import agolf.GolfGameFrame;
 import com.aapeli.client.FilterTextField;
 import com.aapeli.client.InputTextField;
 import com.aapeli.client.StringDraw;
+import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
 import com.aapeli.colorgui.MultiColorList;
 import com.aapeli.colorgui.MultiColorListItem;
 import com.aapeli.colorgui.MultiColorListListener;
@@ -36,8 +36,8 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
     private Choicer choicerCollision;
     private Choicer choicerScoring;
     private Choicer choicerScoringEnd;
-    private ColorButton buttonCreate;
-    private ColorButton buttonJoin;
+    private Button buttonCreate;
+    private Button buttonJoin;
     private MultiColorList trackList;
     private int joinError;
     private LobbyGamePasswordPanel lobbyGamePasswordPanel;
@@ -480,7 +480,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 326 :*/ 303, 150, 20);
         this.choicerScoringEnd = this.gameContainer.lobbyPanel.addChoicerScoringEnd(
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 349 :*/ 326, 100, 20);
-        this.buttonCreate = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_CreateGame"));
+        this.buttonCreate = new Button(this.gameContainer.textManager.getText("LobbyReal_CreateGame"));
         this.buttonCreate.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonCreate.setBounds(
                 this.width / 2 - 170, /*isUsingCustomServer ? 372 :*/ 365, 100, /*isUsingCustomServer ? 20 :*/ 25);
@@ -501,7 +501,7 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
         this.trackList.addItemListener(this);
         trackList.setListListener(this);
         this.add(this.trackList);
-        this.buttonJoin = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_JoinGame"));
+        this.buttonJoin = new Button(this.gameContainer.textManager.getText("LobbyReal_JoinGame"));
         this.buttonJoin.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonJoin.setBounds(this.width * 3 / 4 - 50, 330, 100, 25);
         this.buttonJoin.addActionListener(this);

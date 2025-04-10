@@ -2,14 +2,14 @@ package com.aapeli.colorgui;
 
 import java.awt.Color;
 
-class ColorText {
+class TextAreaText {
 
     private long created;
     private Color color;
     private String text;
     private boolean bold;
 
-    public ColorText(Color color, String text, boolean bold) {
+    public TextAreaText(Color color, String text, boolean bold) {
         this.created = System.currentTimeMillis();
         this.color = color;
         this.text = text;

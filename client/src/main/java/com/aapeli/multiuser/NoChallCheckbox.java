@@ -1,9 +1,9 @@
 package com.aapeli.multiuser;
 
-import com.aapeli.colorgui.ColorCheckbox;
+import com.aapeli.colorgui.Checkbox;
 import java.awt.event.MouseEvent;
 
-public class NoChallCheckbox extends ColorCheckbox {
+public class NoChallCheckbox extends Checkbox {
 
     private long[] aLongArray4727;
 

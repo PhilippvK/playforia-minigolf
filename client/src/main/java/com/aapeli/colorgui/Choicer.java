@@ -15,7 +15,7 @@ import java.util.List;
 public class Choicer extends IPanel implements ComponentListener, ItemListener, ItemSelectable {
 
     private Choice choice = new Choice();
-    private ColorSpinner colorSpinner;
+    private Spinner spinner;
     private boolean choiceMode = true;
     private List<ItemListener> listeners;
     private Object lock = new Object();
@@ -43,7 +43,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.setSize(size);
             } else {
-                this.colorSpinner.setSize(size);
+                this.spinner.setSize(size);
             }
         }
     }
@@ -61,7 +61,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
 
     public Object[] getSelectedObjects() {
         synchronized (this.lock) {
-            return this.choiceMode ? this.choice.getSelectedObjects() : this.colorSpinner.getSelectedObjects();
+            return this.choiceMode ? this.choice.getSelectedObjects() : this.spinner.getSelectedObjects();
         }
     }
 
@@ -71,7 +71,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.setBackground(color);
             } else {
-                this.colorSpinner.setBackground(color);
+                this.spinner.setBackground(color);
             }
         }
     }
@@ -82,7 +82,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.setForeground(color);
             } else {
-                this.colorSpinner.setForeground(color);
+                this.spinner.setForeground(color);
             }
         }
     }
@@ -96,7 +96,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.addItem(text);
             } else {
-                this.colorSpinner.addItem(text);
+                this.spinner.addItem(text);
             }
         }
     }
@@ -106,20 +106,20 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.remove(i);
             } else {
-                this.colorSpinner.removeItem(i);
+                this.spinner.removeItem(i);
             }
         }
     }
 
     public int getItemCount() {
         synchronized (this.lock) {
-            return this.choiceMode ? this.choice.getItemCount() : this.colorSpinner.getItemCount();
+            return this.choiceMode ? this.choice.getItemCount() : this.spinner.getItemCount();
         }
     }
 
     public int getSelectedIndex() {
         synchronized (this.lock) {
-            return this.choiceMode ? this.choice.getSelectedIndex() : this.colorSpinner.getSelectedIndex();
+            return this.choiceMode ? this.choice.getSelectedIndex() : this.spinner.getSelectedIndex();
         }
     }
 
@@ -132,7 +132,7 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
             if (this.choiceMode) {
                 this.choice.select(i);
             } else {
-                this.colorSpinner.setSelectedIndex(i);
+                this.spinner.setSelectedIndex(i);
             }
         }
     }
@@ -152,34 +152,34 @@ public class Choicer extends IPanel implements ComponentListener, ItemListener, 
     public void moveToSpinner() {
         synchronized (this.lock) {
             if (this.choiceMode) {
-                this.colorSpinner = new ColorSpinner();
-                this.colorSpinner.setLocation(0, 0);
-                this.colorSpinner.setSize(this.getSize());
-                this.colorSpinner.setBackground(this.choice.getBackground());
-                this.colorSpinner.setForeground(this.choice.getForeground());
+                this.spinner = new Spinner();
+                this.spinner.setLocation(0, 0);
+                this.spinner.setSize(this.getSize());
+                this.spinner.setBackground(this.choice.getBackground());
+                this.spinner.setForeground(this.choice.getForeground());
                 int items = this.choice.getItemCount();
 
                 for (int i = 0; i < items; ++i) {
-                    this.colorSpinner.addItem(this.choice.getItem(i));
+                    this.spinner.addItem(this.choice.getItem(i));
                 }
 
                 int selectedIndex = this.choice.getSelectedIndex();
                 if (selectedIndex >= 0) {
-                    this.colorSpinner.setSelectedIndex(selectedIndex);
+                    this.spinner.setSelectedIndex(selectedIndex);
                 }
 
                 this.choice.removeItemListener(this);
                 this.remove(this.choice);
-                this.add(this.colorSpinner);
-                this.colorSpinner.addItemListener(this);
+                this.add(this.spinner);
+                this.spinner.addItemListener(this);
                 this.choiceMode = false;
                 this.choice = null;
             }
         }
     }
 
-    public ColorSpinner getColorSpinner() {
-        return this.colorSpinner;
+    public Spinner getSpinner() {
+        return this.spinner;
     }
 
     public boolean isChoiceMode() {

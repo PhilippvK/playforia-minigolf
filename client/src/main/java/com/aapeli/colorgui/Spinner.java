@@ -16,7 +16,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ColorSpinner extends IPanel implements MouseListener, MouseMotionListener, ItemSelectable {
+public final class Spinner extends IPanel implements MouseListener, MouseMotionListener, ItemSelectable {
 
     private final List<String> items = new ArrayList<>();
     private int selectedIndex = -1;
@@ -31,11 +31,11 @@ public final class ColorSpinner extends IPanel implements MouseListener, MouseMo
     private Graphics graphics;
     private int width;
     private int height;
-    private ColorSpinnerStateChangeDebounceThread debouceThread;
+    private SpinnerStateChangeDebounceThread debouceThread;
     private int stateChangeNotificationDelay;
     private final Object lock;
 
-    public ColorSpinner() {
+    public Spinner() {
         this.mouseHoveredOver = this.mouseIsBeingDraggedOverValues = false;
         this.useNonDefaultFont = false;
         this.font = null;
@@ -392,8 +392,7 @@ public final class ColorSpinner extends IPanel implements MouseListener, MouseMo
                 if (this.stateChangeNotificationDelay == 0) {
                     this.notifyListeners();
                 } else {
-                    this.debouceThread =
-                            new ColorSpinnerStateChangeDebounceThread(this, this.stateChangeNotificationDelay);
+                    this.debouceThread = new SpinnerStateChangeDebounceThread(this, this.stateChangeNotificationDelay);
                 }
             }
         }

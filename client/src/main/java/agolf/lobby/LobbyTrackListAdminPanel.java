@@ -3,7 +3,7 @@ package agolf.lobby;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.MultiColorList;
 import com.aapeli.colorgui.MultiColorListItem;
 import java.awt.Checkbox;
@@ -21,14 +21,14 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private int width;
     private int height;
     private MultiColorList trackList;
-    private ColorButton buttonRefresh;
-    private ColorButton buttonUnselect;
-    private ColorButton buttonPlay;
+    private Button buttonRefresh;
+    private Button buttonUnselect;
+    private Button buttonPlay;
     private Checkbox[] checkboxTracks;
     private Checkbox checkboxRepeat;
     private Checkbox checkboxRandom;
     private Checkbox checkboxSafeMode;
-    private ColorButton buttonQuit;
+    private Button buttonQuit;
 
     protected LobbyTrackListAdminPanel(GameContainer gameContainer, int width, int height, boolean enableSafeMode) {
         this.gameContainer = gameContainer;
@@ -151,7 +151,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     }
 
     private void create(boolean enableSafeMode) {
-        this.buttonRefresh = new ColorButton("Refresh list");
+        this.buttonRefresh = new Button("Refresh list");
         this.buttonRefresh.setBounds(this.width / 2 - 125 - 100 - 40, 355, 120, 25);
         this.buttonRefresh.setBackground(GolfGameFrame.colourButtonBlue);
         this.buttonRefresh.addActionListener(this);
@@ -169,12 +169,12 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             this.add(this.checkboxTracks[index]);
         }
 
-        this.buttonUnselect = new ColorButton("Unselect all");
+        this.buttonUnselect = new Button("Unselect all");
         this.buttonUnselect.setBounds(this.width / 2 - 100 - 10, 355, 120, 25);
         this.buttonUnselect.setBackground(GolfGameFrame.colourButtonYellow);
         this.buttonUnselect.addActionListener(this);
         this.add(this.buttonUnselect);
-        this.buttonPlay = new ColorButton("Play track(s)");
+        this.buttonPlay = new Button("Play track(s)");
         this.buttonPlay.setBounds(this.width / 2 + 125 - 100 + 20, 355, 120, 25);
         this.buttonPlay.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonPlay.addActionListener(this);
@@ -197,7 +197,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             this.add(this.checkboxSafeMode);
         }
 
-        this.buttonQuit = new ColorButton("Quit");
+        this.buttonQuit = new Button("Quit");
         this.buttonQuit.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonQuit.setBounds(this.width - 100, this.height - 20, 100, 20);
         this.buttonQuit.addActionListener(this);

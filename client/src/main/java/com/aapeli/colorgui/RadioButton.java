@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
 
-public class RadioButton extends ColorButton {
+public class RadioButton extends Button {
 
     private RadioButtonGroup group;
     private boolean selected;

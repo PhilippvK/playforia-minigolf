@@ -1,13 +1,12 @@
 package com.aapeli.multiuser;
 
-import com.aapeli.colorgui.ColorTextArea;
+import com.aapeli.colorgui.TextArea;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Insets;
 import java.awt.Point;
-import java.awt.TextArea;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.WindowEvent;
@@ -15,7 +14,7 @@ import java.awt.event.WindowListener;
 
 class CopyChatFrame extends Frame implements ComponentListener, WindowListener {
 
-    private TextArea textArea;
+    private java.awt.TextArea textArea;
 
     public void componentHidden(ComponentEvent e) {}
 
@@ -45,7 +44,7 @@ class CopyChatFrame extends Frame implements ComponentListener, WindowListener {
 
     public void windowDeiconified(WindowEvent e) {}
 
-    protected void create(Component parent, ColorTextArea colorTextArea) {
+    protected void create(Component parent, TextArea textArea) {
         this.setTitle("Sheriff: Copy of chat");
         this.setSize(420, 190);
         this.setResizable(true);
@@ -55,7 +54,7 @@ class CopyChatFrame extends Frame implements ComponentListener, WindowListener {
         this.setVisible(true);
         Insets insets = this.getInsets();
         this.setLayout(null);
-        this.textArea = new TextArea(this.getChatText(colorTextArea));
+        this.textArea = new java.awt.TextArea(this.getChatText(textArea));
         this.textArea.setBounds(insets.left, insets.top, 420, 190);
         this.textArea.setEditable(false);
         this.textArea.setBackground(Color.white);
@@ -67,8 +66,8 @@ class CopyChatFrame extends Frame implements ComponentListener, WindowListener {
         this.requestFocus();
     }
 
-    private String getChatText(ColorTextArea colorTextArea) {
-        String[] lines = colorTextArea.getTextWithTimestamps();
+    private String getChatText(TextArea textArea) {
+        String[] lines = textArea.getTextWithTimestamps();
         int linesCount = lines.length;
         StringBuffer sb = new StringBuffer(linesCount * 20);
 
