@@ -19,7 +19,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class ColorList extends Panel
+public final class SelectableGroupList extends Panel
         implements ComponentListener, AdjustmentListener, MouseListener, ItemSelectable {
 
     public static final int SELECTABLE_NONE = 0;
@@ -52,8 +52,8 @@ public final class ColorList extends Panel
     private int sorting;
     private String title;
     private Color titleColor;
-    private List<ColorListItem> items;
-    private List<ColorListNode> nodes;
+    private List<GroupListItem> items;
+    private List<GroupListNode> nodes;
     private int lastMouseClickX;
     private int lastMouseClickY;
     private int rangeSelectionLastIndex;
@@ -65,15 +65,15 @@ public final class ColorList extends Panel
     private int imageHeight;
     private List<ItemListener> listeners;
 
-    public ColorList(int width, int height) {
+    public SelectableGroupList(int width, int height) {
         this(width, height, FontConstants.font, 0, 0);
     }
 
-    public ColorList(int width, int height, int iconWidth, int rowHeight) {
+    public SelectableGroupList(int width, int height, int iconWidth, int rowHeight) {
         this(width, height, FontConstants.font, iconWidth, rowHeight);
     }
 
-    public ColorList(int width, int height, Font font, int iconWidth, int rowHeight) {
+    public SelectableGroupList(int width, int height, Font font, int iconWidth, int rowHeight) {
         this.width = width;
         this.height = height;
         this.setSize(width, height);
@@ -137,13 +137,13 @@ public final class ColorList extends Panel
                     this);
         }
 
-        ColorListItemGroup currentGroup = null;
+        GroupListGroup currentGroup = null;
         synchronized (this) {
             this.nodes = new ArrayList<>();
             int y = 0;
-            ColorListNode node;
+            GroupListNode node;
             if (this.title != null) {
-                node = new ColorListNode(
+                node = new GroupListNode(
                         1,
                         y,
                         this.width - 2,
@@ -168,11 +168,11 @@ public final class ColorList extends Panel
                 boolean hasMultipleGroups = this.hasMultipleGroups();
 
                 for (int i = 0; i < rowsRemaining + 1 && itemIndex < itemsCount; ++i) {
-                    ColorListItem item = this.getItem(itemIndex);
+                    GroupListItem item = this.getItem(itemIndex);
                     if (hasMultipleGroups) {
-                        ColorListItemGroup group = item.getGroup();
+                        GroupListGroup group = item.getGroup();
                         if (group != currentGroup) {
-                            node = new ColorListNode(
+                            node = new GroupListNode(
                                     1,
                                     y,
                                     this.width - 2,
@@ -192,7 +192,7 @@ public final class ColorList extends Panel
                         }
                     }
 
-                    node = new ColorListNode(
+                    node = new GroupListNode(
                             1,
                             y,
                             this.width - 2,
@@ -226,10 +226,10 @@ public final class ColorList extends Panel
     }
 
     private boolean hasMultipleGroups() {
-        ColorListItemGroup group = null;
+        GroupListGroup group = null;
 
-        for (ColorListItem colorListItem : this.items) {
-            ColorListItemGroup group2 = colorListItem.getGroup();
+        for (GroupListItem item : this.items) {
+            GroupListGroup group2 = item.getGroup();
             if (group2 != null) {
                 if (group != null && group2 != group) {
                     return true;
@@ -266,7 +266,7 @@ public final class ColorList extends Panel
     public synchronized void mousePressed(MouseEvent e) {
         this.lastMouseClickX = e.getX();
         this.lastMouseClickY = e.getY();
-        ColorListItem item = this.getItemAt(this.lastMouseClickY);
+        GroupListItem item = this.getItemAt(this.lastMouseClickY);
         if (item != null) {
             boolean isRightClick = e.getButton() == MouseEvent.BUTTON3;
             boolean isDoubleClick = e.getClickCount() == 2;
@@ -361,7 +361,7 @@ public final class ColorList extends Panel
     public synchronized void reSort() {
         int itemsCount = this.items.size();
         if (itemsCount != 0) {
-            ColorListItem[] newItems = new ColorListItem[itemsCount];
+            GroupListItem[] newItems = new GroupListItem[itemsCount];
 
             for (int i = 0; i < itemsCount; ++i) {
                 newItems[i] = this.getItem(i);
@@ -411,8 +411,8 @@ public final class ColorList extends Panel
         return selectedCount;
     }
 
-    public synchronized void addItem(ColorListItem item) {
-        item.setColorListReference(this);
+    public synchronized void addItem(GroupListItem item) {
+        item.setGroupList(this);
         int position = this.getPositionFor(item);
         this.items.add(position, item);
         int scrollbarValue = this.scrollbar.getValue();
@@ -427,17 +427,17 @@ public final class ColorList extends Panel
         this.repaint();
     }
 
-    public synchronized ColorListItem getItem(int i) {
+    public synchronized GroupListItem getItem(int i) {
         return this.items.get(i);
     }
 
-    public synchronized ColorListItem getItem(String text) {
+    public synchronized GroupListItem getItem(String text) {
         int itemsCount = this.items.size();
         if (itemsCount == 0) {
             return null;
         } else {
             for (int i = 0; i < itemsCount; ++i) {
-                ColorListItem item = this.getItem(i);
+                GroupListItem item = this.getItem(i);
                 if (text.equals(item.getText())) {
                     return item;
                 }
@@ -447,25 +447,25 @@ public final class ColorList extends Panel
         }
     }
 
-    public synchronized ColorListItem getSelectedItem() {
-        ColorListItem[] selectedItems = this.getSelectedItems();
+    public synchronized GroupListItem getSelectedItem() {
+        GroupListItem[] selectedItems = this.getSelectedItems();
         return selectedItems == null ? null : (selectedItems.length != 1 ? null : selectedItems[0]);
     }
 
-    public synchronized ColorListItem[] getSelectedItems() {
+    public synchronized GroupListItem[] getSelectedItems() {
         return this.getItems(true);
     }
 
-    public synchronized ColorListItem[] getAllItems() {
+    public synchronized GroupListItem[] getAllItems() {
         return this.getItems(false);
     }
 
-    public synchronized ColorListItem removeItem(String text) {
-        ColorListItem item = this.getItem(text);
+    public synchronized GroupListItem removeItem(String text) {
+        GroupListItem item = this.getItem(text);
         return item == null ? null : this.removeItem(item);
     }
 
-    public synchronized ColorListItem removeItem(ColorListItem item) {
+    public synchronized GroupListItem removeItem(GroupListItem item) {
         int idx = this.items.indexOf(item);
         if (idx >= 0) {
             this.items.remove(idx);
@@ -533,12 +533,12 @@ public final class ColorList extends Panel
         }
     }
 
-    private ColorListItem getItemAt(int y) {
+    private GroupListItem getItemAt(int y) {
         int nodesCount = this.nodes.size();
         if (nodesCount == 0) {
             return null;
         } else {
-            for (ColorListNode node : this.nodes) {
+            for (GroupListNode node : this.nodes) {
                 if (node.containsYCoordinate(y)) {
                     return node.getItem();
                 }
@@ -548,17 +548,17 @@ public final class ColorList extends Panel
         }
     }
 
-    private synchronized ColorListItem[] getItems(boolean selectedItemsOnly) {
+    private synchronized GroupListItem[] getItems(boolean selectedItemsOnly) {
         int count = selectedItemsOnly ? this.getSelectedItemCount() : this.getItemCount();
         if (count == 0) {
             return null;
         } else {
-            ColorListItem[] items = new ColorListItem[count];
+            GroupListItem[] items = new GroupListItem[count];
             int itemsCount = this.items.size();
             int itemIndex = 0;
 
             for (int i = 0; i < itemsCount; ++i) {
-                ColorListItem item = this.getItem(i);
+                GroupListItem item = this.getItem(i);
                 if (!selectedItemsOnly || item.isSelected()) {
                     items[itemIndex] = item;
                     ++itemIndex;
@@ -569,7 +569,7 @@ public final class ColorList extends Panel
         }
     }
 
-    private synchronized int getPositionFor(ColorListItem item) {
+    private synchronized int getPositionFor(GroupListItem item) {
         int itemsCount = this.items.size();
         if (itemsCount == 0) {
             return 0;
@@ -582,8 +582,8 @@ public final class ColorList extends Panel
         }
     }
 
-    private int getGroupSortValue(ColorListItem item) {
-        ColorListItemGroup group = item.getGroup();
+    private int getGroupSortValue(GroupListItem item) {
+        GroupListGroup group = item.getGroup();
         return group != null ? group.getSortValue() : Integer.MAX_VALUE;
     }
 
@@ -609,7 +609,7 @@ public final class ColorList extends Panel
         return itemsCount;
     }
 
-    private int getPositionFor(ColorListItem item, int groupSortValue, int groupPosition, int itemsCount) {
+    private int getPositionFor(GroupListItem item, int groupSortValue, int groupPosition, int itemsCount) {
         int nextGroupPosition = this.getNextGroupPosition(groupSortValue, groupPosition, itemsCount);
         if (nextGroupPosition == groupPosition) {
             return groupPosition;
@@ -620,7 +620,7 @@ public final class ColorList extends Panel
                 int value = item.getValue();
 
                 for (int i = groupPosition; i < nextGroupPosition; ++i) {
-                    ColorListItem otherItem = this.getItem(i);
+                    GroupListItem otherItem = this.getItem(i);
                     otherItemSortOverride = otherItem.isSortOverride();
                     if (sortOverride && !otherItemSortOverride) {
                         return i;
@@ -643,7 +643,7 @@ public final class ColorList extends Panel
                 String sortKey = this.getNormalizedSortKey(item.getText());
 
                 for (int i = groupPosition; i < nextGroupPosition; ++i) {
-                    ColorListItem otherItem = this.getItem(i);
+                    GroupListItem otherItem = this.getItem(i);
                     otherItemSortOverride = otherItem.isSortOverride();
                     if (sortOverride && !otherItemSortOverride) {
                         return i;
@@ -685,7 +685,7 @@ public final class ColorList extends Panel
         return sb.toString().trim();
     }
 
-    private synchronized void itemPressed(ColorListItem item, int eventId, int newState) {
+    private synchronized void itemPressed(GroupListItem item, int eventId, int newState) {
         if (this.listeners.size() != 0) {
             ItemEvent event = new ItemEvent(this, eventId, item, newState);
             for (ItemListener itemListener : this.listeners) {

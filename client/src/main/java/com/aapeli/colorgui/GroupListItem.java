@@ -3,7 +3,7 @@ package com.aapeli.colorgui;
 import java.awt.Color;
 import java.awt.Image;
 
-public class ColorListItem {
+public class GroupListItem {
 
     public static final int COLOR_BLACK = 0;
     public static final int COLOR_RED = 1;
@@ -34,10 +34,10 @@ public class ColorListItem {
     private boolean selected;
     private int value;
     private boolean sortOverride;
-    private ColorListItemGroup group;
-    private ColorList colorList;
+    private GroupListGroup group;
+    private SelectableGroupList selectableGroupList;
 
-    public ColorListItem(Image icon, Color color, boolean bold, String text, Object data, boolean selected) {
+    public GroupListItem(Image icon, Color color, boolean bold, String text, Object data, boolean selected) {
         this.icon = icon;
         this.color = color;
         this.bold = bold;
@@ -128,19 +128,19 @@ public class ColorListItem {
         return this.sortOverride;
     }
 
-    public void setGroup(ColorListItemGroup group) {
+    public void setGroup(GroupListGroup group) {
         this.group = group;
     }
 
-    public ColorListItemGroup getGroup() {
+    public GroupListGroup getGroup() {
         return this.group;
     }
 
-    public void setColorListReference(ColorList colorList) {
-        this.colorList = colorList;
+    public void setGroupList(SelectableGroupList selectableGroupList) {
+        this.selectableGroupList = selectableGroupList;
     }
 
-    public ColorList getColorListReference() {
-        return this.colorList;
+    public SelectableGroupList getGroupList() {
+        return this.selectableGroupList;
     }
 }

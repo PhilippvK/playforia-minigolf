@@ -6,7 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 
-class ColorListNode {
+class GroupListNode {
 
     private int x;
     private int y;
@@ -16,14 +16,14 @@ class ColorListNode {
     private boolean hasBackgroundImage;
     private Font font;
     private Font fontBold;
-    private ColorListItem item;
+    private GroupListItem item;
     private Color color;
     private String text;
     private Image icon;
     private boolean hasIcon;
 
     /** Node for items (e.g. players) */
-    protected ColorListNode(
+    protected GroupListNode(
             int x,
             int y,
             int width,
@@ -32,7 +32,7 @@ class ColorListNode {
             boolean hasBackgroundImage,
             Font font,
             Font fontBold,
-            ColorListItem item) {
+            GroupListItem item) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -46,7 +46,7 @@ class ColorListNode {
     }
 
     /** Node for groups (e.g. languages) */
-    protected ColorListNode(
+    protected GroupListNode(
             int x,
             int y,
             int width,
@@ -70,11 +70,11 @@ class ColorListNode {
         this.hasIcon = icon != null;
     }
 
-    protected void draw(Graphics g, ColorList colorList) {
+    protected void draw(Graphics g, SelectableGroupList selectableGroupList) {
         if (this.item != null) {
-            this.drawItem(g, colorList);
+            this.drawItem(g, selectableGroupList);
         } else {
-            this.drawGroup(g, colorList);
+            this.drawGroup(g, selectableGroupList);
         }
     }
 
@@ -82,11 +82,11 @@ class ColorListNode {
         return y >= this.y && y < this.y + this.height;
     }
 
-    protected ColorListItem getItem() {
+    protected GroupListItem getItem() {
         return this.item;
     }
 
-    private void drawItem(Graphics g, ColorList colorList) {
+    private void drawItem(Graphics g, SelectableGroupList selectableGroupList) {
         Color color = this.item.getColor();
         if (this.item.isSelected()) {
             g.setColor(color);
@@ -96,7 +96,7 @@ class ColorListNode {
 
         this.drawText(
                 g,
-                colorList,
+                selectableGroupList,
                 this.item.getIcon(),
                 color,
                 this.item.isBold() ? this.fontBold : this.font,
@@ -104,20 +104,27 @@ class ColorListNode {
                 this.item.getIconAfterText());
     }
 
-    private void drawGroup(Graphics g, ColorList colorList) {
+    private void drawGroup(Graphics g, SelectableGroupList selectableGroupList) {
         if (this.hasIcon) {
             g.setColor(new Color(224, 224, 224));
             g.fillRect(this.x, this.y, this.width, this.height);
         }
 
-        this.drawText(g, colorList, this.icon, this.color, this.font, this.text, null);
+        this.drawText(g, selectableGroupList, this.icon, this.color, this.font, this.text, null);
     }
 
     private void drawText(
-            Graphics g, ColorList colorList, Image icon, Color color, Font font, String text, Image iconAfterText) {
+            Graphics g,
+            SelectableGroupList selectableGroupList,
+            Image icon,
+            Color color,
+            Font font,
+            String text,
+            Image iconAfterText) {
         int x = 4;
         if (icon != null) {
-            g.drawImage(icon, x, this.y + this.height / 2 - icon.getHeight(colorList) / 2, colorList);
+            g.drawImage(
+                    icon, x, this.y + this.height / 2 - icon.getHeight(selectableGroupList) / 2, selectableGroupList);
             int iconWidth = this.iconWidth > 0 ? this.iconWidth : icon.getWidth(null);
             x += iconWidth + 3;
         }
@@ -127,13 +134,17 @@ class ColorListNode {
         x += StringDraw.drawString(g, text, x, this.y + this.height * 3 / 4 + 1, -1);
         if (iconAfterText != null) {
             x += 4;
-            g.drawImage(iconAfterText, x, this.y + this.height / 2 - iconAfterText.getHeight(colorList) / 2, colorList);
+            g.drawImage(
+                    iconAfterText,
+                    x,
+                    this.y + this.height / 2 - iconAfterText.getHeight(selectableGroupList) / 2,
+                    selectableGroupList);
         }
     }
 
     private Color getForegroundColor(Color backgroundColor) {
         if (!this.hasBackgroundImage) {
-            return ColorList.backgroundColor;
+            return SelectableGroupList.backgroundColor;
         } else {
             int r = backgroundColor.getRed();
             int g = backgroundColor.getGreen();

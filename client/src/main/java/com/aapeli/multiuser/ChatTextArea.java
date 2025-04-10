@@ -2,7 +2,7 @@ package com.aapeli.multiuser;
 
 import com.aapeli.client.BadWordFilter;
 import com.aapeli.client.TextManager;
-import com.aapeli.colorgui.ColorListItem;
+import com.aapeli.colorgui.GroupListItem;
 import com.aapeli.colorgui.TextArea;
 import java.awt.Font;
 import java.util.Hashtable;
@@ -23,47 +23,47 @@ public class ChatTextArea extends TextArea {
     }
 
     public void addOwnSay(String user, String message) {
-        this.addUserMessage(ColorListItem.COLOR_BLUE, user, message, true);
+        this.addUserMessage(GroupListItem.COLOR_BLUE, user, message, true);
     }
 
     public void addOwnSayPrivately(String from, String to, String message) {
-        this.addPrivateMessage(ColorListItem.COLOR_BLUE, from, to, message, true);
+        this.addPrivateMessage(GroupListItem.COLOR_BLUE, from, to, message, true);
     }
 
     public void addSay(String user, String message) {
-        this.addUserMessage(ColorListItem.COLOR_BLACK, user, message, false);
+        this.addUserMessage(GroupListItem.COLOR_BLACK, user, message, false);
     }
 
     public void addSayPrivately(String from, String to, String message) {
-        this.addPrivateMessage(ColorListItem.COLOR_MAGENTA, from, to, message, false);
+        this.addPrivateMessage(GroupListItem.COLOR_MAGENTA, from, to, message, false);
     }
 
     public void addJoinMessage(String message) {
-        this.addMessage(ColorListItem.COLOR_GREEN, message);
+        this.addMessage(GroupListItem.COLOR_GREEN, message);
     }
 
     public void addPartMessage(String message) {
-        this.addMessage(ColorListItem.COLOR_RED, message);
+        this.addMessage(GroupListItem.COLOR_RED, message);
     }
 
     public void addStartedGameMessage(String message) {
-        this.addMessage(ColorListItem.COLOR_GRAY, message);
+        this.addMessage(GroupListItem.COLOR_GRAY, message);
     }
 
     public void addSheriffSay(String text) {
-        this.addImportantLine(ColorListItem.COLOR_CYAN, this.textManager.getText("Chat_SheriffSay", text));
+        this.addImportantLine(GroupListItem.COLOR_CYAN, this.textManager.getText("Chat_SheriffSay", text));
     }
 
     public void addServerSay(String text) {
-        this.addText(ColorListItem.COLOR_CYAN, this.textManager.getText("Chat_ServerSay", text));
+        this.addText(GroupListItem.COLOR_CYAN, this.textManager.getText("Chat_ServerSay", text));
     }
 
     public void addLocalizedServerSay(String text) {
-        this.addText(ColorListItem.COLOR_CYAN, text);
+        this.addText(GroupListItem.COLOR_CYAN, text);
     }
 
     public void addBroadcastMessage(String text) {
-        this.addImportantLine(ColorListItem.COLOR_CYAN, this.textManager.getText("Chat_ServerBroadcast", text));
+        this.addImportantLine(GroupListItem.COLOR_CYAN, this.textManager.getText("Chat_ServerBroadcast", text));
     }
 
     public void addWelcomeMessage(String text) {
@@ -77,7 +77,7 @@ public class ChatTextArea extends TextArea {
     }
 
     public void addMessage(String text) {
-        this.addMessage(ColorListItem.COLOR_GRAY, text);
+        this.addMessage(GroupListItem.COLOR_GRAY, text);
     }
 
     public void addHighlightMessage(String var1) {
@@ -140,7 +140,7 @@ public class ChatTextArea extends TextArea {
     }
 
     private int normalizeColor(int color) {
-        return this.userColors.size() == 0 ? color : ColorListItem.COLOR_GRAY;
+        return this.userColors.size() == 0 ? color : GroupListItem.COLOR_GRAY;
     }
 
     private int getUserColor(String user, int fallback) {

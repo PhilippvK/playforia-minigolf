@@ -1,8 +1,8 @@
 package com.aapeli.multiuser;
 
 import com.aapeli.client.ImageManager;
-import com.aapeli.colorgui.ColorList;
-import com.aapeli.colorgui.ColorListItem;
+import com.aapeli.colorgui.GroupListItem;
+import com.aapeli.colorgui.SelectableGroupList;
 import java.awt.Image;
 import org.moparforia.shared.Language;
 
@@ -20,7 +20,7 @@ public final class User {
     private boolean isGettingPrivateMessages;
     private boolean isIgnore;
     private boolean isNotAcceptingChallenges;
-    private ColorListItem colorListItem;
+    private GroupListItem groupListItem;
     private String profilePage;
 
     public User(String nick, boolean isLocal, boolean isRegistered, boolean isVip, boolean isSheriff) {
@@ -93,19 +93,19 @@ public final class User {
             newText = newText + " " + suffix;
         }
 
-        this.colorListItem.setText(newText);
+        this.groupListItem.setText(newText);
     }
 
     public void setAfterNickIcon(Image icon) {
-        this.colorListItem.setIconAfterText(icon);
-        ColorList colorList = this.colorListItem.getColorListReference();
-        if (colorList != null) {
-            colorList.repaint();
+        this.groupListItem.setIconAfterText(icon);
+        SelectableGroupList selectableGroupList = this.groupListItem.getGroupList();
+        if (selectableGroupList != null) {
+            selectableGroupList.repaint();
         }
     }
 
     public Image getAfterNickIcon() {
-        return this.colorListItem.getIconAfterText();
+        return this.groupListItem.getIconAfterText();
     }
 
     public Language getLanguage() {
@@ -142,42 +142,42 @@ public final class User {
         } else {
             int color;
             if (this.isLocal) {
-                color = !this.isVip ? ColorListItem.COLOR_BLUE : ColorListItem.COLOR_CYAN;
+                color = !this.isVip ? GroupListItem.COLOR_BLUE : GroupListItem.COLOR_CYAN;
             } else {
                 boolean sheriff = this.isSheriff && sheriffMarkEnabled;
                 if (!sheriff && !this.isVip) {
-                    color = ColorListItem.COLOR_BLACK;
+                    color = GroupListItem.COLOR_BLACK;
                 } else {
-                    color = sheriff ? ColorListItem.COLOR_YELLOW : ColorListItem.COLOR_GREEN;
+                    color = sheriff ? GroupListItem.COLOR_YELLOW : GroupListItem.COLOR_GREEN;
                 }
             }
 
             if (this.isGettingPrivateMessages) {
-                color = ColorListItem.COLOR_MAGENTA;
+                color = GroupListItem.COLOR_MAGENTA;
             }
 
             if (this.isIgnore) {
-                color = ColorListItem.COLOR_RED;
+                color = GroupListItem.COLOR_RED;
             }
 
             return color;
         }
     }
 
-    protected void setColorListItem(ColorListItem colorListItem) {
-        this.colorListItem = colorListItem;
+    protected void setGroupListItem(GroupListItem groupListItem) {
+        this.groupListItem = groupListItem;
     }
 
-    protected ColorListItem getColorListItem() {
-        return this.colorListItem;
+    protected GroupListItem getGroupListItem() {
+        return this.groupListItem;
     }
 
-    protected void loadAvatar(String imageAlias, ImageManager imageManager, ColorList playersList) {
+    protected void loadAvatar(String imageAlias, ImageManager imageManager, SelectableGroupList playersList) {
         if (!imageManager.isImageDefined(imageAlias)) {
             imageManager.defineImage(imageAlias, imageAlias);
         }
 
-        this.colorListItem.setIcon(imageManager.getImage(imageAlias));
+        this.groupListItem.setIcon(imageManager.getImage(imageAlias));
         playersList.repaint();
     }
 
