@@ -6,6 +6,7 @@ import com.aapeli.client.StringDraw;
 import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnSelectableList;
+import com.aapeli.colorgui.SortOrder;
 import java.awt.Checkbox;
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -227,19 +228,16 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
         if (this.trackList == null) {
             this.setVisible(false);
             String[] listTitles;
-            int[] columnSortTypes;
+            SortOrder[] columnSortTypes;
             if (isAdmin) {
                 listTitles = new String[] {"Status", "Author", "Track", "Rating"};
-                columnSortTypes = new int[] {
-                    MultiColumnSelectableList.ORDER_ABC,
-                    MultiColumnSelectableList.ORDER_ABC,
-                    MultiColumnSelectableList.ORDER_ABC,
-                    MultiColumnSelectableList.ORDER_321_ALL
+                columnSortTypes = new SortOrder[] {
+                    SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_321_ALL
                 };
                 this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 2, 450, 250);
             } else {
                 listTitles = new String[] {"Status", "Track"};
-                columnSortTypes = new int[2];
+                columnSortTypes = new SortOrder[] {SortOrder.ORDER_ABC, SortOrder.ORDER_ABC};
                 this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, 450, 250);
             }
 

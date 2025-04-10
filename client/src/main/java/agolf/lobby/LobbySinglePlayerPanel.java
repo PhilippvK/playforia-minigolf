@@ -8,6 +8,7 @@ import com.aapeli.colorgui.Choicer;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnListListener;
 import com.aapeli.colorgui.MultiColumnSelectableList;
+import com.aapeli.colorgui.SortOrder;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -291,16 +292,13 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
             this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"),
             this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks")
         };
-        int[] columnSortTypes = new int[] {
-            MultiColumnSelectableList.ORDER_ABC,
-            MultiColumnSelectableList.ORDER_ABC,
-            MultiColumnSelectableList.ORDER_123_ALL
-        };
+        SortOrder[] columnSortTypes =
+                new SortOrder[] {SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_123_ALL};
         this.trackSetList = new MultiColumnSelectableList(trackSetListTitles, columnSortTypes, 1, 250, 130);
         this.trackSetList.setLocation(this.width - 290, 130);
         this.trackSetList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-single-fade"), this.width - 290, 130);
-        this.trackSetList.setSelectable(1);
+        this.trackSetList.setSelectable(MultiColumnSelectableList.SELECTABLE_ONE);
         this.trackSetList.addItemListener(this);
         trackSetList.setListListener(this);
         this.add(this.trackSetList);

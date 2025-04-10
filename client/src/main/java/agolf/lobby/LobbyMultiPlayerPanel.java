@@ -10,6 +10,7 @@ import com.aapeli.colorgui.Choicer;
 import com.aapeli.colorgui.MultiColumnListItem;
 import com.aapeli.colorgui.MultiColumnListListener;
 import com.aapeli.colorgui.MultiColumnSelectableList;
+import com.aapeli.colorgui.SortOrder;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -492,11 +493,8 @@ class LobbyMultiPlayerPanel extends Panel implements ItemListener, ActionListene
             this.gameContainer.textManager.getText("LobbyReal_ListTitlePlayers"),
             this.gameContainer.textManager.getText("LobbyReal_ListTitleTracks")
         };
-        int[] columnSortTypes = new int[] {
-            MultiColumnSelectableList.ORDER_ABC,
-            MultiColumnSelectableList.ORDER_ABC,
-            MultiColumnSelectableList.ORDER_123_FIRST,
-            MultiColumnSelectableList.ORDER_321_FIRST
+        SortOrder[] columnSortTypes = new SortOrder[] {
+            SortOrder.ORDER_ABC, SortOrder.ORDER_ABC, SortOrder.ORDER_123_FIRST, SortOrder.ORDER_321_FIRST
         };
         this.trackList = new MultiColumnSelectableList(listTitles, columnSortTypes, 1, this.width / 2 - 40, 125);
         this.trackList.setLocation(this.width / 2 + 20, 75);

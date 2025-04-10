@@ -25,12 +25,6 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
     public static final int ID_CLICKED = 0;
     public static final int ID_RIGHTCLICKED = 1;
     public static final int ID_DOUBLECLICKED = 2;
-    public static final int ORDER_ABC = 0;
-    public static final int ORDER_CBA = 1;
-    public static final int ORDER_123_FIRST = 2;
-    public static final int ORDER_321_FIRST = 3;
-    public static final int ORDER_123_ALL = 4;
-    public static final int ORDER_321_ALL = 5;
     private static final Font DEFAULT_BOLD_FONT = new Font("Dialog", Font.BOLD, 12);
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(255, 255, 255);
     private static final Color BORDER_COLOR_LIGHT = new Color(192, 192, 192);
@@ -46,9 +40,8 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
     private Color foregroundColor;
     private FontMetrics fontMetrics;
     private String emptyListText;
-    private char decimalSeparator;
     private String[] columnTitles;
-    private int[] columnSortTypes;
+    private SortOrder[] columnSortTypes;
     private int columnCount;
     private int sortColumnIndex;
     private int width;
@@ -68,7 +61,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
     private MultiColumnListListener listListener;
 
     public MultiColumnSelectableList(
-            String[] columnTitles, int[] columnSortTypes, int sortColumnIndex, int width, int height) {
+            String[] columnTitles, SortOrder[] columnSortTypes, int sortColumnIndex, int width, int height) {
         this.columnTitles = columnTitles;
         this.columnSortTypes = columnSortTypes;
         this.sortColumnIndex = sortColumnIndex;
@@ -76,7 +69,6 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.height = height;
         this.setSize(width, height);
         this.emptyListText = null;
-        this.decimalSeparator = '.';
         this.columnCount = columnTitles != null ? columnTitles.length : 0;
         this.items = new ArrayList<>();
         this.selectable = 0;
@@ -362,10 +354,6 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.repaint();
     }
 
-    public void setDecimalSeparator(char decimalSeparator) {
-        this.decimalSeparator = decimalSeparator;
-    }
-
     public int getItemCount() {
         return this.items.size();
     }
@@ -516,7 +504,7 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
         this.repaint();
     }
 
-    public void setSortOrder(int sortOrder, int column) {
+    public void setSortOrder(SortOrder sortOrder, int column) {
         this.columnSortTypes[column] = sortOrder;
         if (column == this.sortColumnIndex) {
             this.reSort();
@@ -585,68 +573,14 @@ public class MultiColumnSelectableList extends Panel implements AdjustmentListen
             for (int i = 0; i < itemsCount; ++i) {
                 String otherText = this.getItem(i).getString(this.sortColumnIndex);
                 otherText = otherText != null ? otherText.toLowerCase() : "";
-                if (this.columnSortTypes[this.sortColumnIndex] != ORDER_ABC
-                        && this.columnSortTypes[this.sortColumnIndex] != ORDER_CBA) {
-                    double itemNumericValue = this.parseNumericValue(text, this.columnSortTypes[this.sortColumnIndex]);
-                    double otherItemNumericValue =
-                            this.parseNumericValue(otherText, this.columnSortTypes[this.sortColumnIndex]);
-                    if (this.columnSortTypes[this.sortColumnIndex] != ORDER_123_FIRST
-                            && this.columnSortTypes[this.sortColumnIndex] != ORDER_123_ALL) {
-                        if (itemNumericValue > otherItemNumericValue) {
-                            return i;
-                        }
-                    } else if (itemNumericValue < otherItemNumericValue) {
-                        return i;
-                    }
-                } else {
-                    int compValue = text.compareTo(otherText);
-                    if (this.columnSortTypes[this.sortColumnIndex] == ORDER_ABC) {
-                        if (compValue < 0) {
-                            return i;
-                        }
-                    } else if (compValue > 0) {
-                        return i;
-                    }
+                SortOrder sortOrder = this.columnSortTypes[this.sortColumnIndex];
+                int compValue = sortOrder.getComparator().compare(text, otherText);
+                if (compValue < 0) {
+                    return i;
                 }
             }
 
             return itemsCount;
-        }
-    }
-
-    private double parseNumericValue(String text, int columnSortType) {
-        int textLength = text.length();
-        if (textLength == 0) {
-            return Double.MAX_VALUE;
-        } else {
-            StringBuffer sb = new StringBuffer(textLength);
-            boolean numbersBeforeDeciamSeparator = false;
-
-            for (int i = 0; i < textLength; ++i) {
-                char c = text.charAt(i);
-                if (c == '-' && sb.length() == 0) {
-                    sb.append(c);
-                } else if (c == this.decimalSeparator && numbersBeforeDeciamSeparator) {
-                    sb.append('.');
-                    numbersBeforeDeciamSeparator = true;
-                } else if (c >= 48 && c <= 57) { // ASCII [0-9]
-                    sb.append(c);
-                    if (!numbersBeforeDeciamSeparator) {
-                        numbersBeforeDeciamSeparator = true;
-                    }
-                } else if (columnSortType == ORDER_123_FIRST || columnSortType == ORDER_321_FIRST) {
-                    i = textLength;
-                }
-            }
-
-            text = sb.toString();
-            if (text.length() == 0) {
-                return -1.7976931348623157E308D;
-            } else if (text.equals("-")) {
-                return -1.7976931348623157E308D;
-            } else {
-                return Double.parseDouble(text);
-            }
         }
     }
 
