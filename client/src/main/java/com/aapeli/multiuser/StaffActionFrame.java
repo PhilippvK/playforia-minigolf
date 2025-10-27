@@ -3,8 +3,8 @@ package com.aapeli.multiuser;
 import com.aapeli.client.InputTextField;
 import com.aapeli.client.StringDraw;
 import com.aapeli.client.TextManager;
-import com.aapeli.colorgui.ColorButton;
-import com.aapeli.colorgui.ColorCheckbox;
+import com.aapeli.colorgui.Button;
+import com.aapeli.colorgui.Checkbox;
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Component;
@@ -43,12 +43,12 @@ class StaffActionFrame extends Frame implements WindowListener, ItemListener, Ke
     private InputTextField textFieldNickname;
     private InputTextField textFieldMessage;
     private InputTextField textFieldBanTime;
-    private ColorCheckbox cboxBan;
-    private ColorCheckbox cboxAddIP;
+    private Checkbox cboxBan;
+    private Checkbox cboxAddIP;
     private Choice choiceDefaultMessages;
     private Choice choiceBanPresets;
-    private ColorButton btnAction;
-    private ColorButton btnCancel;
+    private Button btnAction;
+    private Button btnCancel;
 
     protected StaffActionFrame(
             TextManager textManager, UserListHandler userListHandler, int actionType, String targetNick) {
@@ -216,7 +216,7 @@ class StaffActionFrame extends Frame implements WindowListener, ItemListener, Ke
         }
 
         if (this.actionType == 1) {
-            this.cboxBan = new ColorCheckbox("Ban user, minutes:");
+            this.cboxBan = new Checkbox("Ban user, minutes:");
             int width = this.cboxBan.getPreferredSize().width;
             this.cboxBan.setBounds(this.insets.left + 10, this.insets.top + 10 + 25 + 20, width, 20);
             this.configureColors(this.cboxBan, true);
@@ -272,7 +272,7 @@ class StaffActionFrame extends Frame implements WindowListener, ItemListener, Ke
             this.choiceDefaultMessages.select(0);
             this.choiceDefaultMessages.addItemListener(this);
             this.add(this.choiceDefaultMessages);
-            this.cboxAddIP = new ColorCheckbox("Add target user IP to message");
+            this.cboxAddIP = new Checkbox("Add target user IP to message");
             this.cboxAddIP.setBounds(this.insets.left + 10, this.insets.top + 10 + 25 + 20 + 25 + 5 + 25 + 5, 400, 20);
             this.configureColors(this.cboxAddIP, true);
             this.add(this.cboxAddIP);
@@ -291,11 +291,11 @@ class StaffActionFrame extends Frame implements WindowListener, ItemListener, Ke
             actionLabel = "Broadcast";
         }
 
-        this.btnAction = new ColorButton(actionLabel);
+        this.btnAction = new Button(actionLabel);
         this.btnAction.setBounds(this.insets.left + 420 - 10 - 90 - 5 - 90, this.insets.top + 190 - 10 - 25, 90, 25);
         this.btnAction.setBackground(new Color(160, 160, 224));
         this.add(this.btnAction);
-        this.btnCancel = new ColorButton("Cancel");
+        this.btnCancel = new Button("Cancel");
         this.btnCancel.setBounds(this.insets.left + 420 - 10 - 90, this.insets.top + 190 - 10 - 25, 90, 25);
         this.add(this.btnCancel);
         if (this.actionType == 1) {

@@ -14,4 +14,13 @@ public enum TrackSetDifficulty {
     public int getId() {
         return id;
     }
+
+    public static TrackSetDifficulty fromId(int id) {
+        for (TrackSetDifficulty difficulty : TrackSetDifficulty.values()) {
+            if (difficulty.getId() == id) {
+                return difficulty;
+            }
+        }
+        throw new IllegalArgumentException("No TrackSetDifficulty with id  '" + id + "' found");
+    }
 }

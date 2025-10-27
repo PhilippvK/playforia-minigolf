@@ -3,9 +3,11 @@ package agolf.lobby;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
-import com.aapeli.colorgui.ColorButton;
-import com.aapeli.colorgui.MultiColorList;
-import com.aapeli.colorgui.MultiColorListItem;
+import com.aapeli.colorgui.Button;
+import com.aapeli.colorgui.MultiColumnListColumn;
+import com.aapeli.colorgui.MultiColumnListItem;
+import com.aapeli.colorgui.MultiColumnSelectableList;
+import com.aapeli.colorgui.SortOrder;
 import java.awt.Checkbox;
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -13,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.List;
 
 class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemListener {
 
@@ -20,15 +23,15 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private GameContainer gameContainer;
     private int width;
     private int height;
-    private MultiColorList trackList;
-    private ColorButton buttonRefresh;
-    private ColorButton buttonUnselect;
-    private ColorButton buttonPlay;
+    private MultiColumnSelectableList<String> trackList;
+    private Button buttonRefresh;
+    private Button buttonUnselect;
+    private Button buttonPlay;
     private Checkbox[] checkboxTracks;
     private Checkbox checkboxRepeat;
     private Checkbox checkboxRandom;
     private Checkbox checkboxSafeMode;
-    private ColorButton buttonQuit;
+    private Button buttonQuit;
 
     protected LobbyTrackListAdminPanel(GameContainer gameContainer, int width, int height, boolean enableSafeMode) {
         this.gameContainer = gameContainer;
@@ -73,14 +76,14 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             }
 
         } else {
-            MultiColorListItem[] selectedItems = this.trackList.getSelectedItems();
+            MultiColumnListItem<String>[] selectedItems = this.trackList.getSelectedItems();
             if (selectedItems != null) {
                 int selectedItemsLen = selectedItems.length;
                 if (selectedItemsLen >= 1) {
                     String[] tracksData = new String[selectedItemsLen];
 
                     for (int index = 0; index < selectedItemsLen; ++index) {
-                        tracksData[index] = (String) selectedItems[index].getData();
+                        tracksData[index] = selectedItems[index].getData();
                     }
 
                     this.gameContainer.safeMode = this.checkboxSafeMode.getState();
@@ -151,7 +154,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     }
 
     private void create(boolean enableSafeMode) {
-        this.buttonRefresh = new ColorButton("Refresh list");
+        this.buttonRefresh = new Button("Refresh list");
         this.buttonRefresh.setBounds(this.width / 2 - 125 - 100 - 40, 355, 120, 25);
         this.buttonRefresh.setBackground(GolfGameFrame.colourButtonBlue);
         this.buttonRefresh.addActionListener(this);
@@ -169,12 +172,12 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             this.add(this.checkboxTracks[index]);
         }
 
-        this.buttonUnselect = new ColorButton("Unselect all");
+        this.buttonUnselect = new Button("Unselect all");
         this.buttonUnselect.setBounds(this.width / 2 - 100 - 10, 355, 120, 25);
         this.buttonUnselect.setBackground(GolfGameFrame.colourButtonYellow);
         this.buttonUnselect.addActionListener(this);
         this.add(this.buttonUnselect);
-        this.buttonPlay = new ColorButton("Play track(s)");
+        this.buttonPlay = new Button("Play track(s)");
         this.buttonPlay.setBounds(this.width / 2 + 125 - 100 + 20, 355, 120, 25);
         this.buttonPlay.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonPlay.addActionListener(this);
@@ -197,7 +200,7 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
             this.add(this.checkboxSafeMode);
         }
 
-        this.buttonQuit = new ColorButton("Quit");
+        this.buttonQuit = new Button("Quit");
         this.buttonQuit.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonQuit.setBounds(this.width - 100, this.height - 20, 100, 20);
         this.buttonQuit.addActionListener(this);
@@ -226,16 +229,18 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
     private void createTrackList(String[][] tracksInfo, boolean isAdmin) {
         if (this.trackList == null) {
             this.setVisible(false);
-            String[] listTitles;
-            int[] var4;
             if (isAdmin) {
-                listTitles = new String[] {"Status", "Author", "Track", "Rating"};
-                var4 = new int[] {0, 0, 0, 5};
-                this.trackList = new MultiColorList(listTitles, var4, 2, 450, 250);
+                List<MultiColumnListColumn> columns = List.of(
+                        new MultiColumnListColumn("Status", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Author", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Track", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Rating", SortOrder.ORDER_321_ALL));
+                this.trackList = new MultiColumnSelectableList<>(columns, 2, 450, 250);
             } else {
-                listTitles = new String[] {"Status", "Track"};
-                var4 = new int[2];
-                this.trackList = new MultiColorList(listTitles, var4, 1, 450, 250);
+                List<MultiColumnListColumn> columns = List.of(
+                        new MultiColumnListColumn("Status", SortOrder.ORDER_ABC),
+                        new MultiColumnListColumn("Track", SortOrder.ORDER_ABC));
+                this.trackList = new MultiColumnSelectableList<>(columns, 1, 450, 250);
             }
 
             this.trackList.setLocation(this.width / 2 - 125 - 100 - 50, 100);
@@ -252,33 +257,33 @@ class LobbyTrackListAdminPanel extends Panel implements ActionListener, ItemList
         for (int index = 0; index < tracksInfoLen; ++index) {
             int trackStatus = Integer.parseInt(tracksInfo[index][0]);
             if (trackStatus == 0) {
-                colour = MultiColorListItem.COLOR_RED;
+                colour = MultiColumnListItem.COLOR_RED;
                 tracksInfo[index][0] = "Private";
             }
 
             if (trackStatus == 1) {
-                colour = MultiColorListItem.COLOR_YELLOW;
+                colour = MultiColumnListItem.COLOR_YELLOW;
                 tracksInfo[index][0] = "Pending";
             }
 
             if (trackStatus == 2) {
-                colour = MultiColorListItem.COLOR_GREEN;
+                colour = MultiColumnListItem.COLOR_GREEN;
                 tracksInfo[index][0] = "Public";
             }
 
             if (trackStatus == 3) {
-                colour = MultiColorListItem.COLOR_BLUE;
+                colour = MultiColumnListItem.COLOR_BLUE;
                 tracksInfo[index][0] = "TrackSet";
             }
 
             // Status", "Author", "Track", "Rating
 
-            MultiColorListItem listItem;
+            MultiColumnListItem listItem;
             if (isAdmin) {
-                listItem = new MultiColorListItem(
+                listItem = new MultiColumnListItem(
                         colour, tracksInfo[index], tracksInfo[index][1] + ":" + tracksInfo[index][2]);
             } else {
-                listItem = new MultiColorListItem(colour, tracksInfo[index], tracksInfo[index][1]);
+                listItem = new MultiColumnListItem(colour, tracksInfo[index], tracksInfo[index][1]);
             }
 
             this.trackList.addItem(listItem);

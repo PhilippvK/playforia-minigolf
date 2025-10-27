@@ -1,10 +1,10 @@
 package com.aapeli.multiuser;
 
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class RoundedUpperCornersButton extends ColorButton {
+public class RoundedUpperCornersButton extends Button {
 
     public RoundedUpperCornersButton(String label) {
         super(label);

@@ -78,8 +78,8 @@ public class ServerTest {
         this.sendMessage(writer, "d 4 lobby\ttracksetlist");
         String tracksetlist = reader.readLine();
         assertEquals(
-                tracksetlist,
-                "d 7 lobby\ttracksetlist\tBirchwood\t1\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tOak Park\t1\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tOne by One\t2\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tScary Set\t3\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tSpruce Corpse\t2\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tThe First\t2\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tTorment Fields\t3\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1");
+                "d 7 lobby\ttracksetlist\tBirchwood\t1\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tOak Park\t1\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tOne by One\t2\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tScary Set\t3\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tSpruce Corpse\t2\t9\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tThe First\t2\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1\tTorment Fields\t3\t18\tNo one\t1\tNo one\t1\tNo one\t1\tNo one\t1",
+                tracksetlist);
 
         // start championship game
         this.sendMessage(writer, "d 5 lobby\tcspc\t6");

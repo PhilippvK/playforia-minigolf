@@ -3,11 +3,11 @@ package com.aapeli.multiuser;
 import com.aapeli.client.IPanel;
 import com.aapeli.client.ImageManager;
 import com.aapeli.client.TextManager;
-import com.aapeli.colorgui.ColorCheckbox;
-import com.aapeli.colorgui.ColorList;
-import com.aapeli.colorgui.ColorListItem;
-import com.aapeli.colorgui.ColorListItemGroup;
-import com.aapeli.colorgui.ColorTextArea;
+import com.aapeli.colorgui.Checkbox;
+import com.aapeli.colorgui.GroupListGroup;
+import com.aapeli.colorgui.GroupListItem;
+import com.aapeli.colorgui.SelectableGroupList;
+import com.aapeli.colorgui.TextArea;
 import com.aapeli.tools.Tools;
 import java.awt.CheckboxMenuItem;
 import java.awt.Color;
@@ -52,9 +52,9 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     private int height;
     private Image[] rankingIcons;
     private boolean rankingsShown;
-    private ColorList playersList;
-    private ColorCheckbox sendPrivatelyCheckbox;
-    private ColorCheckbox ignoreUserCheckbox;
+    private SelectableGroupList playersList;
+    private Checkbox sendPrivatelyCheckbox;
+    private Checkbox ignoreUserCheckbox;
     private RoundedUpperCornersButton sortByRankingButton;
     private RoundedUpperCornersButton sortByNicknameButton;
     private Image backgroundImage;
@@ -88,10 +88,10 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     private List<String> ignoredUsers;
     private boolean sheriffMarkEnabled;
     private boolean dimmerNicksEnabled;
-    private ColorTextArea chatOutput;
+    private TextArea chatOutput;
     private ChatBase chat;
     private Languages languages;
-    private Hashtable<Language, ColorListItemGroup> languageGroups;
+    private Hashtable<Language, GroupListGroup> languageGroups;
 
     public UserList(
             UserListHandler handler,
@@ -210,29 +210,29 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
         } else if (source == this.ignoreUserMenuItem) {
             this.ignoreUserCheckbox.click();
         } else {
-            ColorListItem selectedPlayer = this.playersList.getSelectedItem();
+            GroupListItem selectedPlayer = this.playersList.getSelectedItem();
             boolean playerDeselected = false;
             if (selectedPlayer == null) {
                 this.resetCheckBoxes();
                 playerDeselected = true;
                 Object item = e.getItem();
-                if (!(item instanceof ColorListItem)) {
+                if (!(item instanceof GroupListItem)) {
                     return;
                 }
 
-                selectedPlayer = (ColorListItem) e.getItem();
+                selectedPlayer = (GroupListItem) e.getItem();
             }
 
             User user = (User) selectedPlayer.getData();
             if (source == this.playersList) {
                 int eventId = e.getID();
-                if (eventId == ColorList.ID_DOUBLECLICKED) {
+                if (eventId == SelectableGroupList.ID_DOUBLECLICKED) {
                     if (this.openProfilePage(user)) {
                         return;
                     }
 
                     this.userListHandler.openPlayerCard(user.getNick());
-                } else if (eventId == ColorList.ID_RIGHTCLICKED && this.rightClickMenuEnabled) {
+                } else if (eventId == SelectableGroupList.ID_RIGHTCLICKED && this.rightClickMenuEnabled) {
                     int[] mouseCoordinates = this.playersList.getLastClickedMouseXY();
                     this.showRightClickMenu(user, mouseCoordinates[0], mouseCoordinates[1]);
                 }
@@ -499,15 +499,15 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
             displayedNick = displayedNick + " " + this.textManager.getText("UserList_Sheriff");
         }
 
-        ColorListItem colorListItem = new ColorListItem(
+        GroupListItem item = new GroupListItem(
                 this.getRankingIcon(user), this.getUserColor(user), user.isRegistered(), displayedNick, user, false);
-        colorListItem.setValue(user.getRating());
+        item.setValue(user.getRating());
         if (user.isSheriff()) {
-            colorListItem.setSortOverride(true);
+            item.setSortOverride(true);
         }
 
         Language language = user.getLanguage();
-        ColorListItemGroup group = this.languageGroups.get(language);
+        GroupListGroup group = this.languageGroups.get(language);
         if (group == null) {
             int sortValue = language.getId();
             if (language == Language.UNKNOWN) {
@@ -515,7 +515,7 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
             }
 
             String languageName = this.textManager.getText("Language_" + language);
-            group = new ColorListItemGroup(languageName, this.languages.getFlag(language), sortValue);
+            group = new GroupListGroup(languageName, this.languages.getFlag(language), sortValue);
             this.languageGroups.put(language, group);
         }
 
@@ -524,23 +524,23 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
             this.playersList.reSort();
         }
 
-        colorListItem.setGroup(group);
-        this.playersList.addItem(colorListItem);
-        user.setColorListItem(colorListItem);
+        item.setGroup(group);
+        this.playersList.addItem(item);
+        user.setGroupListItem(item);
     }
 
     public User getSelectedUser() {
-        ColorListItem item = this.playersList.getSelectedItem();
+        GroupListItem item = this.playersList.getSelectedItem();
         return item == null ? null : (User) item.getData();
     }
 
     public User getUser(String nick) {
-        ColorListItem[] allItems = this.playersList.getAllItems();
+        GroupListItem[] allItems = this.playersList.getAllItems();
         if (allItems != null) {
             int itemsCount = allItems.length;
             if (itemsCount > 0) {
-                for (ColorListItem colorListItem : allItems) {
-                    User user = (User) colorListItem.getData();
+                for (GroupListItem item : allItems) {
+                    User user = (User) item.getData();
                     if (user.getNick().equals(nick)) {
                         return user;
                     }
@@ -556,12 +556,12 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     }
 
     public User getLocalUser() {
-        ColorListItem[] allItems = this.playersList.getAllItems();
+        GroupListItem[] allItems = this.playersList.getAllItems();
         if (allItems != null) {
             int itemsCount = allItems.length;
             if (itemsCount > 0) {
-                for (ColorListItem colorListItem : allItems) {
-                    User user = (User) colorListItem.getData();
+                for (GroupListItem item : allItems) {
+                    User user = (User) item.getData();
                     if (user.isLocal()) {
                         return user;
                     }
@@ -573,15 +573,15 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     }
 
     public void removeUser(String nick) {
-        ColorListItem[] allItems = this.playersList.getAllItems();
+        GroupListItem[] allItems = this.playersList.getAllItems();
         if (allItems != null) {
             int itemsCount = allItems.length;
             if (itemsCount > 0) {
-                for (ColorListItem colorListItem : allItems) {
-                    User user = (User) colorListItem.getData();
+                for (GroupListItem item : allItems) {
+                    User user = (User) item.getData();
                     if (user.getNick().equals(nick)) {
-                        this.playersList.removeItem(colorListItem);
-                        if (colorListItem.isSelected()) {
+                        this.playersList.removeItem(item);
+                        if (item.isSelected()) {
                             this.resetCheckBoxes();
                         }
 
@@ -594,15 +594,15 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     }
 
     public User removeAndReturnUser(String nick) {
-        ColorListItem[] allItems = this.playersList.getAllItems();
+        GroupListItem[] allItems = this.playersList.getAllItems();
         if (allItems != null) {
             int itemsCount = allItems.length;
             if (itemsCount > 0) {
-                for (ColorListItem colorListItem : allItems) {
-                    User user = (User) colorListItem.getData();
+                for (GroupListItem item : allItems) {
+                    User user = (User) item.getData();
                     if (user.getNick().equals(nick)) {
-                        this.playersList.removeItem(colorListItem);
-                        if (colorListItem.isSelected()) {
+                        this.playersList.removeItem(item);
+                        if (item.isSelected()) {
                             this.resetCheckBoxes();
                         }
 
@@ -617,10 +617,10 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
     }
 
     public void removeAllUsers() {
-        ColorListItem[] users = this.playersList.getAllItems();
+        GroupListItem[] users = this.playersList.getAllItems();
         if (users != null) {
-            for (ColorListItem colorListItem : users) {
-                this.removeUser((User) colorListItem.getData());
+            for (GroupListItem item : users) {
+                this.removeUser((User) item.getData());
             }
         }
 
@@ -630,8 +630,8 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
 
     public void setNotAcceptingChallenges(User user, boolean notAcceptingChallenges) {
         user.setIsNotAcceptingChallenges(notAcceptingChallenges);
-        ColorListItem userListItem = user.getColorListItem();
-        userListItem.setColor(this.getUserColor(user));
+        GroupListItem item = user.getGroupListItem();
+        item.setColor(this.getUserColor(user));
         this.playersList.repaint();
     }
 
@@ -656,7 +656,7 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
         return this.playersList.getItemCount();
     }
 
-    public void setChatOutputReference(ColorTextArea chatOutput) {
+    public void setChatOutputReference(TextArea chatOutput) {
         this.chatOutput = chatOutput;
     }
 
@@ -756,7 +756,7 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
 
     private Color getUserColor(User user) {
         int colorIndex = user.getColor(this.sheriffMarkEnabled);
-        Color color = ColorListItem.getColorById(colorIndex);
+        Color color = GroupListItem.getColorById(colorIndex);
         if (this.dimmerNicksEnabled && user.isNotAcceptingChallenges()) {
             color = new Color((color.getRed() + 896) / 5, (color.getGreen() + 896) / 5, (color.getBlue() + 896) / 5);
         }
@@ -789,25 +789,25 @@ public class UserList extends IPanel implements ComponentListener, ItemListener,
                 - (!addIgnoreUser && !addSendPrivately ? 0 : 2)
                 - (this.rankingsShown ? 11 : 0);
         if (this.rankingsShown) {
-            this.playersList = new ColorList(width, height, 11, 11);
+            this.playersList = new SelectableGroupList(width, height, 11, 11);
         } else {
-            this.playersList = new ColorList(width, height);
+            this.playersList = new SelectableGroupList(width, height);
         }
 
-        this.playersList.setSelectable(ColorList.SELECTABLE_ONE);
+        this.playersList.setSelectable(SelectableGroupList.SELECTABLE_ONE);
         this.playersList.setLocation(0, this.rankingsShown ? 11 : 0);
         this.playersList.addItemListener(this);
         this.add(this.playersList);
         this.setSorting(UserList.SORT_NICKNAME_ABC);
         if (addSendPrivately) {
-            this.sendPrivatelyCheckbox = new ColorCheckbox(this.textManager.getText("UserList_Privately"));
+            this.sendPrivatelyCheckbox = new Checkbox(this.textManager.getText("UserList_Privately"));
             this.sendPrivatelyCheckbox.setBounds(0, this.height - 18 - (addIgnoreUser ? 18 : 0), this.width, 18);
             this.sendPrivatelyCheckbox.addItemListener(this);
             this.add(this.sendPrivatelyCheckbox);
         }
 
         if (addIgnoreUser) {
-            this.ignoreUserCheckbox = new ColorCheckbox(this.textManager.getText("UserList_Ignore"));
+            this.ignoreUserCheckbox = new Checkbox(this.textManager.getText("UserList_Ignore"));
             this.ignoreUserCheckbox.setBounds(0, this.height - 18, this.width, 18);
             this.ignoreUserCheckbox.addItemListener(this);
             this.add(this.ignoreUserCheckbox);

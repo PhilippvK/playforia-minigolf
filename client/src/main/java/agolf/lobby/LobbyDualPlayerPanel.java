@@ -4,9 +4,9 @@ import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.IPanel;
 import com.aapeli.client.StringDraw;
+import com.aapeli.colorgui.Button;
+import com.aapeli.colorgui.Checkbox;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
-import com.aapeli.colorgui.ColorCheckbox;
 import com.aapeli.multiuser.ChallengeFloodProtection;
 import com.aapeli.multiuser.NoChallCheckbox;
 import java.awt.Color;
@@ -30,11 +30,11 @@ class LobbyDualPlayerPanel extends IPanel implements ItemListener, ActionListene
     private Choicer choicerCollision;
     private Choicer choicerScoring;
     private Choicer choicerScoringEnd;
-    private ColorButton buttonChallenge;
-    private ColorButton buttonCancel;
-    private ColorButton buttonAccept;
-    private ColorButton buttonRefuse;
-    private ColorCheckbox checkboxBeep;
+    private Button buttonChallenge;
+    private Button buttonCancel;
+    private Button buttonAccept;
+    private Button buttonRefuse;
+    private Checkbox checkboxBeep;
     private NoChallCheckbox checkboxNoChallenges;
     private Object synchronizedObject;
     private int currentState;
@@ -573,27 +573,26 @@ class LobbyDualPlayerPanel extends IPanel implements ItemListener, ActionListene
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 219 :*/ 196, 150, 20);
         this.choicerScoringEnd = this.gameContainer.lobbyPanel.addChoicerScoringEnd(
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 242 :*/ 219, 100, 20);
-        this.buttonChallenge = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Challenge"));
+        this.buttonChallenge = new Button(this.gameContainer.textManager.getText("LobbyReal_Challenge"));
         this.buttonChallenge.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonChallenge.setBounds(
                 this.width / 2 - 170, this.height - 15 - 25 + (/*isUsingCustomServer ? 10 :*/ 0), 100, 25);
         this.buttonChallenge.addActionListener(this);
         this.add(this.buttonChallenge);
-        this.buttonCancel = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Cancel"));
+        this.buttonCancel = new Button(this.gameContainer.textManager.getText("LobbyReal_Cancel"));
         this.buttonCancel.setBackground(GolfGameFrame.colourButtonYellow);
         this.buttonCancel.setBounds(this.width * 3 / 4 - 50, this.height - 40 - 25, 100, 25);
         this.buttonCancel.addActionListener(this);
-        this.buttonAccept = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Accept"));
+        this.buttonAccept = new Button(this.gameContainer.textManager.getText("LobbyReal_Accept"));
         this.buttonAccept.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonAccept.setBounds(this.width * 3 / 4 - 100 - 10, this.height - 40 - 25, 100, 25);
         this.buttonAccept.addActionListener(this);
-        this.buttonRefuse = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Refuse"));
+        this.buttonRefuse = new Button(this.gameContainer.textManager.getText("LobbyReal_Refuse"));
         this.buttonRefuse.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonRefuse.setBounds(this.width * 3 / 4 + 10, this.height - 40 - 25, 100, 25);
         this.buttonRefuse.addActionListener(this);
         int var1 = this.width * 3 / 4 - this.width / 8 - 10;
-        this.checkboxBeep =
-                new ColorCheckbox(this.gameContainer.textManager.getText("LobbyReal_BeepOnChallenge"), true);
+        this.checkboxBeep = new Checkbox(this.gameContainer.textManager.getText("LobbyReal_BeepOnChallenge"), true);
         this.checkboxBeep.setBounds(var1, this.height - 10 - 18 - 5 - 18, this.width / 4 + 20, 18);
         this.add(this.checkboxBeep);
         this.checkboxNoChallenges =

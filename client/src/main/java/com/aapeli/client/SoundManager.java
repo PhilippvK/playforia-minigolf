@@ -1,50 +1,25 @@
 package com.aapeli.client;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Hashtable;
 import java.util.Map;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
-public final class SoundManager implements Runnable {
+public final class SoundManager {
     private final boolean debug;
-    private Map<Integer, SoundClip> sounds;
+    private Map<Integer, Clip> sounds;
     private boolean clipLoaderThreadRunning;
     public int audioChoicerIndex;
 
-    public SoundManager(boolean shouldLoadClips, boolean debug) {
+    public SoundManager(boolean debug) {
         this.debug = debug;
         this.audioChoicerIndex = 0;
         this.defineSounds();
-
-        this.clipLoaderThreadRunning = false;
-        if (shouldLoadClips) {
-            this.start();
-        }
-    }
-
-    @Override
-    public void run() {
-        if (this.debug) {
-            System.out.println("SoundManager.run(): Thread started");
-        }
-
-        for (SoundClip soundClip : this.sounds.values()) {
-            try {
-                if (!soundClip.isLoaded()) {
-                    soundClip.load();
-                }
-            } catch (Exception e) {
-                System.out.println("SoundManager.run(): Failed to define clip " + soundClip.getUrl() + ": " + e);
-            }
-        }
-
-        this.clipLoaderThreadRunning = false;
-        if (this.debug) {
-            System.out.println("SoundManager.run(): Thread finished");
-        }
-    }
-
-    public void startLoading() {
-        this.start();
     }
 
     public void playChallenge() {
@@ -136,27 +111,20 @@ public final class SoundManager implements Runnable {
         }
     }
 
-    private void defineSoundClip(int id, String resourcePath) {
-        this.sounds.put(id, new SoundClip(this.getClass().getResource(resourcePath), this.debug));
-    }
-
-    private synchronized void start() {
-        if (!this.clipLoaderThreadRunning) {
-            this.clipLoaderThreadRunning = true;
-            Thread thread = new Thread(this);
-            thread.setDaemon(true);
-            thread.start();
-        }
+    private void defineSoundClip(int id, String resourcePath)
+            throws IOException, LineUnavailableException, UnsupportedAudioFileException {
+        URL url = this.getClass().getResource(resourcePath);
+        AudioInputStream sound = AudioSystem.getAudioInputStream(url);
+        Clip clip = AudioSystem.getClip();
+        clip.open(sound);
+        this.sounds.put(id, clip);
     }
 
     private void playClip(int id) {
-        SoundClip soundClip = this.sounds.get(id);
-        if (soundClip != null && this.audioChoicerIndex != 1) {
-            Clip clip = soundClip.getClip();
-            if (clip != null) {
-                clip.setFramePosition(0);
-                clip.start();
-            }
+        Clip clip = this.sounds.get(id);
+        if (clip != null && this.audioChoicerIndex != 1) {
+            clip.setFramePosition(0);
+            clip.start();
         }
     }
 }

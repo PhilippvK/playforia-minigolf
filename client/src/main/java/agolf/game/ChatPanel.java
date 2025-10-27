@@ -3,7 +3,7 @@ package agolf.game;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.InputTextField;
-import com.aapeli.colorgui.ColorButton;
+import com.aapeli.colorgui.Button;
 import com.aapeli.multiuser.ChatBase;
 import com.aapeli.multiuser.ChatTextArea;
 import java.awt.Font;
@@ -22,7 +22,7 @@ class ChatPanel extends Panel implements KeyListener, ActionListener {
     private int height;
     private ChatTextArea textAreaChat;
     private InputTextField textFieldMessage;
-    private ColorButton buttonSay;
+    private Button buttonSay;
     private int gameExtra;
     private boolean created;
 
@@ -162,7 +162,7 @@ class ChatPanel extends Panel implements KeyListener, ActionListener {
         this.textFieldMessage =
                 new InputTextField(this.gameContainer.textManager.getText("GameChat_TypeHere"), 200, true);
         this.textFieldMessage.setBounds(0, this.height - 20, this.width - 70, 20);
-        this.buttonSay = new ColorButton(this.gameContainer.textManager.getText("GameChat_Say"));
+        this.buttonSay = new Button(this.gameContainer.textManager.getText("GameChat_Say"));
         this.buttonSay.setBounds(this.width - 69, this.height - 20, 69, 20);
         this.buttonSay.setBackground(GolfGameFrame.colourButtonBlue);
         if (this.gameExtra > 0) {

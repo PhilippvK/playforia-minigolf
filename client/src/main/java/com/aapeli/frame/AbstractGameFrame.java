@@ -478,7 +478,7 @@ public abstract class AbstractGameFrame extends JFrame implements Runnable, Acti
             }
 
             this.loadingPanel.setLoadingMessage(this.textManager.getText("Loader_LoadingGfxSfx"));
-            this.soundManager = new SoundManager(true, this.isDebug());
+            this.soundManager = new SoundManager(this.isDebug());
 
             this.loadingPanel.addProgress(0.15D);
             if (startupDebug) {
@@ -522,7 +522,6 @@ public abstract class AbstractGameFrame extends JFrame implements Runnable, Acti
                 this.printSUD("Defining secondary images");
             }
 
-            this.soundManager.startLoading();
             if (System.currentTimeMillis() < startTime + 7000L) {
                 this.loadingPanel.method468(2.0D);
             }

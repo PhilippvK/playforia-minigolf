@@ -4,15 +4,15 @@ import com.aapeli.client.BadWordFilter;
 import com.aapeli.client.ImageManager;
 import com.aapeli.client.Parameters;
 import com.aapeli.client.TextManager;
-import com.aapeli.colorgui.ColorCheckbox;
+import com.aapeli.colorgui.Checkbox;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Point;
 
 public class ChatLobby extends ChatBase {
 
-    private ColorCheckbox noJoinAndPartMessagesCheckbox;
-    private ColorCheckbox noGameMessagesChatbox;
+    private Checkbox noJoinAndPartMessagesCheckbox;
+    private Checkbox noGameMessagesChatbox;
     private boolean shouldMuteMessagesIfUserListSet;
 
     public ChatLobby(
@@ -267,10 +267,9 @@ public class ChatLobby extends ChatBase {
     }
 
     private void createSettingsCheckBoxes() {
-        this.noJoinAndPartMessagesCheckbox =
-                new ColorCheckbox(super.textManager.getText("Chat_Lobby_NoJoinPartMessages"));
+        this.noJoinAndPartMessagesCheckbox = new Checkbox(super.textManager.getText("Chat_Lobby_NoJoinPartMessages"));
         this.add(this.noJoinAndPartMessagesCheckbox);
-        this.noGameMessagesChatbox = new ColorCheckbox(super.textManager.getText("Chat_Lobby_NoGameMessages"));
+        this.noGameMessagesChatbox = new Checkbox(super.textManager.getText("Chat_Lobby_NoGameMessages"));
         this.add(this.noGameMessagesChatbox);
     }
 }

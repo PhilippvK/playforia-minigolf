@@ -3,11 +3,13 @@ package agolf.lobby;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import com.aapeli.client.StringDraw;
+import com.aapeli.colorgui.Button;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
-import com.aapeli.colorgui.MultiColorList;
-import com.aapeli.colorgui.MultiColorListItem;
-import com.aapeli.colorgui.MultiColorListListener;
+import com.aapeli.colorgui.MultiColumnListColumn;
+import com.aapeli.colorgui.MultiColumnListItem;
+import com.aapeli.colorgui.MultiColumnListListener;
+import com.aapeli.colorgui.MultiColumnSelectableList;
+import com.aapeli.colorgui.SortOrder;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -16,10 +18,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.util.StringTokenizer;
+import java.util.Arrays;
+import java.util.List;
 import org.moparforia.client.Launcher;
+import org.moparforia.shared.tracks.TrackSet;
+import org.moparforia.shared.tracks.TrackSetDifficulty;
 
-class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListener, MultiColorListListener {
+class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListener, MultiColumnListListener<TrackSet> {
 
     private GameContainer gameContainer;
     private int width;
@@ -27,10 +32,10 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
     private Choicer choicerTracksNum;
     private Choicer choicerTrackTypes;
     private Choicer choicerWaterEvent;
-    private MultiColorList trackSetList;
-    private ColorButton buttonStartTraining;
-    private ColorButton buttonStartChampionship;
-    private String selectedTrackData;
+    private MultiColumnSelectableList<TrackSet> trackSetList;
+    private Button buttonStartTraining;
+    private Button buttonStartChampionship;
+    private TrackSet selectedTrackSet;
     private boolean requestTrackSetList;
     private Image image;
     private Graphics graphics;
@@ -129,17 +134,26 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
             this.graphics.setColor(GolfGameFrame.colourTextBlack);
         }
 
-        if (this.selectedTrackData != null) {
+        if (this.selectedTrackSet != null) {
             this.graphics.setFont(GolfGameFrame.fontDialog11);
-            StringTokenizer trackData = new StringTokenizer(this.selectedTrackData, "\t");
+            TrackSet trackSet = this.selectedTrackSet;
+            List<String> trackData = List.of(
+                    trackSet.getAllTimeBestPlayer(),
+                    String.valueOf(trackSet.getAllTimeBestStrokes()),
+                    trackSet.getMonthBestPlayer(),
+                    String.valueOf(trackSet.getMonthBestStrokes()),
+                    trackSet.getWeekBestPlayer(),
+                    String.valueOf(trackSet.getWeekBestStrokes()),
+                    trackSet.getDayBestPlayer(),
+                    String.valueOf(trackSet.getDayBestStrokes()));
             String[] trackInfoTitles = new String[] {
                 "LobbyReal_TS_AllTimeBest", "LobbyReal_TS_MonthBest", "LobbyReal_TS_WeekBest", "LobbyReal_TS_DayBest"
             };
             int[] trackInfoYPos = new int[] {370, 385, 400, 415};
 
             for (int index = 0; index < 4; ++index) {
-                String strokes = trackData.nextToken();
-                String recordHolder = trackData.nextToken();
+                String strokes = trackData.get(index * 2);
+                String recordHolder = trackData.get(index * 2 + 1);
                 StringDraw.drawOutlinedString(
                         this.graphics,
                         championshipOutlineColour,
@@ -172,9 +186,9 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
 
     public void itemStateChanged(ItemEvent evt) {
         if (evt.getSource() == this.trackSetList) {
-            this.selectedTrackData = this.getSelectedTrackSetData();
-            if (this.selectedTrackData != null) {
-                this.selectedTrackData = this.selectedTrackData.substring(this.selectedTrackData.indexOf(9) + 1);
+            TrackSet selectedTrackSet = this.getSelectedTrackSet();
+            if (selectedTrackSet != null) {
+                this.selectedTrackSet = selectedTrackSet;
             }
         }
 
@@ -183,8 +197,8 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
 
     public void actionPerformed(ActionEvent evt) {
         if (this.gameContainer.golfGameFrame.syncIsValidSite.get()) {
-            Object var2 = evt.getSource();
-            if (var2 == this.buttonStartTraining) {
+            Object eventSource = evt.getSource();
+            if (eventSource == this.buttonStartTraining) {
                 this.gameContainer.golfGameFrame.setGameState(0);
                 this.gameContainer.lobbyPanel.writeData(
                         "cspt\t"
@@ -195,10 +209,10 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
                                 + this.choicerWaterEvent
                                         .getSelectedIndex() /*+ (isUsingCustomServer ? ("\t" + this.choicerTrackCategory.getSelectedIndex()) : "")*/);
             } else {
-                if (var2 == this.buttonStartChampionship) {
-                    String var3 = this.getSelectedTrackSetData();
-                    if (var3 != null) {
-                        startChampionship(Integer.parseInt(var3.substring(0, var3.indexOf(9))));
+                if (eventSource == this.buttonStartChampionship) {
+                    TrackSet trackSet = this.getSelectedTrackSet();
+                    if (trackSet != null) {
+                        startChampionship(trackSet.getId());
                     }
                 }
             }
@@ -209,46 +223,28 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         if (args[1].equals("tracksetlist")) {
             this.trackSetList.removeAllItems();
             int numTrackSets = (args.length - 2) / 11;
-            byte var3 = -1;
+            int itemColor = -1;
 
-            for (int off = 0; off < numTrackSets; ++off) {
-                String setName = args[2 + off * 11];
-                int setDifficulty = Integer.parseInt(args[3 + off * 11]);
-                String[] var7 = new String[] {
-                    isUsingCustomServer ? setName : this.gameContainer.textManager.getText("LobbyReal_TS_" + setName),
-                    this.gameContainer.textManager.getText("LobbyReal_TS_Level" + setDifficulty),
-                    args[4 + off * 11]
+            for (int i = 0; i < numTrackSets; i++) {
+                String[] trackSetData = Arrays.copyOfRange(args, 2 + i * 11, 2 + (i + 1) * 11);
+                TrackSet trackSet = TrackSet.deserialize(i, trackSetData);
+                String[] columns = new String[] {
+                    isUsingCustomServer
+                            ? trackSet.getName()
+                            : this.gameContainer.textManager.getText("LobbyReal_TS_" + trackSet.getName()),
+                    this.gameContainer.textManager.getText(
+                            "LobbyReal_TS_Level" + trackSet.getDifficulty().getId()),
+                    String.valueOf(trackSet.getTracks().size())
                 };
-                if (setDifficulty == 1) {
-                    var3 = 2;
-                } else if (setDifficulty == 2) {
-                    var3 = 4;
-                } else if (setDifficulty == 3) {
-                    var3 = 1;
+                itemColor = this.getTrackSetDifficultyColor(trackSet.getDifficulty());
+                boolean isSelected = i == numTrackSets - 1;
+                if (isSelected) {
+                    this.selectedTrackSet = trackSet;
                 }
 
-                String var8 = args[5 + off * 11]
-                        + "\t"
-                        + args[6 + off * 11]
-                        + "\t"
-                        + args[7 + off * 11]
-                        + "\t"
-                        + args[8 + off * 11]
-                        + "\t"
-                        + args[9 + off * 11]
-                        + "\t"
-                        + args[10 + off * 11]
-                        + "\t"
-                        + args[11 + off * 11]
-                        + "\t"
-                        + args[12 + off * 11];
-                boolean var9;
-                if (var9 = off == numTrackSets - 1) {
-                    this.selectedTrackData = var8;
-                }
-
-                MultiColorListItem var10 = new MultiColorListItem(var3, false, var7, off + "\t" + var8, var9);
-                this.trackSetList.addItem(var10);
+                MultiColumnListItem<TrackSet> item =
+                        new MultiColumnListItem<>(itemColor, false, columns, trackSet, isSelected);
+                this.trackSetList.addItem(item);
             }
 
             this.requestTrackSetList = false;
@@ -281,47 +277,56 @@ class LobbySinglePlayerPanel extends Panel implements ItemListener, ActionListen
         this.choicerWaterEvent = this.gameContainer.lobbyPanel.addChoicerWaterEvent(
                 this, this.width / 2 - 170, /*isUsingCustomServer ? 235 :*/ 205, 150, 20);
         this.choicerWaterEvent.addItemListener(this);
-        this.buttonStartTraining = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Start"));
+        this.buttonStartTraining = new Button(this.gameContainer.textManager.getText("LobbyReal_Start"));
         this.buttonStartTraining.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonStartTraining.setBounds(this.width / 2 - 170, /*isUsingCustomServer ? 300 :*/ 270, 100, 25);
         this.buttonStartTraining.addActionListener(this);
         this.add(this.buttonStartTraining);
-        String[] trackSetListTitles = new String[] {
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleName"),
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"),
-            this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks")
-        };
-        int[] var2 = new int[] {0, 0, 4};
-        this.trackSetList = new MultiColorList(trackSetListTitles, var2, 1, 250, 130);
+        List<MultiColumnListColumn> columns = List.of(
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleName"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleDifficulty"), SortOrder.ORDER_ABC),
+                new MultiColumnListColumn(
+                        this.gameContainer.textManager.getText("LobbyReal_TS_TitleTracks"), SortOrder.ORDER_123_ALL));
+        this.trackSetList = new MultiColumnSelectableList<>(columns, 1, 250, 130);
         this.trackSetList.setLocation(this.width - 290, 130);
         this.trackSetList.setBackgroundImage(
                 this.gameContainer.imageManager.getImage("bg-lobby-single-fade"), this.width - 290, 130);
-        this.trackSetList.setSelectable(1);
+        this.trackSetList.setSelectable(MultiColumnSelectableList.SELECTABLE_ONE);
         this.trackSetList.addItemListener(this);
         trackSetList.setListListener(this);
         this.add(this.trackSetList);
-        this.buttonStartChampionship = new ColorButton(this.gameContainer.textManager.getText("LobbyReal_Start"));
+        this.buttonStartChampionship = new Button(this.gameContainer.textManager.getText("LobbyReal_Start"));
         this.buttonStartChampionship.setBackground(GolfGameFrame.colourButtonGreen);
         this.buttonStartChampionship.setBounds(this.width - 290 + 75 - 20, 270, 100, 25);
         this.buttonStartChampionship.addActionListener(this);
         this.add(this.buttonStartChampionship);
     }
 
-    private String getSelectedTrackSetData() {
-        MultiColorListItem var1 = this.trackSetList.getSelectedItem();
-        return var1 == null ? null : (String) var1.getData();
+    private TrackSet getSelectedTrackSet() {
+        MultiColumnListItem<TrackSet> item = this.trackSetList.getSelectedItem();
+        return item == null ? null : item.getData();
     }
 
     @Override
-    public void mouseDoubleClicked(MultiColorListItem clickedItem) {
-        String itemData = (String) clickedItem.getData();
+    public void mouseDoubleClicked(MultiColumnListItem<TrackSet> clickedItem) {
+        TrackSet itemData = clickedItem.getData();
         if (itemData != null) {
-            startChampionship(Integer.parseInt(itemData.substring(0, itemData.indexOf(9))));
+            startChampionship(itemData.getId());
         }
     }
 
     private void startChampionship(int index) {
         this.gameContainer.golfGameFrame.setGameState(0);
         this.gameContainer.lobbyPanel.writeData("cspc\t" + index);
+    }
+
+    private int getTrackSetDifficultyColor(TrackSetDifficulty difficulty) {
+        return switch (difficulty) {
+            case EASY -> MultiColumnListItem.COLOR_GREEN;
+            case MEDIUM -> MultiColumnListItem.COLOR_YELLOW;
+            case HARD -> MultiColumnListItem.COLOR_RED;
+        };
     }
 }

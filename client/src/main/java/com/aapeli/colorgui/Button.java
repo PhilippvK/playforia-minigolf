@@ -14,7 +14,7 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ColorButton extends IPanel implements MouseMotionListener, MouseListener {
+public class Button extends IPanel implements MouseMotionListener, MouseListener {
 
     public static final int BORDER_NONE = 0;
     public static final int BORDER_NORMAL = 1;
@@ -52,7 +52,7 @@ public class ColorButton extends IPanel implements MouseMotionListener, MouseLis
     private int width;
     private int height;
 
-    public ColorButton(String label) {
+    public Button(String label) {
         this.setBackground(DEFAULT_BACKGROUND_COLOR);
         this.setForeground(FontConstants.black);
         this.setFont(FontConstants.font);

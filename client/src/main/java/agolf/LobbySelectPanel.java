@@ -1,9 +1,9 @@
 package agolf;
 
 import com.aapeli.client.StringDraw;
+import com.aapeli.colorgui.Button;
+import com.aapeli.colorgui.Checkbox;
 import com.aapeli.colorgui.Choicer;
-import com.aapeli.colorgui.ColorButton;
-import com.aapeli.colorgui.ColorCheckbox;
 import com.aapeli.tools.Tools;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -24,13 +24,13 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
     private int width;
     private int height;
     private int lobbyMaxPlayers;
-    private ColorButton buttonSingle;
-    private ColorButton buttonSingleQuick;
-    private ColorButton buttonDual;
-    private ColorButton buttonMulti;
-    private ColorButton buttonMultiQuick;
-    private ColorButton buttonQuit;
-    private ColorCheckbox checkboxPlayHidden;
+    private Button buttonSingle;
+    private Button buttonSingleQuick;
+    private Button buttonDual;
+    private Button buttonMulti;
+    private Button buttonMultiQuick;
+    private Button buttonQuit;
+    private Checkbox checkboxPlayHidden;
     private Choicer choicerGraphics;
     private Choicer audioChoicer;
     private int[] lobbyNumPlayers;
@@ -207,16 +207,16 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
 
     private void create() {
         this.setLayout(null);
-        this.checkboxPlayHidden = new ColorCheckbox(this.gameContainer.textManager.getText("LobbySelect_PlayHidden"));
+        this.checkboxPlayHidden = new Checkbox(this.gameContainer.textManager.getText("LobbySelect_PlayHidden"));
         this.checkboxPlayHidden.setBounds(this.width / 6 - 75 - 10, this.height - 124, 220, 18);
         this.checkboxPlayHidden.setBackground(GolfGameFrame.colourGameBackground);
         if (!this.gameContainer.disableSinglePlayer) {
             this.add(this.checkboxPlayHidden);
-            this.buttonSingle = new ColorButton(this.gameContainer.textManager.getText("LobbySelect_SinglePlayer"));
+            this.buttonSingle = new Button(this.gameContainer.textManager.getText("LobbySelect_SinglePlayer"));
             this.buttonSingle.setBounds(this.width / 6 - 75, this.height - 150, 150, 25);
             this.buttonSingle.addActionListener(this);
             this.add(this.buttonSingle);
-            this.buttonSingleQuick = new ColorButton(this.gameContainer.textManager.getText("LobbySelect_QuickStart"));
+            this.buttonSingleQuick = new Button(this.gameContainer.textManager.getText("LobbySelect_QuickStart"));
             this.buttonSingleQuick.setBackground(GolfGameFrame.colourButtonBlue);
             this.buttonSingleQuick.setBounds(this.width / 6 - 50, this.height - 95, 100, 20);
             this.buttonSingleQuick.addActionListener(this);
@@ -224,18 +224,18 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         }
 
         // this.buttonDual = new
-        // ColorButton(this.gameContainer.textManager.getGame("LobbySelect_DualPlayer"));
-        this.buttonDual = new ColorButton("Coming soon...");
+        // Button(this.gameContainer.textManager.getGame("LobbySelect_DualPlayer"));
+        this.buttonDual = new Button("Coming soon...");
         this.buttonDual.setBounds(this.width * 3 / 6 - 75, this.height - 150, 150, 25);
         // this.buttonDual.addActionListener(this);
         this.add(this.buttonDual);
 
-        this.buttonMulti = new ColorButton(this.gameContainer.textManager.getText("LobbySelect_MultiPlayer"));
+        this.buttonMulti = new Button(this.gameContainer.textManager.getText("LobbySelect_MultiPlayer"));
         this.buttonMulti.setBounds(this.width * 5 / 6 - 75, this.height - 150, 150, 25);
         this.buttonMulti.addActionListener(this);
         this.add(this.buttonMulti);
 
-        this.buttonMultiQuick = new ColorButton(this.gameContainer.textManager.getText("LobbySelect_QuickStart"));
+        this.buttonMultiQuick = new Button(this.gameContainer.textManager.getText("LobbySelect_QuickStart"));
         this.buttonMultiQuick.setBackground(GolfGameFrame.colourButtonBlue);
         this.buttonMultiQuick.setBounds(this.width * 5 / 6 - 50, this.height - 95, 100, 20);
         this.buttonMultiQuick.addActionListener(this);
@@ -265,7 +265,7 @@ public class LobbySelectPanel extends Panel implements ActionListener, MouseList
         this.audioChoicer.addItemListener(this);
         this.add(this.audioChoicer);
 
-        this.buttonQuit = new ColorButton(this.gameContainer.textManager.getText("LobbySelect_Quit"));
+        this.buttonQuit = new Button(this.gameContainer.textManager.getText("LobbySelect_Quit"));
         this.buttonQuit.setBackground(GolfGameFrame.colourButtonRed);
         this.buttonQuit.setBounds(this.width * 2 / 3 - 50, this.height - 10 - 20, 100, 20);
         this.buttonQuit.addActionListener(this);

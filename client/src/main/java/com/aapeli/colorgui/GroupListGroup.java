@@ -2,13 +2,13 @@ package com.aapeli.colorgui;
 
 import java.awt.Image;
 
-public class ColorListItemGroup {
+public class GroupListGroup {
 
     private String text;
     private Image icon;
     private int sortValue;
 
-    public ColorListItemGroup(String text, Image icon, int sortValue) {
+    public GroupListGroup(String text, Image icon, int sortValue) {
         this.text = text;
         this.icon = icon;
         this.sortValue = sortValue;
