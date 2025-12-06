@@ -82,6 +82,7 @@ public class GolfGameFrame extends AbstractGameFrame {
         imageManager.defineImage("language-flags.png");
         imageManager.defineImage("credit-background.jpg");
         imageManager.defineImage("tf-background.gif");
+        imageManager.defineImage("game-cursor.png");
     }
 
     public void createImages() {

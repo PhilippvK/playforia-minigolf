@@ -27,7 +27,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private static final double magicOffset = Math.sqrt(2.0D) / 2.0D;
     private static final int diagOffset = (int) (6.0D * magicOffset + 0.5D);
     private static final Cursor cursorDefault = new Cursor(Cursor.DEFAULT_CURSOR);
-    private static final Cursor cursorCrosshair = new Cursor(Cursor.CROSSHAIR_CURSOR);
+    private Cursor cursorCrosshair = new Cursor(Cursor.CROSSHAIR_CURSOR);
     private static final Color colourAimLine = new Color(128, 0, 32);
     private static final Font gameFont = new Font("Dialog", Font.PLAIN, 10);
     private static final Color blackColour = Color.black;
@@ -79,7 +79,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private double hackedY = 0;
     private boolean isCheating = false;
 
-    protected GameCanvas(GameContainer gameContainer, Image image) {
+    protected GameCanvas(GameContainer gameContainer, Image image, Cursor c) {
         super(gameContainer, image);
         this.ballSprites = gameContainer.spriteManager.getBalls();
         this.playerCount = this.currentPlayerID = this.mouseX = this.mouseY = -1;
@@ -87,6 +87,8 @@ public class GameCanvas extends GameBackgroundCanvas
         this.gameState = 0;
         this.anInt2839 = anInt2838;
         this.norandom = Parameters.getBooleanValue(gameContainer.params.getParameter("norandom"));
+        // TODO: would be cool if user can set their own cursor
+        this.cursorCrosshair = c;
     }
 
     @Override
@@ -881,13 +883,13 @@ public class GameCanvas extends GameBackgroundCanvas
         return this.aString2835 != null;
     }
 
-    protected void startTurn(int playerId, boolean canLocalPlayerPlay, boolean var3) {
+    protected void startTurn(int playerId, boolean canLocalPlayerPlay, boolean requestFocus) {
         this.currentPlayerID = playerId;
         this.aBooleanArray2834[playerId] = true;
         this.mouseX = this.mouseY = -1;
         this.shootingMode = 0;
         if (canLocalPlayerPlay) {
-            this.method162(var3);
+            this.setStrokeListeners(requestFocus);
             this.gameState = 1;
         } else {
             this.gameState = 0;
@@ -1841,12 +1843,12 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
-    private void method162(boolean var1) {
+    private void setStrokeListeners(boolean requestFocus) {
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
         this.setCursor(cursorCrosshair);
         this.addKeyListener(this);
-        if (var1) {
+        if (requestFocus) {
             // this.requestFocus();//todo this is annoying as fuck
         }
     }

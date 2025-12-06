@@ -3,9 +3,12 @@ package agolf.game;
 import agolf.GameContainer;
 import agolf.GolfGameFrame;
 import agolf.SynchronizedBool;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Panel;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.util.StringTokenizer;
 import org.moparforia.client.Launcher;
 
@@ -566,7 +569,10 @@ public class GamePanel extends Panel {
             this.playerInfoPanel = new PlayerInfoPanel(this.gameContainer, 735, 60);
             this.playerInfoPanel.setLocation(0, 0);
             this.add(this.playerInfoPanel);
-            this.gameCanvas = new GameCanvas(this.gameContainer, image);
+            Image cursorImage = this.gameContainer.imageManager.getImage("game-cursor");
+            Toolkit toolkit = Toolkit.getDefaultToolkit();
+            Cursor c = toolkit.createCustomCursor(cursorImage, new Point(11, 11), "game-cursor");
+            this.gameCanvas = new GameCanvas(this.gameContainer, image, c);
             this.gameCanvas.setLocation(0, 65);
             this.add(this.gameCanvas);
             this.gameControlPanel = new GameControlPanel(this.gameContainer, this.playerInfoPanel, 95, 80);
