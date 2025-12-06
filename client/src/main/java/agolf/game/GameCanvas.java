@@ -613,15 +613,15 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseDragged(MouseEvent var1) {}
+    public void mouseDragged(MouseEvent event) {}
 
     @Override
-    public void mouseEntered(MouseEvent var1) {
-        this.mouseMoved(var1);
+    public void mouseEntered(MouseEvent event) {
+        this.mouseMoved(event);
     }
 
     @Override
-    public void mouseExited(MouseEvent var1) {
+    public void mouseExited(MouseEvent event) {
         this.mouseX = this.mouseY = -1;
         this.repaint();
     }
@@ -629,10 +629,7 @@ public class GameCanvas extends GameBackgroundCanvas
     @Override
     public synchronized void mousePressed(MouseEvent event) {
         if (this.gameState == 1) {
-            if (event.isMetaDown()) {
-                this.shootingMode = (this.shootingMode + 1) % 4;
-                this.repaint();
-            } else {
+            if (event.getButton() == MouseEvent.BUTTON1) {
                 int x = event.getX();
                 int y = event.getY();
                 this.mouseX = x;
@@ -651,43 +648,35 @@ public class GameCanvas extends GameBackgroundCanvas
                         this.doStroke(this.currentPlayerID, true, x, y, this.shootingMode);
                     }
                 }
+            } else {
+                this.shootingMode = (this.shootingMode + 1) % 4;
+                this.repaint();
             }
         }
     }
 
     @Override
-    public void mouseReleased(MouseEvent var1) {
+    public void mouseReleased(MouseEvent event) {
         if (this.gameState == 1) {
-            var1.consume();
+            event.consume();
         }
     }
 
     @Override
-    public void mouseClicked(MouseEvent var1) {}
+    public void mouseClicked(MouseEvent event) {}
 
     @Override
-    public synchronized void keyPressed(KeyEvent var1) {
-
+    public synchronized void keyPressed(KeyEvent event) {
         if (allowCheating) {
             // code for the aimbot.
-            if (var1.getKeyCode() == KeyEvent.VK_C) {
+            if (event.getKeyCode() == KeyEvent.VK_C) {
                 isCheating = !isCheating;
-            } else {
-                if (this.gameState == 1) {
-                    this.shootingMode = (this.shootingMode + 1) % 4;
-                    this.repaint();
-                }
             }
-        }
-
-        if (this.gameState == 1) {
-            this.shootingMode = (this.shootingMode + 1) % 4;
-            this.repaint();
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent var1) {}
+    public void keyReleased(KeyEvent event) {}
 
     @Override
     public void keyTyped(KeyEvent var1) {}
@@ -1023,7 +1012,8 @@ public class GameCanvas extends GameBackgroundCanvas
         boolean temp_aBoolean2832 = this.isLocalPlayer;
         boolean temp_aBoolean2843 = this.aBoolean2843;
         Seed temp_aSeed_2836 = rngSeed.clone();
-        // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId) ? playerId :
+        // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId)
+        // ? playerId :
         // -1;
         int temp_anInt2816 = playerId;
 
