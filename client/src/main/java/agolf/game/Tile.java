@@ -96,10 +96,10 @@ class Tile {
     }
 
     public void printDebug() {
-            System.out.println("special: " + special);
-            System.out.println("shape: " + shape);
-            System.out.println("back: " + background);
-            System.out.println("uuid: " + uuid);
+        System.out.println("special: " + special);
+        System.out.println("shape: " + shape);
+        System.out.println("back: " + background);
+        System.out.println("uuid: " + uuid);
     }
 
     public void update(int code) {
