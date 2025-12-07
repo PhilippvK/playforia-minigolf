@@ -42,7 +42,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private int mouseX;
     private int mouseY;
     private int shootingMode;
-    private int anInt2816;
+    private int isValidPlayerID;
     private double startPositionX;
     private double startPositionY;
     private double bounciness;
@@ -69,7 +69,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private int anInt2839;
     private Image anImage2840;
     private Graphics graphics;
-    private Thread aThread2842;
+    private Thread shotThread;
     private boolean aBoolean2843;
     private boolean norandom;
 
@@ -602,15 +602,15 @@ public class GameCanvas extends GameBackgroundCanvas
         } while (var24 < this.playerCount && !this.aBoolean2843);
 
         if (this.aBoolean2843) {
-            this.aThread2842 = null;
+            this.shotThread = null;
         } else {
             this.method164(var38);
-            super.gameContainer.gamePanel.sendEndStroke(this.currentPlayerID, this.onHoleSync, this.anInt2816);
-            if (this.anInt2816 >= 0) {
-                this.onHoleSync[this.anInt2816].set(true);
+            super.gameContainer.gamePanel.sendEndStroke(this.currentPlayerID, this.onHoleSync, this.isValidPlayerID);
+            if (this.isValidPlayerID >= 0) {
+                this.onHoleSync[this.isValidPlayerID].set(true);
             }
 
-            this.aThread2842 = null;
+            this.shotThread = null;
             this.repaint();
         }
     }
@@ -960,10 +960,10 @@ public class GameCanvas extends GameBackgroundCanvas
         this.removeMouseListener(this);
         this.removeKeyListener(this);
         this.setCursor(cursorDefault);
-        if (this.aThread2842 != null) {
+        if (this.shotThread != null) {
             this.aBoolean2843 = true;
 
-            while (this.aThread2842 != null) {
+            while (this.shotThread != null) {
                 Tools.sleep(100L);
             }
         }
@@ -998,7 +998,7 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     private void doStroke(int playerId, boolean isLocalPlayer, int mouseX, int mouseY, int shootingMode) {
-        this.anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId) ? playerId : -1;
+        this.isValidPlayerID = super.gameContainer.gamePanel.isValidPlayerID(playerId) ? playerId : -1;
         double[] power = this.getStrokePower(playerId, mouseX, mouseY);
         this.speedX[playerId] = power[0];
         this.speedY[playerId] = power[1];
@@ -1031,8 +1031,8 @@ public class GameCanvas extends GameBackgroundCanvas
         this.gameState = 2;
         this.aBoolean2843 = false;
 
-        this.aThread2842 = new Thread(this);
-        this.aThread2842.start();
+        this.shotThread = new Thread(this);
+        this.shotThread.start();
     }
 
     private void doHackedStroke(int playerId, boolean isLocalPlayer, int mouseX, int mouseY, int mod) {
@@ -1103,8 +1103,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 temp_aSeed_2836,
                 anInt2839,
                 temp_aBoolean2843,
-                super.track.map.getColMap(),
-                super.track.map.getTileCodeArray());
+                track.map.getColMap(),
+                track.map.getTileCodeArray());
         Thread hack = new Thread(hs);
         hack.start();
         try {
@@ -1670,7 +1670,7 @@ public class GameCanvas extends GameBackgroundCanvas
             // where we want to move the block
             int x1 = mapX + offsetX;
             int y1 = mapY + offsetY;
-            int canMove = this.canMovableBlockMove(x1, y1);
+            int canMove = this.track.map.canMovableBlockMove(x1, y1, this.playerX, this.playerY, this.playerCount);
             if (canMove == -1) {
                 return false;
             } else {
@@ -1698,34 +1698,6 @@ public class GameCanvas extends GameBackgroundCanvas
             }
         } else {
             return false;
-        }
-    }
-
-    // Checks whether the tile at position x, y is such, that a block can move to it.
-    // If the block cannot move, returns -1
-    // If the block can move, returns the background value for that tile
-    private int canMovableBlockMove(int x, int y) {
-        if (x >= 0 && x < 49 && y >= 0 && y < 25) {
-            Tile tile = track.map.getTile(x, y);
-            int special = tile.getSpecial();
-            int shape = tile.getShapeReduced();
-            int background = tile.getBackground();
-            if (special == 1 && shape == 0 && background <= 15) {
-                for (int i = 0; i < this.playerCount; ++i) {
-                    if (this.playerX[i] > (double) (x * 15)
-                            && this.playerX[i] < (double) (x * 15 + 15 - 1)
-                            && this.playerY[i] > (double) (y * 15)
-                            && this.playerY[i] < (double) (y * 15 + 15 - 1)) {
-                        return -1;
-                    }
-                }
-
-                return background;
-            } else {
-                return -1;
-            }
-        } else {
-            return -1;
         }
     }
 
@@ -1760,7 +1732,7 @@ public class GameCanvas extends GameBackgroundCanvas
                 --x1;
             }
 
-            background1 = this.canMovableBlockMove(x1, y1);
+            background1 = this.track.map.canMovableBlockMove(x1, y1, this.playerX, this.playerY, this.playerCount);
             if (background1 >= 0) {
                 xytile = this.calculateMovableBlockEndPosition(
                         x, y, x1, y1, background, background1, nonSunkable, i + 1);

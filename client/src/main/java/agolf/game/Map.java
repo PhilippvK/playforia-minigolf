@@ -283,4 +283,41 @@ class Map {
             ++charIdx;
         }
     }
+
+    // Checks whether the tile at position x, y is such, that a movable block can move to it.
+    // If the block cannot move, returns -1
+    // If the block can move, returns the background value for that tile
+    int canMovableBlockMove(int x, int y, double[] playerX, double[] playerY, int playerCount) {
+        if (x >= 0 && x < 49 && y >= 0 && y < 25) {
+            Tile tile = this.getTile(x, y);
+            int special = tile.getSpecial();
+            int shape = tile.getShapeReduced();
+            int background = tile.getBackground();
+            if (special == 1 && shape == 0 && background <= 15) {
+                // Check that the tile has no players
+                for (int i = 0; i < playerCount; ++i) {
+                    if (isPlayerAtPosition(x, y, playerX[i], playerY[i])) {
+                        return -1;
+                    }
+                }
+                return background;
+            } else {
+                return -1;
+            }
+        } else {
+            return -1;
+        }
+    }
+
+    // (x, y) tile coordinates
+    // (playerX, playerY) pixel coordinates
+    private boolean isPlayerAtPosition(int x, int y, double playerX, double playerY) {
+        if (playerX > (double) (x * 15)
+                && playerX < (double) (x * 15 + 15 - 1)
+                && playerY > (double) (y * 15)
+                && playerY < (double) (y * 15 + 15 - 1)) {
+            return true;
+        }
+        return false;
+    }
 }
