@@ -296,15 +296,15 @@ public class GameCanvas extends GameBackgroundCanvas
 
                             x = (int) (this.playerX[i] + 0.5D);
                             y = (int) (this.playerY[i] + 0.5D);
-                            center = super.collisionMap[x][y];
-                            top = super.collisionMap[x][y - 6];
-                            topright = super.collisionMap[x + diagOffset][y - diagOffset];
-                            right = super.collisionMap[x + 6][y];
-                            bottomright = super.collisionMap[x + diagOffset][y + diagOffset];
-                            bottom = super.collisionMap[x][y + 6];
-                            bottomleft = super.collisionMap[x - diagOffset][y + diagOffset];
-                            left = super.collisionMap[x - 6][y];
-                            topleft = super.collisionMap[x - diagOffset][y - diagOffset];
+                            center = this.track.map.getColMap(x, y);
+                            top = this.track.map.getColMap(x, y - 6);
+                            topright = this.track.map.getColMap(x + diagOffset, y - diagOffset);
+                            right = this.track.map.getColMap(x + 6, y);
+                            bottomright = this.track.map.getColMap(x + diagOffset, y + diagOffset);
+                            bottom = this.track.map.getColMap(x, y + 6);
+                            bottomleft = this.track.map.getColMap(x - diagOffset, y + diagOffset);
+                            left = this.track.map.getColMap(x - 6, y);
+                            topleft = this.track.map.getColMap(x - diagOffset, y - diagOffset);
                             if (center != 12 && center != 13) {
                                 onLiquid = center == 14 || center == 15;
                             } else {
@@ -370,10 +370,10 @@ public class GameCanvas extends GameBackgroundCanvas
                         double holeSpeed;
                         // 25 hole
                         if (center == 25
-                                || super.collisionMap[x][y - 1] == 25
-                                || super.collisionMap[x + 1][y] == 25
-                                || super.collisionMap[x][y + 1] == 25
-                                || super.collisionMap[x - 1][y] == 25) {
+                                || this.track.map.getColMap(x, y - 1) == 25
+                                || this.track.map.getColMap(x + 1, y) == 25
+                                || this.track.map.getColMap(x, y + 1) == 25
+                                || this.track.map.getColMap(x - 1, y) == 25) {
                             holeSpeed = center == 25 ? 1.0D : 0.5D;
                             shouldSpinAroundHole = true;
                             int holeCounter = 0;
@@ -722,15 +722,22 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    protected void createMap(int var1) {
-        super.createMap(var1);
+    protected void createMap(int tile) {
+        super.createMap(tile);
         this.currentPlayerID = this.mouseX = this.mouseY = -1;
         this.gameState = 0;
         this.repaint();
     }
 
     protected boolean init(String commandLines, String playerStatuses, int gameId) {
-        boolean parseSuccessful = super.parseMapCommands(commandLines);
+        boolean parseSuccessful = false;
+        try {
+            parseSuccessful = this.track.parse(commandLines);
+        } catch (Exception e) {
+            return false;
+        }
+        this.track.map.checkSolids(this.gameContainer.spriteManager);
+        super.drawMap();
 
         this.aString2835 = null;
         StringTokenizer commandTokens = new StringTokenizer(commandLines, "\n");
@@ -769,8 +776,8 @@ public class GameCanvas extends GameBackgroundCanvas
         // Iterates over the 49*25 map
         for (int y = 0; y < 25; ++y) {
             for (int x = 0; x < 49; ++x) {
-                if (super.trackTiles[x][y] / 16777216 == 2) {
-                    int tile = super.trackTiles[x][y] / 65536 % 256 + 24;
+                if (super.track.map.tiles[x][y] / 16777216 == 2) {
+                    int tile = super.track.map.getTile(x, y) / 65536 % 256 + 24;
                     double screenX = (double) (x * 15) + 7.5D;
                     double screenY = (double) (y * 15) + 7.5D;
                     // 24 Start Position Common
@@ -1095,8 +1102,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 temp_aSeed_2836,
                 anInt2839,
                 temp_aBoolean2843,
-                super.collisionMap,
-                super.trackTiles);
+                super.track.map.getColMap(),
+                super.track.map.tiles);
         Thread hack = new Thread(hs);
         hack.start();
         try {
@@ -1621,16 +1628,16 @@ public class GameCanvas extends GameBackgroundCanvas
             boolean isBigMine, int playerId, int screenX, int screenY, Graphics var5, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        int special = super.trackTiles[mapX][mapY] / 16777216;
-        int shape = super.trackTiles[mapX][mapY] / 65536 % 256 + 24;
-        int foreground = super.trackTiles[mapX][mapY] / 256 % 256;
-        int background = super.trackTiles[mapX][mapY] % 256;
+        int special = super.track.map.getTile(mapX, mapY) / 16777216;
+        int shape = super.track.map.getTile(mapX, mapY) / 65536 % 256 + 24;
+        int foreground = super.track.map.getTile(mapX, mapY) / 256 % 256;
+        int background = super.track.map.getTile(mapX, mapY) % 256;
         // 28 Mine
         // 30 Big Mine
         if (special == 2 && (shape == 28 || shape == 30)) {
             ++shape;
-            super.trackTiles[mapX][mapY] =
-                    special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + foreground * 256 + background;
+            super.track.map.setTile(
+                    mapX, mapY, special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + foreground * 256 + background);
             this.drawTile(mapX, mapY, var5, canvas);
 
             // Big Mine will dig a hole around mine
@@ -1646,8 +1653,8 @@ public class GameCanvas extends GameBackgroundCanvas
                                 && y >= 0
                                 && y < 25
                                 && (y != mapY || x != mapX)
-                                && super.trackTiles[x][y] == 16777216) {
-                            super.trackTiles[x][y] = downhills[tileIndex];
+                                && super.track.map.getTile(x, y) == 16777216) {
+                            super.track.map.setTile(x, y, downhills[tileIndex]);
                             this.drawTile(x, y, var5, canvas);
                         }
 
@@ -1677,9 +1684,9 @@ public class GameCanvas extends GameBackgroundCanvas
             int screenX, int screenY, Graphics var3, Graphics canvas, int offsetX, int offsetY, boolean nonSunkable) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        int special = super.trackTiles[mapX][mapY] / 16777216;
-        int shape = super.trackTiles[mapX][mapY] / 65536 % 256 + 24;
-        int background = super.trackTiles[mapX][mapY] / 256 % 256;
+        int special = super.track.map.getTile(mapX, mapY) / 16777216;
+        int shape = super.track.map.getTile(mapX, mapY) / 65536 % 256 + 24;
+        int background = super.track.map.getTile(mapX, mapY) / 256 % 256;
         if (special == 2 && (shape == 27 || shape == 46)) {
             // where we want to move the block
             int x1 = mapX + offsetX;
@@ -1689,7 +1696,7 @@ public class GameCanvas extends GameBackgroundCanvas
                 return false;
             } else {
                 // 16777216 == special:1 shape:0 fg:0 bg:0
-                super.trackTiles[mapX][mapY] = 16777216 + background * 256;
+                super.track.map.setTile(mapX, mapY, 16777216 + background * 256);
                 this.drawTile(mapX, mapY, var3, canvas);
                 // [x,y,background id]
                 int[] tileWithCoords = this.calculateMovableBlockEndPosition(
@@ -1698,11 +1705,13 @@ public class GameCanvas extends GameBackgroundCanvas
                 // 13 Acid
                 if (!nonSunkable && (tileWithCoords[2] == 12 || tileWithCoords[2] == 13)) {
                     // Sunked Movable Block with old background
-                    super.trackTiles[tileWithCoords[0]][tileWithCoords[1]] = 35061760 + tileWithCoords[2] * 256;
+                    super.track.map.setTile(tileWithCoords[0], tileWithCoords[1], 35061760 + tileWithCoords[2] * 256);
                 } else {
                     // Movable Block with old background
-                    super.trackTiles[tileWithCoords[0]][tileWithCoords[1]] =
-                            33554432 + ((nonSunkable ? 27 : 46) - 24) * 256 * 256 + tileWithCoords[2] * 256;
+                    super.track.map.setTile(
+                            tileWithCoords[0],
+                            tileWithCoords[1],
+                            33554432 + ((nonSunkable ? 27 : 46) - 24) * 256 * 256 + tileWithCoords[2] * 256);
                 }
 
                 this.drawTile(tileWithCoords[0], tileWithCoords[1], var3, canvas);
@@ -1715,9 +1724,9 @@ public class GameCanvas extends GameBackgroundCanvas
 
     private int canMovableBlockMove(int x, int y) {
         if (x >= 0 && x < 49 && y >= 0 && y < 25) {
-            int special = super.trackTiles[x][y] / 16777216;
-            int shape = super.trackTiles[x][y] / 65536 % 256;
-            int background = super.trackTiles[x][y] / 256 % 256;
+            int special = super.track.map.getTile(x, y) / 16777216;
+            int shape = super.track.map.getTile(x, y) / 65536 % 256;
+            int background = super.track.map.getTile(x, y) / 256 % 256;
             if (special == 1 && shape == 0 && background <= 15) {
                 for (int i = 0; i < this.playerCount; ++i) {
                     if (this.playerX[i] > (double) (x * 15)
@@ -1784,17 +1793,19 @@ public class GameCanvas extends GameBackgroundCanvas
     private void handleBreakableBlock(int screenX, int screenY, Graphics var3, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        int special = super.trackTiles[mapX][mapY] / 16777216;
-        int shape = super.trackTiles[mapX][mapY] / 65536 % 256 + 24;
-        int background = super.trackTiles[mapX][mapY] / 256 % 256;
-        int foreground = super.trackTiles[mapX][mapY] % 256;
+        int special = super.track.map.getTile(mapX, mapY) / 16777216;
+        int shape = super.track.map.getTile(mapX, mapY) / 65536 % 256 + 24;
+        int background = super.track.map.getTile(mapX, mapY) / 256 % 256;
+        int foreground = super.track.map.getTile(mapX, mapY) % 256;
         if (special == 2 && shape >= 40 && shape <= 43) {
             ++shape;
             if (shape <= 43) {
-                super.trackTiles[mapX][mapY] =
-                        special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + background * 256 + foreground;
+                super.track.map.setTile(
+                        mapX,
+                        mapY,
+                        special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + background * 256 + foreground);
             } else {
-                super.trackTiles[mapX][mapY] = 16777216 + background * 256 + background;
+                super.track.map.setTile(mapX, mapY, 16777216 + background * 256 + background);
             }
 
             this.drawTile(mapX, mapY, var3, canvas);
@@ -1802,8 +1813,8 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     private void drawTile(int tileX, int tileY, Graphics var3, Graphics var4) {
-        Image tile = super.getTileAt(tileX, tileY);
-        super.collisionMap(tileX, tileY);
+        Image tile = super.getTileImageAt(tileX, tileY);
+        super.track.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
         var3.drawImage(tile, tileX * 15, tileY * 15, this);
         var4.drawImage(tile, tileX * 15, tileY * 15, this);
     }
