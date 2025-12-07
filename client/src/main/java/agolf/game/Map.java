@@ -8,14 +8,17 @@ class Map {
     private static final String mapChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private byte[][] collisionMap;
     private boolean[] latestTileSpeciality;
-    public int[][] tiles;
+    private Tile[][] tiles;
     private int width;
     private int height;
+    private int[][] tileCodeArray;
+    public int index = 0;
 
     public Map(int width, int height) {
         this.width = width;
         this.height = height;
-        this.tiles = new int[width][height];
+        this.tiles = new Tile[width][height];
+        this.tileCodeArray = new int[width][height]; // To remain compatible with hackedshot
     }
 
     /*
@@ -55,38 +58,41 @@ class Map {
 
                     // (currentMapIndex << 24) + (mapcursor_one_ahead << 16) +
                     // (mapcursor_two_ahead << 8) + mapcursor_three_ahead;
-                    this.tiles[tileX][tileY] = currentMapIndex * 256 * 256 * 256
+                    int tileCode = currentMapIndex * 256 * 256 * 256
                             + mapcursor_one_ahead * 256 * 256
                             + mapcursor_two_ahead * 256
                             + mapcursor_three_ahead;
+                    this.updateTile(tileX, tileY, tileCode);
+                    this.tileCodeArray[tileX][tileY] = tileCode;
                 } else {
                     if (currentMapIndex == 3) { // if input = D
-                        this.tiles[tileX][tileY] = this.tiles[tileX - 1][tileY]; // tile to west is same as current
+                        this.updateTile(tileX, tileY, this.tiles[tileX - 1][tileY].getCode());
+                        // tile to west is same as current
                     }
 
                     if (currentMapIndex == 4) { // if input = E;
-                        this.tiles[tileX][tileY] = this.tiles[tileX][tileY - 1]; // tile to the north is same as current
+                        this.updateTile(tileX, tileY, this.tiles[tileX][tileY - 1].getCode());
+                        // tile to the north is same as current
                     }
 
                     if (currentMapIndex == 5) { // if input = F;
-                        this.tiles[tileX][tileY] = this.tiles[tileX - 1][tileY - 1]; // tile to the northwest is same as
-                        // current
+                        this.updateTile(tileX, tileY, this.tiles[tileX - 1][tileY - 1].getCode());
+                        // tile to the northwest is same as
                     }
 
                     if (currentMapIndex == 6) { // if input = G;
-                        this.tiles[tileX][tileY] =
-                                this.tiles[tileX - 2][tileY]; // 2 tiles west is same as current (skip a
-                        // tile to the left)
+                        this.updateTile(tileX, tileY, this.tiles[tileX - 2][tileY].getCode());
+                        // 2 tiles west is same as current (skip a tile to the left)
                     }
 
                     if (currentMapIndex == 7) { // if input = H
-                        this.tiles[tileX][tileY] = this.tiles[tileX][tileY - 2]; // 2 tiles north is same as current
-                        // (skip the tile above)
+                        this.updateTile(tileX, tileY, this.tiles[tileX][tileY - 2].getCode());
+                        // 2 tiles north is same as current (skip the tile above)
                     }
 
                     if (currentMapIndex == 8) { // if input= I
-                        this.tiles[tileX][tileY] = this.tiles[tileX - 2][tileY - 2]; // 2 tiles northwest is same as
-                        // current (skip the diagonal)
+                        this.updateTile(tileX, tileY, this.tiles[tileX - 2][tileY - 2].getCode());
+                        // 2 tiles northwest is same as current (skip the diagonal)
                     }
 
                     ++cursorIndex;
@@ -111,12 +117,16 @@ class Map {
         return this.collisionMap;
     }
 
-    public void setTile(int x, int y, int tile) {
-        this.tiles[x][y] = tile;
+    // public void setTile(int x, int y, Tile tile) {
+    //     this.tiles[x][y] = tile;
+    // }
+
+    public Tile getTile(int x, int y) {
+        return this.tiles[x][y];
     }
 
-    public int getTile(int x, int y) {
-        return this.tiles[x][y];
+    public int[][] getTileCodeArray() {
+        return this.tileCodeArray;
     }
 
     public void checkSolids(SpriteManager manager) {
@@ -150,11 +160,20 @@ class Map {
                 : false;
     }
 
+    public void updateTile(int x, int y, int tileCode) {
+        if (tiles[x][y] == null) {
+            tiles[x][y] = new Tile(tileCode);
+        } else {
+            tiles[x][y].update(tileCode);
+        }
+    }
+
     protected void collisionMap(int tileX, int tileY, SpriteManager manager) {
-        int special = this.tiles[tileX][tileY] / 16777216;
-        int shape = this.tiles[tileX][tileY] / 65536 % 256;
-        int background = this.tiles[tileX][tileY] / 256 % 256;
-        int foreground = this.tiles[tileX][tileY] % 256;
+        Tile tile = this.getTile(tileX, tileY);
+        int special = tile.getSpecial();
+        int shape = tile.getShapeReduced();
+        int background = tile.getBackground();
+        int foreground = tile.getForeground();
         int pixel = Integer.MIN_VALUE;
 
         if (special == 1 && (background == 19 || foreground == 19)) { // IF HAX BLOCK
