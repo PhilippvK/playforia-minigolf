@@ -336,8 +336,8 @@ public class GamePanel extends Panel {
                   var15[1][2]= number of ratings: 2
                   var15[1][3]= number of ratings: 3
                 */
-                String[] trackInformation = this.gameCanvas.generateTrackInformation();
-                int[][] trackStats = this.gameCanvas.generateTrackStatistics();
+                String[] trackInformation = this.gameCanvas.track.generateTrackInformation();
+                int[][] trackStats = this.gameCanvas.track.generateTrackStatistics();
 
                 this.trackInfoPanel.parseTrackInfoStats(
                         trackInformation[0],
@@ -360,9 +360,8 @@ public class GamePanel extends Panel {
 
                 if (this.gameContainer.synchronizedTrackTestMode.get()) {
                     this.chatPanel.printSpecialSettingstoTextArea(
-                            this.gameCanvas.getTrackComment(),
-                            this.gameCanvas.getTrackSettings(),
-                            this.gameCanvas.method120());
+                            this.gameCanvas.track.getTrackComment(), this.gameCanvas.track.getTrackSettings());
+                    // this.gameCanvas.method120());
                 }
             }
             case "startturn" -> {
