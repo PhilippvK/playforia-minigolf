@@ -19,7 +19,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 
 public class GameCanvas extends GameBackgroundCanvas
         implements Runnable, MouseMotionListener, MouseListener, KeyListener {
@@ -56,21 +55,20 @@ public class GameCanvas extends GameBackgroundCanvas
     private double[] playerY;
     private double[] speedX;
     private double[] speedY;
-    private boolean[] aBooleanArray2830;
+    private boolean[] simulatePlayer;
     private SynchronizedBool[] onHoleSync; // not sure
-    private boolean isLocalPlayer;
+    private boolean isLocalPlayer; // local or remote player in multiplayer
     private int playerNamesDisplayMode; // 0 == Hide names, 1 == Show initials, 2 == Show names, 3 ==
     // Name + clan
-    private boolean[] aBooleanArray2834;
-    private String aString2835;
+    private boolean[] playerActive;
+    private String encodedCoordinates;
     private Seed rngSeed;
-    private static int[] anIntArray2837 = new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
-    private static int anInt2838 = 2;
-    private int anInt2839;
-    private Image anImage2840;
+    private static int[] frameTimeHistory = new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE };
+    private int maxPhysicsIterations;
+    private Image gameArea;
     private Graphics graphics;
     private Thread shotThread;
-    private boolean aBoolean2843;
+    private boolean strokeInterrupted;
     private boolean norandom;
 
     // aimbot stuff
@@ -85,7 +83,7 @@ public class GameCanvas extends GameBackgroundCanvas
         this.playerCount = this.currentPlayerID = this.mouseX = this.mouseY = -1;
         this.playerNamesDisplayMode = 0;
         this.gameState = 0;
-        this.anInt2839 = anInt2838;
+        this.maxPhysicsIterations = 2;
         this.norandom = Parameters.getBooleanValue(gameContainer.params.getParameter("norandom"));
         // TODO: would be cool if user can set their own cursor
         this.cursorCrosshair = c;
@@ -93,9 +91,9 @@ public class GameCanvas extends GameBackgroundCanvas
 
     @Override
     public void update(Graphics g) {
-        if (this.anImage2840 == null) {
-            this.anImage2840 = this.createImage(735, 375);
-            this.graphics = this.anImage2840.getGraphics();
+        if (this.gameArea == null) {
+            this.gameArea = this.createImage(735, 375);
+            this.graphics = this.gameArea.getGraphics();
         }
 
         super.update(this.graphics);
@@ -140,7 +138,7 @@ public class GameCanvas extends GameBackgroundCanvas
             this.graphics.setColor(blackColour);
 
             for (int player = 0; player < this.playerCount; ++player) {
-                if (this.aBooleanArray2830[player] && player != this.currentPlayerID) {
+                if (this.simulatePlayer[player] && player != this.currentPlayerID) {
                     this.drawPlayer(this.graphics, player, this.onHoleSync[player].get() ? 2.1666666666666665D : 0.0D);
                 }
             }
@@ -176,23 +174,23 @@ public class GameCanvas extends GameBackgroundCanvas
                     this);
         }
 
-        g.drawImage(this.anImage2840, 0, 0, this);
+        g.drawImage(this.gameArea, 0, 0, this);
     }
 
     @Override
     public void run() {
         Image ballImage = this.createImage(735, 375);
-        Image var2 = super.image;
+        Image gameImage = super.image;
         Graphics ballGraphic = ballImage.getGraphics();
         Graphics canvas = this.getGraphics();
-        ballGraphic.drawImage(var2, 0, 0, this);
+        ballGraphic.drawImage(gameImage, 0, 0, this);
         canvas.drawImage(ballImage, 0, 0, this);
         int loopStuckCounter = 0;
         int[] magnetStuckCounter = new int[this.playerCount];
         int[] downhillStuckCounter = new int[this.playerCount];
         double[] tempCoordX = new double[this.playerCount];
         double[] tempCoordY = new double[this.playerCount];
-        double[] var10 = new double[this.playerCount];
+        double[] onHoleTimer = new double[this.playerCount];
         double[] tempCoord2X = new double[this.playerCount];
         double[] tempCoord2Y = new double[this.playerCount];
         double[] tempCoord3X = new double[this.playerCount];
@@ -207,20 +205,20 @@ public class GameCanvas extends GameBackgroundCanvas
             tempCoordX[player] = tempCoord2X[player] = this.playerX[player];
             tempCoordY[player] = tempCoord2Y[player] = this.playerY[player];
             onHole[player] = onLiquidOrSwamp[player] = false;
-            var10[player] = this.onHoleSync[player].get() ? 2.1666666666666665D : 0.0D;
+            onHoleTimer[player] = this.onHoleSync[player].get() ? 2.1666666666666665D : 0.0D;
             teleported[player] = false;
             spinningStuckCounter[player] = 0;
         }
 
         boolean shouldSpinAroundHole = false;
         boolean onLiquid = false;
-        boolean var22 = false;
-        boolean var23 = super.gameContainer.synchronizedTrackTestMode.get();
-        if (var23) {
-            var22 = super.gameContainer.gamePanel.maxFps();
+        boolean forceMaxFps = false;
+        boolean trackTestModeEnabled = super.gameContainer.synchronizedTrackTestMode.get();
+        if (trackTestModeEnabled) {
+            forceMaxFps = super.gameContainer.gamePanel.maxFps();
         }
 
-        int var24 = -1;
+        int allPlayersStoppedCounter = -1;
         byte topleft = 0;
         byte left = 0;
         byte bottomleft = 0;
@@ -234,7 +232,7 @@ public class GameCanvas extends GameBackgroundCanvas
         int x = 0;
         double speed = 0.0D;
         this.bounciness = this.somethingSpeedThing = 1.0D;
-        int var38 = 0;
+        int accumulatedSleepTime = 0;
 
         do {
             long time = System.currentTimeMillis();
@@ -244,11 +242,11 @@ public class GameCanvas extends GameBackgroundCanvas
                 tempCoord3Y[i] = this.playerY[i];
             }
 
-            for (int var42 = 0; var42 < this.anInt2839; ++var42) {
-                var24 = 0;
+            for (int physicsIteration = 0; physicsIteration < this.maxPhysicsIterations; ++physicsIteration) {
+                allPlayersStoppedCounter = 0;
 
                 for (int i = 0; i < this.playerCount; ++i) {
-                    if (this.aBooleanArray2830[i] && !this.onHoleSync[i].get()) {
+                    if (this.simulatePlayer[i] && !this.onHoleSync[i].get()) {
                         for (int j = 0; j < 10; ++j) {
 
                             // this moves player
@@ -277,7 +275,7 @@ public class GameCanvas extends GameBackgroundCanvas
                             if (this.collisionMode == 1 && !onHole[i] && !onLiquidOrSwamp[i]) {
                                 for (anotherPlayer = 0; anotherPlayer < this.playerCount; ++anotherPlayer) {
                                     if (i != anotherPlayer
-                                            && this.aBooleanArray2830[anotherPlayer]
+                                            && this.simulatePlayer[anotherPlayer]
                                             && !this.onHoleSync[anotherPlayer].get()
                                             && !onHole[anotherPlayer]
                                             && !onLiquidOrSwamp[anotherPlayer]
@@ -288,7 +286,7 @@ public class GameCanvas extends GameBackgroundCanvas
                                         this.speedY[i] *= 0.75D;
                                         this.speedX[anotherPlayer] *= 0.75D;
                                         this.speedY[anotherPlayer] *= 0.75D;
-                                        var24 = 0; // players moved so we reset this to make sure
+                                        allPlayersStoppedCounter = 0; // players moved so we reset this to make sure
                                         // they move
                                     }
                                 }
@@ -457,11 +455,10 @@ public class GameCanvas extends GameBackgroundCanvas
 
                         speed = Math.sqrt(this.speedX[i] * this.speedX[i] + this.speedY[i] * this.speedY[i]);
                         if (speed > 0.0D) {
-                            // double var52 = this.calculateFriction(center, speed);
-                            double var52 = Tile.calculateFriction(center, speed);
-                            this.speedX[i] *= var52;
-                            this.speedY[i] *= var52;
-                            speed *= var52;
+                            double frictionFactor = Tile.calculateFriction(center, speed);
+                            this.speedX[i] *= frictionFactor;
+                            this.speedY[i] *= frictionFactor;
+                            speed *= frictionFactor;
                             if (speed > 7.0D) {
                                 holeSpeed = 7.0D / speed;
                                 this.speedX[i] *= holeSpeed;
@@ -505,15 +502,16 @@ public class GameCanvas extends GameBackgroundCanvas
                                 && !onLiquidOrSwamp[i]) {
                             this.speedX[i] = this.speedY[i] = 0.0D;
                             if (center != 12 && center != 14 && center != 13 && center != 15) {
-                                ++var24;
+                                ++allPlayersStoppedCounter;
                             } else {
                                 onLiquidOrSwamp[i] = true;
                             }
                         }
 
                         if (onHole[i] || onLiquidOrSwamp[i]) {
-                            var10[i] += 0.1D;
-                            if (onHole[i] && var10[i] > 2.1666666666666665D || onLiquidOrSwamp[i] && var10[i] > 6.0D) {
+                            onHoleTimer[i] += 0.1D;
+                            if (onHole[i] && onHoleTimer[i] > 2.1666666666666665D
+                                    || onLiquidOrSwamp[i] && onHoleTimer[i] > 6.0D) {
                                 // 25 hole
                                 if (center == 25) {
                                     this.onHoleSync[i].set(true);
@@ -534,39 +532,39 @@ public class GameCanvas extends GameBackgroundCanvas
                                         this.resetPosition(i, false);
                                     }
 
-                                    var10[i] = 0.0D;
+                                    onHoleTimer[i] = 0.0D;
                                 }
 
                                 onHole[i] = onLiquidOrSwamp[i] = false;
-                                ++var24;
+                                ++allPlayersStoppedCounter;
                             }
                         }
                     } else {
-                        ++var24;
+                        ++allPlayersStoppedCounter;
                     }
                 }
 
                 ++loopStuckCounter;
-                if (var24 >= this.playerCount) {
-                    var42 = this.anInt2839;
+                if (allPlayersStoppedCounter >= this.playerCount) {
+                    physicsIteration = this.maxPhysicsIterations;
                 }
             }
 
             for (int i = 0; i < this.playerCount; ++i) {
-                if (this.aBooleanArray2830[i]) {
+                if (this.simulatePlayer[i]) {
                     int x1 = (int) (tempCoord3X[i] - 6.5D + 0.5D);
                     int y1 = (int) (tempCoord3Y[i] - 6.5D + 0.5D);
                     int x2 = x1 + 13;
                     int y2 = y1 + 13;
-                    ballGraphic.drawImage(var2, x1, y1, x2, y2, x1, y1, x2, y2, this);
+                    ballGraphic.drawImage(gameImage, x1, y1, x2, y2, x1, y1, x2, y2, this);
 
                     for (int j = 0; j < this.playerCount; ++j) {
-                        if (this.aBooleanArray2830[j] && j != this.currentPlayerID) {
-                            this.drawPlayer(ballGraphic, j, var10[j]);
+                        if (this.simulatePlayer[j] && j != this.currentPlayerID) {
+                            this.drawPlayer(ballGraphic, j, onHoleTimer[j]);
                         }
                     }
 
-                    this.drawPlayer(ballGraphic, this.currentPlayerID, var10[this.currentPlayerID]);
+                    this.drawPlayer(ballGraphic, this.currentPlayerID, onHoleTimer[this.currentPlayerID]);
                     if (this.playerX[i] < tempCoord3X[i]) {
                         x1 = (int) (this.playerX[i] - 6.5D + 0.5D);
                     }
@@ -588,37 +586,35 @@ public class GameCanvas extends GameBackgroundCanvas
             }
 
             time = System.currentTimeMillis() - time; // time to render
-            long var58 = (long) (6 * this.anInt2839) - time; // fps cap ?
-            if (var23) {
-                if (var22) {
-                    var58 = 0L;
+            long sleepTime = (long) (6 * this.maxPhysicsIterations) - time; // fps cap ?
+            if (trackTestModeEnabled) {
+                if (forceMaxFps) {
+                    sleepTime = 0L;
                 } else if (loopStuckCounter % 100 == 0) {
-                    var22 = super.gameContainer.gamePanel.maxFps();
+                    forceMaxFps = super.gameContainer.gamePanel.maxFps();
                 }
             }
 
-            Tools.sleep(var58);
-            var38 = (int) ((long) var38 + var58);
-        } while (var24 < this.playerCount && !this.aBoolean2843);
+            Tools.sleep(sleepTime);
+            accumulatedSleepTime += sleepTime;
+        } while (allPlayersStoppedCounter < this.playerCount && !this.strokeInterrupted);
 
-        if (this.aBoolean2843) {
-            this.shotThread = null;
-        } else {
-            this.method164(var38);
+        if (!this.strokeInterrupted) {
+            this.adjustPhysicsIterations(accumulatedSleepTime);
             super.gameContainer.gamePanel.sendEndStroke(this.currentPlayerID, this.onHoleSync, this.isValidPlayerID);
             if (this.isValidPlayerID >= 0) {
                 this.onHoleSync[this.isValidPlayerID].set(true);
             }
 
-            this.shotThread = null;
             this.repaint();
         }
+        this.shotThread = null;
     }
 
     @Override
-    public void mouseMoved(MouseEvent var1) {
-        this.mouseX = var1.getX();
-        this.mouseY = var1.getY();
+    public void mouseMoved(MouseEvent event) {
+        this.mouseX = event.getX();
+        this.mouseY = event.getY();
 
         if (isCheating) {
             int x = this.mouseX;
@@ -635,7 +631,8 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseDragged(MouseEvent event) {}
+    public void mouseDragged(MouseEvent event) {
+    }
 
     @Override
     public void mouseEntered(MouseEvent event) {
@@ -685,7 +682,8 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseClicked(MouseEvent event) {}
+    public void mouseClicked(MouseEvent event) {
+    }
 
     @Override
     public synchronized void keyPressed(KeyEvent event) {
@@ -698,10 +696,12 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void keyReleased(KeyEvent event) {}
+    public void keyReleased(KeyEvent event) {
+    }
 
     @Override
-    public void keyTyped(KeyEvent var1) {}
+    public void keyTyped(KeyEvent event) {
+    }
 
     protected void init(int playerCount, int waterMode, int collisionMode) {
         this.playerCount = playerCount;
@@ -717,8 +717,8 @@ public class GameCanvas extends GameBackgroundCanvas
             this.onHoleSync[i] = new SynchronizedBool();
         }
 
-        this.aBooleanArray2830 = new boolean[playerCount];
-        this.aBooleanArray2834 = new boolean[playerCount];
+        this.simulatePlayer = new boolean[playerCount];
+        this.playerActive = new boolean[playerCount];
         this.playerNamesDisplayMode = playerCount <= 2 ? 0 : 3;
     }
 
@@ -740,26 +740,7 @@ public class GameCanvas extends GameBackgroundCanvas
         this.track.map.checkSolids(this.gameContainer.spriteManager);
         super.drawMap();
 
-        this.aString2835 = null;
-        StringTokenizer commandTokens = new StringTokenizer(commandLines, "\n");
-
-        while (commandTokens.hasMoreTokens()) {
-            String currentCommand = commandTokens.nextToken();
-            char commandType = currentCommand.charAt(0);
-
-            if (commandType == 'B' || commandType == 'L') {
-
-                int recordHolderName = currentCommand.indexOf(',');
-                int recordTimestamp = currentCommand.indexOf(',', recordHolderName + 1);
-                int var10 = currentCommand.indexOf(',', recordTimestamp + 1);
-                currentCommand = currentCommand.substring(var10 + 1);
-                int var11 = currentCommand.indexOf('=');
-                if (var11 > -1) {
-                    gameId = Integer.parseInt(currentCommand.substring(0, var11));
-                    this.aString2835 = currentCommand.substring(var11 + 1);
-                }
-            }
-        }
+        this.encodedCoordinates = null;
 
         List<double[]> startPositions = new ArrayList<>();
         this.resetPositionX = new double[4];
@@ -783,7 +764,7 @@ public class GameCanvas extends GameBackgroundCanvas
                     double screenY = (double) (y * 15) + 7.5D;
                     // 24 Start Position Common
                     if (shape == 24) {
-                        double[] startPosition = new double[] {screenX, screenY};
+                        double[] startPosition = new double[] { screenX, screenY };
                         startPositions.add(startPosition);
                     }
                     // 48 Start Position Blue
@@ -802,7 +783,7 @@ public class GameCanvas extends GameBackgroundCanvas
                     // 39 Teleport Exit Green
                     if (shape == 33 || shape == 35 || shape == 37 || shape == 39) {
                         teleportIndex = (shape - 33) / 2;
-                        double[] teleporter = new double[] {screenX, screenY};
+                        double[] teleporter = new double[] { screenX, screenY };
                         this.teleportExists[teleportIndex].add(teleporter);
                     }
 
@@ -812,14 +793,14 @@ public class GameCanvas extends GameBackgroundCanvas
                     // 39 Teleport Start Green
                     if (shape == 32 || shape == 34 || shape == 36 || shape == 38) {
                         teleportIndex = (shape - 32) / 2;
-                        double[] teleporter = new double[] {screenX, screenY};
+                        double[] teleporter = new double[] { screenX, screenY };
                         this.teleportStarts[teleportIndex].add(teleporter);
                     }
 
                     // 44 magnet attract
                     // 45 magnet repel
                     if (shape == 44 || shape == 45) {
-                        int[] magnet = new int[] {(int) (screenX + 0.5D), (int) (screenY + 0.5D), shape};
+                        int[] magnet = new int[] { (int) (screenX + 0.5D), (int) (screenY + 0.5D), shape };
                         magnets.add(magnet);
                     }
                 }
@@ -854,10 +835,10 @@ public class GameCanvas extends GameBackgroundCanvas
                         double forcetemp2Y = magnet[1] - magnetLoopY;
                         double force = Math.sqrt(forceTemp2X * forceTemp2X + forcetemp2Y * forcetemp2Y);
                         if (force <= 127.0D) {
-                            double var35 = Math.abs(forceTemp2X) / force;
+                            double modifier = Math.abs(forceTemp2X) / force;
                             force = 127.0D - force;
-                            forceTemp2X = (forceTemp2X < 0.0D ? -1.0D : 1.0D) * force * var35;
-                            forcetemp2Y = (forcetemp2Y < 0.0D ? -1.0D : 1.0D) * force * (1.0D - var35);
+                            forceTemp2X = (forceTemp2X < 0.0D ? -1.0D : 1.0D) * force * modifier;
+                            forcetemp2Y = (forcetemp2Y < 0.0D ? -1.0D : 1.0D) * force * (1.0D - modifier);
                             // 45 Magnet Repel
                             if (magnet[2] == 45) {
                                 forceTemp2X = -forceTemp2X;
@@ -895,10 +876,10 @@ public class GameCanvas extends GameBackgroundCanvas
         }
 
         for (int i = 0; i < this.playerCount; ++i) {
-            this.aBooleanArray2834[i] = true;
+            this.playerActive[i] = true;
             this.resetPosition(i, true);
             this.onHoleSync[i].set(false);
-            this.aBooleanArray2830[i] = playerStatuses.charAt(i) == 't';
+            this.simulatePlayer[i] = playerStatuses.charAt(i) == 't';
         }
 
         this.rngSeed = new Seed(gameId);
@@ -906,13 +887,13 @@ public class GameCanvas extends GameBackgroundCanvas
         return parseSuccessful;
     }
 
-    protected boolean method134() {
-        return this.aString2835 != null;
+    protected boolean hasCoordinates() {
+        return this.encodedCoordinates != null;
     }
 
     protected void startTurn(int playerId, boolean canLocalPlayerPlay, boolean requestFocus) {
         this.currentPlayerID = playerId;
-        this.aBooleanArray2834[playerId] = true;
+        this.playerActive[playerId] = true;
         this.mouseX = this.mouseY = -1;
         this.shootingMode = 0;
         if (canLocalPlayerPlay) {
@@ -926,10 +907,10 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     protected void decodeCoords(int playerId, boolean isLocalPlayer, String encoded) {
-        int var4 = Integer.parseInt(encoded, 36);
-        int x = var4 / 1500;
-        int y = var4 % 1500 / 4;
-        int shootingMode = var4 % 4;
+        int shotData = Integer.parseInt(encoded, 36);
+        int x = shotData / 1500;
+        int y = shotData % 1500 / 4;
+        int shootingMode = shotData % 4;
         this.doStroke(playerId, isLocalPlayer, x, y, shootingMode);
     }
 
@@ -961,7 +942,7 @@ public class GameCanvas extends GameBackgroundCanvas
         this.removeKeyListener(this);
         this.setCursor(cursorDefault);
         if (this.shotThread != null) {
-            this.aBoolean2843 = true;
+            this.strokeInterrupted = true;
 
             while (this.shotThread != null) {
                 Tools.sleep(100L);
@@ -972,15 +953,15 @@ public class GameCanvas extends GameBackgroundCanvas
         this.repaint();
     }
 
-    protected String method142() {
+    protected String getEncodedCoordinates() {
         if (this.gameState != 1) {
             return null;
         } else {
             try {
-                String var1 = this.aString2835.substring(0, 4);
-                this.aString2835 = this.aString2835.substring(4);
-                return var1;
-            } catch (StringIndexOutOfBoundsException var2) {
+                String coords = this.encodedCoordinates.substring(0, 4);
+                this.encodedCoordinates = this.encodedCoordinates.substring(4);
+                return coords;
+            } catch (StringIndexOutOfBoundsException e) {
                 return null;
             }
         }
@@ -1029,7 +1010,7 @@ public class GameCanvas extends GameBackgroundCanvas
         }
         this.isLocalPlayer = isLocalPlayer;
         this.gameState = 2;
-        this.aBoolean2843 = false;
+        this.strokeInterrupted = false;
 
         this.shotThread = new Thread(this);
         this.shotThread.start();
@@ -1039,7 +1020,7 @@ public class GameCanvas extends GameBackgroundCanvas
         double[] temp_aDoubleArray2828 = Arrays.copyOf(speedX, speedX.length);
         double[] temp_aDoubleArray2829 = Arrays.copyOf(speedY, speedY.length);
         boolean temp_aBoolean2832 = this.isLocalPlayer;
-        boolean temp_aBoolean2843 = this.aBoolean2843;
+        boolean temp_aBoolean2843 = this.strokeInterrupted;
         Seed temp_aSeed_2836 = rngSeed.clone();
         // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId)
         // ? playerId :
@@ -1096,12 +1077,12 @@ public class GameCanvas extends GameBackgroundCanvas
                 playerY,
                 temp_aDoubleArray2828,
                 temp_aDoubleArray2829,
-                aBooleanArray2830,
+                simulatePlayer,
                 onHoleSync,
                 temp_aBoolean2832,
-                aBooleanArray2834,
+                playerActive,
                 temp_aSeed_2836,
-                anInt2839,
+                maxPhysicsIterations,
                 temp_aBoolean2843,
                 track.map.getColMap(),
                 track.map.getTileCodeArray());
@@ -1125,7 +1106,7 @@ public class GameCanvas extends GameBackgroundCanvas
             this.playerX[playerId] = this.startPositionX;
             this.playerY[playerId] = this.startPositionY;
             if (gameStart) {
-                this.aBooleanArray2834[playerId] = false;
+                this.playerActive[playerId] = false;
             }
 
         } else {
@@ -1135,21 +1116,21 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     private double[] getStrokePower(int playerId, int mouseX, int mouseY) {
-        double subX = this.playerX[playerId] - (double) mouseX;
-        double subY = this.playerY[playerId] - (double) mouseY;
-        double sqrtXY = Math.sqrt(subX * subX + subY * subY);
-        double var10 = (sqrtXY - 5.0D) / 30.0D;
-        if (var10 < 0.075D) {
-            var10 = 0.075D;
+        double deltaX = this.playerX[playerId] - (double) mouseX;
+        double deltaY = this.playerY[playerId] - (double) mouseY;
+        double distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        double magnitude = (distance - 5.0D) / 30.0D;
+        if (magnitude < 0.075D) {
+            magnitude = 0.075D;
         }
 
-        if (var10 > 6.5D) {
-            var10 = 6.5D;
+        if (magnitude > 6.5D) {
+            magnitude = 6.5D;
         }
 
-        double var12 = var10 / sqrtXY;
+        double scaleFactor = magnitude / distance;
         double[] power = new double[] {
-            ((double) mouseX - this.playerX[playerId]) * var12, ((double) mouseY - this.playerY[playerId]) * var12
+                ((double) mouseX - this.playerX[playerId]) * scaleFactor, ((double) mouseY - this.playerY[playerId]) * scaleFactor
         };
         return power;
     }
@@ -1166,12 +1147,12 @@ public class GameCanvas extends GameBackgroundCanvas
             if (p1Speed - p2Speed <= 0.0D) {
                 return false;
             } else {
-                double var17 = -this.speedX[player1] * forceY + this.speedY[player1] * forceX;
-                double var19 = -this.speedX[player2] * forceY + this.speedY[player2] * forceX;
-                this.speedX[player1] = p2Speed * forceX - var17 * forceY;
-                this.speedY[player1] = p2Speed * forceY + var17 * forceX;
-                this.speedX[player2] = p1Speed * forceX - var19 * forceY;
-                this.speedY[player2] = p1Speed * forceY + var19 * forceX;
+                double p1PerpSpeed = -this.speedX[player1] * forceY + this.speedY[player1] * forceX;
+                double p2PerpSpeed = -this.speedX[player2] * forceY + this.speedY[player2] * forceX;
+                this.speedX[player1] = p2Speed * forceX - p1PerpSpeed * forceY;
+                this.speedY[player1] = p2Speed * forceY + p1PerpSpeed * forceX;
+                this.speedX[player2] = p1Speed * forceX - p2PerpSpeed * forceY;
+                this.speedY[player2] = p1Speed * forceY + p2PerpSpeed * forceX;
                 return true;
             }
         } else {
@@ -1179,42 +1160,42 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
-    private boolean handleDownhill(int var1, int var2) {
-        if (var2 >= 4 && var2 <= 11) {
-            if (var2 == 4) {
-                this.speedY[var1] -= 0.025D;
+    private boolean handleDownhill(int playerId, int elementId) {
+        if (elementId >= 4 && elementId <= 11) {
+            if (elementId == 4) {
+                this.speedY[playerId] -= 0.025D;
             }
 
-            if (var2 == 5) {
-                this.speedY[var1] -= 0.025D * magicOffset;
-                this.speedX[var1] += 0.025D * magicOffset;
+            if (elementId == 5) {
+                this.speedY[playerId] -= 0.025D * magicOffset;
+                this.speedX[playerId] += 0.025D * magicOffset;
             }
 
-            if (var2 == 6) {
-                this.speedX[var1] += 0.025D;
+            if (elementId == 6) {
+                this.speedX[playerId] += 0.025D;
             }
 
-            if (var2 == 7) {
-                this.speedY[var1] += 0.025D * magicOffset;
-                this.speedX[var1] += 0.025D * magicOffset;
+            if (elementId == 7) {
+                this.speedY[playerId] += 0.025D * magicOffset;
+                this.speedX[playerId] += 0.025D * magicOffset;
             }
 
-            if (var2 == 8) {
-                this.speedY[var1] += 0.025D;
+            if (elementId == 8) {
+                this.speedY[playerId] += 0.025D;
             }
 
-            if (var2 == 9) {
-                this.speedY[var1] += 0.025D * magicOffset;
-                this.speedX[var1] -= 0.025D * magicOffset;
+            if (elementId == 9) {
+                this.speedY[playerId] += 0.025D * magicOffset;
+                this.speedX[playerId] -= 0.025D * magicOffset;
             }
 
-            if (var2 == 10) {
-                this.speedX[var1] -= 0.025D;
+            if (elementId == 10) {
+                this.speedX[playerId] -= 0.025D;
             }
 
-            if (var2 == 11) {
-                this.speedY[var1] -= 0.025D * magicOffset;
-                this.speedX[var1] -= 0.025D * magicOffset;
+            if (elementId == 11) {
+                this.speedY[playerId] -= 0.025D * magicOffset;
+                this.speedX[playerId] -= 0.025D * magicOffset;
             }
 
             return true;
@@ -1260,9 +1241,9 @@ public class GameCanvas extends GameBackgroundCanvas
                 || topright == 27
                 || topright >= 40 && topright <= 43
                 || topright == 46;
-        boolean rightCollide =
-                right >= 16 && right <= 23 && right != 19 || right == 27 || right >= 40 && right <= 43 || right == 46;
-        boolean var17 = bottomright >= 16 && bottomright <= 23 && bottomright != 19
+        boolean rightCollide = right >= 16 && right <= 23 && right != 19 || right == 27 || right >= 40 && right <= 43
+                || right == 46;
+        boolean bottomrightCollide = bottomright >= 16 && bottomright <= 23 && bottomright != 19
                 || bottomright == 27
                 || bottomright >= 40 && bottomright <= 43
                 || bottomright == 46;
@@ -1274,8 +1255,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 || bottomleft == 27
                 || bottomleft >= 40 && bottomleft <= 43
                 || bottomleft == 46;
-        boolean leftcollide =
-                left >= 16 && left <= 23 && left != 19 || left == 27 || left >= 40 && left <= 43 || left == 46;
+        boolean leftcollide = left >= 16 && left <= 23 && left != 19 || left == 27 || left >= 40 && left <= 43
+                || left == 46;
         boolean topleftCollide = topleft >= 16 && topleft <= 23 && topleft != 19
                 || topleft == 27
                 || topleft >= 40 && topleft <= 43
@@ -1308,8 +1289,8 @@ public class GameCanvas extends GameBackgroundCanvas
             toprightCollide = false;
         }
 
-        if (var17 && bottomright == 21) {
-            var17 = false;
+        if (bottomrightCollide && bottomright == 21) {
+            bottomrightCollide = false;
         }
 
         if (topCollide && top == 21) {
@@ -1324,8 +1305,8 @@ public class GameCanvas extends GameBackgroundCanvas
             bottomCollide = false;
         }
 
-        if (var17 && bottomright == 22) {
-            var17 = false;
+        if (bottomrightCollide && bottomright == 22) {
+            bottomrightCollide = false;
         }
 
         if (bottomleftCollide && bottomleft == 22) {
@@ -1371,7 +1352,7 @@ public class GameCanvas extends GameBackgroundCanvas
         }
 
         if (rightCollide
-                && var17
+                && bottomrightCollide
                 && bottomCollide
                 && (right < 20 || right > 23)
                 && (bottomright < 20 || bottomright > 23)
@@ -1411,14 +1392,14 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.speedX[playerId] > 0.0D
                                     && this.speedY[playerId] > 0.0D
                                     && this.speedX[playerId] > this.speedY[playerId])) {
-                speedEffect =
-                        this.getSpeedEffect(topright, playerId, x + diagOffset, y - diagOffset, ball, canvas, 1, -1);
+                speedEffect = this.getSpeedEffect(topright, playerId, x + diagOffset, y - diagOffset, ball, canvas, 1,
+                        -1);
                 temp = this.speedX[playerId];
                 this.speedX[playerId] = this.speedY[playerId] * speedEffect;
                 this.speedY[playerId] = temp * speedEffect;
             }
 
-            if (var17
+            if (bottomrightCollide
                     && (this.speedX[playerId] > 0.0D && this.speedY[playerId] > 0.0D
                             || this.speedX[playerId] > 0.0D
                                     && this.speedY[playerId] < 0.0D
@@ -1426,8 +1407,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.speedX[playerId] < 0.0D
                                     && this.speedY[playerId] > 0.0D
                                     && this.speedY[playerId] > -this.speedX[playerId])) {
-                speedEffect =
-                        this.getSpeedEffect(bottomright, playerId, x + diagOffset, y + diagOffset, ball, canvas, 1, 1);
+                speedEffect = this.getSpeedEffect(bottomright, playerId, x + diagOffset, y + diagOffset, ball, canvas,
+                        1, 1);
                 temp = this.speedX[playerId];
                 this.speedX[playerId] = -this.speedY[playerId] * speedEffect;
                 this.speedY[playerId] = -temp * speedEffect;
@@ -1441,8 +1422,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.speedX[playerId] < 0.0D
                                     && this.speedY[playerId] < 0.0D
                                     && -this.speedX[playerId] > -this.speedY[playerId])) {
-                speedEffect =
-                        this.getSpeedEffect(bottomleft, playerId, x - diagOffset, y + diagOffset, ball, canvas, -1, 1);
+                speedEffect = this.getSpeedEffect(bottomleft, playerId, x - diagOffset, y + diagOffset, ball, canvas,
+                        -1, 1);
                 temp = this.speedX[playerId];
                 this.speedX[playerId] = this.speedY[playerId] * speedEffect;
                 this.speedY[playerId] = temp * speedEffect;
@@ -1456,8 +1437,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.speedX[playerId] > 0.0D
                                     && this.speedY[playerId] < 0.0D
                                     && -this.speedY[playerId] > this.speedX[playerId])) {
-                speedEffect =
-                        this.getSpeedEffect(topleft, playerId, x - diagOffset, y - diagOffset, ball, canvas, -1, -1);
+                speedEffect = this.getSpeedEffect(topleft, playerId, x - diagOffset, y - diagOffset, ball, canvas, -1,
+                        -1);
                 temp = this.speedX[playerId];
                 this.speedX[playerId] = -this.speedY[playerId] * speedEffect;
                 this.speedY[playerId] = -temp * speedEffect;
@@ -1538,16 +1519,16 @@ public class GameCanvas extends GameBackgroundCanvas
         int startLen;
         int random;
         double[] teleportPos;
-        int var13;
+        int selectedTeleportId;
         if (exitLen > 0) {
-            var13 = teleportId;
+            selectedTeleportId = teleportId;
             startLen = exitLen - 1;
             random = this.rngSeed.next() % (startLen + 1);
         } else {
             startLen = this.teleportStarts[teleportId].size();
             int i;
             if (startLen >= 2) {
-                int var14 = 0;
+                int attemptCount = 0;
 
                 // ?????
                 do {
@@ -1561,8 +1542,8 @@ public class GameCanvas extends GameBackgroundCanvas
                         return;
                     }
 
-                    ++var14;
-                } while (var14 < 100);
+                    ++attemptCount;
+                } while (attemptCount < 100);
 
                 return;
             }
@@ -1580,22 +1561,21 @@ public class GameCanvas extends GameBackgroundCanvas
             }
 
             do {
-                var13 = this.rngSeed.next() % 4;
-                exitLen = this.teleportExists[var13].size();
+                selectedTeleportId = this.rngSeed.next() % 4;
+                exitLen = this.teleportExists[selectedTeleportId].size();
             } while (exitLen == 0);
 
-            int var12 = exitLen - 1;
-            random = this.rngSeed.next() % (var12 + 1);
+            random = this.rngSeed.next() % (exitLen);
         }
 
         // finally move player to exit position
-        teleportPos = this.teleportExists[var13].get(random);
+        teleportPos = this.teleportExists[selectedTeleportId].get(random);
         this.playerX[playerId] = teleportPos[0];
         this.playerY[playerId] = teleportPos[1];
     }
 
     private void handleMines(
-            boolean isBigMine, int playerId, int screenX, int screenY, Graphics var5, Graphics canvas) {
+            boolean isBigMine, int playerId, int screenX, int screenY, Graphics ballCanvas, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
         Tile tile = track.map.getTile(mapX, mapY);
@@ -1609,12 +1589,12 @@ public class GameCanvas extends GameBackgroundCanvas
             ++shape;
             track.map.updateTile(
                     mapX, mapY, special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + foreground * 256 + background);
-            this.drawTile(mapX, mapY, var5, canvas);
+            this.drawTile(mapX, mapY, ballCanvas, canvas);
 
             // Big Mine will dig a hole around mine
             if (isBigMine) {
-                int[] downhills =
-                        new int[] {17039367, 16779264, 17104905, 16778752, -1, 16779776, 17235973, 16778240, 17170443};
+                int[] downhills = new int[] { 17039367, 16779264, 17104905, 16778752, -1, 16779776, 17235973, 16778240,
+                        17170443 };
                 int tileIndex = 0;
 
                 for (int y = mapY - 1; y <= mapY + 1; ++y) {
@@ -1627,7 +1607,7 @@ public class GameCanvas extends GameBackgroundCanvas
                                 && track.map.getTile(x, y).getCode() == 16777216) {
                             // super.track.map.setTile(x, y, downhills[tileIndex]);
                             track.map.updateTile(x, y, downhills[tileIndex]);
-                            this.drawTile(x, y, var5, canvas);
+                            this.drawTile(x, y, ballCanvas, canvas);
                         }
 
                         ++tileIndex;
@@ -1678,8 +1658,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 track.map.updateTile(mapX, mapY, 16777216 + background * 256);
                 this.drawTile(mapX, mapY, ballGraphics, canvas);
                 // [x,y,background id]
-                int[] tileWithCoords =
-                        this.calculateMovableBlockEndPosition(mapX, mapY, x1, y1, background, canMove, nonSunkable, 0);
+                int[] tileWithCoords = this.calculateMovableBlockEndPosition(mapX, mapY, x1, y1, background, canMove,
+                        nonSunkable, 0);
                 // 12 Water
                 // 13 Acid
                 if (!nonSunkable && (tileWithCoords[2] == 12 || tileWithCoords[2] == 13)) {
@@ -1709,7 +1689,7 @@ public class GameCanvas extends GameBackgroundCanvas
     // background of that tile.
     private int[] calculateMovableBlockEndPosition(
             int x, int y, int x1, int y1, int background, int background1, boolean nonSunkable, int i) {
-        int[] xytile = new int[] {x1, y1, background1};
+        int[] xytile = new int[] { x1, y1, background1 };
         if (!nonSunkable && background1 >= 4 && background1 <= 11 && i < 1078) {
             x = x1;
             y = y1;
@@ -1765,21 +1745,21 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
-    private void drawTile(int tileX, int tileY, Graphics var3, Graphics var4) {
+    private void drawTile(int tileX, int tileY, Graphics ballGraphics, Graphics canvas) {
         Image tile = super.getTileImageAt(tileX, tileY);
         super.track.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
-        var3.drawImage(tile, tileX * 15, tileY * 15, this);
-        var4.drawImage(tile, tileX * 15, tileY * 15, this);
+        ballGraphics.drawImage(tile, tileX * 15, tileY * 15, this);
+        canvas.drawImage(tile, tileX * 15, tileY * 15, this);
     }
 
-    private void drawPlayer(Graphics g, int playerid, double var3) {
+    private void drawPlayer(Graphics g, int playerid, double shrinkAmount) {
         int x = (int) (this.playerX[playerid] - 6.5D + 0.5D);
         int y = (int) (this.playerY[playerid] - 6.5D + 0.5D);
-        int var7 = 13;
-        if (var3 > 0.0D) {
-            x = (int) ((double) x + var3);
-            y = (int) ((double) y + var3);
-            var7 = (int) ((double) var7 - var3 * 2.0D);
+        int ballSize = 13;
+        if (shrinkAmount > 0.0D) {
+            x = (int) ((double) x + shrinkAmount);
+            y = (int) ((double) y + shrinkAmount);
+            ballSize = (int) ((double) ballSize - shrinkAmount * 2.0D);
         }
 
         int ballSpriteOffset = 0;
@@ -1787,10 +1767,10 @@ public class GameCanvas extends GameBackgroundCanvas
             ballSpriteOffset = (x / 5 + y / 5) % 2 * 4;
         }
 
-        if (var3 == 0.0D) {
+        if (shrinkAmount == 0.0D) {
             g.drawImage(this.ballSprites[playerid + ballSpriteOffset], x, y, this);
             if (this.playerNamesDisplayMode > 0
-                    && this.aBooleanArray2834[playerid]
+                    && this.playerActive[playerid]
                     && this.gameState != 2
                     && this.playerCount > 1) {
                 String[] playerName = super.gameContainer.gamePanel.getPlayerName(playerid);
@@ -1804,14 +1784,14 @@ public class GameCanvas extends GameBackgroundCanvas
                 if (this.playerNamesDisplayMode != 2 && playerName[1] != null) {
                     String clanName = "[" + playerName[1] + "]";
                     int clanWidth = StringDraw.getStringWidth(g, clanName);
-                    byte var14 = -1;
+                    byte textAlignment = -1;
                     if (textX + nameWidth >= 733 || textX + clanWidth >= 733) {
                         textX = x - 2;
-                        var14 = 1;
+                        textAlignment = 1;
                     }
 
-                    StringDraw.drawOutlinedString(g, backgroundColour, playerName[0], textX, y + 13 - 3 - 6, var14);
-                    StringDraw.drawOutlinedString(g, backgroundColour, clanName, textX, y + 13 - 3 + 7, var14);
+                    StringDraw.drawOutlinedString(g, backgroundColour, playerName[0], textX, y + 13 - 3 - 6, textAlignment);
+                    StringDraw.drawOutlinedString(g, backgroundColour, clanName, textX, y + 13 - 3 + 7, textAlignment);
                     return;
                 }
 
@@ -1822,7 +1802,7 @@ public class GameCanvas extends GameBackgroundCanvas
                 StringDraw.drawOutlinedString(g, backgroundColour, playerName[0], textX, y + 13 - 3, -1);
             }
         } else {
-            g.drawImage(this.ballSprites[playerid + ballSpriteOffset], x, y, x + var7, y + var7, 0, 0, 13, 13, this);
+            g.drawImage(this.ballSprites[playerid + ballSpriteOffset], x, y, x + ballSize, y + ballSize, 0, 0, 13, 13, this);
         }
     }
 
@@ -1836,46 +1816,53 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
-    private void drawDashedLine(Graphics var1, int var2, int var3, int var4, int var5) {
-        int var6 = var4 >= 0 ? var4 : -var4;
-        int var7 = var5 >= 0 ? var5 : -var5;
-        int var8 = Math.max(var6, var7) / 10;
-        double var9 = var2;
-        double var11 = var3;
-        double var13 = (double) var4 / ((double) var8 * 2.0D);
-        double var15 = (double) var5 / ((double) var8 * 2.0D);
-        var9 += var13;
-        var11 += var15;
+    private void drawDashedLine(Graphics g, int x, int y, int deltaX, int deltaY) {
+        int absDeltaX = Math.abs(deltaX);
+        int absDeltaY = Math.abs(deltaY);
+        int dashCount = Math.max(absDeltaX, absDeltaY) / 10;
 
-        for (int var17 = 0; var17 < var8; ++var17) {
-            var1.drawLine((int) var9, (int) var11, (int) (var9 + var13), (int) (var11 + var15));
-            var9 += var13 * 2.0D;
-            var11 += var15 * 2.0D;
+        double currentX = x;
+        double currentY = y;
+
+        double stepX = (double) deltaX / (dashCount * 2.0D);
+        double stepY = (double) deltaY / (dashCount * 2.0D);
+
+        currentX += stepX;
+        currentY += stepY;
+
+        for (int i = 0; i < dashCount; ++i) {
+            g.drawLine(
+                    (int) currentX,
+                    (int) currentY,
+                    (int) (currentX + stepX),
+                    (int) (currentY + stepY));
+
+            currentX += stepX * 2.0D;
+            currentY += stepY * 2.0D;
         }
     }
 
-    private void method164(int var1) {
-        anIntArray2837[0] = anIntArray2837[1];
-        anIntArray2837[1] = anIntArray2837[2];
-        if (anIntArray2837[1] < var1) {
-            var1 = anIntArray2837[1];
+    private void adjustPhysicsIterations(int frameTime) {
+        frameTimeHistory[0] = frameTimeHistory[1];
+        frameTimeHistory[1] = frameTimeHistory[2];
+        if (frameTimeHistory[1] < frameTime) {
+            frameTime = frameTimeHistory[1];
         }
 
-        if (anIntArray2837[0] < var1) {
-            var1 = anIntArray2837[0];
+        if (frameTimeHistory[0] < frameTime) {
+            frameTime = frameTimeHistory[0];
         }
 
-        while (var1 > 700 && this.anInt2839 > 1) {
-            var1 -= 700;
-            --this.anInt2839;
+        while (frameTime > 700 && this.maxPhysicsIterations > 1) {
+            frameTime -= 700;
+            --this.maxPhysicsIterations;
         }
 
-        while (var1 < -2000 && this.anInt2839 < 6) {
-            var1 += 2000;
-            ++this.anInt2839;
+        while (frameTime < -2000 && this.maxPhysicsIterations < 6) {
+            frameTime += 2000;
+            ++this.maxPhysicsIterations;
         }
 
-        anIntArray2837[2] = var1;
-        anInt2838 = this.anInt2839;
+        frameTimeHistory[2] = frameTime;
     }
 }

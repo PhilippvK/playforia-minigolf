@@ -348,7 +348,7 @@ public class GamePanel extends Panel {
                         trackInformation[3],
                         trackTestMode1,
                         trackTestMode2,
-                        this.gameCanvas.method134());
+                        this.gameCanvas.hasCoordinates());
 
                 int trackScoreMultiplier = this.playerInfoPanel.startNextTrack();
                 if (trackScoreMultiplier > 1) {
@@ -446,12 +446,12 @@ public class GamePanel extends Panel {
     }
 
     protected void method336() {
-        String var1 = this.gameCanvas.method142();
-        if (var1 != null) {
+        String coords = this.gameCanvas.getEncodedCoordinates();
+        if (coords != null) {
             this.playerInfoPanel.strokeStartedOrEnded(0, false);
-            String var2 = "beginstroke\t" + var1;
+            String var2 = "beginstroke\t" + coords;
             this.gameContainer.connection.writeData("game\t" + var2);
-            this.gameCanvas.decodeCoords(0, true, var1);
+            this.gameCanvas.decodeCoords(0, true, coords);
         }
     }
 
