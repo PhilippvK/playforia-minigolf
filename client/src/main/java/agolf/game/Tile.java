@@ -125,54 +125,27 @@ class Tile {
         return friction + (frictionModifier * speedModifier);
     }
 
-    private static double getFriction(int v) {
-        switch (v) {
-            case 0: // fallthrough
-            case 19: // fallthrough
-            case 47:
-                return 0.9935D;
-
-            case 1:
-                return 0.92D;
-            case 2:
-                return 0.8D;
-
-            case 3: // fallthrough
-            case 32: // fallthrough
-            case 34: // fallthrough
-            case 36: // fallthrough
-            case 38:
-                return 0.9975D;
-
-            case 12: // fallthrough
-            case 13:
-                return 0.0D;
-
-            case 14: // fallthrough
-            case 15:
-                return 0.95D;
-
-            case 20: // fallthrough
-            case 21: // fallthrough
-            case 22: // fallthrough
-            case 23:
-                return 0.995D;
-
-            case 25:
-                return 0.96D;
-
-            case 28: // fallthrough
-            case 30:
-                return 1.0D;
-
-            case 29: // fallthrough
-            case 31:
-                return 0.9D;
-
-            case 44:
-                return 0.9D;
-            default:
-                return 1.0D;
-        }
+    private static double getFriction(int var1) {
+        return var1 != 0 && (var1 < 4 || var1 > 11) && var1 != 19 && var1 != 47
+                ? (var1 == 1
+                        ? 0.92D
+                        : (var1 == 2
+                                ? 0.8D
+                                : (var1 != 3 && var1 != 32 && var1 != 34 && var1 != 36 && var1 != 38
+                                        ? (var1 != 12 && var1 != 13
+                                                ? (var1 != 14 && var1 != 15
+                                                        ? (var1 >= 20 && var1 <= 23
+                                                                ? 0.995D
+                                                                : (var1 == 25
+                                                                        ? 0.96D
+                                                                        : (var1 != 28 && var1 != 30
+                                                                                ? (var1 != 29 && var1 != 31
+                                                                                        ? (var1 == 44 ? 0.9D : 1.0D)
+                                                                                        : 0.9D)
+                                                                                : 1.0D)))
+                                                        : 0.95D)
+                                                : 0.0D)
+                                        : 0.9975D)))
+                : 0.9935D;
     }
 }
