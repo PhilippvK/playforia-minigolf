@@ -17,7 +17,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GameCanvas extends GameBackgroundCanvas
@@ -189,11 +188,6 @@ public class GameCanvas extends GameBackgroundCanvas
 
         boolean shouldSpinAroundHole = false;
         boolean onLiquid = false;
-        boolean forceMaxFps = false;
-        boolean trackTestModeEnabled = super.gameContainer.synchronizedTrackTestMode.get();
-        if (trackTestModeEnabled) {
-            forceMaxFps = super.gameContainer.gamePanel.maxFps();
-        }
 
         int allPlayersStoppedCounter = -1;
         byte topleft = 0;
@@ -562,14 +556,13 @@ public class GameCanvas extends GameBackgroundCanvas
                 }
             }
 
-            time = System.currentTimeMillis() - time; // time to render
-            long sleepTime = (long) (6 * this.state.maxPhysicsIterations) - time; // fps cap ?
-            if (trackTestModeEnabled) {
-                if (forceMaxFps) {
-                    sleepTime = 0L;
-                } else if (loopStuckCounter % 100 == 0) {
-                    forceMaxFps = super.gameContainer.gamePanel.maxFps();
-                }
+            time = System.currentTimeMillis() - time; // time to run above for loop
+            long sleepTime = (long) (6 * this.state.maxPhysicsIterations) - time;
+            // If we want to force fps, set sleepTime to zero so that maxPhysicsIterations
+            // are not adjusted. gamePanel.maxFps gets status of checkbox, so
+            // it can change in game.
+            if (super.gameContainer.synchronizedTrackTestMode.get() && super.gameContainer.gamePanel.maxFps()) {
+                sleepTime = 0L;
             }
 
             Tools.sleep(sleepTime);
@@ -1819,6 +1812,12 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
+    // Possibly changes the value of maxPhysicsiterations.
+    // Running the physics loop takes few milliseconds, and it runs inside
+    // a while loop, so the accumulatedSleepTime can get value of several
+    // thousands (at least on my pc). I assume that on a slow machine running
+    // the loop can then take over 12ms and then the accumulatedSleepTime will
+    // get negative value.
     private void adjustPhysicsIterations(int frameTime) {
         frameTimeHistory[0] = frameTimeHistory[1];
         frameTimeHistory[1] = frameTimeHistory[2];
