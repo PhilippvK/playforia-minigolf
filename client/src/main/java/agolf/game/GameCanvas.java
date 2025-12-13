@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
+import org.moparforia.shared.tracks.parsers.VersionedTrackFileParser;
 
 public class GameCanvas extends GameBackgroundCanvas
         implements Runnable, MouseMotionListener, MouseListener, KeyListener {
@@ -38,7 +39,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private int playerNamesDisplayMode; // 0 == Hide names, 1 == Show initials, 2 == Show names, 3 ==
     // Name + clan
     private String encodedCoordinates;
-    private static int[] frameTimeHistory = new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE };
+    private static int[] frameTimeHistory = new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
     private Image gameArea;
     private Graphics graphics;
     private Thread shotThread;
@@ -115,7 +116,8 @@ public class GameCanvas extends GameBackgroundCanvas
 
             for (int player = 0; player < this.state.playerCount; ++player) {
                 if (this.state.simulatePlayer[player] && player != this.state.currentPlayerId) {
-                    this.drawPlayer(this.graphics, player, this.state.onHoleSync[player].get() ? 2.1666666666666665D : 0.0D);
+                    this.drawPlayer(
+                            this.graphics, player, this.state.onHoleSync[player].get() ? 2.1666666666666665D : 0.0D);
                 }
             }
 
@@ -265,15 +267,15 @@ public class GameCanvas extends GameBackgroundCanvas
 
                             x = (int) (this.state.playerX[i] + 0.5D);
                             y = (int) (this.state.playerY[i] + 0.5D);
-                            center = this.track.map.getColMap(x, y);
-                            top = this.track.map.getColMap(x, y - 6);
-                            topright = this.track.map.getColMap(x + diagOffset, y - diagOffset);
-                            right = this.track.map.getColMap(x + 6, y);
-                            bottomright = this.track.map.getColMap(x + diagOffset, y + diagOffset);
-                            bottom = this.track.map.getColMap(x, y + 6);
-                            bottomleft = this.track.map.getColMap(x - diagOffset, y + diagOffset);
-                            left = this.track.map.getColMap(x - 6, y);
-                            topleft = this.track.map.getColMap(x - diagOffset, y - diagOffset);
+                            center = this.map.getColMap(x, y);
+                            top = this.map.getColMap(x, y - 6);
+                            topright = this.map.getColMap(x + diagOffset, y - diagOffset);
+                            right = this.map.getColMap(x + 6, y);
+                            bottomright = this.map.getColMap(x + diagOffset, y + diagOffset);
+                            bottom = this.map.getColMap(x, y + 6);
+                            bottomleft = this.map.getColMap(x - diagOffset, y + diagOffset);
+                            left = this.map.getColMap(x - 6, y);
+                            topleft = this.map.getColMap(x - diagOffset, y - diagOffset);
                             if (center != 12 && center != 13) {
                                 onLiquid = center == 14 || center == 15;
                             } else {
@@ -339,10 +341,10 @@ public class GameCanvas extends GameBackgroundCanvas
                         double holeSpeed;
                         // 25 hole
                         if (center == 25
-                                || this.track.map.getColMap(x, y - 1) == 25
-                                || this.track.map.getColMap(x + 1, y) == 25
-                                || this.track.map.getColMap(x, y + 1) == 25
-                                || this.track.map.getColMap(x - 1, y) == 25) {
+                                || this.map.getColMap(x, y - 1) == 25
+                                || this.map.getColMap(x + 1, y) == 25
+                                || this.map.getColMap(x, y + 1) == 25
+                                || this.map.getColMap(x - 1, y) == 25) {
                             holeSpeed = center == 25 ? 1.0D : 0.5D;
                             shouldSpinAroundHole = true;
                             int holeCounter = 0;
@@ -424,7 +426,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             tempCoord2Y[i] = this.state.playerY[i];
                         }
 
-                        speed = Math.sqrt(this.state.speedX[i] * this.state.speedX[i] + this.state.speedY[i] * this.state.speedY[i]);
+                        speed = Math.sqrt(this.state.speedX[i] * this.state.speedX[i]
+                                + this.state.speedY[i] * this.state.speedY[i]);
                         if (speed > 0.0D) {
                             double frictionFactor = Tile.calculateFriction(center, speed);
                             this.state.speedX[i] *= frictionFactor;
@@ -493,8 +496,10 @@ public class GameCanvas extends GameBackgroundCanvas
                                     // water 12
                                     // water swamp 14
                                     if (center == 12 || center == 14) {
-                                        this.state.playerX[i] = this.state.onShoreSetting == 0 ? tempCoordX[i] : tempCoord2X[i];
-                                        this.state.playerY[i] = this.state.onShoreSetting == 0 ? tempCoordY[i] : tempCoord2Y[i];
+                                        this.state.playerX[i] =
+                                                this.state.onShoreSetting == 0 ? tempCoordX[i] : tempCoord2X[i];
+                                        this.state.playerY[i] =
+                                                this.state.onShoreSetting == 0 ? tempCoordY[i] : tempCoord2Y[i];
                                     }
 
                                     // 13 acid
@@ -571,7 +576,8 @@ public class GameCanvas extends GameBackgroundCanvas
 
         if (!this.state.strokeInterrupted) {
             this.adjustPhysicsIterations(accumulatedSleepTime);
-            super.gameContainer.gamePanel.sendEndStroke(this.state.currentPlayerId, this.state.onHoleSync, this.state.isValidPlayerId);
+            super.gameContainer.gamePanel.sendEndStroke(
+                    this.state.currentPlayerId, this.state.onHoleSync, this.state.isValidPlayerId);
             if (this.state.isValidPlayerId >= 0) {
                 this.state.onHoleSync[this.state.isValidPlayerId].set(true);
             }
@@ -601,8 +607,7 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseDragged(MouseEvent event) {
-    }
+    public void mouseDragged(MouseEvent event) {}
 
     @Override
     public void mouseEntered(MouseEvent event) {
@@ -632,7 +637,8 @@ public class GameCanvas extends GameBackgroundCanvas
                     this.removeKeyListener(this);
                     this.setCursor(cursorDefault);
                     if (super.gameContainer.gamePanel.tryStroke(false)) {
-                        super.gameContainer.gamePanel.setBeginStroke(this.state.currentPlayerId, x, y, this.shootingMode);
+                        super.gameContainer.gamePanel.setBeginStroke(
+                                this.state.currentPlayerId, x, y, this.shootingMode);
                         // this.doHackedStroke(this.state.currentPlayerId, true, x, y, this.keyCountMod4);
                         this.doStroke(this.state.currentPlayerId, true, x, y, this.shootingMode);
                     }
@@ -652,8 +658,7 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseClicked(MouseEvent event) {
-    }
+    public void mouseClicked(MouseEvent event) {}
 
     @Override
     public synchronized void keyPressed(KeyEvent event) {
@@ -666,12 +671,10 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void keyReleased(KeyEvent event) {
-    }
+    public void keyReleased(KeyEvent event) {}
 
     @Override
-    public void keyTyped(KeyEvent event) {
-    }
+    public void keyTyped(KeyEvent event) {}
 
     protected void init(int playerCount, int waterMode, int collisionMode) {
         this.state.playerCount = playerCount;
@@ -702,12 +705,17 @@ public class GameCanvas extends GameBackgroundCanvas
 
     protected boolean init(String commandLines, String playerStatuses, int gameId) {
         boolean parseSuccessful = false;
+        VersionedTrackFileParser parser = new VersionedTrackFileParser(1);
         try {
-            parseSuccessful = this.track.parse(commandLines);
+            this.track = parser.parseTrackFromString(commandLines);
+            this.map.parse(track.getMap());
+            this.trackStats = parser.parseStatsFromString(commandLines);
+            // parseSuccessful = this.track.parse(commandLines);
         } catch (Exception e) {
+            System.out.println("Error while parsing track & map: " + e.getMessage());
             return false;
         }
-        this.track.map.checkSolids(this.gameContainer.spriteManager);
+        this.map.checkSolids(this.gameContainer.spriteManager);
         super.drawMap();
 
         this.encodedCoordinates = null;
@@ -728,13 +736,13 @@ public class GameCanvas extends GameBackgroundCanvas
         // Iterates over the 49*25 map
         for (int y = 0; y < 25; ++y) {
             for (int x = 0; x < 49; ++x) {
-                if (track.map.getTile(x, y).getSpecial() == 2) {
-                    int shape = track.map.getTile(x, y).getShape();
+                if (this.map.getTile(x, y).getSpecial() == 2) {
+                    int shape = this.map.getTile(x, y).getShape();
                     double screenX = (double) (x * 15) + 7.5D;
                     double screenY = (double) (y * 15) + 7.5D;
                     // 24 Start Position Common
                     if (shape == 24) {
-                        double[] startPosition = new double[] { screenX, screenY };
+                        double[] startPosition = new double[] {screenX, screenY};
                         startPositions.add(startPosition);
                     }
                     // 48 Start Position Blue
@@ -753,7 +761,7 @@ public class GameCanvas extends GameBackgroundCanvas
                     // 39 Teleport Exit Green
                     if (shape == 33 || shape == 35 || shape == 37 || shape == 39) {
                         teleportIndex = (shape - 33) / 2;
-                        double[] teleporter = new double[] { screenX, screenY };
+                        double[] teleporter = new double[] {screenX, screenY};
                         this.state.teleportExits[teleportIndex].add(teleporter);
                     }
 
@@ -763,14 +771,14 @@ public class GameCanvas extends GameBackgroundCanvas
                     // 39 Teleport Start Green
                     if (shape == 32 || shape == 34 || shape == 36 || shape == 38) {
                         teleportIndex = (shape - 32) / 2;
-                        double[] teleporter = new double[] { screenX, screenY };
+                        double[] teleporter = new double[] {screenX, screenY};
                         this.state.teleportStarts[teleportIndex].add(teleporter);
                     }
 
                     // 44 magnet attract
                     // 45 magnet repel
                     if (shape == 44 || shape == 45) {
-                        int[] magnet = new int[] { (int) (screenX + 0.5D), (int) (screenY + 0.5D), shape };
+                        int[] magnet = new int[] {(int) (screenX + 0.5D), (int) (screenY + 0.5D), shape};
                         magnets.add(magnet);
                     }
                 }
@@ -971,7 +979,8 @@ public class GameCanvas extends GameBackgroundCanvas
             this.state.speedY[playerId] = temp;
         }
 
-        temp = Math.sqrt(this.state.speedX[playerId] * this.state.speedX[playerId] + this.state.speedY[playerId] * this.state.speedY[playerId]);
+        temp = Math.sqrt(this.state.speedX[playerId] * this.state.speedX[playerId]
+                + this.state.speedY[playerId] * this.state.speedY[playerId]);
         double speed = temp / 6.5D;
         speed *= speed;
         if (!this.norandom) {
@@ -1054,8 +1063,8 @@ public class GameCanvas extends GameBackgroundCanvas
     //             temp_aSeed_2836,
     //             maxPhysicsIterations,
     //             temp_aBoolean2843,
-    //             track.map.getColMap(),
-    //             track.map.getTileCodeArray());
+    //             this.map.getColMap(),
+    //             this.map.getTileCodeArray());
     //     Thread hack = new Thread(hs);
     //     hack.start();
     //     try {
@@ -1100,7 +1109,8 @@ public class GameCanvas extends GameBackgroundCanvas
 
         double scaleFactor = magnitude / distance;
         double[] power = new double[] {
-                ((double) mouseX - this.state.playerX[playerId]) * scaleFactor, ((double) mouseY - this.state.playerY[playerId]) * scaleFactor
+            ((double) mouseX - this.state.playerX[playerId]) * scaleFactor,
+            ((double) mouseY - this.state.playerY[playerId]) * scaleFactor
         };
         return power;
     }
@@ -1211,8 +1221,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 || topright == 27
                 || topright >= 40 && topright <= 43
                 || topright == 46;
-        boolean rightCollide = right >= 16 && right <= 23 && right != 19 || right == 27 || right >= 40 && right <= 43
-                || right == 46;
+        boolean rightCollide =
+                right >= 16 && right <= 23 && right != 19 || right == 27 || right >= 40 && right <= 43 || right == 46;
         boolean bottomrightCollide = bottomright >= 16 && bottomright <= 23 && bottomright != 19
                 || bottomright == 27
                 || bottomright >= 40 && bottomright <= 43
@@ -1225,8 +1235,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 || bottomleft == 27
                 || bottomleft >= 40 && bottomleft <= 43
                 || bottomleft == 46;
-        boolean leftcollide = left >= 16 && left <= 23 && left != 19 || left == 27 || left >= 40 && left <= 43
-                || left == 46;
+        boolean leftcollide =
+                left >= 16 && left <= 23 && left != 19 || left == 27 || left >= 40 && left <= 43 || left == 46;
         boolean topleftCollide = topleft >= 16 && topleft <= 23 && topleft != 19
                 || topleft == 27
                 || topleft >= 40 && topleft <= 43
@@ -1362,8 +1372,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.state.speedX[playerId] > 0.0D
                                     && this.state.speedY[playerId] > 0.0D
                                     && this.state.speedX[playerId] > this.state.speedY[playerId])) {
-                speedEffect = this.getSpeedEffect(topright, playerId, x + diagOffset, y - diagOffset, ball, canvas, 1,
-                        -1);
+                speedEffect =
+                        this.getSpeedEffect(topright, playerId, x + diagOffset, y - diagOffset, ball, canvas, 1, -1);
                 temp = this.state.speedX[playerId];
                 this.state.speedX[playerId] = this.state.speedY[playerId] * speedEffect;
                 this.state.speedY[playerId] = temp * speedEffect;
@@ -1377,8 +1387,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.state.speedX[playerId] < 0.0D
                                     && this.state.speedY[playerId] > 0.0D
                                     && this.state.speedY[playerId] > -this.state.speedX[playerId])) {
-                speedEffect = this.getSpeedEffect(bottomright, playerId, x + diagOffset, y + diagOffset, ball, canvas,
-                        1, 1);
+                speedEffect =
+                        this.getSpeedEffect(bottomright, playerId, x + diagOffset, y + diagOffset, ball, canvas, 1, 1);
                 temp = this.state.speedX[playerId];
                 this.state.speedX[playerId] = -this.state.speedY[playerId] * speedEffect;
                 this.state.speedY[playerId] = -temp * speedEffect;
@@ -1392,8 +1402,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.state.speedX[playerId] < 0.0D
                                     && this.state.speedY[playerId] < 0.0D
                                     && -this.state.speedX[playerId] > -this.state.speedY[playerId])) {
-                speedEffect = this.getSpeedEffect(bottomleft, playerId, x - diagOffset, y + diagOffset, ball, canvas,
-                        -1, 1);
+                speedEffect =
+                        this.getSpeedEffect(bottomleft, playerId, x - diagOffset, y + diagOffset, ball, canvas, -1, 1);
                 temp = this.state.speedX[playerId];
                 this.state.speedX[playerId] = this.state.speedY[playerId] * speedEffect;
                 this.state.speedY[playerId] = temp * speedEffect;
@@ -1407,8 +1417,8 @@ public class GameCanvas extends GameBackgroundCanvas
                             || this.state.speedX[playerId] > 0.0D
                                     && this.state.speedY[playerId] < 0.0D
                                     && -this.state.speedY[playerId] > this.state.speedX[playerId])) {
-                speedEffect = this.getSpeedEffect(topleft, playerId, x - diagOffset, y - diagOffset, ball, canvas, -1,
-                        -1);
+                speedEffect =
+                        this.getSpeedEffect(topleft, playerId, x - diagOffset, y - diagOffset, ball, canvas, -1, -1);
                 temp = this.state.speedX[playerId];
                 this.state.speedX[playerId] = -this.state.speedY[playerId] * speedEffect;
                 this.state.speedY[playerId] = -temp * speedEffect;
@@ -1454,8 +1464,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 return 0.84D;
             } else {
                 this.state.bounciness -= 0.01D;
-                double speed = Math.sqrt(
-                        this.state.speedX[playerId] * this.state.speedX[playerId] + this.state.speedY[playerId] * this.state.speedY[playerId]);
+                double speed = Math.sqrt(this.state.speedX[playerId] * this.state.speedX[playerId]
+                        + this.state.speedY[playerId] * this.state.speedY[playerId]);
                 return this.state.bounciness * 6.5D / speed;
             }
             // 20 Oneway North
@@ -1548,7 +1558,7 @@ public class GameCanvas extends GameBackgroundCanvas
             boolean isBigMine, int playerId, int screenX, int screenY, Graphics ballCanvas, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int foreground = tile.getForeground();
@@ -1557,14 +1567,14 @@ public class GameCanvas extends GameBackgroundCanvas
         // 30 Big Mine
         if (special == 2 && (shape == 28 || shape == 30)) {
             ++shape;
-            track.map.updateTile(
+            this.map.updateTile(
                     mapX, mapY, special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + foreground * 256 + background);
             this.drawTile(mapX, mapY, ballCanvas, canvas);
 
             // Big Mine will dig a hole around mine
             if (isBigMine) {
-                int[] downhills = new int[] { 17039367, 16779264, 17104905, 16778752, -1, 16779776, 17235973, 16778240,
-                        17170443 };
+                int[] downhills =
+                        new int[] {17039367, 16779264, 17104905, 16778752, -1, 16779776, 17235973, 16778240, 17170443};
                 int tileIndex = 0;
 
                 for (int y = mapY - 1; y <= mapY + 1; ++y) {
@@ -1574,9 +1584,9 @@ public class GameCanvas extends GameBackgroundCanvas
                                 && y >= 0
                                 && y < 25
                                 && (y != mapY || x != mapX)
-                                && track.map.getTile(x, y).getCode() == 16777216) {
-                            // super.track.map.setTile(x, y, downhills[tileIndex]);
-                            track.map.updateTile(x, y, downhills[tileIndex]);
+                                && this.map.getTile(x, y).getCode() == 16777216) {
+                            // super.map.setTile(x, y, downhills[tileIndex]);
+                            this.map.updateTile(x, y, downhills[tileIndex]);
                             this.drawTile(x, y, ballCanvas, canvas);
                         }
 
@@ -1612,7 +1622,7 @@ public class GameCanvas extends GameBackgroundCanvas
             boolean nonSunkable) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int background = tile.getBackground();
@@ -1620,24 +1630,25 @@ public class GameCanvas extends GameBackgroundCanvas
             // where we want to move the block
             int x1 = mapX + offsetX;
             int y1 = mapY + offsetY;
-            int canMove = this.track.map.canMovableBlockMove(x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
+            int canMove = this.map.canMovableBlockMove(
+                    x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
             if (canMove == -1) {
                 return false;
             } else {
                 // 16777216 == special:1 shape:0 fg:0 bg:0
-                track.map.updateTile(mapX, mapY, 16777216 + background * 256);
+                this.map.updateTile(mapX, mapY, 16777216 + background * 256);
                 this.drawTile(mapX, mapY, ballGraphics, canvas);
                 // [x,y,background id]
-                int[] tileWithCoords = this.calculateMovableBlockEndPosition(mapX, mapY, x1, y1, background, canMove,
-                        nonSunkable, 0);
+                int[] tileWithCoords =
+                        this.calculateMovableBlockEndPosition(mapX, mapY, x1, y1, background, canMove, nonSunkable, 0);
                 // 12 Water
                 // 13 Acid
                 if (!nonSunkable && (tileWithCoords[2] == 12 || tileWithCoords[2] == 13)) {
                     // Sunked Movable Block with old background
-                    track.map.updateTile(tileWithCoords[0], tileWithCoords[1], 35061760 + tileWithCoords[2] * 256);
+                    this.map.updateTile(tileWithCoords[0], tileWithCoords[1], 35061760 + tileWithCoords[2] * 256);
                 } else {
                     // Movable Block with old background
-                    track.map.updateTile(
+                    this.map.updateTile(
                             tileWithCoords[0],
                             tileWithCoords[1],
                             33554432 + ((nonSunkable ? 27 : 46) - 24) * 256 * 256 + tileWithCoords[2] * 256);
@@ -1659,7 +1670,7 @@ public class GameCanvas extends GameBackgroundCanvas
     // background of that tile.
     private int[] calculateMovableBlockEndPosition(
             int x, int y, int x1, int y1, int background, int background1, boolean nonSunkable, int i) {
-        int[] xytile = new int[] { x1, y1, background1 };
+        int[] xytile = new int[] {x1, y1, background1};
         if (!nonSunkable && background1 >= 4 && background1 <= 11 && i < 1078) {
             x = x1;
             y = y1;
@@ -1682,7 +1693,8 @@ public class GameCanvas extends GameBackgroundCanvas
                 --x1;
             }
 
-            background1 = this.track.map.canMovableBlockMove(x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
+            background1 = this.map.canMovableBlockMove(
+                    x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
             if (background1 >= 0) {
                 xytile = this.calculateMovableBlockEndPosition(
                         x, y, x1, y1, background, background1, nonSunkable, i + 1);
@@ -1695,7 +1707,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private void handleBreakableBlock(int screenX, int screenY, Graphics ballGraphics, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int background = tile.getBackground();
@@ -1703,12 +1715,12 @@ public class GameCanvas extends GameBackgroundCanvas
         if (special == 2 && shape >= 40 && shape <= 43) {
             ++shape;
             if (shape <= 43) {
-                track.map.updateTile(
+                this.map.updateTile(
                         mapX,
                         mapY,
                         special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + background * 256 + foreground);
             } else {
-                track.map.updateTile(mapX, mapY, 16777216 + background * 256 + background);
+                this.map.updateTile(mapX, mapY, 16777216 + background * 256 + background);
             }
 
             this.drawTile(mapX, mapY, ballGraphics, canvas);
@@ -1717,7 +1729,7 @@ public class GameCanvas extends GameBackgroundCanvas
 
     private void drawTile(int tileX, int tileY, Graphics ballGraphics, Graphics canvas) {
         Image tile = super.getTileImageAt(tileX, tileY);
-        super.track.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
+        super.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
         ballGraphics.drawImage(tile, tileX * 15, tileY * 15, this);
         canvas.drawImage(tile, tileX * 15, tileY * 15, this);
     }
@@ -1760,7 +1772,8 @@ public class GameCanvas extends GameBackgroundCanvas
                         textAlignment = 1;
                     }
 
-                    StringDraw.drawOutlinedString(g, backgroundColour, playerName[0], textX, y + 13 - 3 - 6, textAlignment);
+                    StringDraw.drawOutlinedString(
+                            g, backgroundColour, playerName[0], textX, y + 13 - 3 - 6, textAlignment);
                     StringDraw.drawOutlinedString(g, backgroundColour, clanName, textX, y + 13 - 3 + 7, textAlignment);
                     return;
                 }
@@ -1772,7 +1785,17 @@ public class GameCanvas extends GameBackgroundCanvas
                 StringDraw.drawOutlinedString(g, backgroundColour, playerName[0], textX, y + 13 - 3, -1);
             }
         } else {
-            g.drawImage(this.ballSprites[playerid + ballSpriteOffset], x, y, x + ballSize, y + ballSize, 0, 0, 13, 13, this);
+            g.drawImage(
+                    this.ballSprites[playerid + ballSpriteOffset],
+                    x,
+                    y,
+                    x + ballSize,
+                    y + ballSize,
+                    0,
+                    0,
+                    13,
+                    13,
+                    this);
         }
     }
 
@@ -1801,11 +1824,7 @@ public class GameCanvas extends GameBackgroundCanvas
         currentY += stepY;
 
         for (int i = 0; i < dashCount; ++i) {
-            g.drawLine(
-                    (int) currentX,
-                    (int) currentY,
-                    (int) (currentX + stepX),
-                    (int) (currentY + stepY));
+            g.drawLine((int) currentX, (int) currentY, (int) (currentX + stepX), (int) (currentY + stepY));
 
             currentX += stepX * 2.0D;
             currentY += stepY * 2.0D;

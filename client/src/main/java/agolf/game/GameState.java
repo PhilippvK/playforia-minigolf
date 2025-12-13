@@ -1,15 +1,15 @@
 package agolf.game;
 
-import java.util.List;
 import agolf.Seed;
 import agolf.SynchronizedBool;
+import java.util.List;
 
 public class GameState {
 
     // Constants
     private static final double MAGIC_OFFSET = Math.sqrt(2.0) / 2.0;
     private static final int DIAG_OFFSET = (int) (6.0 * MAGIC_OFFSET + 0.5);
-    private static final int[] FRAME_TIME_HISTORY = new int[] { Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE };
+    private static final int[] FRAME_TIME_HISTORY = new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
 
     // Game state variables
     public int playerCount;

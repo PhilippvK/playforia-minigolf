@@ -37,12 +37,13 @@ public class VersionedTrackFileParser extends GenericTrackParser implements Trac
         tmp_map.put('N', new SimpleLineParser("name"));
         tmp_map.put('T', new SimpleLineParser("data"));
         tmp_map.put('C', new CategoriesLineParser());
+        tmp_map.put('S', new SimpleLineParser("settings"));
         BASE_PARSERS = Collections.unmodifiableMap(tmp_map);
         tmp_map.put('R', new RatingsLineParser());
         tmp_map.put('I', new ScoreInfoLineParser());
         tmp_map.put('B', new BestTimeLineParser("bestTime", "bestPlayer"));
         //      Uncomment if you want to also parse lastTime and lastPlayer
-        //      tmp_map.put("L", new BestTimeLineParser("lastTime", "lastPlayer"));
+        tmp_map.put('L', new BestTimeLineParser("lastTime", "lastPlayer"));
         STATS_PARSERS = Collections.unmodifiableMap(tmp_map);
     }
 
@@ -75,7 +76,16 @@ public class VersionedTrackFileParser extends GenericTrackParser implements Trac
         String author = (String) parsed.get("author");
         String data = (String) parsed.get("data");
         Set<TrackCategory> categories = (Set<TrackCategory>) parsed.get("categories");
-        return new Track(name, author, data, categories);
+        String settings = (String) parsed.get("settings");
+        boolean[] trackSpecialSettings = new boolean[4];
+        if (settings != null && settings.length() != 6) {
+            for (int i = 0; i < 4; i++) {
+                trackSpecialSettings[i] = settings.charAt(i) == 't';
+            }
+        } else {
+            // should throw error
+        }
+        return new Track(name, author, data, categories, trackSpecialSettings, settings);
     }
 
     @Override
@@ -95,15 +105,77 @@ public class VersionedTrackFileParser extends GenericTrackParser implements Trac
         int attempts = (int) parsed.getOrDefault("attempts", 0);
         int strokes = (int) parsed.getOrDefault("strokes", 0);
         int bestPar = (int) parsed.getOrDefault("bestPar", -1);
+        int numberOfBestPar = (Integer) parsed.getOrDefault("numberOfBestPar", 0);
 
         // Widen int primitive type, to support integer division resulting in double
-        int numberOfBestPar = (Integer) parsed.getOrDefault("numberOfBestPar", 0);
         LocalDate bestTime = (LocalDate) parsed.getOrDefault("bestTime", LocalDate.now());
         String bestPlayer = (String) parsed.getOrDefault("bestPlayer", "");
+        LocalDate lastBestTime = (LocalDate) parsed.getOrDefault("lastBestTime", LocalDate.now());
+        String lastBestPlayer = (String) parsed.getOrDefault("lastBestPlayer", "");
 
         double bestParPercentage = (double) numberOfBestPar / attempts;
 
         return new FileSystemTrackStats(
-                attempts, strokes, bestPar, bestParPercentage, numberOfBestPar, bestPlayer, bestTime, ratings, track);
+                attempts,
+                strokes,
+                bestPar,
+                bestParPercentage,
+                numberOfBestPar,
+                bestPlayer,
+                bestTime,
+                lastBestPlayer,
+                lastBestTime,
+                ratings,
+                track);
+    }
+
+    public Track parseTrackFromString(String data) throws IOException {
+        Map<String, Object> parsed = parseFromString(BASE_PARSERS, data);
+        int version = (int) parsed.getOrDefault("version", 0);
+        if (version < allowed_version) {
+            throw new InvalidTrackVersion("Given track has unsupported version "
+                    + version
+                    + ", while this parser requires "
+                    + allowed_version);
+        }
+        return constructTrack(parsed);
+    }
+
+    public TrackStats parseStatsFromString(String data) throws IOException {
+        Map<String, Object> parsed = parseFromString(STATS_PARSERS, data);
+        int version = (int) parsed.getOrDefault("version", 0);
+        if (version < allowed_version) {
+            throw new InvalidTrackVersion("Given track has unsupported version "
+                    + version
+                    + ", while this parser requires "
+                    + allowed_version);
+        }
+        Track track = constructTrack(parsed);
+        int[] ratings = (int[]) parsed.getOrDefault("ratings", new int[10]);
+        int attempts = (int) parsed.getOrDefault("attempts", 0);
+        int strokes = (int) parsed.getOrDefault("strokes", 0);
+        int bestPar = (int) parsed.getOrDefault("bestPar", -1);
+        int numberOfBestPar = (Integer) parsed.getOrDefault("numberOfBestPar", 0);
+
+        // Widen int primitive type, to support integer division resulting in double
+        LocalDate bestTime = (LocalDate) parsed.getOrDefault("bestTime", LocalDate.now());
+        String bestPlayer = (String) parsed.getOrDefault("bestPlayer", "");
+        LocalDate lastBestTime = (LocalDate) parsed.getOrDefault("lastBestTime", LocalDate.now());
+        String lastBestPlayer = (String) parsed.getOrDefault("lastBestPlayer", "");
+
+        double bestParPercentage = (double) numberOfBestPar / attempts;
+
+        return new FileSystemTrackStats(
+                attempts,
+                strokes,
+                bestPar,
+                bestParPercentage,
+                numberOfBestPar,
+                bestPlayer,
+                bestTime,
+                lastBestPlayer,
+                lastBestTime,
+                ratings,
+                track);
     }
 }

@@ -95,8 +95,7 @@ public class HackedShot implements Runnable {
         this.speedX = Arrays.copyOf(aDoubleArray2828, aDoubleArray2828.length);
         this.speedY = Arrays.copyOf(aDoubleArray2829, aDoubleArray2829.length);
         this.simulatePlayer = Arrays.copyOf(simulatePlayer, simulatePlayer.length);
-        this.onHoleSync =
-                Arrays.copyOf(onHoleSync, onHoleSync.length); // unsure bout thsione
+        this.onHoleSync = Arrays.copyOf(onHoleSync, onHoleSync.length); // unsure bout thsione
         this.isLocalPlayer = aBoolean2832;
         this.playerActive = Arrays.copyOf(playerActive, playerActive.length);
         this.seed = seed.clone();
@@ -259,7 +258,8 @@ public class HackedShot implements Runnable {
                                 this.handleMines(var33 == 30, var43, var35, var34);
                             }
 
-                            this.handleWallCollision(var43, var32, var31, var30, var29, var28, var27, var26, var25, var35, var34);
+                            this.handleWallCollision(
+                                    var43, var32, var31, var30, var29, var28, var27, var26, var25, var35, var34);
                         }
 
                         boolean var47 = this.handleDownhill(var43, var33);
@@ -351,8 +351,8 @@ public class HackedShot implements Runnable {
                             var12[var43] = this.playerY[var43];
                         }
 
-                        var36 = Math.sqrt(this.speedX[var43] * this.speedX[var43]
-                                + this.speedY[var43] * this.speedY[var43]);
+                        var36 = Math.sqrt(
+                                this.speedX[var43] * this.speedX[var43] + this.speedY[var43] * this.speedY[var43]);
                         if (var36 > 0.0D) {
                             double var52 = this.calculateFriction(var33, var36);
                             this.speedX[var43] *= var52;
@@ -631,8 +631,7 @@ public class HackedShot implements Runnable {
                 do {
                     this.speedX[var2] = (double) (-65 + this.seed.next() % 131) / 10.0D;
                     this.speedY[var2] = (double) (-65 + this.seed.next() % 131) / 10.0D;
-                    var17 = Math.sqrt(this.speedX[var2] * this.speedX[var2]
-                            + this.speedY[var2] * this.speedY[var2]);
+                    var17 = Math.sqrt(this.speedX[var2] * this.speedX[var2] + this.speedY[var2] * this.speedY[var2]);
                 } while (var17 < 5.2D);
             } while (var17 > 6.5D);
 
@@ -878,8 +877,7 @@ public class HackedShot implements Runnable {
                 return 0.84D;
             } else {
                 this.bounciness -= 0.01D;
-                double var9 = Math.sqrt(this.speedX[var2] * this.speedX[var2]
-                        + this.speedY[var2] * this.speedY[var2]);
+                double var9 = Math.sqrt(this.speedX[var2] * this.speedX[var2] + this.speedY[var2] * this.speedY[var2]);
                 return this.bounciness * 6.5D / var9;
             }
         } else if (var1 != 20 && var1 != 21 && var1 != 22 && var1 != 23) {
@@ -952,7 +950,8 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private int[] calculateMovableBlockEndPosition(int var1, int var2, int var3, int var4, int var5, int var6, boolean var9, int var10) {
+    private int[] calculateMovableBlockEndPosition(
+            int var1, int var2, int var3, int var4, int var5, int var6, boolean var9, int var10) {
         int[] var11 = new int[] {var3, var4, var6};
         if (!var9 && var6 >= 4 && var6 <= 11 && var10 < 1078) {
             var1 = var3;
