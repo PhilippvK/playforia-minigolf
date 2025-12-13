@@ -17,6 +17,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.moparforia.shared.tracks.parsers.VersionedTrackFileParser;
 
@@ -995,87 +996,87 @@ public class GameCanvas extends GameBackgroundCanvas
         this.shotThread.start();
     }
 
-    // private void doHackedStroke(int playerId, boolean isLocalPlayer, int mouseX, int mouseY, int mod) {
-    //     double[] temp_aDoubleArray2828 = Arrays.copyOf(speedX, speedX.length);
-    //     double[] temp_aDoubleArray2829 = Arrays.copyOf(speedY, speedY.length);
-    //     boolean temp_aBoolean2832 = this.state.isLocalPlayer;
-    //     boolean temp_aBoolean2843 = this.state.strokeInterrupted;
-    //     Seed temp_aSeed_2836 = rngSeed.clone();
-    //     // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId)
-    //     // ? playerId :
-    //     // -1;
-    //     int temp_anInt2816 = playerId;
-    //
-    //     double[] var6 = getStrokePower(playerId, mouseX, mouseY);
-    //     temp_aDoubleArray2828[playerId] = var6[0];
-    //     temp_aDoubleArray2829[playerId] = var6[1];
-    //     if (mod == 1) {
-    //         temp_aDoubleArray2828[playerId] = -temp_aDoubleArray2828[playerId];
-    //         temp_aDoubleArray2829[playerId] = -temp_aDoubleArray2829[playerId];
-    //     }
-    //
-    //     double var7;
-    //     if (mod == 2) {
-    //         var7 = temp_aDoubleArray2828[playerId];
-    //         temp_aDoubleArray2828[playerId] = temp_aDoubleArray2829[playerId];
-    //         temp_aDoubleArray2829[playerId] = -var7;
-    //     }
-    //
-    //     if (mod == 3) {
-    //         var7 = temp_aDoubleArray2828[playerId];
-    //         temp_aDoubleArray2828[playerId] = -temp_aDoubleArray2829[playerId];
-    //         temp_aDoubleArray2829[playerId] = var7;
-    //     }
-    //
-    //     var7 = Math.sqrt(temp_aDoubleArray2828[playerId] * temp_aDoubleArray2828[playerId]
-    //             + temp_aDoubleArray2829[playerId] * temp_aDoubleArray2829[playerId]);
-    //     double var9 = var7 / 6.5D;
-    //     var9 *= var9;
-    //     temp_aDoubleArray2828[playerId] += var9 * ((double) (temp_aSeed_2836.next() % 50001) / 100000.0D - 0.25D);
-    //     temp_aDoubleArray2829[playerId] += var9 * ((double) (temp_aSeed_2836.next() % 50001) / 100000.0D - 0.25D);
-    //     temp_aBoolean2832 = isLocalPlayer;
-    //     // this.state.gameState = 2;
-    //     temp_aBoolean2843 = false;
-    //
-    //     HackedShot hs = new HackedShot(
-    //             playerCount,
-    //             onShoreSetting,
-    //             collisionMode,
-    //             state.currentPlayerId,
-    //             temp_anInt2816,
-    //             startPositionX,
-    //             startPositionY,
-    //             bounciness,
-    //             somethingSpeedThing,
-    //             resetPositionX,
-    //             resetPositionY,
-    //             teleportStarts,
-    //             teleportExists,
-    //             magnetMap,
-    //             playerX,
-    //             playerY,
-    //             temp_aDoubleArray2828,
-    //             temp_aDoubleArray2829,
-    //             simulatePlayer,
-    //             onHoleSync,
-    //             temp_aBoolean2832,
-    //             playerActive,
-    //             temp_aSeed_2836,
-    //             maxPhysicsIterations,
-    //             temp_aBoolean2843,
-    //             this.map.getColMap(),
-    //             this.map.getTileCodeArray());
-    //     Thread hack = new Thread(hs);
-    //     hack.start();
-    //     try {
-    //         hack.join();
-    //     } catch (Exception e) {
-    //
-    //     }
-    //     double[] coords = hs.getHackedCoordintes();
-    //     hackedX = coords[0];
-    //     hackedY = coords[1];
-    // }
+    private void doHackedStroke(int playerId, boolean isLocalPlayer, int mouseX, int mouseY, int mod) {
+        double[] temp_aDoubleArray2828 = Arrays.copyOf(this.state.speedX, this.state.speedX.length);
+        double[] temp_aDoubleArray2829 = Arrays.copyOf(this.state.speedY, this.state.speedY.length);
+        boolean temp_aBoolean2832 = this.state.isLocalPlayer;
+        boolean temp_aBoolean2843 = this.state.strokeInterrupted;
+        Seed temp_aSeed_2836 = this.state.seed.clone();
+        // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId)
+        // ? playerId :
+        // -1;
+        int temp_anInt2816 = playerId;
+
+        double[] var6 = getStrokePower(playerId, mouseX, mouseY);
+        temp_aDoubleArray2828[playerId] = var6[0];
+        temp_aDoubleArray2829[playerId] = var6[1];
+        if (mod == 1) {
+            temp_aDoubleArray2828[playerId] = -temp_aDoubleArray2828[playerId];
+            temp_aDoubleArray2829[playerId] = -temp_aDoubleArray2829[playerId];
+        }
+
+        double var7;
+        if (mod == 2) {
+            var7 = temp_aDoubleArray2828[playerId];
+            temp_aDoubleArray2828[playerId] = temp_aDoubleArray2829[playerId];
+            temp_aDoubleArray2829[playerId] = -var7;
+        }
+
+        if (mod == 3) {
+            var7 = temp_aDoubleArray2828[playerId];
+            temp_aDoubleArray2828[playerId] = -temp_aDoubleArray2829[playerId];
+            temp_aDoubleArray2829[playerId] = var7;
+        }
+
+        var7 = Math.sqrt(temp_aDoubleArray2828[playerId] * temp_aDoubleArray2828[playerId]
+                + temp_aDoubleArray2829[playerId] * temp_aDoubleArray2829[playerId]);
+        double var9 = var7 / 6.5D;
+        var9 *= var9;
+        temp_aDoubleArray2828[playerId] += var9 * ((double) (temp_aSeed_2836.next() % 50001) / 100000.0D - 0.25D);
+        temp_aDoubleArray2829[playerId] += var9 * ((double) (temp_aSeed_2836.next() % 50001) / 100000.0D - 0.25D);
+        temp_aBoolean2832 = isLocalPlayer;
+        // this.state.gameState = 2;
+        temp_aBoolean2843 = false;
+
+        HackedShot hs = new HackedShot(
+                this.state.playerCount,
+                this.state.onShoreSetting,
+                this.state.collisionMode,
+                state.currentPlayerId,
+                temp_anInt2816,
+                this.state.startPositionX,
+                this.state.startPositionY,
+                this.state.bounciness,
+                this.state.somethingSpeedThing,
+                this.state.resetPositionX,
+                this.state.resetPositionY,
+                this.state.teleportStarts,
+                this.state.teleportExits,
+                this.state.magnetMap,
+                this.state.playerX,
+                this.state.playerY,
+                temp_aDoubleArray2828,
+                temp_aDoubleArray2829,
+                this.state.simulatePlayer,
+                this.state.onHoleSync,
+                temp_aBoolean2832,
+                this.state.playerActive,
+                temp_aSeed_2836,
+                this.state.maxPhysicsIterations,
+                temp_aBoolean2843,
+                this.map.getColMap(),
+                this.map.getTileCodeArray());
+        Thread hack = new Thread(hs);
+        hack.start();
+        try {
+            hack.join();
+        } catch (Exception e) {
+
+        }
+        double[] coords = hs.getHackedCoordintes();
+        hackedX = coords[0];
+        hackedY = coords[1];
+    }
 
     private void resetPosition(int playerId, boolean gameStart) {
         if (this.state.resetPositionX[playerId] >= 0.0D && this.state.resetPositionX[playerId] >= 0.0D) {
