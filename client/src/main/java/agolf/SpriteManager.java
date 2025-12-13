@@ -25,23 +25,6 @@ public class SpriteManager {
         this.balls = this.parseSpriteSheet("balls", 8, 4, 13, 13);
         this.pixelshapeMasks = new int[28][][];
         this.specialPixelMasks = new int[28][][];
-        // this.anIntArrayArray968 = new int[GameBackgroundCanvas.trackAdvertSize][];
-
-        // for (int var1 = 0; var1 < GameBackgroundCanvas.trackAdvertSize; ++var1) {
-        //     try {
-        //         String var2 = "ad" + var1;
-        //         Image var3 = this.imageManager.getImage(var2);
-        //         if (var3 != null) {
-        //             this.imageManager.unloadImage(var2);
-        //             this.anIntArrayArray968[var1] = this.imageManager.getPixels(
-        //                     var3,
-        //                     GameBackgroundCanvas.anIntArray78[var1] * 15,
-        //                     GameBackgroundCanvas.anIntArray79[var1] * 15);
-        //         }
-        //     } catch (Exception | OutOfMemoryError e) {
-        //         this.anIntArrayArray968[var1] = null;
-        //     }
-        // }
     }
 
     /**

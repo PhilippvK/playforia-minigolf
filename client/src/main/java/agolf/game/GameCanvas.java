@@ -711,7 +711,6 @@ public class GameCanvas extends GameBackgroundCanvas
             this.track = parser.parseTrackFromString(commandLines);
             this.map.parse(track.getMap());
             this.trackStats = parser.parseStatsFromString(commandLines);
-            // parseSuccessful = this.track.parse(commandLines);
         } catch (Exception e) {
             System.out.println("Error while parsing track & map: " + e.getMessage());
             return false;

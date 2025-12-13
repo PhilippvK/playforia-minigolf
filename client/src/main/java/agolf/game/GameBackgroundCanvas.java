@@ -29,7 +29,6 @@ public class GameBackgroundCanvas extends Canvas {
         this.backgroundImg = backgroundImage;
         this.setSize(this.trackWidth, this.trackHeight);
         this.map = new Map(49, 25);
-        // this.track = new Track(map);
     }
 
     public void addNotify() {

@@ -85,7 +85,6 @@ class Tile {
     }
 
     public Tile(int code) {
-        // this.update(code);
         this.code = code;
         this.special = code >> 24;
         this.shape = (code >> 16) % 256 + 24;
