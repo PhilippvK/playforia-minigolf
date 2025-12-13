@@ -6,6 +6,8 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import org.moparforia.shared.tracks.Track;
+import org.moparforia.shared.tracks.stats.TrackStats;
 
 public class GameBackgroundCanvas extends Canvas {
 
@@ -17,6 +19,8 @@ public class GameBackgroundCanvas extends Canvas {
     protected Image image;
     private Graphics graphics;
     public Track track;
+    public TrackStats trackStats;
+    public Map map;
     private int trackWidth = 735;
     private int trackHeight = 375;
 
@@ -24,8 +28,8 @@ public class GameBackgroundCanvas extends Canvas {
         this.gameContainer = gameContainer;
         this.backgroundImg = backgroundImage;
         this.setSize(this.trackWidth, this.trackHeight);
-        Map map = new Map(49, 25);
-        this.track = new Track(map);
+        this.map = new Map(49, 25);
+        // this.track = new Track(map);
     }
 
     public void addNotify() {
@@ -68,7 +72,7 @@ public class GameBackgroundCanvas extends Canvas {
         for (int y = 0; y < 25; ++y) {
             for (int x = 0; x < 49; ++x) {
 
-                this.track.map.updateTile(x, y, tile);
+                this.map.updateTile(x, y, tile);
                 if (tile == 0) {
                     this.graphics.fillRect(x * 15, y * 15, 15, 15);
                 } else {
@@ -82,7 +86,7 @@ public class GameBackgroundCanvas extends Canvas {
 
     protected Image getTileImageAt(int tileX, int tileY) {
         int[] imageData = this.gameContainer.spriteManager.getPixelsFromTileCode(
-                this.track.map.getTile(tileX, tileY).getCode());
+                this.map.getTile(tileX, tileY).getCode());
         if (this.gameContainer.graphicsQualityIndex >= 2) {
             for (int x = 0; x < 15; ++x) {
                 for (int y = 0; y < 15; ++y) {
@@ -113,14 +117,14 @@ public class GameBackgroundCanvas extends Canvas {
         int yPixels;
         int xPixels;
         int index;
-        Map map = this.track.map;
+        Map map = this.map;
         for (int tileY = 0; tileY < 25; ++tileY) {
             for (int tileX = 0; tileX < 49; ++tileX) {
                 currentTile = map.getTile(tileX, tileY);
                 if (!currentTile.equals(oldTile)) {
                     currentTile = map.getTile(tileX, tileY);
 
-                    int currentCode = currentTile.getSpecialsettingCode(this.track.trackSpecialSettings);
+                    int currentCode = currentTile.getSpecialsettingCode(this.track.getSpecialSettings());
                     currentTileImageData = this.gameContainer.spriteManager.getPixelsFromTileCode(currentCode);
 
                     // draws debug points on starting positions
@@ -231,7 +235,7 @@ public class GameBackgroundCanvas extends Canvas {
     private boolean castsShadow(int x, int y) {
         // trackSpecialSettings[3]
         // 3:false => illusion walls shadowless  3:true => illusion walls shadows
-        return this.track.map.castShadow(x, y, this.track.trackSpecialSettings);
+        return this.map.castShadow(x, y, this.track.getSpecialSettings());
     }
 
     // adds offset to r,b,g channels of pixels[x][y] then clamps the value to valid range

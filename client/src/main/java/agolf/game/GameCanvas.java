@@ -18,6 +18,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
+import org.moparforia.shared.tracks.parsers.VersionedTrackFileParser;
 
 public class GameCanvas extends GameBackgroundCanvas
         implements Runnable, MouseMotionListener, MouseListener, KeyListener {
@@ -266,15 +267,15 @@ public class GameCanvas extends GameBackgroundCanvas
 
                             x = (int) (this.state.playerX[i] + 0.5D);
                             y = (int) (this.state.playerY[i] + 0.5D);
-                            center = this.track.map.getColMap(x, y);
-                            top = this.track.map.getColMap(x, y - 6);
-                            topright = this.track.map.getColMap(x + diagOffset, y - diagOffset);
-                            right = this.track.map.getColMap(x + 6, y);
-                            bottomright = this.track.map.getColMap(x + diagOffset, y + diagOffset);
-                            bottom = this.track.map.getColMap(x, y + 6);
-                            bottomleft = this.track.map.getColMap(x - diagOffset, y + diagOffset);
-                            left = this.track.map.getColMap(x - 6, y);
-                            topleft = this.track.map.getColMap(x - diagOffset, y - diagOffset);
+                            center = this.map.getColMap(x, y);
+                            top = this.map.getColMap(x, y - 6);
+                            topright = this.map.getColMap(x + diagOffset, y - diagOffset);
+                            right = this.map.getColMap(x + 6, y);
+                            bottomright = this.map.getColMap(x + diagOffset, y + diagOffset);
+                            bottom = this.map.getColMap(x, y + 6);
+                            bottomleft = this.map.getColMap(x - diagOffset, y + diagOffset);
+                            left = this.map.getColMap(x - 6, y);
+                            topleft = this.map.getColMap(x - diagOffset, y - diagOffset);
                             if (center != 12 && center != 13) {
                                 onLiquid = center == 14 || center == 15;
                             } else {
@@ -340,10 +341,10 @@ public class GameCanvas extends GameBackgroundCanvas
                         double holeSpeed;
                         // 25 hole
                         if (center == 25
-                                || this.track.map.getColMap(x, y - 1) == 25
-                                || this.track.map.getColMap(x + 1, y) == 25
-                                || this.track.map.getColMap(x, y + 1) == 25
-                                || this.track.map.getColMap(x - 1, y) == 25) {
+                                || this.map.getColMap(x, y - 1) == 25
+                                || this.map.getColMap(x + 1, y) == 25
+                                || this.map.getColMap(x, y + 1) == 25
+                                || this.map.getColMap(x - 1, y) == 25) {
                             holeSpeed = center == 25 ? 1.0D : 0.5D;
                             shouldSpinAroundHole = true;
                             int holeCounter = 0;
@@ -704,12 +705,17 @@ public class GameCanvas extends GameBackgroundCanvas
 
     protected boolean init(String commandLines, String playerStatuses, int gameId) {
         boolean parseSuccessful = false;
+        VersionedTrackFileParser parser = new VersionedTrackFileParser(1);
         try {
-            parseSuccessful = this.track.parse(commandLines);
+            this.track = parser.parseTrackFromString(commandLines);
+            this.map.parse(track.getMap());
+            this.trackStats = parser.parseStatsFromString(commandLines);
+            // parseSuccessful = this.track.parse(commandLines);
         } catch (Exception e) {
+            System.out.println("Error while parsing track & map: " + e.getMessage());
             return false;
         }
-        this.track.map.checkSolids(this.gameContainer.spriteManager);
+        this.map.checkSolids(this.gameContainer.spriteManager);
         super.drawMap();
 
         this.encodedCoordinates = null;
@@ -730,8 +736,8 @@ public class GameCanvas extends GameBackgroundCanvas
         // Iterates over the 49*25 map
         for (int y = 0; y < 25; ++y) {
             for (int x = 0; x < 49; ++x) {
-                if (track.map.getTile(x, y).getSpecial() == 2) {
-                    int shape = track.map.getTile(x, y).getShape();
+                if (this.map.getTile(x, y).getSpecial() == 2) {
+                    int shape = this.map.getTile(x, y).getShape();
                     double screenX = (double) (x * 15) + 7.5D;
                     double screenY = (double) (y * 15) + 7.5D;
                     // 24 Start Position Common
@@ -1057,8 +1063,8 @@ public class GameCanvas extends GameBackgroundCanvas
     //             temp_aSeed_2836,
     //             maxPhysicsIterations,
     //             temp_aBoolean2843,
-    //             track.map.getColMap(),
-    //             track.map.getTileCodeArray());
+    //             this.map.getColMap(),
+    //             this.map.getTileCodeArray());
     //     Thread hack = new Thread(hs);
     //     hack.start();
     //     try {
@@ -1552,7 +1558,7 @@ public class GameCanvas extends GameBackgroundCanvas
             boolean isBigMine, int playerId, int screenX, int screenY, Graphics ballCanvas, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int foreground = tile.getForeground();
@@ -1561,7 +1567,7 @@ public class GameCanvas extends GameBackgroundCanvas
         // 30 Big Mine
         if (special == 2 && (shape == 28 || shape == 30)) {
             ++shape;
-            track.map.updateTile(
+            this.map.updateTile(
                     mapX, mapY, special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + foreground * 256 + background);
             this.drawTile(mapX, mapY, ballCanvas, canvas);
 
@@ -1578,9 +1584,9 @@ public class GameCanvas extends GameBackgroundCanvas
                                 && y >= 0
                                 && y < 25
                                 && (y != mapY || x != mapX)
-                                && track.map.getTile(x, y).getCode() == 16777216) {
-                            // super.track.map.setTile(x, y, downhills[tileIndex]);
-                            track.map.updateTile(x, y, downhills[tileIndex]);
+                                && this.map.getTile(x, y).getCode() == 16777216) {
+                            // super.map.setTile(x, y, downhills[tileIndex]);
+                            this.map.updateTile(x, y, downhills[tileIndex]);
                             this.drawTile(x, y, ballCanvas, canvas);
                         }
 
@@ -1616,7 +1622,7 @@ public class GameCanvas extends GameBackgroundCanvas
             boolean nonSunkable) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int background = tile.getBackground();
@@ -1624,13 +1630,13 @@ public class GameCanvas extends GameBackgroundCanvas
             // where we want to move the block
             int x1 = mapX + offsetX;
             int y1 = mapY + offsetY;
-            int canMove = this.track.map.canMovableBlockMove(
+            int canMove = this.map.canMovableBlockMove(
                     x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
             if (canMove == -1) {
                 return false;
             } else {
                 // 16777216 == special:1 shape:0 fg:0 bg:0
-                track.map.updateTile(mapX, mapY, 16777216 + background * 256);
+                this.map.updateTile(mapX, mapY, 16777216 + background * 256);
                 this.drawTile(mapX, mapY, ballGraphics, canvas);
                 // [x,y,background id]
                 int[] tileWithCoords =
@@ -1639,10 +1645,10 @@ public class GameCanvas extends GameBackgroundCanvas
                 // 13 Acid
                 if (!nonSunkable && (tileWithCoords[2] == 12 || tileWithCoords[2] == 13)) {
                     // Sunked Movable Block with old background
-                    track.map.updateTile(tileWithCoords[0], tileWithCoords[1], 35061760 + tileWithCoords[2] * 256);
+                    this.map.updateTile(tileWithCoords[0], tileWithCoords[1], 35061760 + tileWithCoords[2] * 256);
                 } else {
                     // Movable Block with old background
-                    track.map.updateTile(
+                    this.map.updateTile(
                             tileWithCoords[0],
                             tileWithCoords[1],
                             33554432 + ((nonSunkable ? 27 : 46) - 24) * 256 * 256 + tileWithCoords[2] * 256);
@@ -1687,7 +1693,7 @@ public class GameCanvas extends GameBackgroundCanvas
                 --x1;
             }
 
-            background1 = this.track.map.canMovableBlockMove(
+            background1 = this.map.canMovableBlockMove(
                     x1, y1, this.state.playerX, this.state.playerY, this.state.playerCount);
             if (background1 >= 0) {
                 xytile = this.calculateMovableBlockEndPosition(
@@ -1701,7 +1707,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private void handleBreakableBlock(int screenX, int screenY, Graphics ballGraphics, Graphics canvas) {
         int mapX = screenX / 15;
         int mapY = screenY / 15;
-        Tile tile = track.map.getTile(mapX, mapY);
+        Tile tile = this.map.getTile(mapX, mapY);
         int special = tile.getSpecial();
         int shape = tile.getShape();
         int background = tile.getBackground();
@@ -1709,12 +1715,12 @@ public class GameCanvas extends GameBackgroundCanvas
         if (special == 2 && shape >= 40 && shape <= 43) {
             ++shape;
             if (shape <= 43) {
-                track.map.updateTile(
+                this.map.updateTile(
                         mapX,
                         mapY,
                         special * 256 * 256 * 256 + (shape - 24) * 256 * 256 + background * 256 + foreground);
             } else {
-                track.map.updateTile(mapX, mapY, 16777216 + background * 256 + background);
+                this.map.updateTile(mapX, mapY, 16777216 + background * 256 + background);
             }
 
             this.drawTile(mapX, mapY, ballGraphics, canvas);
@@ -1723,7 +1729,7 @@ public class GameCanvas extends GameBackgroundCanvas
 
     private void drawTile(int tileX, int tileY, Graphics ballGraphics, Graphics canvas) {
         Image tile = super.getTileImageAt(tileX, tileY);
-        super.track.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
+        super.map.collisionMap(tileX, tileY, super.gameContainer.spriteManager);
         ballGraphics.drawImage(tile, tileX * 15, tileY * 15, this);
         canvas.drawImage(tile, tileX * 15, tileY * 15, this);
     }

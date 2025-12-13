@@ -21,6 +21,13 @@ public class GenericTrackParser {
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
+    public Map<String, Object> parseFromString(Map<Character, LineParser> parser, String data) throws IOException {
+        return data.lines()
+                .map(line -> parseLine(parser, line))
+                .flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     private Map<String, Object> parseLine(Map<Character, LineParser> parsers, String line) {
         Character character = line.charAt(0);
         if (parsers.containsKey(character)) {
