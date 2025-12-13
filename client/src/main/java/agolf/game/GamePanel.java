@@ -362,8 +362,9 @@ public class GamePanel extends Panel {
                     this.chatPanel.printSpecialSettingstoTextArea(
                             // First arg should be comment, but v2 tracks don't
                             // have comments
-                            this.gameCanvas.track.getAuthor(), this.gameCanvas.track.getSettings());
-                    // this.gameCanvas.map.getLatestTileSpeciality());
+                            this.gameCanvas.track.getAuthor(),
+                            this.gameCanvas.track.getSettings(),
+                            this.gameCanvas.map.getLatestTileSpeciality());
                 }
             }
             case "startturn" -> {

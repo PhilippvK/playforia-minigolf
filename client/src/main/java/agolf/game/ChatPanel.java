@@ -96,7 +96,7 @@ class ChatPanel extends Panel implements KeyListener, ActionListener {
         }
     }
 
-    protected void printSpecialSettingstoTextArea(String comment, String settings) {
+    protected void printSpecialSettingstoTextArea(String comment, String settings, boolean[] elements) {
         if (this.gameExtra == 1) {
             this.textAreaChat.clear();
             if (comment != null) {
@@ -129,16 +129,16 @@ class ChatPanel extends Panel implements KeyListener, ActionListener {
                 }
             }
 
-            // if (elements[0] || elements[1]) {
-            //     this.textAreaChat.addMessage("Special (invisible) elements:");
-            //     if (elements[0]) {
-            //         this.textAreaChat.addPlainMessage("- Illusion walls");
-            //     }
-            //
-            //     if (elements[1]) {
-            //         this.textAreaChat.addPlainMessage("- Illusion holes");
-            //     }
-            // }
+            if (elements[0] || elements[1]) {
+                this.textAreaChat.addMessage("Special (invisible) elements:");
+                if (elements[0]) {
+                    this.textAreaChat.addPlainMessage("- Illusion walls");
+                }
+
+                if (elements[1]) {
+                    this.textAreaChat.addPlainMessage("- Illusion holes");
+                }
+            }
         }
     }
 
