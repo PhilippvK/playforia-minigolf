@@ -153,8 +153,17 @@ public class GameCanvas extends GameBackgroundCanvas
         }
 
         if (isCheating) {
-            graphics.fillRect(
-                    (int) (hackedX - 5), (int) (hackedY - 5), 10, 10); // afaik the coords are the centre of ball
+            // TODO could add ImageFilter here to distinguish the hacked ball
+            // from real ball.
+
+            // Draw the player ball into 
+            int x = (int) (hackedX - 6.5D + 0.5D);
+            int y = (int) (hackedY - 6.5D + 0.5D);
+            int ballSpriteOffset = 0;
+            if (super.gameContainer.graphicsQualityIndex == 3) {
+                ballSpriteOffset = (x / 5 + y / 5) % 2 * 4;
+            }
+            graphics.drawImage(this.ballSprites[this.currentPlayerID + ballSpriteOffset], x, y, x + 13, y + 13, 0, 0, 13, 13, this);
         }
 
         g.drawImage(this.anImage2840, 0, 0, this);
