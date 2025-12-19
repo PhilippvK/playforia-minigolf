@@ -86,6 +86,16 @@ Client CLI options:
 - `--norandom` to disable randomization for shots
 - `--username` to set username from CLI and skip inputting it
 
+### In-game control
+
+When playing, the only relevant buttons are on the mouse. Mouse button 1 (left
+button) strokes the ball, all other buttons on the mouse will change the
+shooting mode: the game will draw a dashed line towards cursor and solid line to
+the direction of stroke.
+
+If cheating is allowed, the cheating can be toggled on/off by pressing `c` on
+keyboard.
+
 ## Compatibility
 
 Tested:

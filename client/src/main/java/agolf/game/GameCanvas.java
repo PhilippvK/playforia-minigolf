@@ -27,7 +27,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private static final double magicOffset = Math.sqrt(2.0D) / 2.0D;
     private static final int diagOffset = (int) (6.0D * magicOffset + 0.5D);
     private static final Cursor cursorDefault = new Cursor(Cursor.DEFAULT_CURSOR);
-    private static final Cursor cursorCrosshair = new Cursor(Cursor.CROSSHAIR_CURSOR);
+    private Cursor cursorCrosshair = new Cursor(Cursor.CROSSHAIR_CURSOR);
     private static final Color colourAimLine = new Color(128, 0, 32);
     private static final Font gameFont = new Font("Dialog", Font.PLAIN, 10);
     private static final Color blackColour = Color.black;
@@ -79,7 +79,7 @@ public class GameCanvas extends GameBackgroundCanvas
     private double hackedY = 0;
     private boolean isCheating = false;
 
-    protected GameCanvas(GameContainer gameContainer, Image image) {
+    protected GameCanvas(GameContainer gameContainer, Image image, Cursor c) {
         super(gameContainer, image);
         this.ballSprites = gameContainer.spriteManager.getBalls();
         this.playerCount = this.currentPlayerID = this.mouseX = this.mouseY = -1;
@@ -87,6 +87,8 @@ public class GameCanvas extends GameBackgroundCanvas
         this.gameState = 0;
         this.anInt2839 = anInt2838;
         this.norandom = Parameters.getBooleanValue(gameContainer.params.getParameter("norandom"));
+        // TODO: would be cool if user can set their own cursor
+        this.cursorCrosshair = c;
     }
 
     @Override
@@ -151,8 +153,27 @@ public class GameCanvas extends GameBackgroundCanvas
         }
 
         if (isCheating) {
-            graphics.fillRect(
-                    (int) (hackedX - 5), (int) (hackedY - 5), 10, 10); // afaik the coords are the centre of ball
+            // TODO could add ImageFilter here to distinguish the hacked ball
+            // from real ball.
+
+            // Draw the player ball into
+            int x = (int) (hackedX - 6.5D + 0.5D);
+            int y = (int) (hackedY - 6.5D + 0.5D);
+            int ballSpriteOffset = 0;
+            if (super.gameContainer.graphicsQualityIndex == 3) {
+                ballSpriteOffset = (x / 5 + y / 5) % 2 * 4;
+            }
+            graphics.drawImage(
+                    this.ballSprites[this.currentPlayerID + ballSpriteOffset],
+                    x,
+                    y,
+                    x + 13,
+                    y + 13,
+                    0,
+                    0,
+                    13,
+                    13,
+                    this);
         }
 
         g.drawImage(this.anImage2840, 0, 0, this);
@@ -613,15 +634,15 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    public void mouseDragged(MouseEvent var1) {}
+    public void mouseDragged(MouseEvent event) {}
 
     @Override
-    public void mouseEntered(MouseEvent var1) {
-        this.mouseMoved(var1);
+    public void mouseEntered(MouseEvent event) {
+        this.mouseMoved(event);
     }
 
     @Override
-    public void mouseExited(MouseEvent var1) {
+    public void mouseExited(MouseEvent event) {
         this.mouseX = this.mouseY = -1;
         this.repaint();
     }
@@ -629,10 +650,7 @@ public class GameCanvas extends GameBackgroundCanvas
     @Override
     public synchronized void mousePressed(MouseEvent event) {
         if (this.gameState == 1) {
-            if (event.isMetaDown()) {
-                this.shootingMode = (this.shootingMode + 1) % 4;
-                this.repaint();
-            } else {
+            if (event.getButton() == MouseEvent.BUTTON1) {
                 int x = event.getX();
                 int y = event.getY();
                 this.mouseX = x;
@@ -651,43 +669,35 @@ public class GameCanvas extends GameBackgroundCanvas
                         this.doStroke(this.currentPlayerID, true, x, y, this.shootingMode);
                     }
                 }
+            } else {
+                this.shootingMode = (this.shootingMode + 1) % 4;
+                this.repaint();
             }
         }
     }
 
     @Override
-    public void mouseReleased(MouseEvent var1) {
+    public void mouseReleased(MouseEvent event) {
         if (this.gameState == 1) {
-            var1.consume();
+            event.consume();
         }
     }
 
     @Override
-    public void mouseClicked(MouseEvent var1) {}
+    public void mouseClicked(MouseEvent event) {}
 
     @Override
-    public synchronized void keyPressed(KeyEvent var1) {
-
+    public synchronized void keyPressed(KeyEvent event) {
         if (allowCheating) {
             // code for the aimbot.
-            if (var1.getKeyCode() == KeyEvent.VK_C) {
+            if (event.getKeyCode() == KeyEvent.VK_C) {
                 isCheating = !isCheating;
-            } else {
-                if (this.gameState == 1) {
-                    this.shootingMode = (this.shootingMode + 1) % 4;
-                    this.repaint();
-                }
             }
-        }
-
-        if (this.gameState == 1) {
-            this.shootingMode = (this.shootingMode + 1) % 4;
-            this.repaint();
         }
     }
 
     @Override
-    public void keyReleased(KeyEvent var1) {}
+    public void keyReleased(KeyEvent event) {}
 
     @Override
     public void keyTyped(KeyEvent var1) {}
@@ -892,13 +902,13 @@ public class GameCanvas extends GameBackgroundCanvas
         return this.aString2835 != null;
     }
 
-    protected void startTurn(int playerId, boolean canLocalPlayerPlay, boolean var3) {
+    protected void startTurn(int playerId, boolean canLocalPlayerPlay, boolean requestFocus) {
         this.currentPlayerID = playerId;
         this.aBooleanArray2834[playerId] = true;
         this.mouseX = this.mouseY = -1;
         this.shootingMode = 0;
         if (canLocalPlayerPlay) {
-            this.method162(var3);
+            this.setStrokeListeners(requestFocus);
             this.gameState = 1;
         } else {
             this.gameState = 0;
@@ -1023,7 +1033,8 @@ public class GameCanvas extends GameBackgroundCanvas
         boolean temp_aBoolean2832 = this.isLocalPlayer;
         boolean temp_aBoolean2843 = this.aBoolean2843;
         Seed temp_aSeed_2836 = rngSeed.clone();
-        // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId) ? playerId :
+        // int temp_anInt2816 = super.gameContainer.gamePanel.isValidPlayerID(playerId)
+        // ? playerId :
         // -1;
         int temp_anInt2816 = playerId;
 
@@ -1851,12 +1862,12 @@ public class GameCanvas extends GameBackgroundCanvas
         }
     }
 
-    private void method162(boolean var1) {
+    private void setStrokeListeners(boolean requestFocus) {
         this.addMouseMotionListener(this);
         this.addMouseListener(this);
         this.setCursor(cursorCrosshair);
         this.addKeyListener(this);
-        if (var1) {
+        if (requestFocus) {
             // this.requestFocus();//todo this is annoying as fuck
         }
     }
