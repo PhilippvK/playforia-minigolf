@@ -17,7 +17,7 @@ public interface TrackStats {
     /**
      * @return Total number of attempts across all the games
      */
-    int getTotalAttempts();
+    int getNumCompletions();
 
     /**
      * @return Total number of strobes across all the games
@@ -71,4 +71,10 @@ public interface TrackStats {
 
     /** Converts to format supported by Client */
     String networkSerialize();
+
+    /** Bundles information from Track and TrackStats into array */
+    public String[] generateTrackInformation();
+
+    /** Bundles information about track statistics */
+    public int[][] generateTrackStatistics();
 }

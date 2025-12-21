@@ -9,33 +9,39 @@ import org.moparforia.shared.tracks.Track;
 import org.moparforia.shared.tracks.stats.TrackStats;
 
 public class FileSystemTrackStats implements TrackStats {
-    private final int totalAttempts;
+    private final int numCompletions;
     private final int strokes;
     private final int bestPar;
     private final double bestParPercentage;
     public final int numberOfBestPar;
     private final String bestPlayer;
     private final LocalDate bestTime;
+    private final String lastBestPlayer;
+    private final LocalDate lastBestTime;
     private final int[] ratings;
     private Track track;
 
     public FileSystemTrackStats(
-            int totalAttempts,
+            int numCompletions,
             int strokes,
             int bestPar,
             double percentageofBestPar,
             int numberOfBestPar,
             String bestPlayer,
             LocalDate bestTime,
+            String lastBestPlayer,
+            LocalDate lastBestTime,
             int[] ratings,
             Track track) {
-        this.totalAttempts = totalAttempts;
+        this.numCompletions = numCompletions;
         this.strokes = strokes;
         this.bestPar = bestPar;
         this.bestParPercentage = percentageofBestPar;
         this.numberOfBestPar = numberOfBestPar;
         this.bestPlayer = bestPlayer;
         this.bestTime = bestTime;
+        this.lastBestPlayer = lastBestPlayer;
+        this.lastBestTime = lastBestTime;
         this.ratings = ratings;
         this.track = track;
     }
@@ -50,8 +56,8 @@ public class FileSystemTrackStats implements TrackStats {
     }
 
     @Override
-    public int getTotalAttempts() {
-        return totalAttempts;
+    public int getNumCompletions() {
+        return numCompletions;
     }
 
     @Override
@@ -106,7 +112,7 @@ public class FileSystemTrackStats implements TrackStats {
         output.append(splitter);
         output.append(Tools.izer(
                 splitter,
-                "I " + Tools.commaize(getTotalAttempts(), getTotalStrokes(), getBestPar(), numberOfBestPar),
+                "I " + Tools.commaize(getNumCompletions(), getTotalStrokes(), getBestPar(), numberOfBestPar),
                 "R " + ratingsToString()));
         output.append(splitter);
         if (getBestPar() > 0) {
@@ -127,7 +133,7 @@ public class FileSystemTrackStats implements TrackStats {
         if (this == o) return true;
         if (!(o instanceof FileSystemTrackStats)) return false;
         FileSystemTrackStats that = (FileSystemTrackStats) o;
-        return getTotalAttempts() == that.getTotalAttempts()
+        return getNumCompletions() == that.getNumCompletions()
                 && strokes == that.strokes
                 && getBestPar() == that.getBestPar()
                 && Double.compare(that.bestParPercentage, bestParPercentage) == 0
@@ -141,7 +147,7 @@ public class FileSystemTrackStats implements TrackStats {
     @Override
     public int hashCode() {
         int result = Objects.hash(
-                getTotalAttempts(),
+                getNumCompletions(),
                 strokes,
                 getBestPar(),
                 bestParPercentage,
@@ -170,7 +176,7 @@ public class FileSystemTrackStats implements TrackStats {
                     "A " + getTrack().getAuthor(),
                     "N " + getTrack().getName(),
                     "T " + getTrack().getMap(),
-                    "I " + Tools.commaize(getTotalAttempts(), getTotalStrokes(), getBestPar(), numberOfBestPar),
+                    "I " + Tools.commaize(getNumCompletions(), getTotalStrokes(), getBestPar(), numberOfBestPar),
                     "R " + ratingsToString());
         }
         return Tools.tabularize(
@@ -178,7 +184,7 @@ public class FileSystemTrackStats implements TrackStats {
                 "A " + getTrack().getAuthor(),
                 "N " + getTrack().getName(),
                 "T " + getTrack().getMap(),
-                "I " + Tools.commaize(getTotalAttempts(), getTotalStrokes(), getBestPar(), numberOfBestPar),
+                "I " + Tools.commaize(getNumCompletions(), getTotalStrokes(), getBestPar(), numberOfBestPar),
                 "B "
                         + Tools.commaize(
                                 getBestPlayer(),
@@ -186,5 +192,26 @@ public class FileSystemTrackStats implements TrackStats {
                                         .toInstant()
                                         .toEpochMilli()),
                 "R " + ratingsToString());
+    }
+
+    /** These two methods are required for the frontend and they could be be
+     * refactored / replaced with something better. But that would require
+     * non-trivial changes in the client. */
+    public String[] generateTrackInformation() {
+        return new String[] {
+            track.getAuthor(),
+            track.getName(),
+            bestPlayer + ","
+                    + bestTime.atStartOfDay(ZoneId.of("Etc/UTC")).toInstant().toEpochMilli(),
+            lastBestPlayer + ","
+                    + lastBestTime
+                            .atStartOfDay(ZoneId.of("Etc/UTC"))
+                            .toInstant()
+                            .toEpochMilli()
+        };
+    }
+
+    public int[][] generateTrackStatistics() {
+        return new int[][] {{numCompletions, strokes, bestPar, numberOfBestPar}, ratings};
     }
 }

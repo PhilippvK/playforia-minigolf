@@ -9,18 +9,32 @@ import org.moparforia.shared.Tools;
 public class Track {
 
     private final String track;
-
     private final String author;
-
     private String map;
-
     private Set<TrackCategory> categories;
+    private boolean[] specialSettings;
+    private String settings;
 
     public Track(String name, String author, String map, Set<TrackCategory> categories) {
         this.track = name;
         this.author = author;
         this.map = map;
         this.categories = categories;
+    }
+
+    public Track(
+            String name,
+            String author,
+            String map,
+            Set<TrackCategory> categories,
+            boolean[] specialSettings,
+            String settings) {
+        this.track = name;
+        this.author = author;
+        this.map = map;
+        this.categories = categories;
+        this.specialSettings = specialSettings;
+        this.settings = settings;
     }
 
     public Track(String track, String author, String map) {
@@ -83,5 +97,13 @@ public class Track {
                 .map(category -> String.valueOf(category.getId()))
                 .collect(Collectors.joining(","));
         return Tools.izer(splitter, "V 2", "A " + getAuthor(), "N " + getName(), "T " + getMap(), "C " + categories);
+    }
+
+    public boolean[] getSpecialSettings() {
+        return this.specialSettings;
+    }
+
+    public String getSettings() {
+        return this.settings;
     }
 }
