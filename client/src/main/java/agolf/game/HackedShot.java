@@ -8,101 +8,100 @@ import java.util.List;
 
 public class HackedShot implements Runnable {
 
-    private static final double aDouble2798 = Math.sqrt(2.0D) / 2.0D;
-    private static final int anInt2799 = (int) (6.0D * aDouble2798 + 0.5D);
-    private static int[] anIntArray2837 = new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
+    private static final double magicOffset = Math.sqrt(2.0D) / 2.0D;
+    private static final int diagOffset = (int) (6.0D * magicOffset + 0.5D);
+    private static int[] frameTimeHistory = new int[] {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
 
-    private int anInt2809;
-    private int anInt2810;
-    private int anInt2811;
+    private int playerCount;
+    private int onShoreSetting;
+    private int collisionMode;
     private int currentPlayerID;
     private int anInt2816;
-    private double aDouble2817;
-    private double aDouble2818;
-    private double aDouble2819;
-    private double aDouble2820;
-    private double[] aDoubleArray2821;
-    private double[] aDoubleArray2822;
+    private double startPositionX;
+    private double startPositionY;
+    private double bounciness;
+    private double somethingSpeedThing;
+    private double[] resetPositionX;
+    private double[] resetPositionY;
     private List<double[]>[] teleportStarts;
     private List<double[]>[] teleportExits;
-    private short[][][] aShortArrayArrayArray2825;
+    private short[][][] magnetMap;
     private double[] playerX;
     private double[] playerY;
-    private double[] aDoubleArray2828;
-    private double[] aDoubleArray2829;
-    private boolean[] aBooleanArray2830;
-    private SynchronizedBool[] aSynchronizedBoolArray2831;
-    private boolean aBoolean2832;
-    private boolean[] aBooleanArray2834;
-    private Seed aSeed_2836;
-    private int anInt2839;
-    private boolean aBoolean2843;
+    private double[] speedX;
+    private double[] speedY;
+    private boolean[] simulatePlayer;
+    private SynchronizedBool[] onHoleSync;
+    private boolean isLocalPlayer;
+    private boolean[] playerActive;
+    private Seed seed;
+    private int maxPhysicsIterations;
+    private boolean strokeInterrupted;
 
     // from superclass
-    protected byte[][] isSolidArrayIThink;
+    protected byte[][] collisionMap;
     protected int[][] mapTiles;
 
     // this actually scares me, but its for science.
     public HackedShot(
-            int anInt2809,
-            int anInt2810,
-            int anInt2811,
+            int playerCount,
+            int onShoreSetting,
+            int collisionMode,
             int currentPlayerID,
-            int anInt2816,
-            double aDouble2817,
-            double aDouble2818,
-            double aDouble2819,
-            double aDouble2820,
-            double[] aDoubleArray2821,
-            double[] aDoubleArray2822,
+            int playerId,
+            double startPositionX,
+            double startPositionY,
+            double bounciness,
+            double somethingSpeedThing,
+            double[] resetPositionX,
+            double[] resetPositionY,
             List<double[]>[] teleportStarts,
             List<double[]>[] teleportExits,
-            short[][][] aShortArrayArrayArray2825,
+            short[][][] magnetMap,
             double[] playerX,
             double[] playerY,
             double[] aDoubleArray2828,
             double[] aDoubleArray2829,
-            boolean[] aBooleanArray2830,
-            SynchronizedBool[] aSynchronizedBoolArray2831,
+            boolean[] simulatePlayer,
+            SynchronizedBool[] onHoleSync,
             boolean aBoolean2832,
-            boolean[] aBooleanArray2834,
-            Seed aSeed_2836,
-            int anInt2839,
+            boolean[] playerActive,
+            Seed seed,
+            int maxPhysicsIterations,
             boolean aBoolean2843,
-            byte[][] isSolidArrayIThink,
+            byte[][] collisionMap,
             int[][] mapTiles) {
 
-        this.anInt2809 = anInt2809;
-        this.anInt2810 = anInt2810;
-        this.anInt2811 = anInt2811;
+        this.playerCount = playerCount;
+        this.onShoreSetting = onShoreSetting;
+        this.collisionMode = collisionMode;
         this.currentPlayerID = currentPlayerID;
-        this.anInt2816 = anInt2816;
-        this.aDouble2817 = aDouble2817;
-        this.aDouble2818 = aDouble2818;
-        this.aDouble2819 = aDouble2819;
-        this.aDouble2820 = aDouble2820;
-        this.aDoubleArray2821 = Arrays.copyOf(aDoubleArray2821, aDoubleArray2821.length);
-        this.aDoubleArray2822 = Arrays.copyOf(aDoubleArray2822, aDoubleArray2822.length);
+        this.anInt2816 = playerId;
+        this.startPositionX = startPositionX;
+        this.startPositionY = startPositionY;
+        this.bounciness = bounciness;
+        this.somethingSpeedThing = somethingSpeedThing;
+        this.resetPositionX = Arrays.copyOf(resetPositionX, resetPositionX.length);
+        this.resetPositionY = Arrays.copyOf(resetPositionY, resetPositionY.length);
         this.teleportStarts = Arrays.copyOf(teleportStarts, teleportStarts.length);
         this.teleportExits = Arrays.copyOf(teleportExits, teleportExits.length);
-        if (aShortArrayArrayArray2825 != null) {
-            this.aShortArrayArrayArray2825 = Arrays.copyOf(aShortArrayArrayArray2825, aShortArrayArrayArray2825.length);
+        if (magnetMap != null) {
+            this.magnetMap = Arrays.copyOf(magnetMap, magnetMap.length);
         } else {
-            this.aShortArrayArrayArray2825 = null;
+            this.magnetMap = null;
         }
         this.playerX = Arrays.copyOf(playerX, playerX.length);
         this.playerY = Arrays.copyOf(playerY, playerY.length);
-        this.aDoubleArray2828 = Arrays.copyOf(aDoubleArray2828, aDoubleArray2828.length);
-        this.aDoubleArray2829 = Arrays.copyOf(aDoubleArray2829, aDoubleArray2829.length);
-        this.aBooleanArray2830 = Arrays.copyOf(aBooleanArray2830, aBooleanArray2830.length);
-        this.aSynchronizedBoolArray2831 =
-                Arrays.copyOf(aSynchronizedBoolArray2831, aSynchronizedBoolArray2831.length); // unsure bout thsione
-        this.aBoolean2832 = aBoolean2832;
-        this.aBooleanArray2834 = Arrays.copyOf(aBooleanArray2834, aBooleanArray2834.length);
-        this.aSeed_2836 = aSeed_2836.clone();
-        this.anInt2839 = anInt2839;
-        this.aBoolean2843 = aBoolean2843;
-        this.isSolidArrayIThink = Arrays.copyOf(isSolidArrayIThink, isSolidArrayIThink.length);
+        this.speedX = Arrays.copyOf(aDoubleArray2828, aDoubleArray2828.length);
+        this.speedY = Arrays.copyOf(aDoubleArray2829, aDoubleArray2829.length);
+        this.simulatePlayer = Arrays.copyOf(simulatePlayer, simulatePlayer.length);
+        this.onHoleSync = Arrays.copyOf(onHoleSync, onHoleSync.length); // unsure bout thsione
+        this.isLocalPlayer = aBoolean2832;
+        this.playerActive = Arrays.copyOf(playerActive, playerActive.length);
+        this.seed = seed.clone();
+        this.maxPhysicsIterations = maxPhysicsIterations;
+        this.strokeInterrupted = aBoolean2843;
+        this.collisionMap = Arrays.copyOf(collisionMap, collisionMap.length);
         this.mapTiles = Arrays.copyOf(mapTiles, mapTiles.length);
     }
 
@@ -116,26 +115,26 @@ public class HackedShot implements Runnable {
         */
 
         int var5 = 0;
-        int[] var6 = new int[this.anInt2809];
-        int[] var7 = new int[this.anInt2809];
-        double[] var8 = new double[this.anInt2809];
-        double[] var9 = new double[this.anInt2809];
-        double[] var10 = new double[this.anInt2809];
-        double[] var11 = new double[this.anInt2809];
-        double[] var12 = new double[this.anInt2809];
-        double[] var13 = new double[this.anInt2809];
-        double[] var14 = new double[this.anInt2809];
-        boolean[] var15 = new boolean[this.anInt2809];
-        boolean[] var16 = new boolean[this.anInt2809];
-        boolean[] var17 = new boolean[this.anInt2809];
-        int[] var18 = new int[this.anInt2809];
+        int[] var6 = new int[this.playerCount];
+        int[] var7 = new int[this.playerCount];
+        double[] var8 = new double[this.playerCount];
+        double[] var9 = new double[this.playerCount];
+        double[] var10 = new double[this.playerCount];
+        double[] var11 = new double[this.playerCount];
+        double[] var12 = new double[this.playerCount];
+        double[] var13 = new double[this.playerCount];
+        double[] var14 = new double[this.playerCount];
+        boolean[] var15 = new boolean[this.playerCount];
+        boolean[] var16 = new boolean[this.playerCount];
+        boolean[] var17 = new boolean[this.playerCount];
+        int[] var18 = new int[this.playerCount];
 
-        for (int var19 = 0; var19 < this.anInt2809; ++var19) {
+        for (int var19 = 0; var19 < this.playerCount; ++var19) {
             var6[var19] = var7[var19] = 0;
             var8[var19] = var11[var19] = this.playerX[var19];
             var9[var19] = var12[var19] = this.playerY[var19];
             var15[var19] = var16[var19] = false;
-            var10[var19] = this.aSynchronizedBoolArray2831[var19].get() ? 2.1666666666666665D : 0.0D;
+            var10[var19] = this.onHoleSync[var19].get() ? 2.1666666666666665D : 0.0D;
             var17[var19] = false;
             var18[var19] = 0;
         }
@@ -145,7 +144,7 @@ public class HackedShot implements Runnable {
         boolean var22 = true;
         boolean var23 = true;
 
-        int var24 = -1;
+        int allPlayersStoppedCounter = -1;
         byte var25 = 0;
         byte var26 = 0;
         byte var27 = 0;
@@ -158,27 +157,27 @@ public class HackedShot implements Runnable {
         int var34 = 0;
         int var35 = 0;
         double var36 = 0.0D;
-        this.aDouble2819 = this.aDouble2820 = 1.0D;
+        this.bounciness = this.somethingSpeedThing = 1.0D;
         int var38 = 0;
 
         do {
             long var39 = System.currentTimeMillis();
 
-            for (int var41 = 0; var41 < this.anInt2809; ++var41) {
+            for (int var41 = 0; var41 < this.playerCount; ++var41) {
                 var13[var41] = this.playerX[var41];
                 var14[var41] = this.playerY[var41];
             }
 
             int var43;
             int var44;
-            for (int var42 = 0; var42 < this.anInt2839; ++var42) {
-                var24 = 0;
+            for (int var42 = 0; var42 < this.maxPhysicsIterations; ++var42) {
+                allPlayersStoppedCounter = 0;
 
-                for (var43 = 0; var43 < this.anInt2809; ++var43) {
-                    if (this.aBooleanArray2830[var43] && !this.aSynchronizedBoolArray2831[var43].get()) {
+                for (var43 = 0; var43 < this.playerCount; ++var43) {
+                    if (this.simulatePlayer[var43] && !this.onHoleSync[var43].get()) {
                         for (var44 = 0; var44 < 10; ++var44) {
-                            this.playerX[var43] += this.aDoubleArray2828[var43] * 0.1D;
-                            this.playerY[var43] += this.aDoubleArray2829[var43] * 0.1D;
+                            this.playerX[var43] += this.speedX[var43] * 0.1D;
+                            this.playerY[var43] += this.speedY[var43] * 0.1D;
                             if (this.playerX[var43] < 6.6D) {
                                 this.playerX[var43] = 6.6D;
                             }
@@ -196,39 +195,39 @@ public class HackedShot implements Runnable {
                             }
 
                             int var45;
-                            if (this.anInt2811 == 1 && !var15[var43] && !var16[var43]) {
-                                for (var45 = 0; var45 < this.anInt2809; ++var45) {
+                            if (this.collisionMode == 1 && !var15[var43] && !var16[var43]) {
+                                for (var45 = 0; var45 < this.playerCount; ++var45) {
                                     if (var43 != var45
-                                            && this.aBooleanArray2830[var45]
-                                            && !this.aSynchronizedBoolArray2831[var45].get()
+                                            && this.simulatePlayer[var45]
+                                            && !this.onHoleSync[var45].get()
                                             && !var15[var45]
                                             && !var16[var45]
-                                            && this.method147(var43, var45)) {
-                                        this.aDoubleArray2828[var43] *= 0.75D;
-                                        this.aDoubleArray2829[var43] *= 0.75D;
-                                        this.aDoubleArray2828[var45] *= 0.75D;
-                                        this.aDoubleArray2829[var45] *= 0.75D;
-                                        var24 = 0;
+                                            && this.handlePlayerCollisions(var43, var45)) {
+                                        this.speedX[var43] *= 0.75D;
+                                        this.speedY[var43] *= 0.75D;
+                                        this.speedX[var45] *= 0.75D;
+                                        this.speedY[var45] *= 0.75D;
+                                        allPlayersStoppedCounter = 0;
                                     }
                                 }
                             }
 
                             var35 = (int) (this.playerX[var43] + 0.5D);
                             var34 = (int) (this.playerY[var43] + 0.5D);
-                            var33 = isSolidArrayIThink[var35][var34];
-                            var32 = isSolidArrayIThink[var35][var34 - 6];
-                            var31 = isSolidArrayIThink[var35 + anInt2799][var34 - anInt2799];
-                            var30 = isSolidArrayIThink[var35 + 6][var34];
-                            var29 = isSolidArrayIThink[var35 + anInt2799][var34 + anInt2799];
-                            var28 = isSolidArrayIThink[var35][var34 + 6];
-                            var27 = isSolidArrayIThink[var35 - anInt2799][var34 + anInt2799];
-                            var26 = isSolidArrayIThink[var35 - 6][var34];
-                            var25 = isSolidArrayIThink[var35 - anInt2799][var34 - anInt2799];
+                            var33 = collisionMap[var35][var34];
+                            var32 = collisionMap[var35][var34 - 6];
+                            var31 = collisionMap[var35 + diagOffset][var34 - diagOffset];
+                            var30 = collisionMap[var35 + 6][var34];
+                            var29 = collisionMap[var35 + diagOffset][var34 + diagOffset];
+                            var28 = collisionMap[var35][var34 + 6];
+                            var27 = collisionMap[var35 - diagOffset][var34 + diagOffset];
+                            var26 = collisionMap[var35 - 6][var34];
+                            var25 = collisionMap[var35 - diagOffset][var34 - diagOffset];
                             if (var33 != 12 && var33 != 13) {
                                 var21 = var33 == 14 || var33 == 15;
                             } else {
-                                this.aDoubleArray2828[var43] *= 0.97D;
-                                this.aDoubleArray2829[var43] *= 0.97D;
+                                this.speedX[var43] *= 0.97D;
+                                this.speedY[var43] *= 0.97D;
                                 var21 = true;
                             }
 
@@ -245,7 +244,7 @@ public class HackedShot implements Runnable {
                                         || var25 == var46) {
                                     ++var45;
                                     if (!var17[var43]) {
-                                        this.method154((var46 - 32) / 2, var43, var35, var34);
+                                        this.handleTeleport((var46 - 32) / 2, var43, var35, var34);
                                         var17[var43] = true;
                                     }
                                 }
@@ -256,84 +255,85 @@ public class HackedShot implements Runnable {
                             }
 
                             if (var33 == 28 || var33 == 30) {
-                                this.method155(var33 == 30, var43, var35, var34);
+                                this.handleMines(var33 == 30, var43, var35, var34);
                             }
 
-                            this.method152(var43, var32, var31, var30, var29, var28, var27, var26, var25, var35, var34);
+                            this.handleWallCollision(
+                                    var43, var32, var31, var30, var29, var28, var27, var26, var25, var35, var34);
                         }
 
-                        boolean var47 = this.method148(var43, var33);
+                        boolean var47 = this.handleDownhill(var43, var33);
                         boolean var48 = false;
-                        if (this.aShortArrayArrayArray2825 != null && !var21 && !var15[var43] && !var16[var43]) {
-                            var48 = this.method149(var43, var35, var34);
+                        if (this.magnetMap != null && !var21 && !var15[var43] && !var16[var43]) {
+                            var48 = this.handleMagnetForce(var43, var35, var34);
                         }
 
                         var20 = false;
                         double var49;
                         if (var33 == 25
-                                || isSolidArrayIThink[var35][var34 - 1] == 25
-                                || isSolidArrayIThink[var35 + 1][var34] == 25
-                                || isSolidArrayIThink[var35][var34 + 1] == 25
-                                || isSolidArrayIThink[var35 - 1][var34] == 25) {
+                                || collisionMap[var35][var34 - 1] == 25
+                                || collisionMap[var35 + 1][var34] == 25
+                                || collisionMap[var35][var34 + 1] == 25
+                                || collisionMap[var35 - 1][var34] == 25) {
                             var49 = var33 == 25 ? 1.0D : 0.5D;
                             var20 = true;
                             int var51 = 0;
                             if (var32 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] += var49 * 0.03D;
+                                this.speedY[var43] += var49 * 0.03D;
                             }
 
                             if (var31 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] += var49 * 0.03D * aDouble2798;
-                                this.aDoubleArray2828[var43] -= var49 * 0.03D * aDouble2798;
+                                this.speedY[var43] += var49 * 0.03D * magicOffset;
+                                this.speedX[var43] -= var49 * 0.03D * magicOffset;
                             }
 
                             if (var30 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2828[var43] -= var49 * 0.03D;
+                                this.speedX[var43] -= var49 * 0.03D;
                             }
 
                             if (var29 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] -= var49 * 0.03D * aDouble2798;
-                                this.aDoubleArray2828[var43] -= var49 * 0.03D * aDouble2798;
+                                this.speedY[var43] -= var49 * 0.03D * magicOffset;
+                                this.speedX[var43] -= var49 * 0.03D * magicOffset;
                             }
 
                             if (var28 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] -= var49 * 0.03D;
+                                this.speedY[var43] -= var49 * 0.03D;
                             }
 
                             if (var27 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] -= var49 * 0.03D * aDouble2798;
-                                this.aDoubleArray2828[var43] += var49 * 0.03D * aDouble2798;
+                                this.speedY[var43] -= var49 * 0.03D * magicOffset;
+                                this.speedX[var43] += var49 * 0.03D * magicOffset;
                             }
 
                             if (var26 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2828[var43] += var49 * 0.03D;
+                                this.speedX[var43] += var49 * 0.03D;
                             }
 
                             if (var25 == 25) {
                                 ++var51;
                             } else {
-                                this.aDoubleArray2829[var43] += var49 * 0.03D * aDouble2798;
-                                this.aDoubleArray2828[var43] += var49 * 0.03D * aDouble2798;
+                                this.speedY[var43] += var49 * 0.03D * magicOffset;
+                                this.speedX[var43] += var49 * 0.03D * magicOffset;
                             }
 
                             if (var51 >= 7) {
                                 var20 = false;
                                 var15[var43] = true;
-                                this.aDoubleArray2828[var43] = this.aDoubleArray2829[var43] = 0.0D;
+                                this.speedX[var43] = this.speedY[var43] = 0.0D;
                             }
                         }
 
@@ -351,23 +351,23 @@ public class HackedShot implements Runnable {
                             var12[var43] = this.playerY[var43];
                         }
 
-                        var36 = Math.sqrt(this.aDoubleArray2828[var43] * this.aDoubleArray2828[var43]
-                                + this.aDoubleArray2829[var43] * this.aDoubleArray2829[var43]);
+                        var36 = Math.sqrt(
+                                this.speedX[var43] * this.speedX[var43] + this.speedY[var43] * this.speedY[var43]);
                         if (var36 > 0.0D) {
-                            double var52 = this.method150(var33, var36);
-                            this.aDoubleArray2828[var43] *= var52;
-                            this.aDoubleArray2829[var43] *= var52;
+                            double var52 = this.calculateFriction(var33, var36);
+                            this.speedX[var43] *= var52;
+                            this.speedY[var43] *= var52;
                             var36 *= var52;
                             if (var36 > 7.0D) {
                                 var49 = 7.0D / var36;
-                                this.aDoubleArray2828[var43] *= var49;
-                                this.aDoubleArray2829[var43] *= var49;
+                                this.speedX[var43] *= var49;
+                                this.speedY[var43] *= var49;
                                 var36 *= var49;
                             }
                         }
 
                         if (var5 > 4000) {
-                            this.aDouble2819 = 0.0D;
+                            this.bounciness = 0.0D;
                             if (var5 > 7000) {
                                 var48 = false;
                                 var47 = false;
@@ -394,9 +394,9 @@ public class HackedShot implements Runnable {
                         }
 
                         if (var36 < 0.075D && !var47 && !var48 && !var20 && !var15[var43] && !var16[var43]) {
-                            this.aDoubleArray2828[var43] = this.aDoubleArray2829[var43] = 0.0D;
+                            this.speedX[var43] = this.speedY[var43] = 0.0D;
                             if (var33 != 12 && var33 != 14 && var33 != 13 && var33 != 15) {
-                                ++var24;
+                                ++allPlayersStoppedCounter;
                             } else {
                                 var16[var43] = true;
                             }
@@ -407,40 +407,40 @@ public class HackedShot implements Runnable {
                             if (var15[var43] && var10[var43] > 2.1666666666666665D
                                     || var16[var43] && var10[var43] > 6.0D) {
                                 if (var33 == 25) {
-                                    this.aSynchronizedBoolArray2831[var43].set(true);
-                                    if (this.aBoolean2832 && this.anInt2809 > 1) {
+                                    this.onHoleSync[var43].set(true);
+                                    if (this.isLocalPlayer && this.playerCount > 1) {
                                         // gameContainer.gamePanel.hideSkipButton();
                                     }
                                 } else {
                                     if (var33 == 12 || var33 == 14) {
-                                        this.playerX[var43] = this.anInt2810 == 0 ? var8[var43] : var11[var43];
-                                        this.playerY[var43] = this.anInt2810 == 0 ? var9[var43] : var12[var43];
+                                        this.playerX[var43] = this.onShoreSetting == 0 ? var8[var43] : var11[var43];
+                                        this.playerY[var43] = this.onShoreSetting == 0 ? var9[var43] : var12[var43];
                                     }
 
                                     if (var33 == 13 || var33 == 15) {
-                                        this.method145(var43, false);
+                                        this.resetposition(var43, false);
                                     }
 
                                     var10[var43] = 0.0D;
                                 }
 
                                 var15[var43] = var16[var43] = false;
-                                ++var24;
+                                ++allPlayersStoppedCounter;
                             }
                         }
                     } else {
-                        ++var24;
+                        ++allPlayersStoppedCounter;
                     }
                 }
 
                 ++var5;
-                if (var24 >= this.anInt2809) {
-                    var42 = this.anInt2839;
+                if (allPlayersStoppedCounter >= this.playerCount) {
+                    var42 = this.maxPhysicsIterations;
                 }
             }
 
-            for (var43 = 0; var43 < this.anInt2809; ++var43) {
-                if (this.aBooleanArray2830[var43]) {
+            for (var43 = 0; var43 < this.playerCount; ++var43) {
+                if (this.simulatePlayer[var43]) {
                     int var54 = (int) (var13[var43] - 6.5D + 0.5D);
                     int var55 = (int) (var14[var43] - 6.5D + 0.5D);
                     int var56 = var54 + 13;
@@ -448,8 +448,8 @@ public class HackedShot implements Runnable {
                     // var3.drawImage(var2, var54, var55, var56, var57, var54, var55, var56, var57,
                     // this);
 
-                    for (var44 = 0; var44 < this.anInt2809; ++var44) {
-                        if (this.aBooleanArray2830[var44] && var44 != this.currentPlayerID) {
+                    for (var44 = 0; var44 < this.playerCount; ++var44) {
+                        if (this.simulatePlayer[var44] && var44 != this.currentPlayerID) {
                             // this.method161(var3, var44, var10[var44]);
                         }
                     }
@@ -482,13 +482,13 @@ public class HackedShot implements Runnable {
 
             Tools.sleep(var58);
             var38 = (int) ((long) var38 + var58);
-        } while (var24 < this.anInt2809 && !this.aBoolean2843);
+        } while (allPlayersStoppedCounter < this.playerCount && !this.strokeInterrupted);
 
-        if (this.aBoolean2843) {
+        if (this.strokeInterrupted) {
             // this.aThread2842 = null;
         } else {
-            this.method164(var38);
-            this.aSynchronizedBoolArray2831[this.anInt2816].set(false); // FUCKING IMPORTANT OR IT BORKS
+            this.adjustPhysicsIterations(var38);
+            this.onHoleSync[this.anInt2816].set(false); // FUCKING IMPORTANT OR IT BORKS
 
             // gameContainer.gamePanel.sendEndStroke(this.currentPlayerID,
             // this.aSynchronizedBoolArray2831, this.anInt2816);
@@ -509,7 +509,7 @@ public class HackedShot implements Runnable {
         return result;
     }
 
-    private void method154(int var1, int var2, int var3, int var4) {
+    private void handleTeleport(int var1, int var2, int var3, int var4) {
         boolean var5 = true;
         int var6 = this.teleportExits[var1].size();
         int var7;
@@ -519,7 +519,7 @@ public class HackedShot implements Runnable {
         if (var6 > 0) {
             var13 = var1;
             var7 = var6 - 1;
-            var8 = this.aSeed_2836.next() % (var7 + 1);
+            var8 = this.seed.next() % (var7 + 1);
         } else {
             var7 = this.teleportStarts[var1].size();
             int var10;
@@ -528,7 +528,7 @@ public class HackedShot implements Runnable {
 
                 do {
                     var10 = var7 - 1;
-                    var8 = this.aSeed_2836.next() % (var10 + 1);
+                    var8 = this.seed.next() % (var10 + 1);
                     var11 = this.teleportStarts[var1].get(var8);
                     if (Math.abs(var11[0] - (double) var3) >= 15.0D || Math.abs(var11[1] - (double) var4) >= 15.0D) {
                         this.playerX[var2] = var11[0];
@@ -555,12 +555,12 @@ public class HackedShot implements Runnable {
             }
 
             do {
-                var13 = this.aSeed_2836.next() % 4;
+                var13 = this.seed.next() % 4;
                 var6 = this.teleportExits[var13].size();
             } while (var6 == 0);
 
             int var12 = var6 - 1;
-            var8 = this.aSeed_2836.next() % (var12 + 1);
+            var8 = this.seed.next() % (var12 + 1);
         }
 
         var11 = this.teleportExits[var13].get(var8);
@@ -568,24 +568,24 @@ public class HackedShot implements Runnable {
         this.playerY[var2] = var11[1];
     }
 
-    private boolean method147(int var1, int var2) {
+    private boolean handlePlayerCollisions(int var1, int var2) {
         double var3 = this.playerX[var2] - this.playerX[var1];
         double var5 = this.playerY[var2] - this.playerY[var1];
         double var7 = Math.sqrt(var3 * var3 + var5 * var5);
         if (var7 != 0.0D && var7 <= 13.0D) {
             double var9 = var3 / var7;
             double var11 = var5 / var7;
-            double var13 = this.aDoubleArray2828[var1] * var9 + this.aDoubleArray2829[var1] * var11;
-            double var15 = this.aDoubleArray2828[var2] * var9 + this.aDoubleArray2829[var2] * var11;
+            double var13 = this.speedX[var1] * var9 + this.speedY[var1] * var11;
+            double var15 = this.speedX[var2] * var9 + this.speedY[var2] * var11;
             if (var13 - var15 <= 0.0D) {
                 return false;
             } else {
-                double var17 = -this.aDoubleArray2828[var1] * var11 + this.aDoubleArray2829[var1] * var9;
-                double var19 = -this.aDoubleArray2828[var2] * var11 + this.aDoubleArray2829[var2] * var9;
-                this.aDoubleArray2828[var1] = var15 * var9 - var17 * var11;
-                this.aDoubleArray2829[var1] = var15 * var11 + var17 * var9;
-                this.aDoubleArray2828[var2] = var13 * var9 - var19 * var11;
-                this.aDoubleArray2829[var2] = var13 * var11 + var19 * var9;
+                double var17 = -this.speedX[var1] * var11 + this.speedY[var1] * var9;
+                double var19 = -this.speedX[var2] * var11 + this.speedY[var2] * var9;
+                this.speedX[var1] = var15 * var9 - var17 * var11;
+                this.speedY[var1] = var15 * var11 + var17 * var9;
+                this.speedX[var2] = var13 * var9 - var19 * var11;
+                this.speedY[var2] = var13 * var11 + var19 * var9;
                 return true;
             }
         } else {
@@ -593,7 +593,7 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private void method155(boolean var1, int var2, int var3, int var4) {
+    private void handleMines(boolean var1, int var2, int var3, int var4) {
         int var7 = var3 / 15;
         int var8 = var4 / 15;
         int var9 = mapTiles[var7][var8] / 16777216;
@@ -629,21 +629,20 @@ public class HackedShot implements Runnable {
             double var17;
             do {
                 do {
-                    this.aDoubleArray2828[var2] = (double) (-65 + this.aSeed_2836.next() % 131) / 10.0D;
-                    this.aDoubleArray2829[var2] = (double) (-65 + this.aSeed_2836.next() % 131) / 10.0D;
-                    var17 = Math.sqrt(this.aDoubleArray2828[var2] * this.aDoubleArray2828[var2]
-                            + this.aDoubleArray2829[var2] * this.aDoubleArray2829[var2]);
+                    this.speedX[var2] = (double) (-65 + this.seed.next() % 131) / 10.0D;
+                    this.speedY[var2] = (double) (-65 + this.seed.next() % 131) / 10.0D;
+                    var17 = Math.sqrt(this.speedX[var2] * this.speedX[var2] + this.speedY[var2] * this.speedY[var2]);
                 } while (var17 < 5.2D);
             } while (var17 > 6.5D);
 
             if (!var1) {
-                this.aDoubleArray2828[var2] *= 0.8D;
-                this.aDoubleArray2829[var2] *= 0.8D;
+                this.speedX[var2] *= 0.8D;
+                this.speedY[var2] *= 0.8D;
             }
         }
     }
 
-    private void method152(
+    private void handleWallCollision(
             int var1,
             int var2,
             int var3,
@@ -787,118 +786,117 @@ public class HackedShot implements Runnable {
         if (!var14 && !var16 && !var18 && !var20) {
             double var24;
             if (var15
-                    && (this.aDoubleArray2828[var1] > 0.0D && this.aDoubleArray2829[var1] < 0.0D
-                            || this.aDoubleArray2828[var1] < 0.0D
-                                    && this.aDoubleArray2829[var1] < 0.0D
-                                    && -this.aDoubleArray2829[var1] > -this.aDoubleArray2828[var1]
-                            || this.aDoubleArray2828[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] > 0.0D
-                                    && this.aDoubleArray2828[var1] > this.aDoubleArray2829[var1])) {
-                var22 = this.method153(var3, var1, var10 + anInt2799, var11 - anInt2799, 1, -1);
-                var24 = this.aDoubleArray2828[var1];
-                this.aDoubleArray2828[var1] = this.aDoubleArray2829[var1] * var22;
-                this.aDoubleArray2829[var1] = var24 * var22;
+                    && (this.speedX[var1] > 0.0D && this.speedY[var1] < 0.0D
+                            || this.speedX[var1] < 0.0D
+                                    && this.speedY[var1] < 0.0D
+                                    && -this.speedY[var1] > -this.speedX[var1]
+                            || this.speedX[var1] > 0.0D
+                                    && this.speedY[var1] > 0.0D
+                                    && this.speedX[var1] > this.speedY[var1])) {
+                var22 = this.getSpeedEffect(var3, var1, var10 + diagOffset, var11 - diagOffset, 1, -1);
+                var24 = this.speedX[var1];
+                this.speedX[var1] = this.speedY[var1] * var22;
+                this.speedY[var1] = var24 * var22;
             }
 
             if (var17
-                    && (this.aDoubleArray2828[var1] > 0.0D && this.aDoubleArray2829[var1] > 0.0D
-                            || this.aDoubleArray2828[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] < 0.0D
-                                    && this.aDoubleArray2828[var1] > -this.aDoubleArray2829[var1]
-                            || this.aDoubleArray2828[var1] < 0.0D
-                                    && this.aDoubleArray2829[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] > -this.aDoubleArray2828[var1])) {
-                var22 = this.method153(var5, var1, var10 + anInt2799, var11 + anInt2799, 1, 1);
-                var24 = this.aDoubleArray2828[var1];
-                this.aDoubleArray2828[var1] = -this.aDoubleArray2829[var1] * var22;
-                this.aDoubleArray2829[var1] = -var24 * var22;
+                    && (this.speedX[var1] > 0.0D && this.speedY[var1] > 0.0D
+                            || this.speedX[var1] > 0.0D
+                                    && this.speedY[var1] < 0.0D
+                                    && this.speedX[var1] > -this.speedY[var1]
+                            || this.speedX[var1] < 0.0D
+                                    && this.speedY[var1] > 0.0D
+                                    && this.speedY[var1] > -this.speedX[var1])) {
+                var22 = this.getSpeedEffect(var5, var1, var10 + diagOffset, var11 + diagOffset, 1, 1);
+                var24 = this.speedX[var1];
+                this.speedX[var1] = -this.speedY[var1] * var22;
+                this.speedY[var1] = -var24 * var22;
             }
 
             if (var19
-                    && (this.aDoubleArray2828[var1] < 0.0D && this.aDoubleArray2829[var1] > 0.0D
-                            || this.aDoubleArray2828[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] > this.aDoubleArray2828[var1]
-                            || this.aDoubleArray2828[var1] < 0.0D
-                                    && this.aDoubleArray2829[var1] < 0.0D
-                                    && -this.aDoubleArray2828[var1] > -this.aDoubleArray2829[var1])) {
-                var22 = this.method153(var7, var1, var10 - anInt2799, var11 + anInt2799, -1, 1);
-                var24 = this.aDoubleArray2828[var1];
-                this.aDoubleArray2828[var1] = this.aDoubleArray2829[var1] * var22;
-                this.aDoubleArray2829[var1] = var24 * var22;
+                    && (this.speedX[var1] < 0.0D && this.speedY[var1] > 0.0D
+                            || this.speedX[var1] > 0.0D
+                                    && this.speedY[var1] > 0.0D
+                                    && this.speedY[var1] > this.speedX[var1]
+                            || this.speedX[var1] < 0.0D
+                                    && this.speedY[var1] < 0.0D
+                                    && -this.speedX[var1] > -this.speedY[var1])) {
+                var22 = this.getSpeedEffect(var7, var1, var10 - diagOffset, var11 + diagOffset, -1, 1);
+                var24 = this.speedX[var1];
+                this.speedX[var1] = this.speedY[var1] * var22;
+                this.speedY[var1] = var24 * var22;
             }
 
             if (var21
-                    && (this.aDoubleArray2828[var1] < 0.0D && this.aDoubleArray2829[var1] < 0.0D
-                            || this.aDoubleArray2828[var1] < 0.0D
-                                    && this.aDoubleArray2829[var1] > 0.0D
-                                    && -this.aDoubleArray2828[var1] > this.aDoubleArray2829[var1]
-                            || this.aDoubleArray2828[var1] > 0.0D
-                                    && this.aDoubleArray2829[var1] < 0.0D
-                                    && -this.aDoubleArray2829[var1] > this.aDoubleArray2828[var1])) {
-                var22 = this.method153(var9, var1, var10 - anInt2799, var11 - anInt2799, -1, -1);
-                var24 = this.aDoubleArray2828[var1];
-                this.aDoubleArray2828[var1] = -this.aDoubleArray2829[var1] * var22;
-                this.aDoubleArray2829[var1] = -var24 * var22;
+                    && (this.speedX[var1] < 0.0D && this.speedY[var1] < 0.0D
+                            || this.speedX[var1] < 0.0D
+                                    && this.speedY[var1] > 0.0D
+                                    && -this.speedX[var1] > this.speedY[var1]
+                            || this.speedX[var1] > 0.0D
+                                    && this.speedY[var1] < 0.0D
+                                    && -this.speedY[var1] > this.speedX[var1])) {
+                var22 = this.getSpeedEffect(var9, var1, var10 - diagOffset, var11 - diagOffset, -1, -1);
+                var24 = this.speedX[var1];
+                this.speedX[var1] = -this.speedY[var1] * var22;
+                this.speedY[var1] = -var24 * var22;
             }
         } else {
-            if (var14 && this.aDoubleArray2829[var1] < 0.0D) {
-                var22 = this.method153(var2, var1, var10, var11 - 6, 0, -1);
-                this.aDoubleArray2828[var1] *= var22;
-                this.aDoubleArray2829[var1] *= -var22;
-            } else if (var18 && this.aDoubleArray2829[var1] > 0.0D) {
-                var22 = this.method153(var6, var1, var10, var11 + 6, 0, 1);
-                this.aDoubleArray2828[var1] *= var22;
-                this.aDoubleArray2829[var1] *= -var22;
+            if (var14 && this.speedY[var1] < 0.0D) {
+                var22 = this.getSpeedEffect(var2, var1, var10, var11 - 6, 0, -1);
+                this.speedX[var1] *= var22;
+                this.speedY[var1] *= -var22;
+            } else if (var18 && this.speedY[var1] > 0.0D) {
+                var22 = this.getSpeedEffect(var6, var1, var10, var11 + 6, 0, 1);
+                this.speedX[var1] *= var22;
+                this.speedY[var1] *= -var22;
             }
 
-            if (var16 && this.aDoubleArray2828[var1] > 0.0D) {
-                var22 = this.method153(var4, var1, var10 + 6, var11, 1, 0);
-                this.aDoubleArray2828[var1] *= -var22;
-                this.aDoubleArray2829[var1] *= var22;
+            if (var16 && this.speedX[var1] > 0.0D) {
+                var22 = this.getSpeedEffect(var4, var1, var10 + 6, var11, 1, 0);
+                this.speedX[var1] *= -var22;
+                this.speedY[var1] *= var22;
                 return;
             }
 
-            if (var20 && this.aDoubleArray2828[var1] < 0.0D) {
-                var22 = this.method153(var8, var1, var10 - 6, var11, -1, 0);
-                this.aDoubleArray2828[var1] *= -var22;
-                this.aDoubleArray2829[var1] *= var22;
+            if (var20 && this.speedX[var1] < 0.0D) {
+                var22 = this.getSpeedEffect(var8, var1, var10 - 6, var11, -1, 0);
+                this.speedX[var1] *= -var22;
+                this.speedY[var1] *= var22;
                 return;
             }
         }
     }
 
-    private double method153(int var1, int var2, int var3, int var4, int var7, int var8) {
+    private double getSpeedEffect(int var1, int var2, int var3, int var4, int var7, int var8) {
         if (var1 == 16) {
             return 0.81D;
         } else if (var1 == 17) {
             return 0.05D;
         } else if (var1 == 18) {
-            if (this.aDouble2819 <= 0.0D) {
+            if (this.bounciness <= 0.0D) {
                 return 0.84D;
             } else {
-                this.aDouble2819 -= 0.01D;
-                double var9 = Math.sqrt(this.aDoubleArray2828[var2] * this.aDoubleArray2828[var2]
-                        + this.aDoubleArray2829[var2] * this.aDoubleArray2829[var2]);
-                return this.aDouble2819 * 6.5D / var9;
+                this.bounciness -= 0.01D;
+                double var9 = Math.sqrt(this.speedX[var2] * this.speedX[var2] + this.speedY[var2] * this.speedY[var2]);
+                return this.bounciness * 6.5D / var9;
             }
         } else if (var1 != 20 && var1 != 21 && var1 != 22 && var1 != 23) {
             if (var1 != 27 && var1 != 46) {
                 if (var1 != 40 && var1 != 41 && var1 != 42 && var1 != 43) {
                     return 1.0D;
                 } else {
-                    this.method159(var3, var4);
+                    this.handleBreakableBlock(var3, var4);
                     return 0.9D;
                 }
             } else {
-                return this.method156(var3, var4, var7, var8, var1 == 27) ? 0.325D : 0.8D;
+                return this.handleMovableBlock(var3, var4, var7, var8, var1 == 27) ? 0.325D : 0.8D;
             }
         } else {
             return 0.82D;
         }
     }
 
-    private boolean method156(int var1, int var2, int var5, int var6, boolean var7) {
+    private boolean handleMovableBlock(int var1, int var2, int var5, int var6, boolean var7) {
         int var8 = var1 / 15;
         int var9 = var2 / 15;
         int var10 = mapTiles[var8][var9] / 16777216;
@@ -907,13 +905,13 @@ public class HackedShot implements Runnable {
         if (var10 == 2 && (var11 == 27 || var11 == 46)) {
             int var13 = var8 + var5;
             int var14 = var9 + var6;
-            int var15 = this.method157(var13, var14);
+            int var15 = this.canMovableBlockMove(var13, var14);
             if (var15 == -1) {
                 return false;
             } else {
                 mapTiles[var8][var9] = 16777216 + var12 * 256;
                 // this.drawTile(var8, var9, var3, var4);
-                int[] var16 = this.method158(var8, var9, var13, var14, var12, var15, var7, 0);
+                int[] var16 = this.calculateMovableBlockEndPosition(var8, var9, var13, var14, var12, var15, var7, 0);
                 if (!var7 && (var16[2] == 12 || var16[2] == 13)) {
                     mapTiles[var16[0]][var16[1]] = 35061760 + var16[2] * 256;
                 } else {
@@ -928,13 +926,13 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private int method157(int var1, int var2) {
+    private int canMovableBlockMove(int var1, int var2) {
         if (var1 >= 0 && var1 < 49 && var2 >= 0 && var2 < 25) {
             int var3 = mapTiles[var1][var2] / 16777216;
             int var4 = mapTiles[var1][var2] / 65536 % 256;
             int var5 = mapTiles[var1][var2] / 256 % 256;
             if (var3 == 1 && var4 == 0 && var5 <= 15) {
-                for (int var6 = 0; var6 < this.anInt2809; ++var6) {
+                for (int var6 = 0; var6 < this.playerCount; ++var6) {
                     if (this.playerX[var6] > (double) (var1 * 15)
                             && this.playerX[var6] < (double) (var1 * 15 + 15 - 1)
                             && this.playerY[var6] > (double) (var2 * 15)
@@ -952,7 +950,8 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private int[] method158(int var1, int var2, int var3, int var4, int var5, int var6, boolean var9, int var10) {
+    private int[] calculateMovableBlockEndPosition(
+            int var1, int var2, int var3, int var4, int var5, int var6, boolean var9, int var10) {
         int[] var11 = new int[] {var3, var4, var6};
         if (!var9 && var6 >= 4 && var6 <= 11 && var10 < 1078) {
             var1 = var3;
@@ -974,16 +973,16 @@ public class HackedShot implements Runnable {
                 --var3;
             }
 
-            var6 = this.method157(var3, var4);
+            var6 = this.canMovableBlockMove(var3, var4);
             if (var6 >= 0) {
-                var11 = this.method158(var1, var2, var3, var4, var5, var6, var9, var10 + 1);
+                var11 = this.calculateMovableBlockEndPosition(var1, var2, var3, var4, var5, var6, var9, var10 + 1);
             }
         }
 
         return var11;
     }
 
-    private void method159(int var1, int var2) {
+    private void handleBreakableBlock(int var1, int var2) {
         int var5 = var1 / 15;
         int var6 = var2 / 15;
         int var7 = mapTiles[var5][var6] / 16777216;
@@ -1002,42 +1001,42 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private boolean method148(int var1, int var2) {
+    private boolean handleDownhill(int var1, int var2) {
         if (var2 >= 4 && var2 <= 11) {
             if (var2 == 4) {
-                this.aDoubleArray2829[var1] -= 0.025D;
+                this.speedY[var1] -= 0.025D;
             }
 
             if (var2 == 5) {
-                this.aDoubleArray2829[var1] -= 0.025D * aDouble2798;
-                this.aDoubleArray2828[var1] += 0.025D * aDouble2798;
+                this.speedY[var1] -= 0.025D * magicOffset;
+                this.speedX[var1] += 0.025D * magicOffset;
             }
 
             if (var2 == 6) {
-                this.aDoubleArray2828[var1] += 0.025D;
+                this.speedX[var1] += 0.025D;
             }
 
             if (var2 == 7) {
-                this.aDoubleArray2829[var1] += 0.025D * aDouble2798;
-                this.aDoubleArray2828[var1] += 0.025D * aDouble2798;
+                this.speedY[var1] += 0.025D * magicOffset;
+                this.speedX[var1] += 0.025D * magicOffset;
             }
 
             if (var2 == 8) {
-                this.aDoubleArray2829[var1] += 0.025D;
+                this.speedY[var1] += 0.025D;
             }
 
             if (var2 == 9) {
-                this.aDoubleArray2829[var1] += 0.025D * aDouble2798;
-                this.aDoubleArray2828[var1] -= 0.025D * aDouble2798;
+                this.speedY[var1] += 0.025D * magicOffset;
+                this.speedX[var1] -= 0.025D * magicOffset;
             }
 
             if (var2 == 10) {
-                this.aDoubleArray2828[var1] -= 0.025D;
+                this.speedX[var1] -= 0.025D;
             }
 
             if (var2 == 11) {
-                this.aDoubleArray2829[var1] -= 0.025D * aDouble2798;
-                this.aDoubleArray2828[var1] -= 0.025D * aDouble2798;
+                this.speedY[var1] -= 0.025D * magicOffset;
+                this.speedX[var1] -= 0.025D * magicOffset;
             }
 
             return true;
@@ -1046,32 +1045,32 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private boolean method149(int var1, int var2, int var3) {
+    private boolean handleMagnetForce(int var1, int var2, int var3) {
         int var4 = var2 / 5;
         int var5 = var3 / 5;
-        short var6 = this.aShortArrayArrayArray2825[var4][var5][0];
-        short var7 = this.aShortArrayArrayArray2825[var4][var5][1];
+        short var6 = this.magnetMap[var4][var5][0];
+        short var7 = this.magnetMap[var4][var5][1];
         if (var6 == 0 && var7 == 0) {
             return false;
         } else {
-            if (this.aDouble2820 > 0.0D) {
-                this.aDouble2820 -= 1.0E-4D;
+            if (this.somethingSpeedThing > 0.0D) {
+                this.somethingSpeedThing -= 1.0E-4D;
             }
 
-            this.aDoubleArray2828[var1] += this.aDouble2820 * (double) var6 * 5.0E-4D;
-            this.aDoubleArray2829[var1] += this.aDouble2820 * (double) var7 * 5.0E-4D;
+            this.speedX[var1] += this.somethingSpeedThing * (double) var6 * 5.0E-4D;
+            this.speedY[var1] += this.somethingSpeedThing * (double) var7 * 5.0E-4D;
             return true;
         }
     }
 
-    private double method150(int var1, double var2) {
-        double var4 = this.method151(var1);
+    private double calculateFriction(int var1, double var2) {
+        double var4 = this.getFriction(var1);
         double var6 = 0.75D * var2 / 6.5D;
         double var8 = 1.0D - var4;
         return var4 + var8 * var6;
     }
 
-    private double method151(int var1) {
+    private double getFriction(int var1) {
         return var1 != 0 && (var1 < 4 || var1 > 11) && var1 != 19 && var1 != 47
                 ? (var1 == 1
                         ? 0.92D
@@ -1095,15 +1094,15 @@ public class HackedShot implements Runnable {
                 : 0.9935D;
     }
 
-    private void method145(int var1, boolean var2) {
-        if (this.aDoubleArray2821[var1] >= 0.0D && this.aDoubleArray2821[var1] >= 0.0D) {
-            this.playerX[var1] = this.aDoubleArray2821[var1];
-            this.playerY[var1] = this.aDoubleArray2822[var1];
-        } else if (this.aDouble2817 >= 0.0D && this.aDouble2818 >= 0.0D) {
-            this.playerX[var1] = this.aDouble2817;
-            this.playerY[var1] = this.aDouble2818;
+    private void resetposition(int var1, boolean var2) {
+        if (this.resetPositionX[var1] >= 0.0D && this.resetPositionX[var1] >= 0.0D) {
+            this.playerX[var1] = this.resetPositionX[var1];
+            this.playerY[var1] = this.resetPositionY[var1];
+        } else if (this.startPositionX >= 0.0D && this.startPositionY >= 0.0D) {
+            this.playerX[var1] = this.startPositionX;
+            this.playerY[var1] = this.startPositionY;
             if (var2) {
-                this.aBooleanArray2834[var1] = false;
+                this.playerActive[var1] = false;
             }
 
         } else {
@@ -1112,27 +1111,27 @@ public class HackedShot implements Runnable {
         }
     }
 
-    private void method164(int var1) {
-        anIntArray2837[0] = anIntArray2837[1];
-        anIntArray2837[1] = anIntArray2837[2];
-        if (anIntArray2837[1] < var1) {
-            var1 = anIntArray2837[1];
+    private void adjustPhysicsIterations(int var1) {
+        frameTimeHistory[0] = frameTimeHistory[1];
+        frameTimeHistory[1] = frameTimeHistory[2];
+        if (frameTimeHistory[1] < var1) {
+            var1 = frameTimeHistory[1];
         }
 
-        if (anIntArray2837[0] < var1) {
-            var1 = anIntArray2837[0];
+        if (frameTimeHistory[0] < var1) {
+            var1 = frameTimeHistory[0];
         }
 
-        while (var1 > 700 && this.anInt2839 > 1) {
+        while (var1 > 700 && this.maxPhysicsIterations > 1) {
             var1 -= 700;
-            --this.anInt2839;
+            --this.maxPhysicsIterations;
         }
 
-        while (var1 < -2000 && this.anInt2839 < 6) {
+        while (var1 < -2000 && this.maxPhysicsIterations < 6) {
             var1 += 2000;
-            ++this.anInt2839;
+            ++this.maxPhysicsIterations;
         }
 
-        anIntArray2837[2] = var1;
+        frameTimeHistory[2] = var1;
     }
 }

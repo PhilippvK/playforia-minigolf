@@ -249,7 +249,7 @@ public class GamePanel extends Panel {
                 }
 
                 this.aBoolean363 = false;
-                this.gameCanvas.createMap(16777216);
+                this.gameCanvas.initializeGameArea();
                 this.playerInfoPanel.reset();
                 this.trackInfoPanel.resetCurrentTrack();
                 this.setState(1);
@@ -336,8 +336,8 @@ public class GamePanel extends Panel {
                   var15[1][2]= number of ratings: 2
                   var15[1][3]= number of ratings: 3
                 */
-                String[] trackInformation = this.gameCanvas.generateTrackInformation();
-                int[][] trackStats = this.gameCanvas.generateTrackStatistics();
+                String[] trackInformation = this.gameCanvas.trackStats.generateTrackInformation();
+                int[][] trackStats = this.gameCanvas.trackStats.generateTrackStatistics();
 
                 this.trackInfoPanel.parseTrackInfoStats(
                         trackInformation[0],
@@ -348,7 +348,7 @@ public class GamePanel extends Panel {
                         trackInformation[3],
                         trackTestMode1,
                         trackTestMode2,
-                        this.gameCanvas.method134());
+                        this.gameCanvas.hasCoordinates());
 
                 int trackScoreMultiplier = this.playerInfoPanel.startNextTrack();
                 if (trackScoreMultiplier > 1) {
@@ -360,9 +360,11 @@ public class GamePanel extends Panel {
 
                 if (this.gameContainer.synchronizedTrackTestMode.get()) {
                     this.chatPanel.printSpecialSettingstoTextArea(
-                            this.gameCanvas.getTrackComment(),
-                            this.gameCanvas.getTrackSettings(),
-                            this.gameCanvas.method120());
+                            // First arg should be comment, but v2 tracks don't
+                            // have comments
+                            this.gameCanvas.track.getAuthor(),
+                            this.gameCanvas.track.getSettings(),
+                            this.gameCanvas.map.getLatestTileSpeciality());
                 }
             }
             case "startturn" -> {
@@ -447,12 +449,12 @@ public class GamePanel extends Panel {
     }
 
     protected void method336() {
-        String var1 = this.gameCanvas.method142();
-        if (var1 != null) {
+        String coords = this.gameCanvas.encodeCoordinates();
+        if (coords != null) {
             this.playerInfoPanel.strokeStartedOrEnded(0, false);
-            String var2 = "beginstroke\t" + var1;
+            String var2 = "beginstroke\t" + coords;
             this.gameContainer.connection.writeData("game\t" + var2);
-            this.gameCanvas.decodeCoords(0, true, var1);
+            this.gameCanvas.decodeCoords(0, true, coords);
         }
     }
 

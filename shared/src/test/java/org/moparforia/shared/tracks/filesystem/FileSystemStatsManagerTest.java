@@ -42,7 +42,7 @@ class FileSystemStatsManagerTest {
 
         TrackStats stats = statsManager.getStats(single);
         assertEquals("Sprt", stats.getBestPlayer());
-        assertEquals(537, stats.getTotalAttempts());
+        assertEquals(537, stats.getNumCompletions());
         assertEquals(11734, stats.getTotalStrokes());
         assertEquals(4, stats.getBestPar());
         assertEquals(0.039, stats.getPercentageOfBestPar(), PRECISION);
@@ -57,7 +57,7 @@ class FileSystemStatsManagerTest {
         statsManager.load(tracksLocation);
         TrackStats stats = statsManager.getStats(empty_stats);
         assertEquals("", stats.getBestPlayer());
-        assertEquals(0, stats.getTotalAttempts());
+        assertEquals(0, stats.getNumCompletions());
         assertEquals(0, stats.getTotalStrokes());
         assertEquals(-1, stats.getBestPar());
         assertEquals(NaN, stats.getPercentageOfBestPar(), PRECISION);
