@@ -82,8 +82,6 @@ public class VersionedTrackFileParser extends GenericTrackParser implements Trac
             for (int i = 0; i < 4; i++) {
                 trackSpecialSettings[i] = settings.charAt(i) == 't';
             }
-        } else {
-            // should throw error
         }
         return new Track(name, author, data, categories, trackSpecialSettings, settings);
     }
@@ -110,8 +108,8 @@ public class VersionedTrackFileParser extends GenericTrackParser implements Trac
         // Widen int primitive type, to support integer division resulting in double
         LocalDate bestTime = (LocalDate) parsed.getOrDefault("bestTime", LocalDate.now());
         String bestPlayer = (String) parsed.getOrDefault("bestPlayer", "");
-        LocalDate lastBestTime = (LocalDate) parsed.getOrDefault("lastBestTime", LocalDate.now());
-        String lastBestPlayer = (String) parsed.getOrDefault("lastBestPlayer", "");
+        LocalDate lastBestTime = (LocalDate) parsed.get("lastBestTime");
+        String lastBestPlayer = (String) parsed.get("lastBestPlayer");
 
         double bestParPercentage = (double) numberOfBestPar / attempts;
 

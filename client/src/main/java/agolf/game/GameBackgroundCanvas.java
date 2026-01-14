@@ -28,7 +28,6 @@ public class GameBackgroundCanvas extends Canvas {
         this.gameContainer = gameContainer;
         this.backgroundImg = backgroundImage;
         this.setSize(this.trackWidth, this.trackHeight);
-        this.map = new Map(49, 25);
     }
 
     public void addNotify() {
@@ -50,11 +49,12 @@ public class GameBackgroundCanvas extends Canvas {
     }
 
     // this useless func is called when we get start packet
-    // iniatilize variables
+    // initialize variables
     // draws map as grass
     // this.gameCanvas.createMap(16777216);
     // 16777216 == grass
-    protected void createMap(int tile) {
+    protected void initializeGameArea() {
+        int tileCode = 16777216;
         if (this.image == null) {
             this.image = this.createImage(this.trackWidth, this.trackHeight);
             if (this.image == null) {
@@ -65,14 +65,12 @@ public class GameBackgroundCanvas extends Canvas {
         }
 
         Image var2 = this.gameContainer.imageManager.createImage(
-                this.gameContainer.spriteManager.getPixelsFromTileCode(tile), 15, 15);
+                this.gameContainer.spriteManager.getPixelsFromTileCode(tileCode), 15, 15);
         this.graphics.setColor(aColor75);
 
         for (int y = 0; y < 25; ++y) {
             for (int x = 0; x < 49; ++x) {
-
-                this.map.updateTile(x, y, tile);
-                if (tile == 0) {
+                if (tileCode == 0) {
                     this.graphics.fillRect(x * 15, y * 15, 15, 15);
                 } else {
                     this.graphics.drawImage(var2, x * 15, y * 15, this);

@@ -14,11 +14,12 @@ class Map {
     private int[][] tileCodeArray;
     public int index = 0;
 
-    public Map(int width, int height) {
+    public Map(int width, int height, String inputData) {
         this.width = width;
         this.height = height;
         this.tiles = new Tile[width][height];
         this.tileCodeArray = new int[width][height]; // To remain compatible with hackedshot
+        this.parse(inputData);
     }
 
     /*
@@ -28,7 +29,7 @@ class Map {
      * If input letters are D,E,F,G,H,I, the current tile is exactly the same as an adjacent one so
      * one is selected, depending on the input letter.
      */
-    public void parse(String inputData) {
+    private void parse(String inputData) {
         StringTokenizer subTokenizer = new StringTokenizer(inputData, ",");
         String mapData = this.expandMap(subTokenizer.nextToken());
         int cursorIndex = 0;

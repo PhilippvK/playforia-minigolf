@@ -12,6 +12,12 @@ public class Track {
     private final String author;
     private String map;
     private Set<TrackCategory> categories;
+
+    // Specialsettings by index
+    // 0:false => mines invisible 0:true => mines visible
+    // 1:false => magnets invisible 1:true => magnets visible
+    // 2:false => teleport colorless 2:true => normal colors
+    // 3:false => illusion walls shadowless  3:true => illusion walls shadows
     private boolean[] specialSettings;
     private String settings;
 

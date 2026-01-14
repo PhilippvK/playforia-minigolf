@@ -697,8 +697,8 @@ public class GameCanvas extends GameBackgroundCanvas
     }
 
     @Override
-    protected void createMap(int tile) {
-        super.createMap(tile);
+    protected void initializeGameArea() {
+        super.initializeGameArea();
         this.state.currentPlayerId = this.mouseX = this.mouseY = -1;
         this.state.gameState = 0;
         this.repaint();
@@ -709,7 +709,7 @@ public class GameCanvas extends GameBackgroundCanvas
         VersionedTrackFileParser parser = new VersionedTrackFileParser(1);
         try {
             this.track = parser.parseTrackFromString(commandLines);
-            this.map.parse(track.getMap());
+            this.map = new Map(49, 25, track.getMap());
             this.trackStats = parser.parseStatsFromString(commandLines);
         } catch (Exception e) {
             System.out.println("Error while parsing track & map: " + e.getMessage());
@@ -931,7 +931,7 @@ public class GameCanvas extends GameBackgroundCanvas
         this.repaint();
     }
 
-    protected String getEncodedCoordinates() {
+    protected String encodeCoordinates() {
         if (this.state.gameState != 1) {
             return null;
         } else {

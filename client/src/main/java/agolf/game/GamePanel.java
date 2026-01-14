@@ -249,7 +249,7 @@ public class GamePanel extends Panel {
                 }
 
                 this.aBoolean363 = false;
-                this.gameCanvas.createMap(16777216);
+                this.gameCanvas.initializeGameArea();
                 this.playerInfoPanel.reset();
                 this.trackInfoPanel.resetCurrentTrack();
                 this.setState(1);
@@ -449,7 +449,7 @@ public class GamePanel extends Panel {
     }
 
     protected void method336() {
-        String coords = this.gameCanvas.getEncodedCoordinates();
+        String coords = this.gameCanvas.encodeCoordinates();
         if (coords != null) {
             this.playerInfoPanel.strokeStartedOrEnded(0, false);
             String var2 = "beginstroke\t" + coords;
