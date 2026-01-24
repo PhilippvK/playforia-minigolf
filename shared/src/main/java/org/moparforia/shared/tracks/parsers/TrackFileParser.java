@@ -41,7 +41,7 @@ public class TrackFileParser extends GenericTrackParser implements TrackParser {
         tmp_map.put('I', new ScoreInfoLineParser());
         tmp_map.put('B', new BestTimeLineParser("bestTime", "bestPlayer"));
         //      Uncomment if you want to also parse lastTime and lastPlayer
-        //      tmp_map.put("L", new BestTimeLineParser("lastTime", "lastPlayer"));
+        // tmp_map.put("L", new BestTimeLineParser("lastTime", "lastPlayer"));
         STATS_PARSERS = Collections.unmodifiableMap(tmp_map);
     }
 
@@ -61,6 +61,8 @@ public class TrackFileParser extends GenericTrackParser implements TrackParser {
         return new Track(name, author, data, categories);
     }
 
+    // NOTE! Does not parse lastBestPlayer or lastBestTime, return just bestPlayer
+    // and bestTime instead.
     public TrackStats parseStats(Path path) throws IOException {
         Map<String, Object> parsed = parse(STATS_PARSERS, path);
         Track track = constructTrack(parsed);
@@ -77,6 +79,16 @@ public class TrackFileParser extends GenericTrackParser implements TrackParser {
         double bestParPercentage = (double) numberOfBestPar / attempts;
 
         return new FileSystemTrackStats(
-                attempts, strokes, bestPar, bestParPercentage, numberOfBestPar, bestPlayer, bestTime, ratings, track);
+                attempts,
+                strokes,
+                bestPar,
+                bestParPercentage,
+                numberOfBestPar,
+                bestPlayer,
+                bestTime,
+                bestPlayer,
+                bestTime,
+                ratings,
+                track);
     }
 }
